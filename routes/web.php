@@ -107,7 +107,40 @@ Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function() {
 
     });
 
+    Route::group(['prefix' => 'companies'], function () {
+        Route::get('/', ['uses' => '\App\Http\Controllers\Admin\CompaniesController@list', 'as' => 'admin.companies']);
+        Route::get('/add', ['uses' => '\App\Http\Controllers\Admin\CompaniesController@add', 'as' => 'admin.addCompany']);
+        Route::get('/{id}', ['uses' => '\App\Http\Controllers\Admin\CompaniesController@view', 'as' => 'admin.viewCompany']);
+        Route::post('/', ['uses' => '\App\Http\Controllers\Admin\CompaniesController@post', 'as' => 'admin.postCompany']);
+    });
+
+    Route::group(['prefix' => 'clients'], function () {
+        Route::get('/', ['uses' => '\App\Http\Controllers\Admin\ClientsController@list', 'as' => 'admin.clients']);
+        Route::get('/add', ['uses' => '\App\Http\Controllers\Admin\ClientsController@add', 'as' => 'admin.addClient']);
+        Route::get('/{id}', ['uses' => '\App\Http\Controllers\Admin\ClientsController@view', 'as' => 'admin.viewClient']);
+        Route::post('/', ['uses' => '\App\Http\Controllers\Admin\ClientsController@post', 'as' => 'admin.postClient']);
+    });
+
+
+
 });
+
+
+Route::group(['prefix' => 'companyAdmin', 'middleware' => 'roleCompany.auth'], function () {
+    Route::get('/', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@index', 'as' => 'admin.companyAdmin']);
+    Route::get('/clients/{id}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@client', 'as' => 'admin.companyAdminClient']);
+    
+    Route::post('/addMessage', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@addMessage', 'as' => 'admin.companyAddMessage']);
+});
+
+Route::group(['prefix' => 'clientAdmin', 'middleware' => 'roleClient.auth'], function () {
+    Route::get('/', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@index', 'as' => 'admin.clientAdmin']);
+
+    Route::post('/addEquipmentRequest', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@addRequestEquipment', 'as' => 'admin.clientAdminAddRequest']);
+    Route::post('/editEquipmentRequest', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@editRequestEquipment', 'as' => 'admin.clientAdminEditRequest']);
+});
+
+
 
 
 Route::group(['prefix' => 'news'], function() {
@@ -115,7 +148,8 @@ Route::group(['prefix' => 'news'], function() {
     Route::get('/{slug}', ['uses' => '\App\Http\Controllers\MainPage\NewsController@single', 'as' => 'main_page.singleNews']);
 });
 
-Route::get('/search', ['uses' => '\App\Http\Controllers\MainPage\SearchController@index', 'as' => 'main_page']);
+Route::get('/search', ['uses' => '\App\Http\Controllers\MainPage\SearchController@index', 'as' => 'main_page.search']);
+Route::get('/contacts', ['uses' => '\App\Http\Controllers\MainPage\ContactsController@index', 'as' => 'main_page.contacts']);
 
 
 Route::get('/', ['uses' => '\App\Http\Controllers\MainPage\MainPageController@index', 'as' => 'main_page']);

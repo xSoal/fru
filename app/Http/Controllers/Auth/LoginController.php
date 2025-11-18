@@ -29,10 +29,26 @@ class LoginController extends Controller
     protected function redirectTo()
     {
 
+
         if( auth()->user()->active == 0 ){
             auth()->logout();
             return '/';
         }
+
+        (int)$role = auth()->user()->role;
+
+
+        switch ($role) {
+            case 0:
+                return '/clientAdmin';
+            case 1:
+                return '/companyAdmin';
+            case 2:
+                return '/admin';
+            default:
+                return '/';
+        }
+    
 
         $redirectTo = $_SERVER['HTTP_REFERER'];
         return $redirectTo;

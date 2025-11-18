@@ -1,6 +1,48 @@
-@extends('layouts.front')
+@extends('layouts.main_page')
 
 @section('content')
+
+
+<div class="mainImage__cont">
+    <div class="mainImage__background">
+      <div class="mainImage__black"></div>
+      <div class="mainImage__image" style="background-image: url( /images/login.jpg )"></div>
+      <div class="mainImage__filter"></div>
+    </div>
+    <div class="mainImage__content">
+      <div class="container">
+        <div class="container-inner">
+          <h2 class="h2">Авторизація</h2>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class=" loginCont">
+    <div class="login-container">
+        <form  action="{{ route('login') }}" class="login-form" method="POST">
+            @csrf
+            <h2>Вхід</h2>
+            <label for="username">Логін *</label>
+            <input type="text" id="username" name="email" required placeholder="Будь ласка, заповніть поле">
+            <label for="password">Пароль *</label>
+            <div class="password-wrapper">
+                <input type="password" id="password" name="password" required placeholder="Будь ласка, заповніть поле">
+                <span class="toggle-password">
+                    <img src="/images/icons/eye.svg">
+                </span>
+            </div>
+            <div class="remember-me">
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember">Запам’ятати мене</label>
+            </div>
+            <button type="submit">Увійти</button>
+        </form>
+    </div>
+    
+</div>
+
+{{-- 
 <div class="container">
 
     <div class="popup_body">
@@ -58,5 +100,8 @@
             </div>
         </div>
     </div>
-<div>
+<div> --}}
+
+
+
 @endsection

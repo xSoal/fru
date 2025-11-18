@@ -27,7 +27,9 @@ class User extends Authenticatable //implements MustVerifyEmail
         'photo',
         'telegram_id',
         'employment',
-        'percent'
+        'percent',
+        'role',
+        'description'
     ];
 
     /**
@@ -58,5 +60,13 @@ class User extends Authenticatable //implements MustVerifyEmail
     public function post(){
         return $this->hasOne(Post::class,'id','post_id');
     }
+
+    public function conversations()
+    {
+        return $this->hasMany(Conversation::class, 'user_one_id')
+                    ->orWhere('user_two_id', $this->id);
+    }
+
+    
 
 }

@@ -1,0 +1,695 @@
+/* Переменные для Neo-Minimalist Grid */
+:root {
+  --bg-main: #fcfcfc;
+  --text-main: #2c3e50; /* Темно-синий/почти черный */
+  --accent-primary: #1abc9c; /* Бирюзовый */
+  --accent-secondary: #e67e22; /* Оранжевый */
+  --border-color: #ecf0f1; /* Светло-серый */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* Базовые стили */
+body {
+  font-family: var(--font-body);
+  margin: 0;
+  padding: 0;
+  background-color: var(--border-color); /* Светлый фон страницы */
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+.page-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  margin-top: 0px;
+  padding: 40px;
+  background-color: var(--bg-main);
+}
+
+/* Стили карточек и теней (минималистичные) */
+.neo-card {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Легкая, размытая тень */
+}
+.neo-card-flat {
+  border: 2px solid var(--accent-primary);
+  background-color: #f7f9fb;
+  border-radius: 4px;
+}
+
+/* Акценты */
+.neo-bg-accent {
+  background-color: var(--accent-primary);
+  color: white;
+}
+.neo-highlight {
+  font-weight: 800;
+  color: var(--accent-primary);
+}
+.light-text {
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+/* 1. Верхняя строка */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Верхнее выравнивание */
+  margin-bottom: 35px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.page-title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 1px;
+  border-left: 5px solid var(--accent-primary); /* Вертикальный акцент */
+  padding-left: 15px;
+}
+
+.messages-button {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: 2px solid var(--accent-primary);
+  color: var(--text-main);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.messages-button:hover {
+  background-color: var(--accent-primary);
+  color: white;
+}
+.icon-indicator {
+  background-color: var(--accent-secondary); /* Оранжевый индикатор */
+  color: white;
+  padding: 2px 7px;
+  border-radius: 50%;
+  margin-right: 8px;
+  font-size: 11px;
+}
+
+/* 2. Секция Лого и Имя партнера */
+.partner-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 45px;
+  gap: 50px;
+}
+
+.logo-placeholder {
+  border: 1px solid #999;
+  padding: 15px;
+}
+
+.logo-placeholder img {
+  max-width: 150px;
+  height: auto;
+}
+
+.partner-name-placeholder {
+  font-size: 22px;
+  font-weight: 600;
+  padding-bottom: 5px;
+  border-bottom: 3px solid var(--accent-secondary); /* Оранжевое подчеркивание */
+}
+
+/* 3. Поиск */
+.search-section {
+  margin-bottom: 40px;
+}
+
+.neo-input-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+.neo-input-group:focus-within {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.2);
+}
+
+.search-label {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-secondary);
+  margin-right: 15px;
+  border-right: 1px solid var(--border-color);
+  padding-right: 15px;
+}
+
+.search-input-field {
+  flex-grow: 1;
+  border: none;
+  background: transparent;
+  padding: 5px 0;
+  font-size: 16px;
+  color: var(--text-main);
+  outline: none;
+}
+.search-input-field::placeholder {
+  color: #95a5a6;
+  font-weight: 400;
+}
+
+/* 4. Украинские компании */
+.companies-section {
+  margin-bottom: 35px;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.companies-list {
+  display: flex;
+  gap: 8%; /* Процентное расстояние для адаптивности */
+}
+
+.column {
+  flex: 1; /* Обе колонки занимают равное пространство */
+}
+
+.list-item {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--text-main);
+  padding: 8px 0;
+  cursor: pointer;
+  transition: color 0.2s, background-color 0.2s;
+  /* Имитация линии изначального макета */
+  border-bottom: 1px solid var(--border-color);
+}
+.list-item:hover {
+  color: var(--accent-primary);
+  padding-left: 5px;
+  background-color: rgba(26, 188, 156, 0.05);
+}
+
+/* 5. Финансовые инструменты, Дилеры и Сервис */
+.support-section {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.subsection-title {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 15px 0;
+  color: var(--accent-secondary); /* Оранжевый заголовок */
+  padding-bottom: 3px;
+  border-bottom: 2px solid var(--accent-secondary);
+}
+
+.large-box-placeholder {
+  width: 400px;
+  min-height: 200px;
+  padding: 20px;
+  text-align: center;
+  color: var(--text-main);
+  flex-shrink: 0;
+  /* Асимметрия: тень смещена */
+  box-shadow: 15px 15px 0 -5px var(--accent-primary); 
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.neo-tag {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--accent-secondary);
+  background-color: #fcece0;
+  padding: 4px 8px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+.large-box-placeholder p {
+  font-size: 14px;
+  margin: 0;
+  font-weight: 500;
+}
+
+.company__logo {
+  max-width: 100px;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.subsection-title:hover a {
+  opacity: .5;
+}
+
+/* --- Стили для Страницы Детализации (Новые секции) --- */
+
+.details-title {
+  font-size: 18px; /* Чуть меньше заголовок на детализации */
+}
+
+/* 2. Секция Лого и Имя компании */
+.partner-details-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 40px;
+}
+.partner-details-info .logo-placeholder {
+  /* Чтобы логотип был четче */
+  flex-shrink: 0;
+}
+.partner-details-info .partner-name-placeholder {
+  /* Переиспользование стилей с первой страницы */
+}
+
+/* 3. Описание компании */
+.company-description {
+  margin-bottom: 30px;
+  padding-left: 20px;
+  border-left: 3px solid var(--accent-secondary); /* Оранжевый акцент */
+}
+.section-subtitle {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: var(--accent-secondary);
+}
+.description-text p {
+  font-size: 14px;
+  margin-top: 0;
+}
+.neo-link {
+  color: var(--accent-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.neo-link:hover {
+  color: var(--accent-secondary);
+}
+
+/* 4. Таблица "Equipment Request" */
+.request-table-section {
+  margin-bottom: 40px;
+  overflow-x: auto; /* Для адаптивности на мобильных */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-body);
+  font-size: 14px;
+  min-width: 600px; /* Чтобы таблица не сжималась слишком сильно */
+}
+
+thead th {
+  background-color: var(--accent-primary);
+  color: white;
+  padding: 10px 8px;
+  text-align: left;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid var(--accent-primary);
+}
+
+tbody td {
+  border: 1px solid var(--border-color);
+  padding: 0; /* Убираем паддинг у ячеек, так как он внутри инпутов */
+  height: 40px;
+}
+tbody td:first-child {
+  text-align: center;
+  padding: 0 5px;
+  font-weight: 600;
+  background-color: #f7f9fb;
+}
+
+.table-input {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: none;
+  padding: 8px;
+  font-size: 14px;
+  font-family: var(--font-body);
+  outline: none;
+  transition: background-color 0.2s;
+}
+.table-input:focus {
+  background-color: #ffeccf; /* Светло-оранжевый при фокусе */
+}
+
+/* 5. Секция "Message" */
+.message-section {
+  margin-top: 20px;
+}
+
+.message-form-group {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr;
+}
+
+.message-label {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-top: 10px;
+}
+
+.message-input-field, .message-textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+  resize: vertical;
+}
+.message-input-field:focus, .message-textarea:focus {
+  border-color: var(--accent-primary);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(26, 188, 156, 0.1);
+}
+
+.message-textarea {
+  min-height: 120px;
+}
+
+.submit-button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: none;
+  color: white;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  background-color: var(--accent-secondary); /* Оранжевая кнопка */
+}
+.submit-button:hover {
+  background-color: #d66a1a; /* Темнее оранжевый */
+  box-shadow: 0 4px 10px rgba(230, 126, 34, 0.4);
+}
+
+
+.message-sender {
+  text-align: right;
+}
+
+.messageCont {
+  text-align: right;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.message {
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: #1abc9c75;
+}
+
+.message__text {
+  font-size: 19px;
+}
+
+.message__date {
+  font-size: 12px;
+}
+
+.message__isRead {
+  font-size: 11px;
+}
+
+.addRequestForm {
+  display: none;
+  padding: 15px 0px;
+}
+
+.addRequest {
+  margin: 15px auto;
+}
+
+
+.addRequestForm.visible {
+  display: block;
+}
+
+.editRequestForm {
+  display: none;
+  padding: 15px 0px;
+}
+
+.editRequestForm.visible {
+  display: block;
+}
+
+.editButton {
+  padding: 5px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.headerTop {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 40px;
+
+}
+
+.headerTop a {
+  color: orange
+}
+
+.logout-link {
+  background-color: transparent;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: 1px solid #999;
+  outline: none;
+  border: 1px solid var(--accent-primary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.logout-link:hover {
+  background-color: var(--accent-primary);
+  color: white;
+}
+
+/* --- Стили для секции ввода запроса --- */
+
+.request-form-controls {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px dashed var(--border-color);
+  border-radius: 4px;
+}
+
+.neo-input-row {
+  display: block;
+}
+
+.neo-input-row > * {
+  margin-top: 15px;
+}
+
+.input-cell {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.label-text {
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--accent-secondary); /* Оранжевый акцент */
+  margin-bottom: 3px;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.input-cell input.table-input {
+  width: 100%;
+  padding: 8px 6px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+  background-color: var(--bg-main);
+}
+
+.input-cell input.table-input:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 1px rgba(26, 188, 156, 0.5);
+  background-color: #ffffff;
+}
+
+/* Специальные стили для N и Quantity */
+.cell-n .table-input {
+  font-weight: 600;
+  text-align: center;
+  background-color: #f7f9fb; /* Легкий фон для неактивных полей */
+}
+
+.input-number {
+  text-align: center;
+}
+
+/* Стили для кнопки добавления */
+.neo-add-btn {
+  width: 100%;
+  padding: 12px 20px;
+  border: none;
+  color: white;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: var(--accent-secondary); /* Использовать Оранжевый для действия */
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.neo-add-btn:hover {
+  background-color: #d66a1a;
+}
+.neo-add-btn:active {
+  transform: translateY(1px);
+}
+
+/* --- АДАПТИВНОСТЬ для формы ввода (Мобильная версия) --- */
+@media (max-width: 768px) {
+  .neo-input-row {
+      /* На мобильных устройствах делаем вертикальную компоновку */
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding-bottom: 20px;
+  }
+  
+  .input-cell {
+      width: 100%;
+  }
+  
+  /* Скрываем подписи для полей, чтобы не дублировать placeholder на мобильных */
+  .label-text {
+      display: none;
+  }
+  
+  /* Восстанавливаем паддинг, чтобы placeholder было видно */
+  .input-cell input.table-input {
+      padding: 10px;
+  }
+}
+
+/* --- АДАПТИВНОСТЬ (Мобильная версия) --- */
+@media (max-width: 768px) {
+  .details-title {
+      font-size: 16px;
+  }
+
+  .partner-details-info {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+  }
+
+  .partner-details-info .logo-placeholder {
+      width: 100%;
+      text-align: center;
+      /* Убираем скошенный угол на мобильных */
+      clip-path: none; 
+  }
+  
+  /* Таблица остается прокручиваемой */
+  .responsive-table {
+      margin: 0 -15px; /* Сдвигаем влево/вправо для использования всего экрана */
+      padding: 0 15px;
+  }
+  table {
+      min-width: 550px; 
+  }
+}
+
+/* --- АДАПТИВНОСТЬ (МОБИЛЬНАЯ ВЕРСИЯ) --- */
+@media (max-width: 768px) {
+  .page-container {
+      padding: 15px;
+  }
+  
+  /* Сдвиг заголовка и кнопки на мобильных */
+  .header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+  }
+  .page-title {
+      font-size: 18px;
+  }
+  
+  .partner-info, .companies-list, .support-section {
+      flex-direction: column;
+      gap: 25px;
+  }
+
+  .search-section {
+      margin-bottom: 30px;
+  }
+  .neo-input-group {
+      width: 100%;
+  }
+  
+  .logo-placeholder {
+      font-size: 24px;
+      width: 100%;
+  }
+
+  .column {
+      width: 100%;
+  }
+
+  .large-box-placeholder {
+      width: 100%;
+      min-height: 150px;
+      /* Убираем асимметричную тень на мобильных для чистоты */
+      box-shadow: none; 
+  }
+}

@@ -212,8 +212,14 @@ a:hover {
   font-size: 18px;
 }
 
+.loginHref img {
+  max-width: 100%;
+  width: 25px;
+  height: 25px;
+}
+
 .paddingHeader {
-  padding-top: 100px;
+  padding-top: 80px;
 }
 
 .headerMenu li {
@@ -301,10 +307,11 @@ nav[role] .hidden {
   padding-top: 30%;
   border-radius: 15px;
   overflow: hidden;
-  background-size: 125%;
+  background-size: 127%;
   background-position: center;
   z-index: 1;
   transition: 0.4s;
+  background-repeat: no-repeat;
 }
 
 .mainInfo a:hover.mainInfo__el {
@@ -422,7 +429,7 @@ a.mainInfo__button {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 
@@ -835,4 +842,401 @@ nav[aria-label="Pagination Navigation"] a:hover svg {
 
 .singleNewsAside a:not(:first-child){
   margin-top: 15px;
+}
+
+
+
+.ramstein {
+  padding: 80px 0;
+  background: #f4f7fb;
+  font-family: "Inter", sans-serif;
+}
+
+.ramstein__container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+.ramstein__left {
+  flex: 1;
+  max-width: 58%;
+}
+
+.ramstein__right img {
+  max-width: 350px;
+  border-radius: 18px;
+  display: block;
+}
+
+.ramstein__title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #0d2340;
+  margin-bottom: 30px;
+}
+
+.ramstein__desc {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #405264;
+  margin-bottom: 20px;
+}
+
+/* Карточки */
+.ramstein__cards {
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+}
+
+.ramstein-card {
+  width: 260px;
+  background: #e9f0f8;
+  padding: 20px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ramstein-card__logo {
+  width: 48px;
+  height: auto;
+}
+
+.ramstein-card__text h4 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.ramstein-card__text span {
+  font-size: 14px;
+  color: #546577;
+}
+
+.ramstein-card__link {
+  margin-top: auto;
+  text-decoration: none;
+  color: #1a9a48;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+
+.contacts {
+  background: #f4f7fb;
+}
+
+.contact-section {
+  padding: 80px 0;
+  font-family: "Inter", sans-serif;
+}
+
+.contact-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+/* Левая колонка */
+.contact-left {
+  flex: 0 0 35%;
+}
+
+.contact-block {
+  margin-bottom: 40px;
+}
+
+.contact-block h3 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0d2340;
+  margin-bottom: 10px;
+}
+
+.contact-block p {
+  font-size: 17px;
+  line-height: 1.5;
+  color: #405264;
+}
+
+.socials {
+  display: flex;
+  gap: 15px;
+}
+
+.socials img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Правая колонка */
+.contact-right {
+  flex: 0 0 60%;
+}
+
+.contact-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #0d2340;
+  margin-bottom: 15px;
+}
+
+.contact-subtitle {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #405264;
+  margin-bottom: 35px;
+  max-width: 600px;
+}
+
+/* Форма */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  background: #ececec;
+  border: none;
+  padding: 18px 20px;
+  font-size: 16px;
+  margin-bottom: 18px;
+  border-radius: 6px;
+  outline: none;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.contact-form textarea {
+  height: 160px;
+  resize: none;
+}
+
+.contact-btn {
+  background: #0d7845;
+  color: white;
+  padding: 14px 40px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.contact-btn:hover {
+  background: #0a6639;
+}
+
+
+
+
+.login-container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  width: 300px;
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: -18px;
+  top: 0px;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #157c57;
+  height: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.remember-me input {
+  margin-right: 10px;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #157c57;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background-color: #45a049;
+}
+
+
+.loginCont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("/images/bg-pattern.svg");
+  background-size: cover;
+  padding: 100px 0;
+  background-color: #157c57;
+}
+
+
+@media (max-width: 1400px) {
+  .mainInfo__el {
+    background-size: 140%;
+  }
+
+  .mainInfo a:hover.mainInfo__el {
+    background-size: 150%;
+  }
+
+  .mainInfo__rightVideo {
+    transform: scale(1.35);
+  }
+}
+
+@media (max-width: 1100px) {
+  .mainInfo__el {
+    background-size: 175%;
+  }
+
+  .mainInfo a:hover.mainInfo__el {
+    background-size: 185%;
+  }
+
+  .mainInfo__rightVideo {
+    transform: scale(1.65);
+  }
+}
+
+@media (max-width: 991px) {
+  .contact-container {
+      flex-direction: column;
+      gap: 40px;
+  }
+
+  .contact-left,
+  .contact-right {
+      flex: 100%;
+  }
+
+  .form-row {
+      flex-direction: column;
+  }
+
+  .contact-title {
+      font-size: 34px;
+  }
+
+  .ramstein__right {
+    display: none;
+  }
+
+  .ramstein__left {
+    max-width: 100%;
+  }
+}
+
+
+@media (max-width: 800px) {
+  .mainInfo {
+    display: block;
+  }
+
+  .mainInfo__left {
+    width: 100%;
+  }
+
+  .mainInfo__leftDoubleRow {
+    display: block;
+  }
+
+  .mainInfo__el,
+  .mainInfo__leftDoubleRow .mainInfo__el,
+  .mainInfo__right {
+    width: 100%;
+    margin-top: 35px;
+  }
+
+  .mainNews .news {
+    width: calc(50% - 30px);
+  }
+
+  .ramstein__cards {
+    display: block;
+  }
+
+  .ramstein-card {
+    max-width: 100%;
+    width: auto;
+    margin-top: 25px;;
+  }
+
+  .mainInfo__left {
+    margin-right: 0px;
+  }
+}
+
+@media (max-width: 600px) {
+  .mainNews .news {
+    width: calc(100% - 30px);
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-title {
+      font-size: 28px;
+  }
+
+  .contact-block h3 {
+      font-size: 22px;
+  }
+
+  .contact-btn {
+      width: 100%;
+  }
 }

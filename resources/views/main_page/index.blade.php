@@ -2,7 +2,6 @@
 
 @section('content')
 
-main page
 
 <div class="container">
   <div class="container-inner">
@@ -89,6 +88,57 @@ main page
     </div>
   </div>
 </section>
+
+
+
+
+<section class="ramstein">
+  <div class="ramstein__container">
+
+      <div class="ramstein__left">
+          <h2 class="ramstein__title">Промисловий<br>Рамштайн</h2>
+
+          <p class="ramstein__desc">
+              Ідея – об’єднати іноземних партнерів у коаліцію, яка за прикладом Ukraine
+              Defense Contact Group (Ramstein) допомагатиме Україні долати наслідки
+              російської агресії на виробничому фронті.
+          </p>
+
+          <p class="ramstein__desc">
+              Мета – отримання постраждалими підприємствами України критично необхідного
+              для їхньої виробничої діяльності обладнання на вигідних умовах – з дисконтом
+              або у вигляді матеріально-технічної допомоги, з частковою або повною
+              компенсацією коштами донорських організацій, урядових програм та інших джерел.
+          </p>
+
+          <div class="ramstein__cards">
+              <div class="ramstein-card">
+                  <img src="/images/info_favicon.svg" class="ramstein-card__logo" alt="">
+                  <div class="ramstein-card__text">
+                      <h4>ФРУ</h4>
+                      <span>Федерація роботодавців України</span>
+                  </div>
+                  <a href="#" class="ramstein-card__link">Перейти →</a>
+              </div>
+
+              <div class="ramstein-card">
+                  <img src="/images/info_favicon.svg" class="ramstein-card__logo" alt="">
+                  <div class="ramstein-card__text">
+                      <h4>Help Desk</h4>
+                      <span>Сервіси для бізнесу</span>
+                  </div>
+                  <a href="#" class="ramstein-card__link">Перейти →</a>
+              </div>
+          </div>
+      </div>
+
+      <div class="ramstein__right">
+          <img src="/images/metal-gears.jpg" alt="">
+      </div>
+
+  </div>
+</section>
+
 
 {{-- <section id="section-id-hXbc2ksHo84OfFaa4ZDox" class="sppb-section">
     <div class="sppb-row-container">
@@ -190,5 +240,5 @@ main page
     </div>
   </section> --}}
 
-
+  
 @endsection

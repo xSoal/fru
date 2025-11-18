@@ -29,7 +29,7 @@
     {{-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"> --}}
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ asset('/style/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('/style/css/adminClientsCompany.css') }}">
     
     <title>{{ $meta_title  ?? ''}}</title>
 </head>
@@ -54,24 +54,29 @@
 
     <div class="body-wrapper">
         <div class="body-innerwrapper">
-            @include('front.header')
-            @include('front.mobile-nav')
+            <div class="headerTop">
+                <div class="buttonBackCont">
+                    <a href="{{ url()->previous() }}">< back</a>
+                </div>
+                <div class="buttonExit">
+                    <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                        @csrf
+                        <button type="submit" class="logout-link neo-accent-btn  ">
+                            exit
+                        </button>
+                    </form>
+                </div>
+            </div>
 
             @yield('content')
 
-            {{-- @include('front.modals.auth-popup') --}}
-            @include('front.footer')
-            <div class="popup_bg"></div>
-            <div class="search_bg"></div>
-            <div class="search_bg_transparent"></div>
         </div>
     </div>
-    <a href="#" class="sp-scroll-up scrollToTopBtn" aria-label="Scroll Up"><span class="fas fa-angle-up" aria-hidden="true"></span></a>
 
     <script src="{{ asset('/js/jquery.min.js') }}"></script>
     <script src="{{asset('js/tinymce/js/tinymce/tinymce.min.js')}}"></script>
     <script src="{{asset('js/jquery-ui-1.13.1/jquery-ui.js')}}"></script>
     <script src="{{asset('js/jquery-ui-timepicker-addon.js')}}"></script>
-    <script type="module" src="{{ asset('/js/script.js') }}"></script>
+    <script type="module" src="{{ asset('/js/CompanyClientsAdmin.js') }}"></script>
 </body>
 </html>

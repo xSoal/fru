@@ -85,7 +85,8 @@
 					</ul>
 				</nav>
 				<a class="loginHref" href="/login" >
-					<span class="far fa-user me-1"></span>
+					<img src="/images/icons/user.svg">
+					{{-- <span class="far fa-user me-1"></span> --}}
 				</a>
 			</div>
 		</div>

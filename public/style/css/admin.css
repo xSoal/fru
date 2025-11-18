@@ -5077,3 +5077,8 @@ body > section.add_category.edit_category.main_section > div.form_block_items.fo
 }
 
 /*# sourceMappingURL=admin.css.map */
+
+
+  .user_icon .menu_title_item::before {
+    background-image: url(/images/icons/user.svg);
+}
