@@ -135,9 +135,12 @@ Route::group(['prefix' => 'companyAdmin', 'middleware' => 'roleCompany.auth'], f
 
 Route::group(['prefix' => 'clientAdmin', 'middleware' => 'roleClient.auth'], function () {
     Route::get('/', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@index', 'as' => 'admin.clientAdmin']);
+    Route::get('/partners', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@partnersList', 'as' => 'admin.clientAdminPartners']);
+    Route::get('/partners/{id}', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@partnerSingle', 'as' => 'admin.clientAdminPartnerSingle']);
 
     Route::post('/addEquipmentRequest', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@addRequestEquipment', 'as' => 'admin.clientAdminAddRequest']);
     Route::post('/editEquipmentRequest', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@editRequestEquipment', 'as' => 'admin.clientAdminEditRequest']);
+    Route::post('/addMessage', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@addMessage', 'as' => 'admin.clientAddMessage']);
 });
 
 

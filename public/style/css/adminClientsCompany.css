@@ -427,9 +427,7 @@ tbody td:first-child {
 }
 
 
-.message-sender {
-  text-align: right;
-}
+
 
 .messageCont {
   text-align: right;
@@ -442,6 +440,12 @@ tbody td:first-child {
   padding: 10px 15px;
   border-radius: 10px;
   background-color: #1abc9c75;
+}
+
+.message-sender {
+  text-align: right;
+  background-color: #fff;
+  border: 1px solid #555;
 }
 
 .message__text {
@@ -496,6 +500,27 @@ tbody td:first-child {
   color: orange
 }
 
+
+.companies-list .list-item {
+  width: calc(20% - 20px);
+  margin: 10px;
+}
+
+.company {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.company__logo {
+  margin-top: 10px;
+}
+
+.company__logo img {
+  max-width: 100px;
+}
+
+
 .logout-link {
   background-color: transparent;
   padding: 5px 10px;
@@ -510,6 +535,33 @@ tbody td:first-child {
 .logout-link:hover {
   background-color: var(--accent-primary);
   color: white;
+}
+
+.logoClientSingle__cont img {
+  max-width: 100px;
+}
+
+.partnersList__cont {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.partners__el {
+  width: calc(50% - 50px);
+  margin: 25px;
+}
+
+.partner__name {
+  text-align: center;
+}
+
+.partners__el {
+  margin-top: 25px;
+}
+
+.partners__el img {
+  max-width: 100%;
 }
 
 /* --- Стили для секции ввода запроса --- */

@@ -161,7 +161,7 @@
             <a href="#">Dealers and Service</a>
           </h3>
           <h3 class="subsection-title">
-            <a href="#">Partners</a>
+            <a href="{{ route('admin.clientAdminPartners') }}">Partners</a>
           </h3>
       </div>
   </section>

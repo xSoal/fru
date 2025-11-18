@@ -232,7 +232,7 @@ class UsersController extends Controller
 
 			$paginate = 25;
 
-            $items = User::paginate($paginate);
+            $items = User::where('role', '2')->paginate($paginate);
             
 			if( $request['page']==null ){
 				$request['page'] = 1;

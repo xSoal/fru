@@ -108,6 +108,22 @@
                 <div class="fb_inside">
                     <div class="fb_label">
                         <div class="fb_label_inside">
+                            <label for="web_site">Contact Person</label>
+                        </div>
+                    </div>
+                    <div class="fb_input">
+                        <div class="fb_input_inside">
+                            <input type="text" name="contact_person" value="{{ $item->contact_person ?? '' }}" id="contact_person" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form_block">
+                <div class="fb_inside">
+                    <div class="fb_label">
+                        <div class="fb_label_inside">
                             <label for="image">Фото</label>
                         </div>
                     </div>

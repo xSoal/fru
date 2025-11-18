@@ -46,9 +46,11 @@
         <div class="companies-list">
           @foreach ($clients as $client)
             <div class="list-item">
-              <a href="/companyAdmin/clients/{{ $client->id }}">
+              <a class="company" href="/companyAdmin/clients/{{ $client->id }}">
                 <div class="company__name">Company {{ $client->name }} </div>
-                <div class="company__logo">{{ $client->photo }}</div>
+                <div class="company__logo">
+                  <img src="{{ $client->photo }}">
+                </div>
               </a>
             </div>
           @endforeach

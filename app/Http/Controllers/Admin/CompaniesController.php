@@ -17,6 +17,7 @@ class CompaniesController extends Controller
     
     public function post(User $user, Request $request){
        
+        
         $input = $request->except('_token');
 
         $input['photo'] = isset($input['photo']) ? $input['photo'] : '';
@@ -59,6 +60,10 @@ class CompaniesController extends Controller
             
             $user->fill($input);
             $user->role = 1;
+
+            if(!isset($input['dialog_enable_status']) || $input['dialog_enable_status'] !== 'on') {
+                $user->dialog_enable_status = 0;
+            }
             
             if( $user->save() ){
                 if( isset($input['save_and_exit']) ){
@@ -109,8 +114,16 @@ class CompaniesController extends Controller
             $user = User::find($input['id']);
             
             $user->fill($input);
-			
-			if( $user->update() ){
+
+            if(!isset($input['dialog_enable_status']) || $input['dialog_enable_status'] !== 'on') {
+                $user->dialog_enable_status = 0;
+            } else {
+                $user->dialog_enable_status = 1;
+            }
+
+
+
+            if( $user->update() ){
                 if( isset($input['update_and_exit']) ){
 				    return redirect()->route('admin.companies')->with('status','Пользователь обновлен');
                 }else{

@@ -8,7 +8,7 @@
         <div class="top_block">
             <a href="{{ route('admin.companies') }}" class="back_to">Назад</a>
         </div>
-        <h1>Редактирование 123</h1> 
+        <h1>Редактирование {{ $item->name }}</h1> 
     </div>
     
     <div class="form_block_items form_add form_edit">
@@ -99,6 +99,51 @@
                     <div class="fb_input">
                         <div class="fb_input_inside">
                             <input type="text" name="email" value="{{ $item->email ?? '' }}" id="email" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form_block">
+                <div class="fb_inside">
+                    <div class="fb_label">
+                        <div class="fb_label_inside">
+                            <label for="web_site">Web page</label>
+                        </div>
+                    </div>
+                    <div class="fb_input">
+                        <div class="fb_input_inside">
+                            <input type="text" name="web_page" value="{{ $item->web_page ?? '' }}" id="web_page" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form_block">
+                <div class="fb_inside">
+                    <div class="fb_label">
+                        <div class="fb_label_inside">
+                            <label for="web_site">Contact Person</label>
+                        </div>
+                    </div>
+                    <div class="fb_input">
+                        <div class="fb_input_inside">
+                            <input type="text" name="contact_person" value="{{ $item->contact_person ?? '' }}" id="contact_person" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form_block">
+                <div class="fb_inside">
+                    <div class="fb_label">
+                        <div class="fb_label_inside">
+                            <label for="web_site">Доступен ли чат с компанией</label>
+                        </div>
+                    </div>
+                    <div class="fb_input">
+                        <div class="fb_input_inside">
+                            <input type="checkbox" name="dialog_enable_status" {{ $item->dialog_enable_status ? 'checked' : '' }}>
                         </div>
                     </div>
                 </div>

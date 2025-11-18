@@ -10,8 +10,8 @@
   </header>
 
   <section class="partner-details-info">
-      <div class="logo-placeholder neo-bg-accent">
-          {{ $company->photo }}
+      <div class="logo-placeholder logoClientSingle__cont">
+        <img src="{{ $company->photo }}">
       </div>
       <div class="partner-name-placeholder">
           
@@ -34,7 +34,7 @@
               <thead>
                   <tr>
                       <th>N</th>
-                      <th>NAME...</th>
+                      <th>NAME </th>
                       <th>MODEL</th>
                       <th>MANUFACTURER</th>
                       <th>COUNTRY</th>
@@ -42,14 +42,17 @@
                   </tr>
               </thead>
               <tbody>
+                @foreach ($equipmentsRequests as $e )
                   <tr>
-                      <td>1</td>
-                      <td><input type="text" class="table-input" value="Агротехника X10"></td>
-                      <td><input type="text" class="table-input" value="MDL-700"></td>
-                      <td><input type="text" class="table-input"></td>
-                      <td><input type="text" class="table-input"></td>
-                      <td><input type="number" class="table-input" value="3"></td>
+                    <td >{{ $e->code }}</td>
+                    <td >{{ $e->name }}</td>
+                    <td >{{ $e->model }}</td>
+                    <td >{{ $e->manufacturer }}</td>
+                    <td >{{ $e->country }}</td>
+                    <td >{{ $e->quantity }}</td>
                   </tr>
+                @endforeach
+
               </tbody>
           </table>
       </div>
@@ -61,13 +64,11 @@
       <h2 class="section-subtitle">New message:</h2>
       <div class="message-form-group">
         <form action="{{ route('admin.companyAddMessage') }}" method="post">
-            @csrf
-            <input hidden name="receiver_id" value="{{ $company->id }}"
-          <label for="org-name" class="message-label">Organization name</label>
-          <input type="text" id="org-name" class="message-input-field" placeholder="Введите название вашей организации">
+          @csrf
+          <input hidden name="receiver_id" value="{{ $company->id }}"
 
           <label for="message-text" class="message-label">Message:</label>
-          <textarea name="content" id="message-text" class="message-textarea" placeholder="Введите ваше сообщение или запрос"></textarea>
+          <textarea name="content" id="message-text" class="message-textarea" placeholder="Enter message..."></textarea>
           
           <button class="submit-button neo-bg-accent" type="submit">Send</button>
         </form>

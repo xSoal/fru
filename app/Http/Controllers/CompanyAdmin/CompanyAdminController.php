@@ -6,12 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Models\Conversation;
 
 
+use App\Models\EquipmentRequest;
 use App\Models\Message;
+
 use App\Models\User;
 
+
 use Illuminate\Http\Request;
-
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Validator;
@@ -33,37 +34,41 @@ class CompanyAdminController extends Controller
 
 
     public function client($id) {
-        // 1. Находим пользователя (компанию)
         $company = User::where('id', $id)->firstOrFail(); 
 
-        // 2. Находим ВСЕ чаты с жадной загрузкой
-        $chats = Conversation::where(function ($query) use ($id) {
-        $query->where('user_one_id', $id)
-            ->orWhere('user_two_id', $id);
-        })->with(['messages.sender', 'userOne', 'userTwo']) 
-        ->get();
+        // СТРОГИЙ ПОРЯДОК ID
+        $chat = Conversation::where('user_one_id', Auth::id()) // Убедитесь, что это всегда user_one_id
+            ->where('user_two_id', $id) // Убедитесь, что это всегда user_two_id
+            // ЖАДНО загружаем сообщения, отсортированные по убыванию (новые сверху)
+            ->with(['messages' => function ($query) {
+                $query->latest(); 
+            }, 'userOne', 'userTwo']) 
+            ->first();
 
-        // 3. Извлекаем сообщения из ПЕРВОГО найденного чата (если чаты существуют)
-        $messages = collect(); // Создаем пустую коллекцию по умолчанию
+        $messages = collect(); 
         $activeConversation = null;
         $currentUserId = Auth::id();
 
-        if ($chats->isNotEmpty()) {
-            $activeConversation = $chats->first();
-            $messages = $activeConversation->messages->map(function ($message) use ($currentUserId) {
-                $message->is_sender = ($message->sender_id === $currentUserId);
+        if ($chat) {
+            $activeConversation = $chat;
+            
+            $messages = $activeConversation->messages->values()->map(function ($message) use ($currentUserId) {
+                $message->is_sender = $message->sender_id === $currentUserId;
                 return $message;
             });
         }
 
+        $equipmentsRequests = EquipmentRequest::where('user_id', $id)->latest()->get();
+
         $data = [
-            'company' => $company, // Объект компании
-            'chats' => $chats,     // Коллекция ВСЕХ чатов пользователя
-            'messages' => $messages // Коллекция сообщений только из ПЕРВОГО чата
+            'company' => $company, 
+            'chat' => $chat,     // текущий
+            'messages' => $messages, // Коллекция сообщений только из ПЕРВОГО чата
+            'equipmentsRequests' => $equipmentsRequests
         ];
 
         // В шаблоне 'company_admin.company' теперь доступна переменная $messages
-        return view('company_admin.company', $data);
+        return view('company_admin.client', $data);
     }
 
     public function addMessage(Request $request){
@@ -78,14 +83,14 @@ class CompanyAdminController extends Controller
         $receiverId = (int) $request->receiver_id;
         $content = $request->input('content');
 
-        // 2. Нормализация ID для поиска (самый маленький ID идет первым)
-        $userOneId = min($senderId, $receiverId);
-        $userTwoId = max($senderId, $receiverId);
+        // // 2. Нормализация ID для поиска (самый маленький ID идет первым)
+        // $userOneId = min($senderId, $receiverId);
+        // $userTwoId = max($senderId, $receiverId);
         
-        // 3. Поиск или создание чата (Conversation)
+         // СТРОГИЙ ПОРЯДОК ID
         $conversation = Conversation::firstOrCreate([
-            'user_one_id' => $userOneId,
-            'user_two_id' => $userTwoId,
+            'user_one_id' => $senderId,
+            'user_two_id' => $receiverId,
         ]);
         
         // 4. Создание сообщения
@@ -101,5 +106,8 @@ class CompanyAdminController extends Controller
 
         return redirect()->route('admin.companyAdminClient', ['id' => $receiverId]);
     }
+
+
+
 
 }
