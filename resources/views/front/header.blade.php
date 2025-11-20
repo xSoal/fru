@@ -84,7 +84,28 @@
 						<li><a href="/contacts">Контакти</a></li>
 					</ul>
 				</nav>
-				<a class="loginHref" href="/login" >
+				<?php
+					$login_url = "/login";
+					$user = auth()->user();
+
+					if($user){
+						switch ($user->role) {
+							case '2':
+								$login_url = '/admin';
+								break;
+							case '1':
+								$login_url = '/companyAdmin';
+								break;
+							case '0':
+								$login_url = '/clientAdmin';
+								break;
+							default:
+								# code...
+								break;
+						}
+					}
+				?>
+				<a class="loginHref" href="{{ $login_url }}" >
 					<img src="/images/icons/user.svg">
 					{{-- <span class="far fa-user me-1"></span> --}}
 				</a>
