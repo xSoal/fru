@@ -18,7 +18,7 @@
 
   <section class="partner-details-info">
       <div class="logo-placeholder neo-bg-accent">
-          {{ $client->photo }}
+        <img src="{{ $client->photo }}" alt="">
       </div>
       <div class="partner-name-placeholder">
           
