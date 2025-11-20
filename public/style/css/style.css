@@ -1124,6 +1124,10 @@ nav[aria-label="Pagination Navigation"] a:hover svg {
   background-color: #157c57;
 }
 
+.main_page {
+  padding-top: 75px;
+}
+
 
 @media (max-width: 1400px) {
   .mainInfo__el {
