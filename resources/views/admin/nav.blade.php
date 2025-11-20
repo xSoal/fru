@@ -15,13 +15,13 @@
 
         <div class="admin_menu_section user_icon">
             <div class="admin_menu_title">
-                <a href="{{ route('admin.companies') }}" class="menu_title_item menu_single">Компанії</a>
+                <a href="{{ route('admin.companies') }}" class="menu_title_item menu_single">Institutional Partners</a>
             </div>
         </div>
 
         <div class="admin_menu_section user_icon">
             <div class="admin_menu_title">
-                <a href="{{ route('admin.clients') }}" class="menu_title_item menu_single">Клієнти</a>
+                <a href="{{ route('admin.clients') }}" class="menu_title_item menu_single">Participants</a>
             </div>
 
         {{-- <div class="admin_menu_section">
