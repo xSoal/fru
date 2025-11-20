@@ -1,7 +1,6 @@
 @extends('layouts.company_admin')
 
 @section('content')
-partner signle
  <div class="page-container neo-card details-page">
   <header class="header">
       <h1 class="page-title details-title">
