@@ -5123,3 +5123,202 @@ blockquote {
   font-size: 24px;
   line-height: 34px;
 }
+
+.custom-table {
+  /* Основні налаштування таблиці */
+  width: 100%;
+  border-collapse: collapse; /* Прибираємо подвійні рамки між комірками */
+  font-family: Arial, sans-serif; /* Використовуємо стандартний шрифт */
+  font-size: 14px;
+  color: #333; /* Основний колір тексту */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Легка тінь навколо таблиці */
+  background-color: #fff; /* Білий фон таблиці */
+}
+
+.custom-table thead td.name {
+  text-align: center;
+}
+
+.custom-table thead td.date,
+.custom-table thead td.status
+ {
+  width: 100px;
+}
+
+.custom-table thead td.edit {
+  width: 150px;
+}
+
+.custom-table td.edit svg {
+  max-width: 50px;
+}
+
+.custom-table tbody {
+  text-align: center;
+}
+
+.custom-table .name {
+
+}
+
+/* ----------------------------------------------------- */
+.custom-table {
+  /* Основні налаштування таблиці (ЗМІНЕНО: Кремовий фон, тінь) */
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Легка тінь */
+  background-color: #fcfcf5; /* Світло-жовтуватий/кремовий фон */
+}
+
+/* ----------------------------------------------------- */
+
+/* Стилі для заголовка таблиці (thead, th, td в thead) */
+.custom-table thead {
+  /* ЗМІНЕНО: Прибираємо межу thead, оскільки вона не потрібна при такому дизайні */
+  border-bottom: none;
+}
+
+.custom-table thead {
+  border-radius: 5px 5px 0 0;
+  font-size: 13px;
+}
+
+.custom-table thead tr {
+  background: linear-gradient(257deg, rgba(239, 162, 162, 0.17) 46.64%, rgba(234, 251, 134, 0.12) 99.99%), #f3f9ff;
+
+}
+
+/* Стилі для th або td у заголовку, якщо вони використовуються */
+.custom-table th,
+.custom-table thead td {
+  /* ЗМІНЕНО: Фон заголовка, відступи */
+  /* background-color: #fcfcf5;  */
+  color: #666;
+  font-weight: bold;
+  text-align: left;
+  padding: 15px ; /* Більший верхній відступ */
+  border: none;
+  cursor: default;
+}
+
+.custom-table .td:not(:last-child), .td:not(:last-child) {
+  border-right: 1px solid rgba(214, 214, 214, 0.4);
+}
+
+.custom-table thead td {
+  vertical-align: top;
+}
+
+/* Ваші індивідуальні стилі для заголовків (класи) */
+.custom-table thead td.name {
+  text-align: left; /* Заголовок "Назва" зазвичай по лівому краю */
+}
+
+.custom-table thead td.date,
+.custom-table thead td.status {
+  width: 150px;
+  text-align: center; /* Центруємо "Дата" та "Статус" */
+}
+
+.custom-table thead td.edit {
+  width: 150px;
+  text-align: right; /* **ВИРІВНЮЄМО ЗАГОЛОВОК "РЕДАГУВАТИ" ПО ПРАВОМУ КРАЮ** */
+}
+
+.custom-table td.name,
+.custom-table td.number,
+.custom-table td.status,
+.custom-table td.edit {
+  text-align: center;
+}
+
+.custom-table td.status .toggle {
+  margin: auto;
+}
+
+/* ----------------------------------------------------- */
+
+/* Стилі для тіла таблиці (tbody та td) */
+.custom-table tbody tr {
+  /* ЗМІНЕНО: Виразніша, світло-сіра межа між рядками */
+  border-bottom: 1px solid #e0e0e0; 
+  transition: background-color 0.2s ease;
+}
+
+.custom-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.custom-table tbody tr:hover {
+  /* ЗМІНЕНО: Колір при наведенні */
+  background-color: #f5f5f0;
+}
+
+.custom-table td {
+  padding: 12px 10px;
+  vertical-align: middle;
+  border: none;
+  word-break: break-word;
+  text-align: left; /* Скидаємо ваш text-align: center; для tbody */
+}
+
+/* Стилі для комірок у тілі таблиці (використовуємо класи, якщо вони є) */
+.custom-table td:nth-child(1) { /* № */
+  text-align: center;
+  width: 50px; 
+}
+
+.custom-table td.date { /* Дата публікації */
+  text-align: center;
+  width: 100px; 
+}
+
+.custom-table td.name { /* Назва */
+  text-align: left;
+  /* Залишаємо динамічну ширину */
+}
+
+.custom-table td.status { /* Статус */
+  text-align: center;
+  width: 100px;
+}
+
+.custom-table td.edit { /* Редагувати */
+  text-align: right; /* **ВИРІВНЮЄМО КОМІРКУ "РЕДАГУВАТИ" ПО ПРАВОМУ КРАЮ** */
+  width: 150px; 
+}
+
+/* ----------------------------------------------------- */
+
+/* Стилі для кнопки "Редагувати" */
+.custom-table .edit-button {
+  /* ЗМІНЕНО: Кольори, щоб відповідати скріншоту */
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: #d1f7d1; /* Світло-зелений фон */
+  border-radius: 5px;
+  cursor: pointer;
+  line-height: 30px;
+  color: #4CAF50; /* Темно-зелений колір іконки */
+  font-size: 16px;
+  text-align: center; /* Центруємо вміст */
+}
+
+.custom-table .edit-button:hover {
+  background-color: #bcebb8;
+}
+
+/* ----------------------------------------------------- */
+
+/* Стилі для SVG у колонці "Редагувати" */
+.custom-table td.edit svg {
+  /* Ваші стилі для SVG */
+  max-width: 20px; /* Зменшуємо, щоб помістилось у 30x30 */
+  vertical-align: middle;
+  margin-right: 5px; /* Невеликий відступ від правого краю */
+}
+/* Ваші стилі для toggle switch залишаються без змін */
