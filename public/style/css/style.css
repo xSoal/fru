@@ -126,7 +126,7 @@ a:hover {
 }
 
 .container {
-  max-width: 1350px;
+  max-width: 1320px;
   padding: 0px 15px;
   margin: auto;
 }
@@ -238,6 +238,7 @@ nav[role] .hidden {
   display: flex;
   flex-direction: row;
   align-items: stretch;
+  padding: 75px 0 75px 0;
 }
 
 .mainInfo a {
@@ -268,6 +269,8 @@ nav[role] .hidden {
 .mainInfo__right .mainInfo__el {
   display: flex;
   flex-grow: 1;
+  border-radius: 10px;
+  padding-top: 24.5%;
 }
 
 .mainInfo__leftDoubleRow {
@@ -385,12 +388,6 @@ a.mainInfo__button {
 
 .mainInfo__elText p {
   margin-top: 15px;
-}
-
-
-
-.mainInfo__el {
-  border: 1px solid #777;
 }
 
 
@@ -865,7 +862,7 @@ nav[aria-label="Pagination Navigation"] a:hover svg {
 
 .ramstein__left {
   flex: 1;
-  max-width: 58%;
+  max-width: 60%;
 }
 
 .ramstein__right img {
@@ -882,10 +879,12 @@ nav[aria-label="Pagination Navigation"] a:hover svg {
 }
 
 .ramstein__desc {
-  font-size: 18px;
-  line-height: 1.6;
   color: #405264;
   margin-bottom: 20px;
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 300;
+  font-family: Open Sans;
 }
 
 /* Карточки */
