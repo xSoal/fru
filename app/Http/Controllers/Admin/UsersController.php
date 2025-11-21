@@ -56,6 +56,7 @@ class UsersController extends Controller
 
 			$input['password'] = Hash::make($input['password']);
             $user->role = 2;
+
             $user->fill($input);
 
             if( $user->save() ){
