@@ -18,8 +18,8 @@
           <span class="mainImage__link" title="Категорія: Новини">
             <a href="/news">Новини</a>
           </span>
-          <span class="mainImage__date" title="{{ $newsItem->public_date }}">
-            <time datetime="{{ $newsItem->public_date }}" itemprop="datePublished"> {{ $newsItem->public_date }} </time>
+          <span class="mainImage__date" title="{{ $newsItem->public_date_format }}">
+            <time datetime="{{ $newsItem->public_date }}" itemprop="datePublished"> {{ $newsItem->public_date_format }} </time>
           </span>
         </div>
       </div>
