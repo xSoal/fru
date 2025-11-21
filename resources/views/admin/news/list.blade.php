@@ -43,10 +43,11 @@
         </div>
 
     </div>
-    <div class="table">
+    <div class="table news_table">
         <div class="thead">
             <div class="tr tr_heading">
                 <div class="th number">№</div>
+                {{-- <div class="th public_date">Дата публікації</div> --}}
                 <div class="th name">Назва</div>
                 <div class="th edit">Редагувати</div>
             </div>
@@ -56,7 +57,8 @@
 			    @foreach($items as  $k => $item)
                     <div class="tr_block">
                         <div class="tr tr_values">
-                            <div class="td number">{{ $page + $k + 1 }} {{ $item->public_date }}</div>
+                            <div class="td number">{{ $page + $k + 1 }} </div>
+                            {{-- <div class="td public_date">{{ $item->public_date }}</div> --}}
                             <div class="td name">{{ $item->title }}</div>
                             <div class="td edit">
                                 <a href="{{ route('admin.viewNews', ['id' => $item->id]) }}" class="edit_link">

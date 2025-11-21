@@ -59,7 +59,9 @@ body {
   /* font-family: 'Inter', sans-serif; */
   font-family: 'Open Sans', sans-serif;
   margin: 0px;
+  color: #072446;
 }
+
 
 a {
   color: inherit;
@@ -621,9 +623,9 @@ a.mainInfo__button {
 .mainImage__image {
   width: 75%;
   min-height: 400px;
-  background-repeat: no-repeat ;
-  background-position: 115% 50% ;
-  background-size: 100% ;
+  background-repeat: no-repeat !important;
+  background-position: center right !important;
+  background-size: 100% !important;
   padding: 50px 0px;
 }
 
@@ -632,8 +634,8 @@ a.mainInfo__button {
   width: 75%;
   height: 100%;
   right: 0;
-  background-color: #000000;
-  opacity: .75;
+  background-color: #157c57;
+  mix-blend-mode: multiply;
 }
 
 .mainImage__content {
