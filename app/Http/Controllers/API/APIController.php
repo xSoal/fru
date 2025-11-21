@@ -29,9 +29,6 @@ class APIController extends Controller
             case 'news' : $tmp = News::where('id',$input['id'])->first(); break;
         }
 
-        // echo $input['active'];
-        // dd($tmp);
-
         $tmp->active = (int)$input['active'];
         $tmp->update();
     }

@@ -12,7 +12,7 @@ class MainPageController extends Controller
 {
     public function index(){
         $today = Carbon::today();
-        $news = News::whereDate('public_date', '<=', $today)->orderBy('public_date', 'desc')->limit(6)->get();
+        $news = News::whereDate('public_date', '<=', $today)->where('active', 1)->orderBy('public_date', 'desc')->limit(6)->get();
         $data = [
             'title' => 'Головна',
             'news' => $news

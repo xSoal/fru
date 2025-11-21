@@ -34,7 +34,8 @@ class SearchController extends Controller
         } else {
             $searchPattern = '%' . $search . '%';
             $today = Carbon::today();
-            $resultSearch = News::whereDate('public_date', '<=', $today) 
+            $resultSearch = News::whereDate('public_date', '<=', $today)
+            ->where('active', 1)
             ->where(function ($query) use ($searchPattern) {
                 $query->where('title', 'LIKE', $searchPattern) 
                       ->orWhere('content', 'LIKE', $searchPattern);

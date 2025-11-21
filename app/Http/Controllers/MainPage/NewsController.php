@@ -12,13 +12,13 @@ class NewsController extends Controller
 {
     public function single(Request $request, $slug){
         $today = Carbon::today();
-        $newsItem = News::whereDate('public_date', '<=', $today)->where('slug', '=', $slug)->firstOrFail();
+        $newsItem = News::whereDate('public_date', '<=', $today)->where('active', 1)->where('slug', '=', $slug)->firstOrFail();
         return view('main_page.singleNews')->with('newsItem', $newsItem);
     }
 
     public function allNews(){
         $today = Carbon::today();
-        $news = News::whereDate('public_date', '<=', $today)->orderBy('public_date', 'desc')->paginate(6);
+        $news = News::whereDate('public_date', '<=', $today)->where('active', 1)->orderBy('public_date', 'desc')->paginate(6);
         return view('main_page.news')->with('news', $news);
     }
 }
