@@ -41,7 +41,7 @@
           <div class="newsTextBlock">
             <div class="newsHrefDate">
               <a href="/news" class="newsHref">Новини</a>
-              <span class="newsDate">{{ $item->created_at }}</span>
+              <span class="newsDate">{{ $item->public_date }}</span>
             </div>
             <div class="newsTitle">
               <h5 class="h5">

@@ -16,7 +16,7 @@ class NewsController extends Controller
     }
 
     public function allNews(){
-        $news = News::latest()->paginate(6);
+        $news = News::orderBy('public_date', 'desc')->paginate(6);
 
         return view('main_page.news')->with('news', $news);
     }

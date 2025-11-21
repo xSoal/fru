@@ -10,7 +10,7 @@ use App\Models\News;
 class MainPageController extends Controller
 {
     public function index(){
-        $news = News::orderBy('created_at', 'desc')->limit(6)->get();
+        $news = News::orderBy('public_date', 'desc')->limit(6)->get();
         $data = [
             'title' => 'Головна',
             'news' => $news

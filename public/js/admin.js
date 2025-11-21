@@ -12,6 +12,10 @@ $(document).ready(function () {
   recountLimit();
   recountLimitTotal();
 
+  $(`input[name='public_date']`).datepicker({
+    dateFormat: 'yy-mm-dd' 
+});
+
   $('form').on('keyup keypress', function(e) {
     var keyCode = e.keyCode || e.which;
     if (keyCode === 13) { 

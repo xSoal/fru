@@ -76,6 +76,21 @@
                         <div class="fb_inside">
                             <div class="fb_label">
                                 <div class="fb_label_inside">
+                                    <label for="name">Дата публикации</label>
+                                </div>
+                            </div>
+                            <div class="fb_input">
+                                <div class="fb_input_inside">
+                                    <input name="public_date" value="{{ $item->public_date ?? '' }}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form_block">
+                        <div class="fb_inside">
+                            <div class="fb_label">
+                                <div class="fb_label_inside">
                                     <label for="image">Фото</label>
                                 </div>
                             </div>

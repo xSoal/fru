@@ -22,11 +22,12 @@ class NewsController extends Controller
         
         $getItems = function($search) use ($paginate) {
             if(!$search){
-                return News::paginate($paginate);
+                return News::orderBy('public_date', 'desc')->paginate($paginate);
             }
-            return News::where('title', 'LIKE', '%' . $search . '%' )->paginate($paginate);
+            return News::where('title', 'LIKE', '%' . $search . '%' )
+                ->orderBy('public_date', 'asc')
+                ->paginate($paginate);
         };
-        
         $items = $getItems($search);
 
         
