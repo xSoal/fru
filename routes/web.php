@@ -121,8 +121,11 @@ Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function() {
         Route::post('/', ['uses' => '\App\Http\Controllers\Admin\ClientsController@post', 'as' => 'admin.postClient']);
     });
 
+});
 
 
+Route::group(['prefix' => '/messenger', 'middleware' => 'auth'], function() {
+    Route::get('/{id}', ['uses' => '\App\Http\Controllers\MessengerController@index', 'as' => 'messenger']);
 });
 
 

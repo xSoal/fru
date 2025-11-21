@@ -19,7 +19,7 @@ class Conversation extends Model
      */
     public function messages()
     {
-        return $this->hasMany(Message::class);
+        return $this->hasMany(Message::class, 'conversation_id')->orderBy('created_at', 'desc');
     }
 
     /**
