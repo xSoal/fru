@@ -17,6 +17,7 @@ class News extends Model
         'content',
         'slug',
         'public_date',
+        'active',
         'created_at',
         'updated_at'
     ];

@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\News;
+use App\Models\Post;
+use App\Models\ProjectKPPItems;
+use App\Models\Telegram;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use App\Models\User;
-use App\Models\Post;
-use App\Models\Telegram;
-use App\Models\ProjectKPPItems;
 use Mail;
 
 class APIController extends Controller
@@ -25,8 +26,13 @@ class APIController extends Controller
         switch( $input['type'] ){
             case 'user' : $tmp = User::where('id',$input['id'])->first(); break;
             case 'post' : $tmp = Post::where('id',$input['id'])->first(); break;
+            case 'news' : $tmp = News::where('id',$input['id'])->first(); break;
         }
-        $tmp->active = $input['active'];
+
+        // echo $input['active'];
+        // dd($tmp);
+
+        $tmp->active = (int)$input['active'];
         $tmp->update();
     }
 

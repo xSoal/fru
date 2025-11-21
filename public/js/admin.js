@@ -954,8 +954,8 @@ function toggle() {
       if( $(this).closest('.form_block').hasClass('requests')){
         $(this).closest('.form_block').find('.row.hide').toggleClass('active')
       }
-
-      if( $(this).closest('.tr_block').length !=0 ){
+      
+      if( $(this).closest('.tr_block').length !=0){
         var fd = new FormData()
         fd.append('id', $(this).closest('.tr_block').attr('data-id') )
         fd.append('type', $(this).closest('.tr_block').attr('data-type') )

@@ -49,17 +49,33 @@
                 <div class="th number">№</div>
                 {{-- <div class="th public_date">Дата публікації</div> --}}
                 <div class="th name">Назва</div>
+                <div class="th status">Назва</div>
                 <div class="th edit">Редагувати</div>
             </div>
         </div>
         <div class="tbody">
             @if( isset($items) && $items )
 			    @foreach($items as  $k => $item)
-                    <div class="tr_block">
+                    <div class="tr_block" data-id="{{ $item->id }}" data-type="news">
                         <div class="tr tr_values">
                             <div class="td number">{{ $page + $k + 1 }} </div>
                             {{-- <div class="td public_date">{{ $item->public_date }}</div> --}}
                             <div class="td name">{{ $item->title }}</div>
+                            <div class="td status">
+                                <div class="form_block_items">
+                                    <div class="form_block active">
+                                        <div class="fb_inside">
+                                            <div class="fb_input input_toggle">
+                                                <div class="fb_input_inside">
+                                                    <div class="toggle toggle_news {{ $item->active == 1 ? 'active' : '' }}">
+                                                        <span></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="td edit">
                                 <a href="{{ route('admin.viewNews', ['id' => $item->id]) }}" class="edit_link">
                                     <span>

@@ -18,7 +18,7 @@ class NewsController extends Controller
 
         $input = $request->except('_token');
 
-        $paginate = 5;
+        $paginate = 25;
         
         $getItems = function($search) use ($paginate) {
             if(!$search){
