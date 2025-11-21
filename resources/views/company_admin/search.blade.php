@@ -18,7 +18,7 @@
             <label for="search-input" class="search-label">
                 <span class="label-text">SEARCH:</span>
             </label>
-            <form action="{{ route('admin.companySearch') }}" method="post">
+            <form action="{{ route('admin.companySearch') }}" method="get">
               @csrf
               <input
                 type="text"
@@ -33,14 +33,42 @@
     </section>
 
     <section class="companies-section">
-        <h2 class="section-title">Search results</h2>
-         {{ $search }} йцу {{ $resultSearch }}
+        <h2 class="section-title">Search results by country</h2>
         <div class="">
-          {{ $resultSearch }}   йцу
-          @foreach ($resultSearch as $item)
-              {{ $item }}
-          @endforeach
+
+          <table>
+            <thead>
+                <tr>
+                    <th>Participant name</th>
+                    <th>N</th>
+                    <th>NAME </th>
+                    <th>MODEL</th>
+                    <th>MANUFACTURER</th>
+                    <th>COUNTRY</th>
+                    <th>QUANTITY</th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody>
+              @foreach ($resultSearch as $e)
+              <tr>
+                <td>{{ $e->user->name }}</td>
+                <td class="code">{{ $e->code }}</td>
+                <td class="name">{{ $e->name }}</td>
+                <td class="model">{{ $e->model }}</td>
+                <td class="manufacturer">{{ $e->manufacturer }}</td>
+                <td class="country">{{ $e->country }}</td>
+                <td class="quantity">{{ $e->quantity }}</td>
+                <td><a class="section-subtitle" href="{{ route('admin.companyAdminClient', $e->id) }}">Go to page</a></td>
+              </tr>  
+              @endforeach
+              
+            </tbody>
+        </table>
         </div>
+        @if( isset($resultSearch) )
+        {{ $resultSearch->appends( request()->input() )->links() }}
+        @endif
     </section>
 
     <hr class="separator"/>

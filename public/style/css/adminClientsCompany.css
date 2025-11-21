@@ -647,6 +647,75 @@ tbody td:first-child {
   transform: translateY(1px);
 }
 
+nav[aria-label="Pagination Navigation"] div:nth-child(1) {
+  display: none;
+}
+
+
+
+nav[aria-label="Pagination Navigation"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+nav[aria-label="Pagination Navigation"] .hidden {
+  /* display: none !important; */
+}
+
+nav[aria-label="Pagination Navigation"] ul {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+}
+
+nav[aria-label="Pagination Navigation"] li {
+  display: flex;
+  align-items: center;
+}
+
+nav[aria-label="Pagination Navigation"] a,
+nav[aria-label="Pagination Navigation"] span {
+  color: #888;
+  font-size: 25px;
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: color 0.2s;
+}
+
+nav[aria-label="Pagination Navigation"] span span span {
+  padding: 0px;
+}
+
+nav[aria-label="Pagination Navigation"] span[aria-current="page"] span {
+  color: #1b7f61; /* зелёный цвет активного номера */
+  font-weight: 600;
+}
+
+nav[aria-label="Pagination Navigation"] a:hover {
+  color: #1b7f61;
+}
+
+nav[aria-label="Pagination Navigation"] svg {
+  width: 22.5px;
+  height: 22.5px;
+  stroke: #888;
+  transition: stroke 0.2s;
+}
+
+nav[aria-label="Pagination Navigation"] a:hover svg {
+  stroke: #1b7f61;
+}
+
+nav[aria-label="Pagination Navigation"] .flex.justify-between.flex-1 {
+  display: none;
+}
+
+
 /* --- АДАПТИВНОСТЬ для формы ввода (Мобильная версия) --- */
 @media (max-width: 768px) {
   .neo-input-row {

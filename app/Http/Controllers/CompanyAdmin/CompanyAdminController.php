@@ -125,6 +125,7 @@ class CompanyAdminController extends Controller
         } else {
             $searchPattern = '%' . $search . '%';
             $resultSearch = EquipmentRequest::where('country', 'LIKE', $searchPattern)
+                ->with('user')
                 ->paginate($perPage)
                 ->appends(['search' => $search]);
         }
