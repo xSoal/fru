@@ -127,7 +127,9 @@
           </div>
         </div>
       </div> --}}
-      {{ $news->links() }}
+      <div class="allNews__navCont">
+        {{ $news->links() }}
+      </div>
     </div>
   </div>
 </div>

@@ -720,6 +720,10 @@ a.mainInfo__button {
   padding-bottom: 25px;
 }
 
+.allNews__navCont {
+  margin: 100px auto;
+}
+
 .newsContent {
   margin-top: 10px;
   text-align: justify;
