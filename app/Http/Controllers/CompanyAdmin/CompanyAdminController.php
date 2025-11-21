@@ -108,6 +108,36 @@ class CompanyAdminController extends Controller
     }
 
 
+    public function search(Request $request){
+        $search = trim($request->input('search'));
+        $perPage = 1;
+
+        if(!$search){
+            // Создание пустого пагинатора, без запроса к БД
+            $resultSearch = new LengthAwarePaginator(
+                new Collection(), 
+                0,
+                $perPage,
+                LengthAwarePaginator::resolveCurrentPage(),
+                ['path' => $request->url(), 'query' => $request->query()]
+            );
+
+        } else {
+            $searchPattern = '%' . $search . '%';
+            $resultSearch = EquipmentRequest::where('country', 'LIKE', $searchPattern)
+                ->paginate($perPage)
+                ->appends(['search' => $search]);
+        }
+        // dd($resultSearch);
+        $data = [
+            'search' => $search,
+            'resultSearch' => $resultSearch
+        ];
+
+        return view('company_admin.search', $data);
+    }
+
+
 
 
 }

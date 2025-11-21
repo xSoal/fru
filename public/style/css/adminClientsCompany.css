@@ -701,6 +701,15 @@ tbody td:first-child {
   }
 }
 
+.search-section form {
+  width: 100%;
+}
+
+.search-section form input {
+  width: 100%;
+}
+
+
 /* --- АДАПТИВНОСТЬ (МОБИЛЬНАЯ ВЕРСИЯ) --- */
 @media (max-width: 768px) {
   .page-container {
@@ -726,9 +735,6 @@ tbody td:first-child {
       margin-bottom: 30px;
   }
 
-  .search-section form {
-    width: 100%;
-  }
 
 
   

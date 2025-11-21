@@ -129,6 +129,7 @@ Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function() {
 Route::group(['prefix' => 'companyAdmin', 'middleware' => 'roleCompany.auth'], function () {
     Route::get('/', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@index', 'as' => 'admin.companyAdmin']);
     Route::get('/clients/{id}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@client', 'as' => 'admin.companyAdminClient']);
+    Route::get('/search', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@search', 'as' => 'admin.companySearch']);
     
     Route::post('/addMessage', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@addMessage', 'as' => 'admin.companyAddMessage']);
 });
