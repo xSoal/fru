@@ -3,21 +3,22 @@
 namespace App\Http\Controllers\MainPage;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-
 use App\Models\News;
+
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
     public function single(Request $request, $slug){
-        $newsItem = News::where('slug', '=', $slug)->firstOrFail();
-
+        $today = Carbon::today();
+        $newsItem = News::whereDate('public_date', '<=', $today)->where('slug', '=', $slug)->firstOrFail();
         return view('main_page.singleNews')->with('newsItem', $newsItem);
     }
 
     public function allNews(){
-        $news = News::orderBy('public_date', 'desc')->paginate(6);
-
+        $today = Carbon::today();
+        $news = News::whereDate('public_date', '<=', $today)->orderBy('public_date', 'desc')->paginate(6);
         return view('main_page.news')->with('news', $news);
     }
 }

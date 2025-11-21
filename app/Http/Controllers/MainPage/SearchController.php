@@ -3,14 +3,15 @@
 namespace App\Http\Controllers\MainPage;
 
 use App\Http\Controllers\Controller;
+use App\Models\News;
+
+
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
-
-
-use App\Models\News;
 
 class SearchController extends Controller
 {
@@ -32,10 +33,15 @@ class SearchController extends Controller
 
         } else {
             $searchPattern = '%' . $search . '%';
-            $resultSearch = News::where('title', 'LIKE', $searchPattern)
-                ->orWhere('content', 'LIKE', $searchPattern)
-                ->paginate($perPage)
-                ->appends(['search' => $search]);
+            $today = Carbon::today();
+            $resultSearch = News::whereDate('public_date', '<=', $today) 
+            ->where(function ($query) use ($searchPattern) {
+                $query->where('title', 'LIKE', $searchPattern) 
+                      ->orWhere('content', 'LIKE', $searchPattern);
+            })
+            ->orderBy('public_date', 'desc')
+            ->paginate($perPage)
+            ->appends(['search' => $search]);
         }
 
 

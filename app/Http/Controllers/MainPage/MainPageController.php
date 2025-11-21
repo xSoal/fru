@@ -3,14 +3,16 @@
 namespace App\Http\Controllers\MainPage;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-
 use App\Models\News;
+
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class MainPageController extends Controller
 {
     public function index(){
-        $news = News::orderBy('public_date', 'desc')->limit(6)->get();
+        $today = Carbon::today();
+        $news = News::whereDate('public_date', '<=', $today)->orderBy('public_date', 'desc')->limit(6)->get();
         $data = [
             'title' => 'Головна',
             'news' => $news

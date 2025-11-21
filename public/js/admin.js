@@ -12,9 +12,14 @@ $(document).ready(function () {
   recountLimit();
   recountLimitTotal();
 
-  $(`input[name='public_date']`).datepicker({
-    dateFormat: 'yy-mm-dd' 
-});
+  var datepickersNodes = $('.datepicker_node');
+  if(!datepickersNodes.val()){
+    datepickersNodes.val(getCurrentDateFormatted())
+  }
+
+  datepickersNodes.datepicker({
+      dateFormat: 'yy-mm-dd' 
+  });
 
   $('form').on('keyup keypress', function(e) {
     var keyCode = e.keyCode || e.which;
@@ -1152,4 +1157,24 @@ function photoBTN(){
     });
   });
 
+}
+
+
+function getCurrentDateFormatted() {
+  // 1. Создаем новый объект Date, содержащий текущую дату и время
+  var today = new Date();
+
+  // 2. Получаем части даты
+  var year = today.getFullYear();
+  // Месяцы нумеруются с 0 (Январь = 0, Ноябрь = 10), поэтому добавляем 1
+  var month = today.getMonth() + 1; 
+  var day = today.getDate();
+
+  // 3. Форматируем месяц и день, добавляя ведущий ноль (например, 5 -> 05)
+  // String(month).padStart(2, '0')
+  var formattedMonth = String(month).padStart(2, '0');
+  var formattedDay = String(day).padStart(2, '0');
+
+  // 4. Объединяем части в требуемый формат ГГГГ-ММ-ДД
+  return `${year}-${formattedMonth}-${formattedDay}`;
 }

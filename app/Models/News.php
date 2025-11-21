@@ -22,7 +22,7 @@ class News extends Model
     ];
 
     
-    protected function publicDate(): Attribute
+    protected function publicDateFormat(): Attribute
     {
         return Attribute::make(
             get: fn (?string $value) => $this->formatUkrainianDate($value),

@@ -25,7 +25,7 @@ class NewsController extends Controller
                 return News::orderBy('public_date', 'desc')->paginate($paginate);
             }
             return News::where('title', 'LIKE', '%' . $search . '%' )
-                ->orderBy('public_date', 'asc')
+                ->orderBy('public_date', 'desc')
                 ->paginate($paginate);
         };
         $items = $getItems($search);

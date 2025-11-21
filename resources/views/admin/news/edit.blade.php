@@ -81,7 +81,7 @@
                             </div>
                             <div class="fb_input">
                                 <div class="fb_input_inside">
-                                    <input name="public_date" value="{{ $item->public_date ?? '' }}">
+                                    <input class="datepicker_node" name="public_date" value="{{ $item->public_date ?? '' }}">
                                 </div>
                             </div>
                         </div>

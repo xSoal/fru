@@ -56,7 +56,7 @@
 			    @foreach($items as  $k => $item)
                     <div class="tr_block">
                         <div class="tr tr_values">
-                            <div class="td number">{{ $page + $k + 1 }}</div>
+                            <div class="td number">{{ $page + $k + 1 }} {{ $item->public_date }}</div>
                             <div class="td name">{{ $item->title }}</div>
                             <div class="td edit">
                                 <a href="{{ route('admin.viewNews', ['id' => $item->id]) }}" class="edit_link">
