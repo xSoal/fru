@@ -725,6 +725,13 @@ tbody td:first-child {
   .search-section {
       margin-bottom: 30px;
   }
+
+  .search-section form {
+    width: 100%;
+  }
+
+
+  
   .neo-input-group {
       width: 100%;
   }

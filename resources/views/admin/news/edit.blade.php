@@ -3,7 +3,7 @@
 
 @section('content')
 
-<section class="add_category edit_category main_section">
+<section class="add_category edit_category main_section news_admin">
     <div class="title_h1">
         
         <div class="top_block">
