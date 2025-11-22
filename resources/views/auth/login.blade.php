@@ -78,7 +78,7 @@
 </div>
 
 
-<div class="container">
+{{-- <div class="container">
 
     <div class="popup_body">
         <div class="popup_left">
@@ -135,7 +135,7 @@
             </div>
         </div>
     </div>
-<div>
+<div> --}}
 
 
 
