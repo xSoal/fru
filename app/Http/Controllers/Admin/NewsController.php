@@ -25,7 +25,7 @@ class NewsController extends Controller
             if(!$search){
                 return News::where('type', $this->getNewsType($request->path()))->orderBy('public_date', 'desc')->paginate($paginate);
             }
-            return News::where('type', $type)
+            return News::where('type', $this->getNewsType($request->path()))
                 ->where('title', 'LIKE', '%' . $search . '%' )
                 ->orderBy('public_date', 'desc')
                 ->paginate($paginate);
@@ -60,8 +60,13 @@ class NewsController extends Controller
         //-----------------------------------------------------------------
         if( isset($input['save']) || isset($input['save_and_exit']) ){
             $news->fill($input);
-            
             $news->slug = Str::slug($input['title']);
+
+            $type = $this->getNewsType($request->path());
+            if($type === 'rules' || $type === 'support'){
+                $news->slug = $type . '-' . Str::slug($input['title']);
+            }
+            
             if( $news->save() ){
                 
                 if( isset($input['save_and_exit']) ){
