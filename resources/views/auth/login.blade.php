@@ -21,22 +21,35 @@
 <div class=" loginCont">
 
     <div class="login-page-container">
-        <form class="login-form">
+        <form action="{{ route('login') }}" class="login-form" method="post">
+            @csrf
             <div class="form-group">
                 <label for="loginField">Логін *</label>
                 <p class="">Будь ласка, заповніть поле</p>
                 {{-- <p class="validation-error">Будь ласка, заповніть поле</p> --}}
                 {{-- <input type="text" id="loginField" class="form-control error-input" required> --}}
-                <input type="text" id="loginField" class="form-control" required>
+                @error('email')
+                    <p class="validation-error" role="alert">
+                        <strong>Не вірно введені дані</strong>
+                    </p>
+                @enderror
+                
+                <input type="text" name="email" id="loginField" class="form-control" required>
             </div>
     
             <div class="form-group">
                 <label for="passwordInput">Пароль *</label>
+                @error('password')
+                    <span class="ivalidation-error" role="alert">
+                        <strong>Не вірно введені дані</strong>
+                    </span>
+                @enderror
                 <div class="password-container">
                     <div class="password-icon-wrapper">
                         <i class="fas fa-key"></i> 
                     </div>
                     <input type="password" 
+                           name="password"
                            id="passwordInput" 
                            class="form-control password-input" 
                            required>
@@ -64,7 +77,7 @@
     
 </div>
 
-{{-- 
+
 <div class="container">
 
     <div class="popup_body">
@@ -122,7 +135,7 @@
             </div>
         </div>
     </div>
-<div> --}}
+<div>
 
 
 
