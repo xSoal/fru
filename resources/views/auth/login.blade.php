@@ -19,24 +19,46 @@
 </div>
 
 <div class=" loginCont">
-    <div class="login-container">
-        <form  action="{{ route('login') }}" class="login-form" method="POST">
-            @csrf
-            <h2>Вхід</h2>
-            <label for="username">Логін *</label>
-            <input type="text" id="username" name="email" required placeholder="Будь ласка, заповніть поле">
-            <label for="password">Пароль *</label>
-            <div class="password-wrapper">
-                <input type="password" id="password" name="password" required placeholder="Будь ласка, заповніть поле">
-                <span class="toggle-password">
-                    <img src="/images/icons/eye.svg">
-                </span>
+
+    <div class="login-page-container">
+        <form class="login-form">
+            <div class="form-group">
+                <label for="loginField">Логін *</label>
+                <p class="">Будь ласка, заповніть поле</p>
+                {{-- <p class="validation-error">Будь ласка, заповніть поле</p> --}}
+                {{-- <input type="text" id="loginField" class="form-control error-input" required> --}}
+                <input type="text" id="loginField" class="form-control" required>
             </div>
-            <div class="remember-me">
-                <input type="checkbox" id="remember" name="remember">
-                <label for="remember">Запам’ятати мене</label>
+    
+            <div class="form-group">
+                <label for="passwordInput">Пароль *</label>
+                <div class="password-container">
+                    <div class="password-icon-wrapper">
+                        <i class="fas fa-key"></i> 
+                    </div>
+                    <input type="password" 
+                           id="passwordInput" 
+                           class="form-control password-input" 
+                           required>
+                    <button type="button" 
+                            id="togglePassword" 
+                            class="toggle-password">
+                            <div class="div-fa-eye">
+                                <i class="fas fa-eye"></i> 
+                            </div>
+                            <div class="div-fa-eye-slash hidden">
+                                <i class="fas fa-eye-slash" ></i> 
+                            </div>
+                    </button>
+                </div>
             </div>
-            <button type="submit">Увійти</button>
+    
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="rememberMe">
+                <label for="rememberMe">Запам'ятати мене</label>
+            </div>
+    
+            <button type="submit" class="btn btn-primary btn-submit">Увійти</button>
         </form>
     </div>
     

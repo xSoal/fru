@@ -8,7 +8,30 @@ $(document).ready(function () {
   burgerMenu();
   showHidePassword();
   scrollTopButton();
+  passwordShowToggle();
 });
+
+
+function passwordShowToggle() {
+  var toggleButton = document.getElementById('togglePassword');
+  var passwordInput = document.getElementById('passwordInput');
+  var divEye = document.querySelector('.div-fa-eye');
+  var divEyeSlashed = document.querySelector('.div-fa-eye-slash');
+
+  toggleButton.addEventListener('click', function() {
+      
+      if (passwordInput.getAttribute('type') === 'password') {
+        passwordInput.type = 'text';
+        divEye.classList.add('hidden')
+        divEyeSlashed.classList.remove('hidden')
+        
+      } else {
+        passwordInput.type = 'password';
+        divEyeSlashed.classList.add('hidden')
+        divEye.classList.remove('hidden')
+      }
+  });
+}
 
 
 function scrollTopButton(){

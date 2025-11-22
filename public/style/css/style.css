@@ -672,7 +672,7 @@ a.mainInfo__button {
   min-height: 400px;
   background-repeat: no-repeat !important;
   background-position: center right !important;
-  background-size: 100% !important;
+  background-size: cover;
   padding: 50px 0px;
 }
 
@@ -1097,77 +1097,137 @@ nav[aria-label="Pagination Navigation"] a:hover svg {
 
 
 
+/* login form */
 
-.login-container {
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  width: 300px;
+/* Підключення Font Awesome (Якщо не підключено) */
+/* @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'); */
+
+/* ------------------ БАЗОВІ СТИЛІ ФОН + КОНТЕЙНЕР ------------------ */
+.hidden {
+  display: none;
 }
 
-.login-form h2 {
-  text-align: center;
+.login-form {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 380px; /* Фіксована ширина форми */
+}
+
+.form-group {
   margin-bottom: 20px;
 }
 
-.login-form label {
+/* ------------------ СТИЛІ ПОЛІВ ВВЕДЕННЯ ------------------ */
+
+label {
   display: block;
-  margin-bottom: 5px;
   font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
 }
 
-.login-form input[type="text"],
-.login-form input[type="password"] {
+.form-control {
   width: 100%;
-  padding: 8px;
-  margin-bottom: 15px;
+  padding: 10px 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  box-sizing: border-box; /* Важливо для width: 100% */
+  transition: border-color 0.3s;
 }
 
-.password-wrapper {
-  position: relative;
+/* Стиль для інпуту з помилкою (як у полі "Логін") */
+.error-input {
+  border: 2px solid #a00; /* Червона обведення */
+  border-radius: 20px; /* Більш скруглені кути для Логіна */
 }
 
-.toggle-password {
-  position: absolute;
-  right: -18px;
-  top: 0px;
-  padding: 10px;
-  cursor: pointer;
-  background-color: #157c57;
-  height: 13px;
+.validation-error {
+  color: #a00;
+  font-size: 0.9em;
+  margin-bottom: 5px;
+}
+
+/* ------------------ ПОЛЕ ПАРОЛЯ (КОМПЛЕКСНИЙ ІНПУТ) ------------------ */
+
+.password-container {
+  display: flex;
+  border: 2px solid #ccc;
+  border-radius: 5px; /* Менші скруглення, ніж у Логіна */
+  overflow: hidden;
+  /* Червона обведення для поля пароля на скріншоті */
+  border: 1px solid #ccc;
+}
+
+.password-icon-wrapper {
+  background-color: #f8f8f8;
+  color: #444;
+  padding: 10px 12px;
+  border-right: 2px solid transparent; 
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 40px;
 }
 
-.remember-me {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.remember-me input {
-  margin-right: 10px;
-}
-
-.login-form button {
-  width: 100%;
+.password-input {
+  flex-grow: 1; 
+  border: none; /* Видаляємо рамку всередині контейнера */
   padding: 10px;
-  background-color: #157c57;
+  font-size: 16px;
+  outline: none;
+  border-radius: 0; /* Прибираємо скруглення тут */
+}
+
+.toggle-password {
+  background-color: #28a745; /* Зелений колір кнопки */
   color: white;
   border: none;
-  border-radius: 5px;
-  font-size: 16px;
+  padding: 10px 15px;
   cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
 }
 
-.login-form button:hover {
-  background-color: #45a049;
+.toggle-password:hover {
+  background-color: #218838;
 }
 
+/* ------------------ ЧЕКБОКС ------------------ */
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-top: -10px; /* Підтягуємо вище */
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+}
+
+/* ------------------ КНОПКА SUBMIT ------------------ */
+
+.btn-submit {
+  width: 100%;
+  background-color: #28a745; /* Зелений колір */
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.2s;
+}
+
+.btn-submit:hover {
+  background-color: #218838;
+}
+
+/* login form end */
 
 .loginCont {
   display: flex;
