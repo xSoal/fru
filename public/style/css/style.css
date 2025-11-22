@@ -55,11 +55,19 @@ html {
 }
 
 body {
-  font-size: 16px;
+  font-size: 14px;
+	background-color: #f5f5f5;
   /* font-family: 'Inter', sans-serif; */
   font-family: 'Open Sans', sans-serif;
   margin: 0px;
   color: #072446;
+}
+
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
 }
 
 
@@ -175,7 +183,6 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 15px;
 }
 
 .headerLogo {
@@ -240,7 +247,7 @@ nav[role] .hidden {
   display: flex;
   flex-direction: row;
   align-items: stretch;
-  padding: 75px 0 75px 0;
+  padding: 0 0 75px 0;
 }
 
 .mainInfo a {
@@ -272,7 +279,8 @@ nav[role] .hidden {
   display: flex;
   flex-grow: 1;
   border-radius: 10px;
-  padding-top: 24.5%;
+  padding-top: 24%;
+	background-size: 110%;
 }
 
 .mainInfo__leftDoubleRow {
@@ -708,6 +716,7 @@ a.mainInfo__button {
   background-color: white;
   border-radius: 55px;
   padding: 10px 15px;
+  margin-top: 100px;
   border: 1px solid #999;
 }
 
@@ -793,7 +802,7 @@ nav[aria-label="Pagination Navigation"] li {
 nav[aria-label="Pagination Navigation"] a,
 nav[aria-label="Pagination Navigation"] span {
   color: #888;
-  font-size: 50px;
+  font-size: 32px;
   text-decoration: none;
   padding: 4px 8px;
   border-radius: 4px;
@@ -814,8 +823,8 @@ nav[aria-label="Pagination Navigation"] a:hover {
 }
 
 nav[aria-label="Pagination Navigation"] svg {
-  width: 45px;
-  height: 45px;
+	width: 25px;
+	height: 25px;
   stroke: #888;
   transition: stroke 0.2s;
 }
@@ -833,10 +842,12 @@ nav[aria-label="Pagination Navigation"] a:hover svg {
   width: 25%;
   position: sticky;
   top: 105px;
+  padding-right: 20px;
 }
 
 .sibgleNewsContent {
   width: 75%;
+  text-align: justify;
 }
 
 .sibgleNewsContent {
@@ -887,8 +898,8 @@ nav[aria-label="Pagination Navigation"] a:hover svg {
 .ramstein__desc {
   color: #405264;
   margin-bottom: 20px;
-  font-size: 18px;
-  line-height: 1.6;
+	font-size: 16px;
+	line-height: 1.86;
   font-weight: 300;
   font-family: Open Sans;
 }
@@ -1009,7 +1020,7 @@ nav[aria-label="Pagination Navigation"] a:hover svg {
 /* Форма */
 .contact-form input,
 .contact-form textarea {
-  width: 100%;
+  width: 95%;
   background: #ececec;
   border: none;
   padding: 18px 20px;
