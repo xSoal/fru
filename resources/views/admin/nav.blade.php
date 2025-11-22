@@ -13,6 +13,18 @@
             </div>
         </div>
 
+        <div class="admin_menu_section">
+            <div class="admin_menu_title">
+                <a href="{{ route('admin.support') }}" class="menu_title_item menu_single">Програма підтримки</a>
+            </div>
+        </div>
+
+        <div class="admin_menu_section">
+            <div class="admin_menu_title">
+                <a href="{{ route('admin.rules') }}" class="menu_title_item menu_single">Правила регулювання</a>
+            </div>
+        </div>
+
         <div class="admin_menu_section user_icon">
             <div class="admin_menu_title">
                 <a href="{{ route('admin.companies') }}" class="menu_title_item menu_single">Institutional Partners</a>

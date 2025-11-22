@@ -80,6 +80,24 @@
 			<div class="headerMenu">
 				<nav class="nav" role="navigation" aria-label="Головна навігація сайту">
 					<ul class="headerMenuLinks">
+						@if(auth()->user())
+						<li class="headerSubmenuCont">
+							<a href="/news">
+								Довідкова інформація 
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+								<div class="headerSubmenu">
+									<a href="{{ route('main_page.support') }}">
+										Програма підтримки
+									</a>
+									<a href="{{ route('main_page.rules') }}">
+										Правила регулювання
+									</a>
+								</div>
+							</a>
+						</li>
+						@endif
 						<li><a href="/news">Новини</a></li>
 						<li><a href="/contacts">Контакти</a></li>
 					</ul>

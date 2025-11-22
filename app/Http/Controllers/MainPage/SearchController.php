@@ -12,12 +12,14 @@ use Illuminate\Http\Request;
 
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 
 class SearchController extends Controller
 {
     public function index(Request $request){
         $search = trim($request->input('search'));
         $perPage = 1;
+
 
         if(!$search){
             // Создание пустого пагинатора, без запроса к БД
@@ -29,20 +31,27 @@ class SearchController extends Controller
                 ['path' => $request->url(), 'query' => $request->query()]
             );
 
-
-
         } else {
+
             $searchPattern = '%' . $search . '%';
             $today = Carbon::today();
-            $resultSearch = News::whereDate('public_date', '<=', $today)
-            ->where('active', 1)
-            ->where(function ($query) use ($searchPattern) {
-                $query->where('title', 'LIKE', $searchPattern) 
-                      ->orWhere('content', 'LIKE', $searchPattern);
-            })
-            ->orderBy('public_date', 'desc')
-            ->paginate($perPage)
-            ->appends(['search' => $search]);
+
+            $query = News::whereDate('public_date', '<=', $today)
+                ->where('active', 1)
+                ->where(function ($q) use ($searchPattern) {
+                    $q->where('title', 'LIKE', $searchPattern) 
+                    ->orWhere('content', 'LIKE', $searchPattern);
+                });
+
+            if (!Auth::user()) {
+                $query->where('type', 'news');
+            }
+            
+            $resultSearch = $query->orderBy('public_date', 'desc')
+                ->paginate($perPage)
+                ->appends(['search' => $search]);
+                
+
         }
 
 

@@ -100,10 +100,28 @@ Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function() {
 
     Route::group(['prefix' => 'news'], function () {
         Route::get('/', ['uses' => '\App\Http\Controllers\Admin\NewsController@list', 'as' => 'admin.news']);
-        Route::get('/add', ['uses' => '\App\Http\Controllers\Admin\NewsController@add', 'as' => 'admin.addNews']);
-        Route::get('/{id}', ['uses' => '\App\Http\Controllers\Admin\NewsController@view', 'as' => 'admin.viewNews']);
+        Route::get('/add', ['uses' => '\App\Http\Controllers\Admin\NewsController@add', 'as' => 'admin.add_news']);
+        Route::get('/{id}', ['uses' => '\App\Http\Controllers\Admin\NewsController@view', 'as' => 'admin.view_news']);
 
-        Route::post('/', ['uses' => '\App\Http\Controllers\Admin\NewsController@post', 'as' => 'admin.postNews']);
+        Route::post('/', ['uses' => '\App\Http\Controllers\Admin\NewsController@post', 'as' => 'admin.post_news']);
+
+    });
+
+    Route::group(['prefix' => 'rules'], function () {
+        Route::get('/', ['uses' => '\App\Http\Controllers\Admin\NewsController@list', 'as' => 'admin.rules']);
+        Route::get('/add', ['uses' => '\App\Http\Controllers\Admin\NewsController@add', 'as' => 'admin.add_rules']);
+        Route::get('/{id}', ['uses' => '\App\Http\Controllers\Admin\NewsController@view', 'as' => 'admin.view_rules']);
+
+        Route::post('/', ['uses' => '\App\Http\Controllers\Admin\NewsController@post', 'as' => 'admin.post_rules']);
+
+    });
+
+    Route::group(['prefix' => 'support'], function () {
+        Route::get('/', ['uses' => '\App\Http\Controllers\Admin\NewsController@list', 'as' => 'admin.support']);
+        Route::get('/add', ['uses' => '\App\Http\Controllers\Admin\NewsController@add', 'as' => 'admin.add_support']);
+        Route::get('/{id}', ['uses' => '\App\Http\Controllers\Admin\NewsController@view', 'as' => 'admin.view_support']);
+
+        Route::post('/', ['uses' => '\App\Http\Controllers\Admin\NewsController@post', 'as' => 'admin.post_support']);
 
     });
 
@@ -152,7 +170,17 @@ Route::group(['prefix' => 'clientAdmin', 'middleware' => 'roleClient.auth'], fun
 
 Route::group(['prefix' => 'news'], function() {
     Route::get('/', ['uses' => '\App\Http\Controllers\MainPage\NewsController@allNews', 'as' => 'main_page.news']);
-    Route::get('/{slug}', ['uses' => '\App\Http\Controllers\MainPage\NewsController@single', 'as' => 'main_page.singleNews']);
+    Route::get('/{slug}', ['uses' => '\App\Http\Controllers\MainPage\NewsController@single', 'as' => 'main_page.single_news']);
+});
+
+Route::group(['prefix' => 'rules'], function() {
+    Route::get('/', ['uses' => '\App\Http\Controllers\MainPage\NewsController@allNews', 'as' => 'main_page.rules']);
+    Route::get('/{slug}', ['uses' => '\App\Http\Controllers\MainPage\NewsController@single', 'as' => 'main_page.single_rules']);
+});
+
+Route::group(['prefix' => 'support'], function() {
+    Route::get('/', ['uses' => '\App\Http\Controllers\MainPage\NewsController@allNews', 'as' => 'main_page.support']);
+    Route::get('/{slug}', ['uses' => '\App\Http\Controllers\MainPage\NewsController@single', 'as' => 'main_page.single_support']);
 });
 
 Route::get('/search', ['uses' => '\App\Http\Controllers\MainPage\SearchController@index', 'as' => 'main_page.search']);

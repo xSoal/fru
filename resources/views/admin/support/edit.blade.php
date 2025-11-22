@@ -7,17 +7,17 @@
     <div class="title_h1">
         
         <div class="top_block">
-            <a href="{{ route('admin.news') }}" class="back_to">Назад</a>
+            <a href="{{ route('admin.support') }}" class="back_to">Назад</a>
         </div>
         
-        <h1>Редагувати</h1>
+        <h1>Редагувати qwe</h1>
 
     </div>
     <div class="form_block_items form_add form_edit">
-        <form action="{{ route('admin.post_news') }}" method="POST">
+        <form action="{{ route('admin.post_support') }}" method="POST">
             {{ csrf_field() }} 
             <input type="hidden" name="id" value="{{$item->id ?? 0}}">
-            <input type="hidden" name="type" value="news">
+            <input type="hidden" name="type" value="support">
             <div class="select_bg"></div>
 
             
