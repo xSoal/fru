@@ -1,3 +1,10 @@
+<form method="POST" action="{{ route('logout') }}">
+    @csrf
+    <a class="logout" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" style="color:white; text-decoration:none; font-size:18px; display:flex; align-items:center; gap:8px;">
+        <i class="fa-solid fa-right-from-bracket"></i> Вихід
+    </a>
+</form>
+
 <nav class="admin_menu ">
     <div class="in_admin_menu">
 
@@ -67,10 +74,10 @@
 
 
             <form method="POST" action="{{ route('logout') }}">
-            @csrf
-            <div class="admin_menu_link">
-                <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" class="menu_link_item">Вихід</a>
-            </div>
+                @csrf
+                <div class="admin_menu_link">
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" class="menu_link_item">Вихід</a>
+                </div>
             </form>
             
         </div>

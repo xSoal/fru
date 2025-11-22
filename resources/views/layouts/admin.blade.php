@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{asset('js/jquery-ui-1.13.1/jquery-ui.css')}}">
     <link rel="stylesheet" href="{{asset('style/css/admin.css')}}?{{ time() }}">
     <link rel="icon" type="image/png" href="{{asset('images/favicon/favicon.png')}}" />
-
+    <script src="{{ asset('/js/all.min.js') }}"></script>
     <script src="{{asset('js/admin.js')}}?{{ time() }}"></script>
 
 </head> 
