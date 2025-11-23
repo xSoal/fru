@@ -110,7 +110,7 @@ class CompanyAdminController extends Controller
 
     public function search(Request $request){
         $search = trim($request->input('search'));
-        $perPage = 1;
+        $perPage = 25;
 
         if(!$search){
             // Создание пустого пагинатора, без запроса к БД
