@@ -728,6 +728,36 @@ nav[aria-label="Pagination Navigation"] .flex.justify-between.flex-1 {
 }
 
 
+.messenger__openChatTd {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .4s;
+
+}
+
+.messenger__openChatTd a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  transition: .4s;
+}
+
+.messenger__openChatTd:hover {
+  background-color: #1abc9c;
+}
+
+.messenger__openChatTd i {
+  color: #1abc9c;
+}
+
+.messenger__openChatTd:hover svg {
+  stroke: white;
+}
+
+
 /* --- АДАПТИВНОСТЬ для формы ввода (Мобильная версия) --- */
 @media (max-width: 768px) {
   .neo-input-row {

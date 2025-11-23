@@ -13,6 +13,7 @@ class Message extends Model
         'conversation_id',
         'sender_id',
         'content',
+        'is_read'
     ];
 
     /**
@@ -29,5 +30,10 @@ class Message extends Model
     public function sender()
     {
         return $this->belongsTo(User::class, 'sender_id');
+    }
+
+    public function setMessageReadStatus(){
+        $this->is_read = 1;
+        return $this->save();
     }
 }

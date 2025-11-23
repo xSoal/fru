@@ -3,12 +3,20 @@
 @section('content')
 
 <div class="page-container neo-card details-page">
+  <?php 
+    $newMessages = Auth::user()->newMessagesCount();
+  ?>
+  @if($newMessages !== false)
   <div class="messageCont">
+  <a href="{{ route('messenger', [ 'id' => Auth::user()->id ]) }}">
     <button class="messages-button neo-accent-btn">
-        <span class="icon-indicator">4</span>
+        <span class="icon-indicator">{{ $newMessages }}</span>
         MESSAGES
     </button>
+  </a>  
+
   </div>
+  @endif
 
   <header class="header">
       <h1 class="page-title details-title">

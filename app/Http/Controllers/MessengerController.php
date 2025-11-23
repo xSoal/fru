@@ -11,9 +11,9 @@ class MessengerController extends Controller
 {
     public function index(Request $request, $user_for_chat_view_id){
         $user_for_chat_view = User::where('id', $user_for_chat_view_id)->first();
-
+      
         // проверка, что если роль не не админ, переписки смотреть можно только свои
-        if(in_array($user_for_chat_view->role, ['0','1'])){
+        if(in_array((int)$user_for_chat_view->role, [0, 1])){
             $current_user_id = Auth::id();
             if($current_user_id !== (int)$user_for_chat_view_id){
                 abort(404);
@@ -46,36 +46,72 @@ class MessengerController extends Controller
 
     public function single(Request $request, $user_for_chat_view_id, $chatId){
         $user_for_chat_view = User::where('id', $user_for_chat_view_id)->first();
+        $current_user = Auth::user();
+
 
         // проверка, что если роль не не админ, переписки смотреть можно только свои
-        if(in_array($user_for_chat_view->role, ['0','1'])){
-            $current_user_id = Auth::id();
-            if($current_user_id !== (int)$user_for_chat_view_id){
+        if(in_array($current_user->role, ['0','1'])){
+            if($current_user->id !== (int)$user_for_chat_view_id){
                 abort(404);
             }
         }
 
-        $chats = [];
+        $chat = [];
 
+        $chat = Conversation::where('id', $chatId) 
+            ->with(['messages', 'userOne', 'userTwo'])
+            ->firstOrFail();
+
+        $dialog_with_user = $chat->userOne;
         if((int)$user_for_chat_view->role === 1){
-            $chats = Conversation::where('user_one_id', $user_for_chat_view_id) 
-                ->with(['messages', 'userOne', 'userTwo'])
-                ->get();
+            $dialog_with_user = $chat->userTwo;
         }
-
-        if((int)$user_for_chat_view->role === 0){
-            $chats = Conversation::where('user_two_id', $user_for_chat_view_id) 
-                ->with(['messages', 'userOne', 'userTwo'])
-                ->get();
-        }
-
-
-
+            
         $data = [
-            'chats' => $chats,
-            'user_for_chat_view' => $user_for_chat_view
+            'chat' => $chat,
+            'user_for_chat_view' => $user_for_chat_view,
+            'current_user' => $current_user,
+            'dialog_with_user' => $dialog_with_user
         ];
 
         return view('messenger.messenger_single', $data);
     }
+
+
+    public function addMessage(Request $request){
+        
+        $request->validate([
+            'content' => 'required|string|max:2000',
+        ], [
+        ]);
+       
+        $senderId = Auth::id();
+        $content = $request->input('content');
+        $conversation_id = $request->input('conversation_id');
+
+        $conversation = Conversation::where('id', $conversation_id)->firstOrFail();
+        
+        $message = $conversation->messages()->create([
+            'sender_id' => $senderId,
+            'content' => $content,
+        ]);
+
+        $dialog_with_user = $conversation->userTwo;
+
+        if((int)Auth::user()->role === 0 ){
+            $dialog_with_user = $conversation->userOne;
+        }
+
+        return redirect()->route('messenger.single', [
+            'id' => Auth::user()->id,
+            'chatId' => $conversation->id
+        ])->with([
+            'chat' => $conversation,
+            'user_for_chat_view' => Auth::user(),
+            'current_user' => Auth::user(),
+            'dialog_with_user' => $dialog_with_user
+        ]);
+    }
+
+
 }

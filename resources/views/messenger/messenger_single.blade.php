@@ -2,60 +2,75 @@
 
 @section('content')
 
-    {{ $chats[0]->messages }}
-
     <div class="page-container neo-card details-page">
+
+        <?php 
+            $newMessages = Auth::user()->newMessagesCount();
+        ?>
+        @if($newMessages !== false)
         <div class="messageCont">
-          <button class="messages-button neo-accent-btn">
-              <span class="icon-indicator">4</span>
-              MESSAGES
-          </button>
+          <a href="{{ route('messenger', [ 'id' => Auth::user()->id ]) }}">
+            <button class="messages-button neo-accent-btn">
+                <span class="icon-indicator">{{ $newMessages }}</span>
+                MESSAGES
+            </button>
+          </a>  
+
         </div>
+        @endif
       
         <header class="header">
             <h1 class="page-title details-title">
-              <span class="neo-highlight">Chats of</span> {{ $user_for_chat_view->name }}
+              <p class="neo-highlight">{{ $user_for_chat_view->name }}</p> 
+              <p>with</p>
+              <p class="neo-highlight">{{ $dialog_with_user->name }}</p>
             </h1>
         </header>
       
-        
-      
         <hr class="separator"/>
-        <section class="request-table-section">
-            <h2 class="section-subtitle">Chats</h2>
-            <div class="responsive-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Last message</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($chats as $e )
-                          <tr>
-                            <td>{{ $e->userOne->name }}</td>
-                            <td>
-                                {{ $e->messages[0]->content }}
-                                {{ $e->messages[0]->is_read === 0 ? '(new)' : '' }}
-                            </td>
-                            <td class="">
-                                <a href="">
-                                    <p class="editButton neo-bg-accent submit-button">open chat</p>
-                                </a>
-                            </td>
-                          </tr>  
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </section>
-      
-        <hr class="separator"/>
-      
+
+        @if($current_user->role !== '2')
+            <section class="message-section">
+                <div class="message-form-group">
+                  <form action="{{ route('messenger.add_message') }}" method="post">
+                    @csrf
+
+                    <input name="conversation_id" value="{{ $chat->id }}"  type="text" hidden>
+                    
+                    <label for="message-text" class="message-label">Message:</label>
+                    <textarea name="content" id="message-text" class="message-textarea" placeholder="Enter message..."></textarea>
+                    
+                    <button class="submit-button neo-bg-accent" type="submit">Send</button>
+                  </form>
+                </div>
+            </section>
+        @endif
 
       
+        <section class="message-section">
+          <h2 class="section-subtitle">Messages:</h2>
+          <div class="message-form-group">
+ 
+            @foreach ($chat->messages as $item)
+                <?php
+                    $message_sender = $user_for_chat_view->id === $item->sender_id;
+                ?>
+                <div class="message {{ $message_sender ? 'message-sender' : '' }}">
+                  @if($message_sender)
+                    <div class="message__header">Your message</div>
+                  @endif
+                  <div class="message__text">{{ $item->content }}</div>
+                  <div class="message__date">{{ $item->created_at }}</div>
+                  <div class="message__isRead">{{ $item->is_read ? 'readed' : 'udreaded' }}</div>
+                </div>
+                <?php
+                    if(!$message_sender){
+                        $item->setMessageReadStatus();
+                    }
+                ?>
+            @endforeach
+          </div>
+        </section>
       
       </div>
 

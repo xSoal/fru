@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use PhpMyAdmin\Message;
 
 class User extends Authenticatable //implements MustVerifyEmail
 {
@@ -70,6 +71,35 @@ class User extends Authenticatable //implements MustVerifyEmail
                     ->orWhere('user_two_id', $this->id);
     }
 
+    public function messages()
+    {
+        return $this->hasMany(Message::class, 'sender_id');
+    }
+    
+    public function newMessagesCount()
+    {
+        if((int)$this->role === 2){
+            return false;
+        }
+
+        $chats = Conversation::where('user_one_id', $this->id)
+            ->orWhere('user_two_id', $this->id)->get();
+        $messagesUnread = [];
+        
+        foreach ($chats as $key => $chat) {
+            $chat_with_id = (int)$chat->userOne->id;
+            if((int)$this->role === 1){
+                $chat_with_id = (int)$chat->userTwo->id;
+            }
+
+            foreach ($chat->messages as $keyMessage => $message) {
+                if((int)$message->sender_id === $chat_with_id && (int)$message->is_read === 0)
+                $messagesUnread[] = $message;
+            }
+        }
+        return  count($messagesUnread);
+    }
+    
     
 
 }

@@ -5,12 +5,20 @@
 
   <div class="page-container neo-card">
     <header class="header">
-        <div class="messageCont">
+      <?php 
+          $newMessages = Auth::user()->newMessagesCount();
+      ?>
+      @if($newMessages !== false)
+      <div class="messageCont">
+        <a href="{{ route('messenger', [ 'id' => Auth::user()->id ]) }}">
           <button class="messages-button neo-accent-btn">
-              <span class="icon-indicator">4</span>
+              <span class="icon-indicator">{{ $newMessages }}</span>
               MESSAGES
           </button>
-        </div>
+        </a>  
+
+      </div>
+      @endif
     </header>
 
     <section class="search-section">
