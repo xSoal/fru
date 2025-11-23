@@ -672,7 +672,7 @@ a.mainInfo__button {
   min-height: 400px;
   background-repeat: no-repeat !important;
   background-position: center right !important;
-  background-size: cover;
+  background-size: cover !important;
   padding: 50px 0px;
 }
 
