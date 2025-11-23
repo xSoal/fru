@@ -2,6 +2,9 @@
 
 @section('content')
  <div class="page-container neo-card details-page">
+  <div class="buttonBackCont">
+      <a href="/clientAdmin/partners">< back</a>
+  </div>
   <header class="header">
       <h1 class="page-title details-title">
         <span class="neo-highlight">Name</span> {{ $partner->name }}

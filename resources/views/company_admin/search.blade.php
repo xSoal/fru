@@ -4,7 +4,11 @@
 
 
   <div class="page-container neo-card">
+    <div class="buttonBackCont">
+        <a href="/companyAdmin">< back</a>
+    </div>
     <header class="header">
+
       <?php 
           $newMessages = Auth::user()->newMessagesCount();
       ?>
@@ -43,40 +47,42 @@
     <section class="companies-section">
         <h2 class="section-title">Search results by country</h2>
         <div class="">
-
-          <table class="company__searchTable">
-            <thead>
+          @if( count($resultSearch) )
+            <table class="company__searchTable">
+              <thead>
+                  <tr>
+                      <th>Participant name</th>
+                      <th class="company__searchTableCode">N</th>
+                      <th>NAME </th>
+                      <th>MODEL</th>
+                      <th>MANUFACTURER</th>
+                      <th>COUNTRY</th>
+                      <th>QUANTITY</th>
+                      <th>Link</th>
+                  </tr>
+              </thead>
+              <tbody>
+                @foreach ($resultSearch as $e)
                 <tr>
-                    <th>Participant name</th>
-                    <th class="company__searchTableCode">N</th>
-                    <th>NAME </th>
-                    <th>MODEL</th>
-                    <th>MANUFACTURER</th>
-                    <th>COUNTRY</th>
-                    <th>QUANTITY</th>
-                    <th>Link</th>
-                </tr>
-            </thead>
-            <tbody>
-              @foreach ($resultSearch as $e)
-              <tr>
-                <td>{{ $e->user->name }}</td>
-                <td class="code company__searchTableCode">{{ $e->code }}</td>
-                <td class="name">{{ $e->name }}</td>
-                <td class="model">{{ $e->model }}</td>
-                <td class="manufacturer">{{ $e->manufacturer }}</td>
-                <td class="country">{{ $e->country }}</td>
-                <td class="quantity">{{ $e->quantity }}</td>
-                <td class="company__searchTableLink">
-                  <a class="section-subtitle" href="{{ route('admin.companyAdminClient', $e->id) }}">
-                    link
-                  </a>
-                </td>
-              </tr>  
-              @endforeach
-              
-            </tbody>
-        </table>
+                  <td>{{ $e->user->name }}</td>
+                  <td class="code company__searchTableCode">{{ $e->code }}</td>
+                  <td class="name">{{ $e->name }}</td>
+                  <td class="model">{{ $e->model }}</td>
+                  <td class="manufacturer">{{ $e->manufacturer }}</td>
+                  <td class="country">{{ $e->country }}</td>
+                  <td class="quantity">{{ $e->quantity }}</td>
+                  <td class="company__searchTableLink">
+                    <a class="section-subtitle" href="{{ route('admin.companyAdminClient', $e->id) }}">
+                      link
+                    </a>
+                  </td>
+                </tr>  
+                @endforeach
+                
+              </tbody>
+          </table>
+          @endif
+
         </div>
         @if( isset($resultSearch) )
         {{ $resultSearch->appends( request()->input() )->links() }}

@@ -4,10 +4,13 @@
 
 
   <div class="page-container neo-card">
+    <div class="buttonBackCont">
+        <a href="/">< to site</a>
+    </div>
     <header class="header">
       <?php 
-        $newMessages = Auth::user()->newMessagesCount();
-    ?>
+          $newMessages = Auth::user()->newMessagesCount();
+      ?>
     @if($newMessages !== false)
     <div class="messageCont">
       <a href="{{ route('messenger', [ 'id' => Auth::user()->id ]) }}">

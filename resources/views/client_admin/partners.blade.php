@@ -3,6 +3,9 @@
 @section('content')
 
 <div class="page-container neo-card details-page">
+  <div class="buttonBackCont">
+      <a href="/clientAdmin">< back</a>
+  </div>
   <?php 
     $newMessages = Auth::user()->newMessagesCount();
   ?>

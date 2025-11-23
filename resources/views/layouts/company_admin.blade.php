@@ -55,9 +55,6 @@
     <div class="body-wrapper">
         <div class="body-innerwrapper">
             <div class="headerTop">
-                <div class="buttonBackCont">
-                    <a href="{{ url()->previous() }}">< back</a>
-                </div>
                 <div class="buttonExit">
                     <form action="{{ route('logout') }}" method="POST" style="display: inline;">
                         @csrf
