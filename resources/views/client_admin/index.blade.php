@@ -12,7 +12,7 @@
 
   <header class="header">
       <h1 class="page-title details-title">
-        <span class="neo-highlight">Name</span> {{ $client->name }}
+        <span class="neo-highlight">{{ $client->name }}</span> 
       </h1>
   </header>
 
@@ -71,28 +71,28 @@
                   <div id="new-request-row" class="neo-input-row">
             
                     <div class="input-cell cell-name">
-                        <span class="label-text">NAME...</span>
-                        <input type="text" name="name" placeholder="Название товара" class="table-input">
+                        <span class="label-text">NAME</span>
+                        <input type="text" name="name" required placeholder="Input name" class="table-input">
                     </div>
             
                     <div class="input-cell cell-model">
                         <span class="label-text">MODEL</span>
-                        <input type="text" name="model" placeholder="Модель" class="table-input">
+                        <input type="text" name="model" required placeholder="Input model" class="table-input">
                     </div>
             
                     <div class="input-cell cell-manufacturer">
                         <span class="label-text">MANUFACTURER</span>
-                        <input type="text" name="manufacturer" placeholder="Производитель" class="table-input">
+                        <input type="text" name="manufacturer" required placeholder="Input manufacturer" class="table-input">
                     </div>
             
                     <div class="input-cell cell-country">
                         <span class="label-text">COUNTRY</span>
-                        <input type="text" name="country" placeholder="Страна" class="table-input">
+                        <input type="text" name="country" required placeholder="Input country" class="table-input">
                     </div>
             
                     <div class="input-cell cell-quantity">
                         <span class="label-text">QUANTITY</span>
-                        <input type="number" name="quantity" placeholder="Кол-во" min="1" value="1" class="table-input input-number">
+                        <input type="number" name="quantity" required placeholder="Input quantity" min="1" value="1" class="table-input input-number">
                     </div>
                   </div>
                 
@@ -112,35 +112,35 @@
                     <input hidden name="id" value="" class="editRequestId">
                     <div class="input-cell cell-name">
                       <span class="label-text">N</span>
-                      <input disabled type="text" name="code" placeholder="N" class="table-input">
+                      <input disabled required type="text" name="code" placeholder="N" class="table-input">
                   </div>
                     <div class="input-cell cell-name">
                         <span class="label-text">NAME</span>
-                        <input type="text" name="name" placeholder="Название товара" class="table-input">
+                        <input type="text" name="name" required placeholder="" class="table-input">
                     </div>
             
                     <div class="input-cell cell-model">
                         <span class="label-text">MODEL</span>
-                        <input type="text" name="model" placeholder="Модель" class="table-input">
+                        <input type="text" name="model" required placeholder="" class="table-input">
                     </div>
             
                     <div class="input-cell cell-manufacturer">
                         <span class="label-text">MANUFACTURER</span>
-                        <input type="text" name="manufacturer" placeholder="Производитель" class="table-input">
+                        <input type="text" name="manufacturer" required placeholder="" class="table-input">
                     </div>
             
                     <div class="input-cell cell-country">
                         <span class="label-text">COUNTRY</span>
-                        <input type="text" name="country" placeholder="Страна" class="table-input">
+                        <input type="text" name="country" required placeholder="" class="table-input">
                     </div>
             
                     <div class="input-cell cell-quantity">
                         <span class="label-text">QUANTITY</span>
-                        <input type="number" name="quantity" placeholder="Кол-во" min="1" value="1" class="table-input input-number">
+                        <input type="number" name="quantity" required placeholder="" min="1" value="1" class="table-input input-number">
                     </div>
                   </div>
                 
-                <button id="add-equipment-btn" class="neo-add-btn neo-bg-accent">
+                <button id="edit-equipment-btn" class="neo-add-btn neo-bg-accent">
                     + EDIT EQUIPMENT REQUEST
                 </button>
               </form>
