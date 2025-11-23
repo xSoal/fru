@@ -54,6 +54,11 @@
             <div class="message__date">{{ $item->created_at }}</div>
             <div class="message__isRead">{{ $item->is_read ? 'readed' : 'udreaded' }}</div>
           </div>
+          <?php
+            if(!$item->is_sender){
+                  $item->setMessageReadStatus();
+              }
+          ?>
       @endforeach
     </div>
 </section>

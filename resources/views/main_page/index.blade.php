@@ -118,7 +118,7 @@
                       <h4>ФРУ</h4>
                       <span>Федерація роботодавців України</span>
                   </div>
-                  <a href="#" class="ramstein-card__link">Перейти →</a>
+                  <a href="https://fru.ua/ua/" target="_blank" class="ramstein-card__link">Перейти →</a>
               </div>
 
               <div class="ramstein-card">
@@ -127,7 +127,7 @@
                       <h4>Help Desk</h4>
                       <span>Сервіси для бізнесу</span>
                   </div>
-                  <a href="#" class="ramstein-card__link">Перейти →</a>
+                  <a href="https://helpdesk.fru.ua/"  target="_blank" class="ramstein-card__link">Перейти →</a>
               </div>
           </div>
       </div>

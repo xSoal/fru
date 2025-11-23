@@ -33,7 +33,8 @@ class Message extends Model
     }
 
     public function setMessageReadStatus(){
+        unset($this->is_sender);
         $this->is_read = 1;
-        return $this->save();
+        return $this->update();
     }
 }

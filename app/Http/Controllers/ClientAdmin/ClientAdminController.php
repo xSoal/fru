@@ -48,7 +48,7 @@ class ClientAdminController extends Controller
         $equipmentRequest->country = $input["country"];
         $equipmentRequest->quantity = $input["quantity"];
 
-        if( $equipmentRequest->save() ){
+        if( $equipmentRequest->update() ){
             return redirect()->route('admin.clientAdmin')->with('status','Request was edited');
         }
     }

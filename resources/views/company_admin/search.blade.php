@@ -44,11 +44,11 @@
         <h2 class="section-title">Search results by country</h2>
         <div class="">
 
-          <table>
+          <table class="company__searchTable">
             <thead>
                 <tr>
                     <th>Participant name</th>
-                    <th>N</th>
+                    <th class="company__searchTableCode">N</th>
                     <th>NAME </th>
                     <th>MODEL</th>
                     <th>MANUFACTURER</th>
@@ -61,13 +61,17 @@
               @foreach ($resultSearch as $e)
               <tr>
                 <td>{{ $e->user->name }}</td>
-                <td class="code">{{ $e->code }}</td>
+                <td class="code company__searchTableCode">{{ $e->code }}</td>
                 <td class="name">{{ $e->name }}</td>
                 <td class="model">{{ $e->model }}</td>
                 <td class="manufacturer">{{ $e->manufacturer }}</td>
                 <td class="country">{{ $e->country }}</td>
                 <td class="quantity">{{ $e->quantity }}</td>
-                <td><a class="section-subtitle" href="{{ route('admin.companyAdminClient', $e->id) }}">Go to page</a></td>
+                <td class="company__searchTableLink">
+                  <a class="section-subtitle" href="{{ route('admin.companyAdminClient', $e->id) }}">
+                    link
+                  </a>
+                </td>
               </tr>  
               @endforeach
               

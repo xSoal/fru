@@ -758,6 +758,23 @@ nav[aria-label="Pagination Navigation"] .flex.justify-between.flex-1 {
 }
 
 
+table td {
+  padding: 5px 10px;
+}
+
+.company__searchTable th {
+  text-align: center;
+}
+
+.company__searchTable td {
+  text-align: center;
+}
+
+.company__searchTableCode {
+  min-width: 75px;
+}
+
+
 /* --- АДАПТИВНОСТЬ для формы ввода (Мобильная версия) --- */
 @media (max-width: 768px) {
   .neo-input-row {
