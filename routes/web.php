@@ -144,6 +144,7 @@ Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function() {
 
 Route::group(['prefix' => '/messenger', 'middleware' => 'auth'], function() {
     Route::get('/{id}', ['uses' => '\App\Http\Controllers\MessengerController@index', 'as' => 'messenger']);
+    Route::get('/{id}/{chatId}', ['uses' => '\App\Http\Controllers\MessengerController@single', 'as' => 'messenger.single']);
 });
 
 
