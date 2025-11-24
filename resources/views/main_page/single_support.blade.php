@@ -13,7 +13,7 @@
   <div class="mainImage__content">
     <div class="container">
       <div class="container-inner">
-        <h1 class="h1">{{ str($newsItem->title)->limit(155) }}</h1>
+        <h1 class="h1">{{ str($newsItem->title) }}</h1>
         <div class="manImageText">
           <span class="mainImage__link" title="Категорія: Новини">
             <a href="{{ route('main_page.support') }}">Програма підтримки</a>
