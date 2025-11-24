@@ -721,13 +721,15 @@ a.mainInfo__button {
 .content {
 	padding: 0px 0 100px 0;
 }
-.container p {
+.container form > p {
 	font-size: 16px;
+	margin-top: 100px;
 }
 .searchForm {
 	/*margin: 100px 0 15px 0; */
 	padding-bottom: 10px;
 }
+
 #search-result-list > li {
 	padding: 5px 0;
 }
@@ -767,10 +769,6 @@ a.mainInfo__button {
 	font-size: 14px;
 	line-height: 1.4;
 	font-weight: 400;
-}
-
-.search-results li {
-	list-style: none;
 }
 
 /* nav[aria-label="Pagination Navigation"] div:nth-child(1) {
