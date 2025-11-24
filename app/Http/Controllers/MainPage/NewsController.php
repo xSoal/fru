@@ -39,4 +39,20 @@ class NewsController extends Controller
         $final_string = $matches[1] ?? 'news';
         return $final_string;
     }
+
+    public function reference(){
+        if(!Auth::user()){
+            abort('404');
+        }
+        $today = Carbon::today();
+        $news = News::whereDate('public_date', '<=', $today)
+        ->where('active', 1)
+        ->where(function ($query) {
+            $query->where('type', 'support')
+                  ->orWhere('type', 'rules');
+        })
+        
+        ->orderBy('public_date', 'desc')->paginate(9);
+        return view('main_page.reference_information')->with('news', $news);
+    }
 }

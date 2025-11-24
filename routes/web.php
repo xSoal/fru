@@ -169,6 +169,7 @@ Route::group(['prefix' => 'clientAdmin', 'middleware' => 'roleClient.auth'], fun
 });
 
 
+Route::get('/reference-information', ['uses' => '\App\Http\Controllers\MainPage\NewsController@reference', 'as' => 'main_page.reference']);
 
 
 Route::group(['prefix' => 'news'], function() {
