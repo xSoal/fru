@@ -8,7 +8,7 @@
         <div class="top_block">
             <a href="{{ route('admin.companies') }}" class="back_to">Назад</a>
         </div>
-        <h1>Редактирование {{ $item->name }}</h1> 
+        <h1>Редактирование {{ $item->name ?? '' }}</h1> 
     </div>
     
     <div class="form_block_items form_add form_edit">
@@ -40,6 +40,7 @@
                 </div>
             </div>
 
+            @if( isset($item) )
             <div class="form_block active">
                 <div class="fb_inside">
                     <div class="fb_label">
@@ -54,6 +55,7 @@
                     </div>
                 </div>
             </div>
+            @endif
 
 
             <div class="form_block active">
@@ -160,7 +162,7 @@
                     </div>
                     <div class="fb_input">
                         <div class="fb_input_inside">
-                            <input type="checkbox" name="dialog_enable_status" {{ $item->dialog_enable_status ? 'checked' : '' }}>
+                            <input type="checkbox" name="dialog_enable_status" {{ isset($item) && $item->dialog_enable_status ? 'checked' : '' }}>
                         </div>
                     </div>
                 </div>

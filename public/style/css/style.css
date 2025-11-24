@@ -724,7 +724,7 @@ a.mainInfo__button {
 }
 .searchQueries {
 	font-size: 16px;
-	margin-top: 100px;
+	margin: 100px 0 0 40px;
 }
 .searchForm {
 	padding: 10px 0 40px 40px;

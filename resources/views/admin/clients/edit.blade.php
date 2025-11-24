@@ -38,7 +38,7 @@
                 </div>
             </div>
 
-
+            @if( isset($item) )
             <div class="form_block active">
                 <div class="fb_inside">
                     <div class="fb_label">
@@ -53,6 +53,7 @@
                     </div>
                 </div>
             </div>
+            @endif
 
 
             <div class="form_block active">
