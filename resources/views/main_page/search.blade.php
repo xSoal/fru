@@ -6,7 +6,10 @@
         <div class="row">
             <p>Пошукові запити</p>
             @include('main_page.components.search')
-            
+            {{ $resultSearch }}
+            @if(!count($resultSearch))
+                <h1>Результати відсутні</h1>
+            @endif
             <div class="search-results">
                 <ul id="search-result-list" class="search-results list-striped js-highlight com-finder__results-list">
                 @foreach ($resultSearch as $item)
