@@ -22,7 +22,7 @@ class CompanyAdminController extends Controller
     
     public function index(User $user, Request $request){
         $user = User::where('id', '=', Auth::id())->firstOrFail();
-        $clients = User::where('role', '=', '0')->get();
+        $clients = User::where('role', '=', '0')->where('active',1)->get();
 
         $data = [
             'user' => $user,
