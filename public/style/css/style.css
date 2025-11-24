@@ -186,6 +186,7 @@ li {
 	padding: 5px 0;
 	background: #e9edf3;
 	z-index: 5;
+	height: 70px;
 }
 
 .headerInner {
@@ -720,7 +721,7 @@ a.mainInfo__button {
 }
 
 .content {
-	padding: 0px 0 100px 0;
+	/* padding: 0px 0 100px 0; */
 }
 .searchQueries {
 	font-size: 16px;
@@ -752,6 +753,7 @@ a.mainInfo__button {
 
 .searchContNews {
 	text-align: right;
+	padding-top: 100px;
 }
 
 .allNews .news {
