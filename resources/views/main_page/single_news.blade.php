@@ -27,7 +27,7 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container single">
   <div class="searchContNews">
     @include('main_page.components.search')
   </div>
