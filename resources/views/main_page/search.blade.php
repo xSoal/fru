@@ -1,7 +1,7 @@
 @extends('layouts.main_page')
 
 @section('content')
-<div class="container">
+<div class="container search">
     <div class="container-inner">
         <div class="row">
             <p>Пошукові запити</p>
