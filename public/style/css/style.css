@@ -461,6 +461,7 @@ a.mainInfo__button {
 	margin-top: -45px;
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: flex-start;
 	align-items: stretch;
 }
 

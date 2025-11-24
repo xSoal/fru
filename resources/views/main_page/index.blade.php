@@ -133,7 +133,9 @@
       </div>
 
       <div class="ramstein__right">
+        <a target="_blank" href="https://helpdesk.fru.ua/promyslovyy-ramshtain">
           <img src="/images/metal-gears.jpg" alt="">
+        </a>
       </div>
 
   </div>
