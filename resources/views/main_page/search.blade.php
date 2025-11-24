@@ -6,7 +6,6 @@
         <div class="row">
             <p>Пошукові запити</p>
             @include('main_page.components.search')
-            {{ $resultSearch }}
             @if(!count($resultSearch))
                 <h1>Результати відсутні</h1>
             @endif
