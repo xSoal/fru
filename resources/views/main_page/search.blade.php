@@ -4,7 +4,7 @@
 <div class="container search">
     <div class="container-inner">
         <div class="row">
-            <p>Пошукові запити</p>
+            <p class="searchQueries">Пошукові запити</p>
             @include('main_page.components.search')
             @if(!count($resultSearch))
                 <h1>Результати відсутні</h1>
