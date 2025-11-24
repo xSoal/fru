@@ -41,7 +41,7 @@ body {
 
 /* Акценты */
 .neo-bg-accent {
-	background-color: var(--accent-primary);
+	/* background-color: var(--accent-primary); */
 	color: white;
 }
 .neo-highlight {
@@ -440,7 +440,7 @@ tbody td:first-child {
 .message {
 	padding: 10px 15px;
 	border-radius: 10px;
-	background-color: #1abc9c75;
+	background-color: #7fe8c230;
 }
 
 .message-sender {
