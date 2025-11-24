@@ -476,14 +476,15 @@ a.mainInfo__button {
 }
 
 .newsImage {
-	border-radius: 10px;
 	overflow: hidden;
 }
 
 .newsImage img {
 	max-width: 100%;
 	width: auto;
-	height: auto;
+	border-radius: 10px 10px 0 0;
+	height: 270px;
+	object-fit: cover;
 }
 
 .newsTextBlock {
@@ -746,7 +747,7 @@ a.mainInfo__button {
 }
 
 #search-result-list > li {
-	padding: 5px 0;
+	padding: 10px 0;
 }
 
 .searchForm input {
@@ -1294,7 +1295,17 @@ label {
 
 .result-title {
 	font-size: 22px;
-	margin: 5px 0;
+	margin: -10px 0;
+	line-height: 1.2;
+}
+blockquote {
+	border-radius: 4px;
+	padding: 25px 20% 25px 50px;
+	background-color: #f1f1f1;
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 34px;
+	text-align: left;
 }
 
 @media (max-width: 1400px) {
