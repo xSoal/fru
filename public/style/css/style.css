@@ -461,7 +461,6 @@ a.mainInfo__button {
 	margin-top: -45px;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: flex-start;
 	align-items: stretch;
 }
 
@@ -727,23 +726,7 @@ a.mainInfo__button {
 	margin-top: 100px;
 }
 .searchForm {
-	padding-bottom: 10px;
-}
-
-.single .searchContNews {
-	margin-top: 100px;
-}
-
-.search {
-	padding: 100px 0px;
-}
-
-.searchContNews {
-	
-}
-
-.search .searchForm {
-	margin-top: 0px;
+	padding: 10px 0 40px 40px;
 }
 
 #search-result-list > li {
@@ -790,7 +773,6 @@ a.mainInfo__button {
 .search-results li {
 	list-style: none;
 }
-
 
 /* nav[aria-label="Pagination Navigation"] div:nth-child(1) {
   display: none;
