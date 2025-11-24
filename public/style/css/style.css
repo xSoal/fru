@@ -775,6 +775,10 @@ a.mainInfo__button {
 	list-style: none;
 }
 
+.searchContNews {
+	margin: 100px 0 15px 0;
+}
+
 /* nav[aria-label="Pagination Navigation"] div:nth-child(1) {
   display: none;
 }
