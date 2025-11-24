@@ -108,6 +108,13 @@ a:active {
 	margin-left: 10px;
 }
 
+h1,
+h2,
+h3 {
+	text-align: left;
+	font-family: 'Open Sans', sans-serif;
+}
+
 .h2 {
 	font-weight: 700;
 	font-size: 64px;
@@ -708,18 +715,27 @@ a.mainInfo__button {
 }
 
 .content {
-	padding: 45px 0px;
+	padding: 0px 0 100px 0;
 }
 
 .searchForm {
-	margin: 15px 0;
+	margin: 100px 0 15px 0;
 }
 
 .searchForm input {
 	background-color: white;
 	border-radius: 55px;
-	padding: 10px 15px;
-	border: 1px solid #999;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #072446;
+	background-clip: padding-box;
+	border: 1px solid #ced4da;
+	-moz-appearance: none;
+	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	outline: none;
+	box-shadow: none !important;
+	padding: 10px 24px;
 }
 
 .searchContNews {
