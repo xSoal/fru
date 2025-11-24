@@ -18,7 +18,7 @@ class SearchController extends Controller
 {
     public function index(Request $request){
         $search = trim($request->input('search'));
-        $perPage = 1;
+        $perPage = 9;
 
 
         if(!$search){

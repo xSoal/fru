@@ -44,7 +44,7 @@
             </div>
             <div class="newsTitle">
               <h5 class="h5">
-                <a>
+                <a href="/{{ $item->type }}/{{ $item->slug }}">
                   {{ $item->title }}
                 </a>
               </h5>
