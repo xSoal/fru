@@ -771,6 +771,10 @@ a.mainInfo__button {
 	font-weight: 400;
 }
 
+.search-results li {
+	list-style: none;
+}
+
 /* nav[aria-label="Pagination Navigation"] div:nth-child(1) {
   display: none;
 }
