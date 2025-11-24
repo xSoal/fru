@@ -29,7 +29,7 @@
       
         <hr class="separator"/>
 
-        @if($current_user->role !== '2')
+        @if((int)$current_user->role !== 2)
             <section class="message-section">
                 <div class="message-form-group">
                   <form action="{{ route('messenger.add_message') }}" method="post">
@@ -54,6 +54,7 @@
             @foreach ($chat->messages as $item)
                 <?php
                     $message_sender = $user_for_chat_view->id === $item->sender_id;
+
                 ?>
                 <div class="message {{ $message_sender ? 'message-sender' : '' }}">
                   @if($message_sender)
@@ -64,7 +65,7 @@
                   <div class="message__isRead">{{ $item->is_read ? 'readed' : 'udreaded' }}</div>
                 </div>
                 <?php
-                    if(!$message_sender){
+                    if(!$message_sender && (int)Auth::user()->role !== 2){
                         $item->setMessageReadStatus();
                     }
                 ?>

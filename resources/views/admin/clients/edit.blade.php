@@ -43,6 +43,22 @@
                 <div class="fb_inside">
                     <div class="fb_label">
                         <div class="fb_label_inside">
+                            <label for="fio">Чати корустувача</label>
+                        </div>
+                    </div>
+                    <div class="fb_input">
+                        <div class="fb_inside">
+                            <a class="user_chat_links" href="/messenger/{{ $item->id }}" target="_blank">chats</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form_block active">
+                <div class="fb_inside">
+                    <div class="fb_label">
+                        <div class="fb_label_inside">
                             <label for="fio">Описание</label>
                         </div>
                     </div>

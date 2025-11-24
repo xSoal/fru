@@ -11,12 +11,12 @@ class MessengerController extends Controller
 {
     public function index(Request $request, $user_for_chat_view_id){
         $user_for_chat_view = User::where('id', $user_for_chat_view_id)->first();
-      
+        
         // проверка, что если роль не не админ, переписки смотреть можно только свои
-        if(in_array((int)$user_for_chat_view->role, [0, 1])){
+        if(in_array((int)Auth::user()->id, [0, 1])){
             $current_user_id = Auth::id();
             if($current_user_id !== (int)$user_for_chat_view_id){
-                abort(404);
+                abort(403);
             }
         }
 

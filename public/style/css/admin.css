@@ -282,6 +282,19 @@ header {
   color: #ffffff;
 }
 
+
+
+.user_chat_links {
+  text-decoration: none;
+  text-transform: capitalize;
+  border: 1px solid #999;
+  padding: 5px 15px;
+  background-color: #1996e6;
+  color: white;
+  border-radius: 5px;
+}
+
+
 .admin_menu_title {
   width: 100%;
   padding: 4px;
