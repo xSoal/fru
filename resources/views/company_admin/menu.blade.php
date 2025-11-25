@@ -7,8 +7,8 @@
             <li class="{{ Request::routeIs('admin.companyAdmin') ? 'active' : '' }}">
                 <a href="{{ route('admin.companyAdmin') }}">Participant</a>
             </li>
-            <li class="{{ Request::routeIs('messengers') ? 'active' : '' }}">
-                <a href="{{ route('messenger', ['id' => Auth::user()->id]) }}">Message</a>
+            <li class="{{ Request::routeIs('messenger') || Request::routeIs('messenger.single')  ? 'active' : '' }}">
+                <a href="{{ route('messenger', ['id' => Auth::user()->id]) }}">Messages</a>
             </li>
         </ul>
     </nav>
