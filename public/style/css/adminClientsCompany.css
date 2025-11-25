@@ -22,7 +22,7 @@ body {
 	display: none;
 }
 .page-container {
-	max-width: 1000px;
+	max-width: 1320px;
 	margin: 40px auto;
 	margin-top: 0px;
 	padding: 40px;
@@ -44,7 +44,7 @@ body {
 /* Акценты */
 .neo-bg-accent {
 	/* background-color: var(--accent-primary); */
-	color: white;
+	color: var(--accent-primary);
 }
 .neo-highlight {
 	font-weight: 800;
@@ -351,6 +351,9 @@ tbody td {
 	border: 1px solid var(--border-color);
 	padding: 0; /* Убираем паддинг у ячеек, так как он внутри инпутов */
 	height: 40px;
+}
+tbody tr td.code {
+	width: 70px;
 }
 tbody td:first-child {
 	text-align: center;
