@@ -78,7 +78,7 @@
       </div>
   </section>
 
-  <section class="message-section">
+  <section class="message-section message__company">
     <h2 class="section-subtitle">Messages:</h2>
     <div class="message-form-group">
       {{-- {{ $messages }} --}}

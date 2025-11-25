@@ -55,7 +55,6 @@
             </div>
             @endif
 
-
             <div class="form_block active">
                 <div class="fb_inside">
                     <div class="fb_label">
