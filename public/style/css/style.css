@@ -812,7 +812,7 @@ nav[aria-label='Pagination Navigation'] {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 20px 0;
+	margin: 100px auto;
 }
 
 nav[aria-label='Pagination Navigation'] .hidden {
@@ -881,7 +881,7 @@ nav[aria-label='Pagination Navigation'] a:hover svg {
 .sibgleNewsContent {
 	width: 75%;
 	text-align: justify;
-	margin-bottom: 15px;
+	margin-bottom: 100px;
 	font-size: 16px;
 }
 
@@ -1275,6 +1275,10 @@ label {
 	font-weight: 700;
 	line-height: 1.2;
 	margin-bottom: 25px;
+	padding: 0 30px;
+}
+.singleNewsAside a:nth-child(1) h3 {
+	padding-top: 28px;
 }
 .container-inner {
 	margin: 0px auto;
