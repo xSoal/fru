@@ -778,6 +778,101 @@ table td {
 	min-width: 75px;
 }
 
+.equipmentCont {
+	display: flex;
+}
+
+.equipmentFilter {
+	width: 15%;
+	min-width: 150px;
+	padding: 15px;
+	border: 1px solid #e5e5e5;
+	border-radius: 15px;
+	box-shadow: 0px 0px 7px #e7e7e7;
+}
+
+.equipmentFilter__contryList {
+	margin-top: 15px;
+}
+
+.equipment__searchTable {
+	width: calc(85% - 25px);
+	margin-left: 25px;
+}
+
+.equipmentFilterHeaderCont {
+	display: flex;
+	justify-content: space-between;
+}
+
+.equipmentFilter__reset button {
+	border: none;
+	outline: none;
+	text-decoration: underline;
+	cursor: pointer;
+	background-color: transparent;
+}
+
+.equipment__country {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.equipment__countryLeft {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.equipment__coutryName {
+	font-size: 11px;
+	margin-left: 10px;
+	cursor: pointer;
+}
+
+/* Общие стили для контейнера меню */
+.header-menu-bar {
+    width: 100%;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd; /* Разделитель */
+}
+
+/* Стили для списка */
+.navigation-menu ul {
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Размещаем элементы горизонтально */
+    gap: 20px; /* Расстояние между пунктами */
+}
+
+/* Стили для отдельных пунктов */
+.navigation-menu li {
+    padding: 10px 0;
+}
+
+/* Стили для ссылок */
+.navigation-menu a {
+    text-decoration: none;
+    color: #555; /* Цвет неактивной ссылки */
+    font-weight: 500;
+    transition: color 0.2s, border-bottom 0.2s;
+    padding-bottom: 8px; /* Отступ для нижней границы */
+}
+
+/* Стили для активного пункта */
+.navigation-menu li.active a {
+    color: #157c57; /* Пример синего цвета для активного пункта */
+    border-bottom: 3px solid #157c57; /* Подчеркивание для активного пункта */
+    font-weight: 600;
+}
+
+/* Эффект при наведении */
+.navigation-menu a:hover {
+    color: #000;
+}
+
 /* --- АДАПТИВНОСТЬ для формы ввода (Мобильная версия) --- */
 @media (max-width: 768px) {
 	.neo-input-row {

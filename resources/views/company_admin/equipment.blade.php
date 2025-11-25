@@ -25,29 +25,38 @@
       </div>
       @endif
     </header>
-
-    <section class="search-section">
-        <div class="neo-input-group">
-            <label for="search-input" class="search-label">
-                <span class="label-text">SEARCH:</span>
-            </label>
-            <form action="{{ route('admin.companySearch') }}" method="get">
-              @csrf
-              <input
-                type="text"
-                id="search-input"
-                name="search"
-                class="search-input-field"
-                placeholder=""
-                value="{{ $search ?? '' }}"
-              >
-            </form>
-        </div>
-    </section>
-
+    
     <section class="companies-section">
         <h2 class="section-title">Search results by country</h2>
-        <div class="">
+        <div class="equipmentCont">
+          <div class="equipmentFilter">
+            <div class="equipmentFilterHeaderCont">
+              <span>Country</span>
+              <div class="equipmentFilter__reset">
+                <button>reset</button>
+              </div>
+            </div>
+            <div class="equipmentFilter__contryList">
+              <?php
+                $i = 1;
+                
+              ?>
+              @foreach($countries as $item)
+              <div class="equipment__country">
+                <div class="equipment__countryLeft">
+                  <input type="checkbox" id="{{ ++$i }}" value="{{ $item->country }}" {{ isset($allowedCountries) && in_array($item->country, $allowedCountries) ? 'checked' : '' }}>
+                  <label for="{{ $i }}">
+                    <div class="equipment__coutryName">{{ $item->country }}</div>
+                  </label>
+                </div>
+                <div class="equipment__coutryight">
+                  {{ $item->count }}
+                </div>
+              </div>
+              @endforeach
+
+            </div>
+          </div>
           @if( count($resultSearch) )
             <table class="equipment__searchTable">
               <thead>
