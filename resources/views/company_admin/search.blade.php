@@ -4,6 +4,7 @@
 
 
   <div class="page-container neo-card">
+    @include('company_admin.menu')
     <div class="buttonBackCont">
         <a href="/companyAdmin">< back</a>
     </div>

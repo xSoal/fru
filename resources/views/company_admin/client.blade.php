@@ -3,6 +3,7 @@
 @section('content')
 
 <div class="page-container neo-card details-page">
+  @include('company_admin.menu')
   <div class="buttonBackCont">
       <a href="/companyAdmin">< back</a>
   </div>
