@@ -733,7 +733,9 @@ a.mainInfo__button {
 .searchForm {
 	padding: 10px 0 40px 40px;
 }
-
+.search-results {
+	padding-bottom: 30px;
+}
 #search-result-list > li {
 	padding: 10px 0;
 }
