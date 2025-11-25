@@ -361,10 +361,10 @@ nav[role] .hidden {
 	position: relative;
 	display: flex;
 	padding: 25px;
-	padding-top: 30%;
-	border-radius: 15px;
+	padding-top: 24%;
+	border-radius: 10px;
 	overflow: hidden;
-	background-size: 127%;
+	background-size: 110%;
 	background-position: center;
 	z-index: 1;
 	transition: 0.4s;
@@ -485,7 +485,7 @@ a.mainInfo__button {
 	max-width: 100%;
 	width: auto;
 	border-radius: 10px 10px 0 0;
-	/* height: 270px; */
+	height: 270px;
 	object-fit: cover;
 }
 
@@ -591,8 +591,11 @@ a.mainInfo__button {
 .footerLinks a {
 	display: block;
 	text-decoration: none;
+	color: #072446;
 }
-
+.footerLinks a:hover {
+	color: #157c57;
+}
 .footerRightPart {
 	width: calc(50% - 20px);
 	margin: 0 10px;
@@ -1295,7 +1298,7 @@ blockquote {
 
 @media (max-width: 1400px) {
 	.mainInfo__el {
-		background-size: 140%;
+		background-size: 110%;
 	}
 
 	.mainInfo a:hover.mainInfo__el {
@@ -1309,7 +1312,7 @@ blockquote {
 
 @media (max-width: 1100px) {
 	.mainInfo__el {
-		background-size: 175%;
+		background-size: 160%;
 	}
 
 	.mainInfo a:hover.mainInfo__el {
