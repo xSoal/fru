@@ -1,7 +1,7 @@
 <div class="header-menu-bar">
     <nav class="navigation-menu">
         <ul>
-            <li class="{{ Request::routeIs('admin.companyEquipment') ? 'active' : '' }}">
+            <li class="{{ Request::routeIs('admin.companyEquipment') || Request::routeIs('admin.companyEquipmentSearch') ? 'active' : '' }}">
                 <a href="{{ route('admin.companyEquipment') }}">Обладнання</a>
             </li>
             <li class="{{ Request::routeIs('admin.companyAdmin') ? 'active' : '' }}">
