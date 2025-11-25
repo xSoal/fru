@@ -14,6 +14,7 @@ use App\Models\User;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Validator;
 
@@ -138,6 +139,49 @@ class CompanyAdminController extends Controller
         return view('company_admin.search', $data);
     }
 
+
+    public function equipment(){
+        $e = EquipmentRequest::with('user')->paginate(25);
+        
+        $countriesWithCount = EquipmentRequest::select('country', DB::raw('COUNT(*) as count'))
+            ->groupBy('country')
+            ->orderBy('count', 'desc') 
+            ->get();
+
+
+        $data = [
+            'resultSearch' => $e,
+            'countries' => $countriesWithCount
+        ];
+
+
+        return view('company_admin.equipment', $data);
+    }
+
+
+    public function equipmentSearch(Request $request, $filterStr){
+  
+        $allowedCountries = explode('|', $filterStr);
+
+        $e = EquipmentRequest::whereIn('country', $allowedCountries)
+            ->with('user')
+            ->paginate(25);
+
+        $countriesWithCount = EquipmentRequest::select('country', DB::raw('COUNT(*) as count'))
+            ->groupBy('country')
+            ->orderBy('count', 'desc') 
+            ->get();
+
+
+        $data = [
+            'resultSearch' => $e,
+            'countries' => $countriesWithCount,
+            'allowedCountries' => $allowedCountries
+        ];
+
+
+        return view('company_admin.equipment', $data);
+    }
 
 
 

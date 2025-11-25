@@ -778,6 +778,59 @@ table td {
 	min-width: 75px;
 }
 
+.equipmentCont {
+	display: flex;
+}
+
+.equipmentFilter {
+	width: 15%;
+	min-width: 150px;
+	padding: 15px;
+	border: 1px solid #e5e5e5;
+	border-radius: 15px;
+	box-shadow: 0px 0px 7px #e7e7e7;
+}
+
+.equipmentFilter__contryList {
+	margin-top: 15px;
+}
+
+.equipment__searchTable {
+	width: calc(85% - 25px);
+	margin-left: 25px;
+}
+
+.equipmentFilterHeaderCont {
+	display: flex;
+	justify-content: space-between;
+}
+
+.equipmentFilter__reset button {
+	border: none;
+	outline: none;
+	text-decoration: underline;
+	cursor: pointer;
+	background-color: transparent;
+}
+
+.equipment__country {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.equipment__countryLeft {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.equipment__coutryName {
+	font-size: 11px;
+	margin-left: 10px;
+	cursor: pointer;
+}
+
 /* --- АДАПТИВНОСТЬ для формы ввода (Мобильная версия) --- */
 @media (max-width: 768px) {
 	.neo-input-row {

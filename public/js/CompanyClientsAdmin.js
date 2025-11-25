@@ -25,7 +25,34 @@ $(document).ready(function () {
     $('.editRequestForm').addClass('visible');
     $('.addRequestForm').removeClass('visible');
   });
+
+  companyFilterSearch();
 });
+
+
+function companyFilterSearch(){
+  var inputs = $('.equipmentFilter__contryList input[type="checkbox"]').toArray()
+  
+  inputs.forEach(e => {
+    e.oninput = () => {
+      var inputs = $('.equipmentFilter__contryList input[type="checkbox"]').toArray()
+      var filter = '';
+      inputs.forEach(i => {
+        if(i.checked){
+          var separator = filter ? '|' : ''
+          filter += separator + i.value;
+        }
+      })
+
+      window.location.href = `/companyAdmin/equipment/${filter}`
+      
+    }
+  })
+
+  $('.equipmentFilter__reset button')[0].onclick = () => {
+    window.location.href = `/companyAdmin/equipment`
+  }
+}
 
 
 function scrollTopButton(){

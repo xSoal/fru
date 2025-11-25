@@ -154,7 +154,9 @@ Route::group(['prefix' => 'companyAdmin', 'middleware' => 'roleCompany.auth'], f
     Route::get('/', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@index', 'as' => 'admin.companyAdmin']);
     Route::get('/clients/{id}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@client', 'as' => 'admin.companyAdminClient']);
     Route::get('/search', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@search', 'as' => 'admin.companySearch']);
-    
+    Route::get('/equipment', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@equipment', 'as' => 'admin.companyEquipment']);
+    Route::get('/equipment/{filterStr}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@equipmentSearch', 'as' => 'admin.companyEquipmentSearch']);
+
     Route::post('/addMessage', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@addMessage', 'as' => 'admin.companyAddMessage']);
 });
 
