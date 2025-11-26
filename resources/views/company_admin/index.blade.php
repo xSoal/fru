@@ -47,16 +47,7 @@
 
     <hr class="separator"/>
 
-    <section class="support-section">
-        <div class="text-area">
-            <h3 class="subsection-title">
-              <a href="#">Financial Support Tools</a>
-            </h3>
-            <h3 class="subsection-title">
-              <a href="#">Dealers and Service</a>
-            </h3>
-        </div>
-    </section>
+
 
 
 </div>
