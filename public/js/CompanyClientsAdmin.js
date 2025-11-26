@@ -15,12 +15,19 @@ $(document).ready(function () {
     var country = $(this).closest('tr').find('.country').html().trim();
     var quantity = $(this).closest('tr').find('.quantity').html().trim();
 
+    
     $('.editRequestForm').find('input[name="code"]').val(code)
     $('.editRequestForm').find('input[name="name"]').val(name)
     $('.editRequestForm').find('input[name="model"]').val(model)
     $('.editRequestForm').find('input[name="manufacturer"]').val(manufacturer)
-    $('.editRequestForm').find('input[name="country"]').val(country)
     $('.editRequestForm').find('input[name="quantity"]').val(quantity)
+
+    $('.editRequestForm').find('.country option').toArray().forEach(o => {
+      if(o.value === country){
+        o.selected = true;
+      }
+      
+    });
 
     $('.editRequestForm').addClass('visible');
     $('.addRequestForm').removeClass('visible');
