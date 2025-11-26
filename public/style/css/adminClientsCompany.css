@@ -5,8 +5,8 @@
 	--accent-primary: #157c57; /* Бирюзовый */
 	--accent-secondary: #157c57; /* Оранжевый */
 	--border-color: #ecf0f1; /* Светло-серый */
-	--font-heading: 'Montserrat', sans-serif;
-	--font-body: 'Inter', sans-serif;
+	--font-heading: 'Open Sans', sans-serif;
+	--font-body: 'Open Sans', sans-serif;
 }
 
 /* Базовые стили */
@@ -178,7 +178,7 @@ body {
 .section-title {
 	font-family: var(--font-heading);
 	font-size: 18px;
-	font-weight: 600;
+	font-weight: 500;
 	margin-bottom: 20px;
 	padding-bottom: 5px;
 	border-bottom: 1px dashed var(--border-color);
@@ -301,8 +301,8 @@ a {
 }
 .section-subtitle {
 	font-family: var(--font-heading);
-	font-size: 16px;
-	font-weight: 600;
+	font-size: 14px;
+	font-weight: 500;
 	margin-top: 0;
 	margin-bottom: 10px;
 	color: var(--accent-secondary);
@@ -343,7 +343,8 @@ thead th {
 	font-weight: 600;
 	text-transform: uppercase;
 	letter-spacing: 0.5px;
-	border: 1px solid var(--accent-primary);
+	border: 1px solid #12714f;
+	font-size: 12px;
 }
 
 tbody td {
@@ -463,6 +464,8 @@ tbody td:first-child {
 .message__text {
 	font-size: 14px;
 	color: #666666;
+	padding: 10px 0 20px 0;
+	font-weight: 400;
 }
 
 .message__date {
@@ -810,12 +813,15 @@ table td {
 	text-decoration: underline;
 	cursor: pointer;
 	background-color: transparent;
+	color: #999999;
+	font-size: 12px;
 }
 
 .equipment__country {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	padding: 4px 0;
 }
 
 .equipment__countryLeft {
@@ -825,51 +831,53 @@ table td {
 }
 
 .equipment__coutryName {
-	font-size: 11px;
+	font-size: 13px;
 	margin-left: 10px;
 	cursor: pointer;
 }
-
+.equipment__coutryight {
+	font-size: 13px;
+}
 /* Общие стили для контейнера меню */
 .header-menu-bar {
-    width: 100%;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #ddd; /* Разделитель */
+	width: 100%;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #ddd; /* Разделитель */
 }
 
 /* Стили для списка */
 .navigation-menu ul {
-    list-style: none; /* Убираем маркеры списка */
-    padding: 0;
-    margin: 0;
-    display: flex; /* Размещаем элементы горизонтально */
-    gap: 20px; /* Расстояние между пунктами */
+	list-style: none; /* Убираем маркеры списка */
+	padding: 0;
+	margin: 0;
+	display: flex; /* Размещаем элементы горизонтально */
+	gap: 50px; /* Расстояние между пунктами */
 }
 
 /* Стили для отдельных пунктов */
 .navigation-menu li {
-    padding: 10px 0;
+	padding: 10px 0;
 }
 
 /* Стили для ссылок */
 .navigation-menu a {
-    text-decoration: none;
-    color: #555; /* Цвет неактивной ссылки */
-    font-weight: 500;
-    transition: color 0.2s, border-bottom 0.2s;
-    padding-bottom: 8px; /* Отступ для нижней границы */
+	text-decoration: none;
+	color: #555; /* Цвет неактивной ссылки */
+	font-weight: 500;
+	transition: color 0.2s, border-bottom 0.2s;
+	padding-bottom: 8px; /* Отступ для нижней границы */
 }
 
 /* Стили для активного пункта */
 .navigation-menu li.active a {
-    color: #157c57; /* Пример синего цвета для активного пункта */
-    border-bottom: 3px solid #157c57; /* Подчеркивание для активного пункта */
-    font-weight: 600;
+	color: #157c57; /* Пример синего цвета для активного пункта */
+	border-bottom: 3px solid #157c57; /* Подчеркивание для активного пункта */
+	font-weight: 600;
 }
 
 /* Эффект при наведении */
 .navigation-menu a:hover {
-    color: #000;
+	color: #000;
 }
 
 /* --- АДАПТИВНОСТЬ для формы ввода (Мобильная версия) --- */
