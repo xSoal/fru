@@ -80,7 +80,7 @@
                   <td class="country">{{ $e->country }}</td>
                   <td class="quantity">{{ $e->quantity }}</td>
                   <td class="company__searchTableLink">
-                    <a class="section-subtitle" href="{{ route('admin.companyAdminClient', $e->id) }}">
+                    <a class="section-subtitle" href="{{ route('admin.companyAdminClient', $e->user->id) }}">
                       {{ $e->user->name }}
                     </a>
                   </td>
