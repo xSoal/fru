@@ -22,20 +22,16 @@
   </div>
   @endif
 
-  <header class="header">
-      <h1 class="page-title details-title">
-        <span class="neo-highlight">{{ $client->name }}</span> 
-      </h1>
-  </header>
 
-  <section class="partner-details-info">
-      <div class="logo-placeholder neo-bg-accent">
-        <img src="{{ $client->photo }}" alt="">
-      </div>
-      <div class="partner-name-placeholder">
+    <section class="partner-info">
+        <div class="logo-placeholder">
+           <img src="{{ $client->photo }}">
+        </div>
+        <div class="partner-name-placeholder">
+          <h1 class="page-title">{{ $client->name }}</h1>
           
-      </div>
-  </section>
+        </div>
+    </section>
   
 
   <hr class="separator"/>
