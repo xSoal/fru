@@ -58,7 +58,7 @@
                       <th>MANUFACTURER</th>
                       <th>COUNTRY</th>
                       <th>QUANTITY</th>
-                      <th>>Participant name</th>
+                      <th>>Participant</th>
                   </tr>
               </thead>
               <tbody>
