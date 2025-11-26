@@ -50,6 +50,7 @@
     <div class="message-form-group">
       @foreach ($messages as $item)
           <div class="message {{ $item->is_sender ? 'message-sender' : '' }}">
+            <div class="message__company"> {{ $item->sender->name }} </div>
             <div class="message__text">{{ $item->content }}</div>
             <div class="message__date">{{ $item->created_at }}</div>
             <div class="message__isRead">{{ $item->is_read ? 'readed' : 'udreaded' }}</div>
