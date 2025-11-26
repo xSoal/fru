@@ -591,7 +591,7 @@ tbody td:first-child {
 
 .company__logo {
 	justify-content: center;
-	margin: 10px auto;
+	margin: 15px auto;
 	display: flex;
 }
 
@@ -849,8 +849,9 @@ table td {
 	min-width: 150px;
 	padding: 15px;
 	border: 1px solid #e5e5e5;
-	border-radius: 15px;
+	border-radius: 10px;
 	box-shadow: 0px 0px 7px #e7e7e7;
+	height: max-content;
 }
 
 .equipmentFilter__contryList {
