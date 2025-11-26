@@ -141,6 +141,15 @@
   </div>
 </section>
 
+<section class="container" style="text-align: center;">
+  <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSDt6a6e96HmBbq7uuAvNwI6nto2Lw5udGsM0FtUgODY5kBVlDJHgpJGofWH6qDrQ/pubembed?start=false&loop=false&delayms=3000" frameborder="0"
+   width="100%"
+   style="max-width: 960px; margin: 25px auto 75px;"
+   height="576"
+   allowfullscreen="true"
+   mozallowfullscreen="true"
+   webkitallowfullscreen="true"></iframe>
+</section>
 
 {{-- <section id="section-id-hXbc2ksHo84OfFaa4ZDox" class="sppb-section">
     <div class="sppb-row-container">
