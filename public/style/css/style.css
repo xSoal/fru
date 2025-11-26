@@ -50,6 +50,10 @@ table {
 
 /* reset css end */
 
+* {
+	box-sizing: border-box;
+}
+
 html {
 	scroll-behavior: smooth;
 }
