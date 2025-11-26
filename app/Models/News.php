@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Facades\Request;
 class News extends Model
 {
     use HasFactory;
@@ -58,5 +58,30 @@ class News extends Model
             return ''; // Можно вернуть ошибку или пустую строку
         }
     }
+
+    /**
+     * Возвращает тип новости, используя текущий URL из фасада Request.
+     * * @return string
+     */
+    public function getCurrentNewsType(): string
+    {
+        // Получаем полный путь (URL без домена, например, 'sport/football/123')
+        $url = Request::path();
+        
+        // Если вам нужен полный URL с доменом:
+        // $url = Request::fullUrl(); 
+
+        $pattern = '~^/?([^/]+)~';
+        
+        if (preg_match($pattern, $url, $matches)) {
+            // $matches[1] - первый сегмент URL
+            return $matches[1];
+        }
+        
+        // Если не удалось найти сегмент, возвращаем значение по умолчанию
+        return 'news';
+    }
+
+    
 
 }

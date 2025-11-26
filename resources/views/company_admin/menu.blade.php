@@ -2,7 +2,7 @@
     <nav class="navigation-menu">
         <ul>
             <li class="{{ Request::routeIs('admin.companyEquipment') || Request::routeIs('admin.companyEquipmentSearch') ? 'active' : '' }}">
-                <a href="{{ route('admin.companyEquipment') }}">Обладнання</a>
+                <a href="{{ route('admin.companyEquipment') }}">Equipment</a>
             </li>
             <li class="{{ Request::routeIs('admin.companyAdmin') ? 'active' : '' }}">
                 <a href="{{ route('admin.companyAdmin') }}">Participant</a>
