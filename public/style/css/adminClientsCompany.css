@@ -585,10 +585,12 @@ tbody td:first-child {
 /* --- Стили для секции ввода запроса --- */
 
 .request-form-controls {
-	margin-top: 20px;
+	/* margin-top: 20px; */
 	padding: 20px;
 	border: 1px dashed var(--border-color);
 	border-radius: 4px;
+	width: 50%;
+	margin: 20px auto;
 }
 
 .neo-input-row {
@@ -640,7 +642,7 @@ tbody td:first-child {
 }
 
 .input-number {
-	text-align: center;
+	/* text-align: center; */
 }
 
 /* Стили для кнопки добавления */
