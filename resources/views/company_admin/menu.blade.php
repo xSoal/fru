@@ -5,7 +5,7 @@
                 <li class="{{ Request::routeIs('admin.companyEquipment') || Request::routeIs('admin.companyEquipmentSearch') ? 'active' : '' }}">
                     <a href="{{ route('admin.companyEquipment') }}">Equipment Request</a>
                 </li>
-                <li class="{{ Request::routeIs('admin.companyAdmin') ? 'active' : '' }}">
+                <li class="{{ Request::routeIs('admin.companyAdmin') || Request::routeIs('admin.companyAdminClient') ? 'active' : '' }}">
                     <a href="{{ route('admin.companyAdmin') }}">Participant</a>
                 </li>
                 <li class="{{  Request::routeIs('admin.companyAdminReference') ? 'active' : '' }}">
