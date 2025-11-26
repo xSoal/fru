@@ -10,7 +10,7 @@
                     <a href="{{ route('admin.companyAdmin') }}">Participant</a>
                 </li>
                 <li class="{{  Request::routeIs('admin.clientAdminReference') ? 'active' : '' }}">
-                    <a href="{{ route('admin.clientAdminReference') }}" >Financial Support Tools</a>
+                    <a href="{{ route('admin.companyAdminReference') }}" >Financial Support Tools</a>
                 </li>
                 @endif
                 @if( (int)Auth::user()->role === 0 )
@@ -21,7 +21,7 @@
                     <a href="{{ route('admin.clientAdminPartners') }}">Partners</a>
                 </li>
                 <li class="{{  Request::routeIs('admin.companyAdminReference') ? 'active' : '' }}">
-                    <a href="{{ route('admin.companyAdminReference') }}" >Financial Support Tools</a>
+                    <a href="{{ route('admin.clientAdminReference') }}" >Financial Support Tools</a>
                 </li>
                 @endif
                 <li class="">
