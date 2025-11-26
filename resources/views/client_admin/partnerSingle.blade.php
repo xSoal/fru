@@ -29,13 +29,15 @@
   </section>
 
   <hr class="separator"/>
-
+  @if( $partner->companies )
   <div class="">
-      <h2 class="">Partners companies</h2>
+      <h2 class="">Partner member companies</h2>
       <div class="partnersCompanies">
         {!! $partner->companies !!}
       </div>
   </div>
+  @endif
+
 
   @if( (int)$partner->dialog_enable_status === 1 )
   <section class="message-section">
