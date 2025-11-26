@@ -9,7 +9,7 @@
                     <a href="{{ route('admin.clientAdminPartners') }}">Partners</a>
                 </li>
                 <li class="{{  Request::routeIs('admin.clientAdminReference') ? 'active' : '' }}">
-                    <a href="{{ route('admin.clientAdminReference') }}" target="_blank">Financial Support Tools</a>
+                    <a href="{{ route('admin.clientAdminReference') }}" >Financial Support Tools</a>
                 </li>
                 <li class="">
                     <a href="#"> Dealers and Service</a>

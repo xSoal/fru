@@ -198,7 +198,7 @@ class CompanyAdminController extends Controller
             ->orWhere('type', 'rules')
             ->where('active', 1)
             ->orderBy('public_date', 'desc')
-            ->paginate(9);
+            ->get();
 
         $data =  [
             'news' => $news,

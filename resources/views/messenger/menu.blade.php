@@ -9,6 +9,9 @@
                 <li class="{{ Request::routeIs('admin.companyAdmin') ? 'active' : '' }}">
                     <a href="{{ route('admin.companyAdmin') }}">Participant</a>
                 </li>
+                <li class="{{  Request::routeIs('admin.clientAdminReference') ? 'active' : '' }}">
+                    <a href="{{ route('admin.clientAdminReference') }}" >Financial Support Tools</a>
+                </li>
                 @endif
                 @if( (int)Auth::user()->role === 0 )
                 <li class="{{ Request::routeIs('admin.clientAdmin') ? 'active' : '' }}">
@@ -17,10 +20,10 @@
                 <li class="{{ Request::routeIs('admin.clientAdminPartners') || Request::routeIs('admin.clientAdminPartnerSingle') ? 'active' : '' }}">
                     <a href="{{ route('admin.clientAdminPartners') }}">Partners</a>
                 </li>
-                @endif
-                <li class="">
-                    <a href="{{ route('main_page.reference') }}" target="_blank">Financial Support Tools</a>
+                <li class="{{  Request::routeIs('admin.companyAdminReference') ? 'active' : '' }}">
+                    <a href="{{ route('admin.companyAdminReference') }}" >Financial Support Tools</a>
                 </li>
+                @endif
                 <li class="">
                     <a href="#"> Dealers and Service</a>
                 </li>
