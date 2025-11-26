@@ -65,7 +65,9 @@ body {
 	padding-bottom: 20px;
 	border-bottom: 1px solid var(--border-color);
 }
-
+.buttonBackCont {
+	display: none;
+}
 .page-title {
 	font-family: var(--font-heading);
 	font-size: 20px;
@@ -204,9 +206,9 @@ body {
 	border-bottom: 1px solid var(--border-color);
 }
 .list-item:hover {
-	color: var(--accent-primary);
-	padding-left: 5px;
-	background-color: rgba(26, 188, 156, 0.05);
+	/* color: var(--accent-primary); */
+	background-color: #f5f5f5ba;
+	transition: color 0.2s, background-color 0.2s;
 }
 
 /* 5. Финансовые инструменты, Дилеры и Сервис */
@@ -295,7 +297,7 @@ a {
 
 /* 3. Описание компании */
 .company-description {
-	margin-bottom: 30px;
+	margin-bottom: 50px;
 	padding-left: 20px;
 	border-left: 3px solid var(--accent-secondary); /* Оранжевый акцент */
 }
@@ -306,7 +308,6 @@ a {
 	margin-top: 0;
 	margin-bottom: 10px;
 	color: var(--accent-secondary);
-	
 }
 .description-text p {
 	font-size: 14px;
@@ -361,6 +362,7 @@ tbody td:first-child {
 	padding: 0 5px;
 	font-weight: 600;
 	background-color: #f7f9fb;
+	width: 70px;
 }
 
 .table-input {
@@ -448,8 +450,9 @@ tbody td:first-child {
 
 .message {
 	padding: 10px 15px;
-	border-radius: 5px;
-	background-color: #c8c8c830;
+	border-radius: 10px;
+	background-color: #eaf2ff3d;
+	border: 1px solid #ecf0f19c;
 }
 
 .message-sender {
@@ -520,6 +523,7 @@ tbody td:first-child {
 .companies-list .list-item {
 	width: calc(20% - 20px);
 	margin: 10px;
+	font-weight: 600;
 }
 
 .company {
@@ -581,10 +585,12 @@ tbody td:first-child {
 /* --- Стили для секции ввода запроса --- */
 
 .request-form-controls {
-	margin-top: 20px;
+	/* margin-top: 20px; */
 	padding: 20px;
 	border: 1px dashed var(--border-color);
 	border-radius: 4px;
+	width: 50%;
+	margin: 20px auto;
 }
 
 .neo-input-row {
@@ -636,7 +642,7 @@ tbody td:first-child {
 }
 
 .input-number {
-	text-align: center;
+	/* text-align: center; */
 }
 
 /* Стили для кнопки добавления */
@@ -779,6 +785,7 @@ table td {
 
 .company__searchTableCode {
 	min-width: 75px;
+	text-align: center;
 }
 
 .equipmentCont {
