@@ -61,20 +61,18 @@
             <table class="equipment__searchTable">
               <thead>
                   <tr>
-                      <th>Participant name</th>
                       <th class="company__searchTableCode">N</th>
                       <th>NAME </th>
                       <th>MODEL</th>
                       <th>MANUFACTURER</th>
                       <th>COUNTRY</th>
                       <th>QUANTITY</th>
-                      <th>Link</th>
+                      <th>Participant name</th>
                   </tr>
               </thead>
               <tbody>
                 @foreach ($resultSearch as $e)
                 <tr>
-                  <td>{{ $e->user->name }}</td>
                   <td class="code company__searchTableCode">{{ $e->code }}</td>
                   <td class="name">{{ $e->name }}</td>
                   <td class="model">{{ $e->model }}</td>
@@ -83,7 +81,7 @@
                   <td class="quantity">{{ $e->quantity }}</td>
                   <td class="company__searchTableLink">
                     <a class="section-subtitle" href="{{ route('admin.companyAdminClient', $e->id) }}">
-                      link
+                      {{ $e->user->name }}
                     </a>
                   </td>
                 </tr>  
