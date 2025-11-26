@@ -13,6 +13,9 @@ $(document).ready(function () {
 
 
 function passwordShowToggle() {
+  if( window.location.href.indexOf('login') === -1 ){
+    console.log('qwe');
+  }
   var toggleButton = document.getElementById('togglePassword');
   var passwordInput = document.getElementById('passwordInput');
   var divEye = document.querySelector('.div-fa-eye');
