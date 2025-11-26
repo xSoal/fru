@@ -2,12 +2,22 @@
     <div class="header__left">
         <nav class="navigation-menu">
             <ul>
+                @if( (int)Auth::user()->role === 1 )
                 <li class="{{ Request::routeIs('admin.companyEquipment') || Request::routeIs('admin.companyEquipmentSearch') ? 'active' : '' }}">
                     <a href="{{ route('admin.companyEquipment') }}">Equipment Request</a>
                 </li>
                 <li class="{{ Request::routeIs('admin.companyAdmin') ? 'active' : '' }}">
                     <a href="{{ route('admin.companyAdmin') }}">Participant</a>
                 </li>
+                @endif
+                @if( (int)Auth::user()->role === 0 )
+                <li class="{{ Request::routeIs('admin.clientAdmin') ? 'active' : '' }}">
+                    <a href="{{ route('admin.clientAdmin') }}">Partipiant</a>
+                </li>
+                <li class="{{ Request::routeIs('admin.clientAdminPartners') || Request::routeIs('admin.clientAdminPartnerSingle') ? 'active' : '' }}">
+                    <a href="{{ route('admin.clientAdminPartners') }}">Partners</a>
+                </li>
+                @endif
                 <li class="">
                     <a href="{{ route('main_page.reference') }}" target="_blank">Financial Support Tools</a>
                 </li>

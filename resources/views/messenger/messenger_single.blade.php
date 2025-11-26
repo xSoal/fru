@@ -4,7 +4,7 @@
 
     <div class="page-container neo-card details-page">
         @if( (int)Auth::user()->role === 1 )
-          @include('company_admin.menu')
+          @include('messenger.menu')
         @endif
 
         <header class="header">
