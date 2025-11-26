@@ -5,6 +5,7 @@
   <div class="buttonBackCont">
       <a href="/clientAdmin/partners">< back</a>
   </div>
+  @include('client_admin.menu')
   <header class="header">
       <h1 class="page-title details-title">
         <span class="neo-highlight">Name</span> {{ $partner->name }}

@@ -7,32 +7,9 @@
   <div class="buttonBackCont">
       <a href="/">< to site</a>
   </div>
-  <?php 
-    $newMessages = Auth::user()->newMessagesCount();
-  ?>
-  @if($newMessages !== false)
-  <div class="messageCont">
-  <a href="{{ route('messenger', [ 'id' => Auth::user()->id ]) }}">
-    <button class="messages-button neo-accent-btn">
-        <span class="icon-indicator">{{ $newMessages }}</span>
-        MESSAGES
-    </button>
-  </a>  
-
-  </div>
-  @endif
+  @include('client_admin.menu');
 
 
-    <section class="partner-info">
-        <div class="logo-placeholder">
-           <img src="{{ $client->photo }}">
-        </div>
-        <div class="partner-name-placeholder">
-          <h1 class="page-title">{{ $client->name }}</h1>
-          
-        </div>
-    </section>
-  
 
   <hr class="separator"/>
   <section class="request-table-section">
