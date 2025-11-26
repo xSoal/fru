@@ -8,8 +8,8 @@
                 <li class="{{ Request::routeIs('admin.companyAdmin') ? 'active' : '' }}">
                     <a href="{{ route('admin.companyAdmin') }}">Participant</a>
                 </li>
-                <li class="">
-                    <a href="{{ route('main_page.reference') }}" target="_blank">Financial Support Tools</a>
+                <li class="{{  Request::routeIs('admin.companyAdminReference') ? 'active' : '' }}">
+                    <a href="{{ route('admin.companyAdminReference') }}" target="_blank">Financial Support Tools</a>
                 </li>
                 <li class="">
                     <a href="#"> Dealers and Service</a>

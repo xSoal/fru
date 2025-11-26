@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Conversation;
 
 use App\Models\EquipmentRequest;
+use App\Models\News;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -151,6 +153,23 @@ class ClientAdminController extends Controller
         ];
 
         return redirect()->route('admin.clientAdminPartnerSingle', ['id' => $receiverId]);
+    }
+
+    public function reference(){
+        $today = Carbon::today();
+        $news = News::whereDate('public_date', '<=', $today)
+            ->where('type', 'support')
+            ->orWhere('type', 'rules')
+            ->where('active', 1)
+            ->orderBy('public_date', 'desc')
+            ->paginate(9);
+
+        $data =  [
+            'news' => $news,
+            'user' => Auth::user()
+        ];
+
+        return view('client_admin.reference', $data);
     }
 
 

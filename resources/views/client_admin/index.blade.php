@@ -7,7 +7,7 @@
   <div class="buttonBackCont">
       <a href="/">< to site</a>
   </div>
-  @include('client_admin.menu');
+  @include('client_admin.menu')
 
 
 
