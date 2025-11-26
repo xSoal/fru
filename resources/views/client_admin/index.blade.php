@@ -95,7 +95,28 @@
             
                     <div class="input-cell cell-country">
                         <span class="label-text">COUNTRY</span>
-                        <input type="text" name="country" required placeholder="Input country" class="table-input">
+                        {{-- <input type="text" name="country" required placeholder="Input country" class="table-input"> --}}
+                        <select  name="country" required placeholder="Input country" class="table-input">
+                          <option value="Austria">Austria</option>
+                          <option value="Belgium">Belgium</option>
+                          <option value="Canada">Canada</option>
+                          <option value="Czechia">Czechia</option>
+                          <option value="Denmark">Denmark</option>
+                          <option value="Finland">Finland</option>
+                          <option value="France">France</option>
+                          <option value="Germany">Germany</option>
+                          <option value="Italy">Italy</option>
+                          <option value="Japan">Japan</option>
+                          <option value="Netherlands">Netherlands</option>
+                          <option value="Poland">Poland</option>
+                          <option value="Portugal">Portugal</option>
+                          <option value="Spain">Spain</option>
+                          <option value="Sweden">Sweden</option>
+                          <option value="Switzerland">Switzerland</option>
+                          <option value="Ukraine">Ukraine</option>
+                          <option value="United Kingdom">United Kingdom</option>
+                          <option value="USA">USA</option>
+                        </select>
                     </div>
             
                     <div class="input-cell cell-quantity">
@@ -139,7 +160,27 @@
             
                     <div class="input-cell cell-country">
                         <span class="label-text">COUNTRY</span>
-                        <input type="text" name="country" required placeholder="" class="table-input">
+                        <select  name="country" required placeholder="Input " class="table-input country">
+                          <option value="Austria">Austria</option>
+                          <option value="Belgium">Belgium</option>
+                          <option value="Canada">Canada</option>
+                          <option value="Czechia">Czechia</option>
+                          <option value="Denmark">Denmark</option>
+                          <option value="Finland">Finland</option>
+                          <option value="France">France</option>
+                          <option value="Germany">Germany</option>
+                          <option value="Italy">Italy</option>
+                          <option value="Japan">Japan</option>
+                          <option value="Netherlands">Netherlands</option>
+                          <option value="Poland">Poland</option>
+                          <option value="Portugal">Portugal</option>
+                          <option value="Spain">Spain</option>
+                          <option value="Sweden">Sweden</option>
+                          <option value="Switzerland">Switzerland</option>
+                          <option value="Ukraine">Ukraine</option>
+                          <option value="United Kingdom">United Kingdom</option>
+                          <option value="USA">USA</option>
+                        </select>
                     </div>
             
                     <div class="input-cell cell-quantity">
