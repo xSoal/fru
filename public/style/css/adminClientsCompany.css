@@ -133,6 +133,7 @@ body {
 /* 3. Поиск */
 .search-section {
 	margin-bottom: 40px;
+	display: none;
 }
 
 .neo-input-group {
@@ -174,7 +175,7 @@ body {
 
 /* 4. Украинские компании */
 .companies-section {
-	margin-bottom: 35px;
+	margin: 100px 0 35px 0;
 }
 
 .section-title {
@@ -308,6 +309,8 @@ a {
 	margin-top: 0;
 	margin-bottom: 10px;
 	color: var(--accent-secondary);
+}
+h2.section-subtitle {
 	display: none;
 }
 .description-text p {
