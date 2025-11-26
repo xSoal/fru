@@ -35,7 +35,7 @@ class CompanyAdminController extends Controller
 
 
     public function client($id) {
-        $company = User::where('id', $id)->firstOrFail(); 
+        $company = User::where('id', $id)->where('active', 1)->firstOrFail(); 
 
         // СТРОГИЙ ПОРЯДОК ID
         $chat = Conversation::where('user_one_id', Auth::id()) // Убедитесь, что это всегда user_one_id

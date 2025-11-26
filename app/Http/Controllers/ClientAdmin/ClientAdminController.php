@@ -67,7 +67,7 @@ class ClientAdminController extends Controller
 
 
     public function partnersList(){
-        $partners = User::where('role', 1)->get();
+        $partners = User::where('role', 1)->where('active', 1)->get();
         $data = [
             'partners' => $partners,
             'user' => Auth::user()
@@ -78,7 +78,7 @@ class ClientAdminController extends Controller
 
 
     public function partnerSingle($id){
-        $partner = User::where('id', $id)->firstOrFail(); 
+        $partner = User::where('id', $id)->where('active', 1)->firstOrFail(); 
 
         // СТРОГИЙ ПОРЯДОК ID
         $chat = Conversation::where('user_one_id', $id) // Убедитесь, что это всегда user_one_id

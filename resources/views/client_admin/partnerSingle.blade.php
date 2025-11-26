@@ -30,7 +30,7 @@
 
   <hr class="separator"/>
 
-
+  @if( (int)$partner->dialog_enable_status === 1 )
   <section class="message-section">
       <h2 class="section-subtitle">New message:</h2>
       <div class="message-form-group">
@@ -63,6 +63,7 @@
           ?>
       @endforeach
     </div>
+    @endif
 </section> 
 
 
