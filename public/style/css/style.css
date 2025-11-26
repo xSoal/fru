@@ -50,10 +50,6 @@ table {
 
 /* reset css end */
 
-* {
-	box-sizing: border-box;
-}
-
 html {
 	scroll-behavior: smooth;
 }
@@ -738,7 +734,7 @@ a.mainInfo__button {
 	padding: 10px 0 40px 40px;
 }
 .search-results {
-	padding-bottom: 30px;
+	padding-bottom: 50px;
 }
 #search-result-list > li {
 	padding: 10px 0;
