@@ -14,7 +14,7 @@
                     <div class="fb_inside">
                         <div class="fb_label">
                             <div class="fb_label_inside label_search">
-                                <label for="search_users">ФИО</label>
+                                <label for="search_users">ФІО</label>
                             </div>
                         </div>
                         <div class="fb_input">
@@ -45,9 +45,9 @@
         <div class="thead">
             <div class="tr tr_heading">
                 <div class="th number">№</div>
-                <div class="th fio">Название</div>
+                <div class="th fio">Назва</div>
                 <div class="th status">Статус</div>
-                <div class="th date_in">Дата добавления</div>
+                <div class="th date_in">Дата додавання</div>
                 <div class="th edit">Ред.</div>
             </div>
         </div>

@@ -27,7 +27,7 @@
                 <div class="fb_inside">
                     <div class="fb_label">
                         <div class="fb_label_inside">
-                            <label for="fio">Название</label>
+                            <label for="fio">Назва</label>
                         </div>
                     </div>
                     <div class="fb_input">
@@ -59,7 +59,7 @@
                 <div class="fb_inside">
                     <div class="fb_label">
                         <div class="fb_label_inside">
-                            <label for="fio">Описание</label>
+                            <label for="fio">Описання</label>
                         </div>
                     </div>
                     <div class="fb_input">
