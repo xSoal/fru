@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="page-container neo-card details-page">
-        @include('company_admin.menu')
+        @include('messenger.menu')
       
 
         <hr class="separator"/>
