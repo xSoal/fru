@@ -6,24 +6,11 @@
   <div class="buttonBackCont">
       <a href="/clientAdmin">< back</a>
   </div>
-  <?php 
-    $newMessages = Auth::user()->newMessagesCount();
-  ?>
-  @if($newMessages !== false)
-  <div class="messageCont">
-  <a href="{{ route('messenger', [ 'id' => Auth::user()->id ]) }}">
-    <button class="messages-button neo-accent-btn">
-        <span class="icon-indicator">{{ $newMessages }}</span>
-        MESSAGES
-    </button>
-  </a>  
-
-  </div>
-  @endif
+  @include('client_admin.menu')
 
   <header class="header">
       <h1 class="page-title details-title">
-        <span class="neo-highlight">Partners</span> 
+        <span class="neo-highlight">Partners:</span> 
       </h1>
   </header>
 

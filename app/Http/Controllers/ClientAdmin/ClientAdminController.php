@@ -18,7 +18,8 @@ class ClientAdminController extends Controller
 
         $data = [
             'client' => Auth::user(),
-            'equipmentRequests' => $equipmentRequests
+            'equipmentRequests' => $equipmentRequests,
+            'user' => Auth::user()
         ];
 
         return view('client_admin.index', $data);
@@ -68,7 +69,8 @@ class ClientAdminController extends Controller
     public function partnersList(){
         $partners = User::where('role', 1)->get();
         $data = [
-            'partners' => $partners
+            'partners' => $partners,
+            'user' => Auth::user()
         ];
 
         return view('client_admin.partners', $data);
@@ -106,7 +108,8 @@ class ClientAdminController extends Controller
             'partner' => $partner, 
             'chat' => $chat,     // текущий
             'messages' => $messages, // Коллекция сообщений только из ПЕРВОГО чата
-            'equipmentsRequests' => $equipmentsRequests
+            'equipmentsRequests' => $equipmentsRequests,
+            'user' => Auth::user()
         ];
 
         // В шаблоне 'company_admin.company' теперь доступна переменная $messages
