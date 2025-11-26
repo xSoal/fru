@@ -336,17 +336,25 @@ table {
 	font-size: 14px;
 	min-width: 600px; /* Чтобы таблица не сжималась слишком сильно */
 }
-
+.page-container.neo-card.details-page
+	> section
+	> div
+	> table
+	> thead
+	> tr
+	> th:nth-child(1) {
+	width: 200px;
+}
 thead th {
 	background-color: var(--accent-primary);
 	color: white;
 	padding: 10px 8px;
-	text-align: left;
 	font-weight: 600;
 	text-transform: uppercase;
 	letter-spacing: 0.5px;
 	border: 1px solid #12714f;
 	font-size: 12px;
+	text-align: center;
 }
 
 tbody td {
@@ -405,7 +413,7 @@ tbody td:first-child {
 	width: 100%;
 	padding: 10px;
 	border: 1px solid var(--border-color);
-	border-radius: 4px;
+	border-radius: 10px;
 	font-family: var(--font-body);
 	font-size: 14px;
 	box-sizing: border-box;
@@ -585,12 +593,11 @@ tbody td:first-child {
 /* --- Стили для секции ввода запроса --- */
 
 .request-form-controls {
-	/* margin-top: 20px; */
 	padding: 20px;
 	border: 1px dashed var(--border-color);
 	border-radius: 4px;
-	width: 50%;
 	margin: 20px auto;
+	max-width: 700px;
 }
 
 .neo-input-row {
@@ -745,7 +752,6 @@ nav[aria-label='Pagination Navigation'] .flex.justify-between.flex-1 {
 }
 
 .messenger__openChatTd {
-	display: flex;
 	align-items: center;
 	justify-content: center;
 	transition: 0.4s;
@@ -785,7 +791,6 @@ table td {
 
 .company__searchTableCode {
 	min-width: 75px;
-	text-align: center;
 }
 
 .equipmentCont {
