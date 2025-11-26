@@ -7,18 +7,13 @@
   <div class="buttonBackCont">
       <a href="/companyAdmin">< back</a>
   </div>
-  <header class="header">
-      <h1 class="page-title details-title">
-        <span class="neo-highlight">Name</span> {{ $company->name }}
-      </h1>
-  </header>
-
-  <section class="partner-details-info">
-      <div class="logo-placeholder logoClientSingle__cont">
+    <section class="partner-info">
+      <div class="logo-placeholder">
         <img src="{{ $company->photo }}">
       </div>
       <div class="partner-name-placeholder">
-          
+        <h1 class="page-title">{{ $company->name }}</h1>
+        
       </div>
   </section>
   
