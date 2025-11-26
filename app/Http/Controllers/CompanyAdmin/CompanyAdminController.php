@@ -151,7 +151,7 @@ class CompanyAdminController extends Controller
         
         $countriesWithCount = EquipmentRequest::select('country', DB::raw('COUNT(*) as count'))
             ->groupBy('country')
-            ->orderBy('count', 'desc') 
+            ->orderBy('country', 'asc') 
             ->get();
 
 
@@ -176,7 +176,7 @@ class CompanyAdminController extends Controller
 
         $countriesWithCount = EquipmentRequest::select('country', DB::raw('COUNT(*) as count'))
             ->groupBy('country')
-            ->orderBy('count', 'desc') 
+            ->orderBy('country', 'asc') 
             ->get();
 
 
