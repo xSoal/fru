@@ -5,35 +5,10 @@
 
   <div class="page-container neo-card">
     @include('company_admin.menu')
+
     <div class="buttonBackCont">
         <a href="/">< to site</a>
     </div>
-    <header class="header">
-      <?php 
-          $newMessages = Auth::user()->newMessagesCount();
-      ?>
-    @if($newMessages !== false)
-    <div class="messageCont">
-      <a href="{{ route('messenger', [ 'id' => Auth::user()->id ]) }}">
-        <button class="messages-button neo-accent-btn">
-            <span class="icon-indicator">{{ $newMessages }}</span>
-            MESSAGES
-        </button>
-      </a>  
-
-    </div>
-    @endif
-    </header>
-
-    <section class="partner-info">
-        <div class="logo-placeholder">
-           <img src="{{ $user->photo }}">
-        </div>
-        <div class="partner-name-placeholder">
-          <h1 class="page-title">{{ $user->name }}</h1>
-          
-        </div>
-    </section>
 
     <section class="search-section">
         <div class="neo-input-group">

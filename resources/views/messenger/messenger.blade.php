@@ -3,33 +3,9 @@
 @section('content')
 
     <div class="page-container neo-card details-page">
-        @if( (int)Auth::user()->role === 1 )
-            @include('company_admin.menu')
-        @endif
+        @include('company_admin.menu')
+      
 
-        <?php 
-            $newMessages = Auth::user()->newMessagesCount();
-        ?>
-        @if($newMessages !== false)
-        <div class="messageCont">
-          <a href="{{ route('messenger', [ 'id' => Auth::user()->id ]) }}">
-            <button class="messages-button neo-accent-btn">
-                <span class="icon-indicator">{{ $newMessages }}</span>
-                MESSAGES
-            </button>
-          </a>  
-
-        </div>
-        @endif
-      
-        <header class="header">
-            <h1 class="page-title details-title">
-              <span class="neo-highlight">Chats of</span> {{ $user_for_chat_view->name }}
-            </h1>
-        </header>
-      
-        
-      
         <hr class="separator"/>
         <section class="request-table-section">
             <h2 class="section-subtitle">Chats</h2>

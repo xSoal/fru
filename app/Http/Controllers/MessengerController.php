@@ -38,7 +38,8 @@ class MessengerController extends Controller
 
         $data = [
             'chats' => $chats,
-            'user_for_chat_view' => $user_for_chat_view
+            'user_for_chat_view' => $user_for_chat_view,
+            'user' => $user_for_chat_view
         ];
 
         return view('messenger.messenger', $data);
@@ -71,6 +72,7 @@ class MessengerController extends Controller
             'chat' => $chat,
             'user_for_chat_view' => $user_for_chat_view,
             'current_user' => $current_user,
+            'user' => $user_for_chat_view,
             'dialog_with_user' => $dialog_with_user
         ];
 

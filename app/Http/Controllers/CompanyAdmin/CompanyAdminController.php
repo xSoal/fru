@@ -65,7 +65,8 @@ class CompanyAdminController extends Controller
             'company' => $company, 
             'chat' => $chat,     // текущий
             'messages' => $messages, // Коллекция сообщений только из ПЕРВОГО чата
-            'equipmentsRequests' => $equipmentsRequests
+            'equipmentsRequests' => $equipmentsRequests, 
+            'user' => Auth::user()
         ];
 
         // В шаблоне 'company_admin.company' теперь доступна переменная $messages
@@ -112,6 +113,7 @@ class CompanyAdminController extends Controller
     public function search(Request $request){
         $search = trim($request->input('search'));
         $perPage = 25;
+        $user = Auth::user();
 
         if(!$search){
             // Создание пустого пагинатора, без запроса к БД
@@ -133,7 +135,8 @@ class CompanyAdminController extends Controller
         // dd($resultSearch);
         $data = [
             'search' => $search,
-            'resultSearch' => $resultSearch
+            'resultSearch' => $resultSearch,
+            'user' => $user
         ];
 
         return view('company_admin.search', $data);
@@ -141,6 +144,7 @@ class CompanyAdminController extends Controller
 
 
     public function equipment(){
+        $user = Auth::user();
         $e = EquipmentRequest::with('user')->paginate(25);
         
         $countriesWithCount = EquipmentRequest::select('country', DB::raw('COUNT(*) as count'))
@@ -151,7 +155,8 @@ class CompanyAdminController extends Controller
 
         $data = [
             'resultSearch' => $e,
-            'countries' => $countriesWithCount
+            'countries' => $countriesWithCount,
+            'user' => $user
         ];
 
 
