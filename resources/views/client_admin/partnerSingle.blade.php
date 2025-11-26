@@ -30,6 +30,13 @@
 
   <hr class="separator"/>
 
+  <div class="">
+      <h2 class="">Partners companies</h2>
+      <div class="partnersCompanies">
+        {!! $partner->companies !!}
+      </div>
+  </div>
+
   @if( (int)$partner->dialog_enable_status === 1 )
   <section class="message-section">
       <h2 class="section-subtitle">New message:</h2>
