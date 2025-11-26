@@ -14,8 +14,8 @@
                 @foreach ($resultSearch as $item)
                     <li>
                         <h4 class="result-title">
-                            <a href="/news/{{ $item->slug }}">
-                                {{ $item->title }}
+                            <a href="/{{ $item->type }}/{{ $item->slug }}">
+                                {{ $item->title }} 
                             </a>
                         </h4>
                         <p class="result-text">
