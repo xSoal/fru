@@ -308,7 +308,6 @@ a {
 	margin-top: 0;
 	margin-bottom: 10px;
 	color: var(--accent-secondary);
-	
 }
 .description-text p {
 	font-size: 14px;
@@ -451,8 +450,9 @@ tbody td:first-child {
 
 .message {
 	padding: 10px 15px;
-	border-radius: 5px;
-	background-color: #c8c8c830;
+	border-radius: 10px;
+	background-color: #eaf2ff3d;
+	border: 1px solid #ecf0f19c;
 }
 
 .message-sender {
@@ -785,6 +785,7 @@ table td {
 
 .company__searchTableCode {
 	min-width: 75px;
+	text-align: center;
 }
 
 .equipmentCont {
