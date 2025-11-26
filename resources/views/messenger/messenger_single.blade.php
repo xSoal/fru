@@ -3,9 +3,7 @@
 @section('content')
 
     <div class="page-container neo-card details-page">
-        @if( (int)Auth::user()->role === 1 )
-          @include('messenger.menu')
-        @endif
+        @include('messenger.menu')
 
         <header class="header">
             <h1 class="page-title details-title">
