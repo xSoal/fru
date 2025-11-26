@@ -294,7 +294,7 @@ nav[role] .hidden {
 	display: flex;
 	flex-direction: row;
 	align-items: stretch;
-	padding: 0 0 75px 0;
+	padding: 0 0 150px 0;
 }
 
 .mainInfo a {
@@ -445,7 +445,7 @@ a.mainInfo__button {
 }
 
 .mainSecondBlock {
-	margin-top: 30px;
+	/* margin-top: 30px; */
 	padding: 30px 0px;
 	padding-bottom: 75px;
 	background-color: #f1f1f1;
@@ -849,7 +849,7 @@ nav[aria-label='Pagination Navigation'] span span span {
 }
 
 nav[aria-label='Pagination Navigation'] span[aria-current='page'] span {
-	color: #1b7f61; /* зелёный цвет активного номера */
+	color: #1b7f61; /* Ð·ÐµÐ»Ñ‘Ð½Ñ‹Ð¹ Ñ†Ð²ÐµÑ‚ Ð°ÐºÑ‚Ð¸Ð²Ð½Ð¾Ð³Ð¾ Ð½Ð¾Ð¼ÐµÑ€Ð° */
 	font-weight: 600;
 }
 
@@ -896,7 +896,7 @@ nav[aria-label='Pagination Navigation'] a:hover svg {
 }
 
 .ramstein {
-	padding: 80px 0;
+	padding: 150px 0;
 	background: #f4f7fb;
 	font-family: 'Inter', sans-serif;
 }
@@ -948,7 +948,7 @@ nav[aria-label='Pagination Navigation'] a:hover svg {
 	font-family: Open Sans;
 }
 
-/* Карточки */
+/* ÐšÐ°Ñ€Ñ‚Ð¾Ñ‡ÐºÐ¸ */
 .ramstein__cards {
 	margin-top: 40px;
 	display: flex;
@@ -1008,7 +1008,7 @@ nav[aria-label='Pagination Navigation'] a:hover svg {
 	gap: 60px;
 }
 
-/* Левая колонка */
+/* Ð›ÐµÐ²Ð°Ñ ÐºÐ¾Ð»Ð¾Ð½ÐºÐ° */
 .contact-left {
 	flex: 0 0 35%;
 }
@@ -1040,7 +1040,7 @@ nav[aria-label='Pagination Navigation'] a:hover svg {
 	height: 32px;
 }
 
-/* Правая колонка */
+/* ÐŸÑ€Ð°Ð²Ð°Ñ ÐºÐ¾Ð»Ð¾Ð½ÐºÐ° */
 .contact-right {
 	flex: 0 0 60%;
 }
@@ -1060,7 +1060,7 @@ nav[aria-label='Pagination Navigation'] a:hover svg {
 	max-width: 600px;
 }
 
-/* Форма */
+/* Ð¤Ð¾Ñ€Ð¼Ð° */
 .contact-form input,
 .contact-form textarea {
 	width: 95%;
@@ -1102,10 +1102,10 @@ nav[aria-label='Pagination Navigation'] a:hover svg {
 
 /* login form */
 
-/* Підключення Font Awesome (Якщо не підключено) */
+/* ÐŸÑ–Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð½Ñ Font Awesome (Ð¯ÐºÑ‰Ð¾ Ð½Ðµ Ð¿Ñ–Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¾) */
 /* @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'); */
 
-/* ------------------ БАЗОВІ СТИЛІ ФОН + КОНТЕЙНЕР ------------------ */
+/* ------------------ Ð‘ÐÐ—ÐžÐ’Ð† Ð¡Ð¢Ð˜Ð›Ð† Ð¤ÐžÐ + ÐšÐžÐÐ¢Ð•Ð™ÐÐ•Ð  ------------------ */
 .hidden {
 	display: none;
 }
@@ -1115,14 +1115,14 @@ nav[aria-label='Pagination Navigation'] a:hover svg {
 	padding: 30px 40px;
 	border-radius: 10px;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-	width: 380px; /* Фіксована ширина форми */
+	width: 380px; /* Ð¤Ñ–ÐºÑÐ¾Ð²Ð°Ð½Ð° ÑˆÐ¸Ñ€Ð¸Ð½Ð° Ñ„Ð¾Ñ€Ð¼Ð¸ */
 }
 
 .form-group {
 	margin-bottom: 20px;
 }
 
-/* ------------------ СТИЛІ ПОЛІВ ВВЕДЕННЯ ------------------ */
+/* ------------------ Ð¡Ð¢Ð˜Ð›Ð† ÐŸÐžÐ›Ð†Ð’ Ð’Ð’Ð•Ð”Ð•ÐÐÐ¯ ------------------ */
 
 label {
 	display: block;
@@ -1136,14 +1136,14 @@ label {
 	padding: 10px 15px;
 	border: 1px solid #ccc;
 	border-radius: 5px;
-	box-sizing: border-box; /* Важливо для width: 100% */
+	box-sizing: border-box; /* Ð’Ð°Ð¶Ð»Ð¸Ð²Ð¾ Ð´Ð»Ñ width: 100% */
 	transition: border-color 0.3s;
 }
 
-/* Стиль для інпуту з помилкою (як у полі "Логін") */
+/* Ð¡Ñ‚Ð¸Ð»ÑŒ Ð´Ð»Ñ Ñ–Ð½Ð¿ÑƒÑ‚Ñƒ Ð· Ð¿Ð¾Ð¼Ð¸Ð»ÐºÐ¾ÑŽ (ÑÐº Ñƒ Ð¿Ð¾Ð»Ñ– "Ð›Ð¾Ð³Ñ–Ð½") */
 .error-input {
-	border: 2px solid #a00; /* Червона обведення */
-	border-radius: 20px; /* Більш скруглені кути для Логіна */
+	border: 2px solid #a00; /* Ð§ÐµÑ€Ð²Ð¾Ð½Ð° Ð¾Ð±Ð²ÐµÐ´ÐµÐ½Ð½Ñ */
+	border-radius: 20px; /* Ð‘Ñ–Ð»ÑŒÑˆ ÑÐºÑ€ÑƒÐ³Ð»ÐµÐ½Ñ– ÐºÑƒÑ‚Ð¸ Ð´Ð»Ñ Ð›Ð¾Ð³Ñ–Ð½Ð° */
 }
 
 .validation-error {
@@ -1152,14 +1152,14 @@ label {
 	margin-bottom: 5px;
 }
 
-/* ------------------ ПОЛЕ ПАРОЛЯ (КОМПЛЕКСНИЙ ІНПУТ) ------------------ */
+/* ------------------ ÐŸÐžÐ›Ð• ÐŸÐÐ ÐžÐ›Ð¯ (ÐšÐžÐœÐŸÐ›Ð•ÐšÐ¡ÐÐ˜Ð™ Ð†ÐÐŸÐ£Ð¢) ------------------ */
 
 .password-container {
 	display: flex;
 	border: 2px solid #ccc;
-	border-radius: 5px; /* Менші скруглення, ніж у Логіна */
+	border-radius: 5px; /* ÐœÐµÐ½ÑˆÑ– ÑÐºÑ€ÑƒÐ³Ð»ÐµÐ½Ð½Ñ, Ð½Ñ–Ð¶ Ñƒ Ð›Ð¾Ð³Ñ–Ð½Ð° */
 	overflow: hidden;
-	/* Червона обведення для поля пароля на скріншоті */
+	/* Ð§ÐµÑ€Ð²Ð¾Ð½Ð° Ð¾Ð±Ð²ÐµÐ´ÐµÐ½Ð½Ñ Ð´Ð»Ñ Ð¿Ð¾Ð»Ñ Ð¿Ð°Ñ€Ð¾Ð»Ñ Ð½Ð° ÑÐºÑ€Ñ–Ð½ÑˆÐ¾Ñ‚Ñ– */
 	border: 1px solid #ccc;
 }
 
@@ -1176,15 +1176,15 @@ label {
 
 .password-input {
 	flex-grow: 1;
-	border: none; /* Видаляємо рамку всередині контейнера */
+	border: none; /* Ð’Ð¸Ð´Ð°Ð»ÑÑ”Ð¼Ð¾ Ñ€Ð°Ð¼ÐºÑƒ Ð²ÑÐµÑ€ÐµÐ´Ð¸Ð½Ñ– ÐºÐ¾Ð½Ñ‚ÐµÐ¹Ð½ÐµÑ€Ð° */
 	padding: 10px;
 	font-size: 16px;
 	outline: none;
-	border-radius: 0; /* Прибираємо скруглення тут */
+	border-radius: 0; /* ÐŸÑ€Ð¸Ð±Ð¸Ñ€Ð°Ñ”Ð¼Ð¾ ÑÐºÑ€ÑƒÐ³Ð»ÐµÐ½Ð½Ñ Ñ‚ÑƒÑ‚ */
 }
 
 .toggle-password {
-	background-color: #28a745; /* Зелений колір кнопки */
+	background-color: #28a745; /* Ð—ÐµÐ»ÐµÐ½Ð¸Ð¹ ÐºÐ¾Ð»Ñ–Ñ€ ÐºÐ½Ð¾Ð¿ÐºÐ¸ */
 	color: white;
 	border: none;
 	padding: 10px 15px;
@@ -1197,12 +1197,12 @@ label {
 	background-color: #218838;
 }
 
-/* ------------------ ЧЕКБОКС ------------------ */
+/* ------------------ Ð§Ð•ÐšÐ‘ÐžÐšÐ¡ ------------------ */
 
 .checkbox-group {
 	display: flex;
 	align-items: center;
-	margin-top: -10px; /* Підтягуємо вище */
+	margin-top: -10px; /* ÐŸÑ–Ð´Ñ‚ÑÐ³ÑƒÑ”Ð¼Ð¾ Ð²Ð¸Ñ‰Ðµ */
 }
 
 .checkbox-group input[type='checkbox'] {
@@ -1211,11 +1211,11 @@ label {
 	height: 16px;
 }
 
-/* ------------------ КНОПКА SUBMIT ------------------ */
+/* ------------------ ÐšÐÐžÐŸÐšÐ SUBMIT ------------------ */
 
 .btn-submit {
 	width: 100%;
-	background-color: #28a745; /* Зелений колір */
+	background-color: #28a745; /* Ð—ÐµÐ»ÐµÐ½Ð¸Ð¹ ÐºÐ¾Ð»Ñ–Ñ€ */
 	color: white;
 	padding: 12px;
 	border: none;
