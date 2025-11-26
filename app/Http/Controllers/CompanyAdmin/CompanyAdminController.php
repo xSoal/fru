@@ -181,7 +181,8 @@ class CompanyAdminController extends Controller
         $data = [
             'resultSearch' => $e,
             'countries' => $countriesWithCount,
-            'allowedCountries' => $allowedCountries
+            'allowedCountries' => $allowedCountries,
+            'user' => Auth::user()
         ];
 
 
