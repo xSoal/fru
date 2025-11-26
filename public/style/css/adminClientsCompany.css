@@ -49,7 +49,6 @@ body {
 .neo-highlight {
 	font-weight: 800;
 	color: var(--text-main);
-	display: none;
 }
 .light-text {
 	font-weight: 400;
@@ -109,7 +108,6 @@ body {
 .partner-info {
 	display: flex;
 	align-items: center;
-	margin-bottom: 45px;
 	gap: 50px;
 }
 
@@ -854,8 +852,25 @@ table td {
 /* Общие стили для контейнера меню */
 .header-menu-bar {
 	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	margin-bottom: 20px;
 	border-bottom: 1px solid #ddd; /* Разделитель */
+}
+
+.header__left {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.header-menu-bar .messageCont {
+	margin-top: 5px;
+    margin-left: 25px;
+}
+
+.header__right img {
+	max-width: 100px;
 }
 
 /* Стили для списка */
@@ -864,7 +879,7 @@ table td {
 	padding: 0;
 	margin: 0;
 	display: flex; /* Размещаем элементы горизонтально */
-	gap: 50px; /* Расстояние между пунктами */
+	gap: 25px; /* Расстояние между пунктами */
 }
 
 /* Стили для отдельных пунктов */
