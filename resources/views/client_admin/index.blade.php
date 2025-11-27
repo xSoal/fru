@@ -18,7 +18,7 @@
           <table>
               <thead>
                   <tr>
-                      <th>N</th>
+                      <th>№</th>
                       <th>NAME</th>
                       <th>MODEL</th>
                       <th>MANUFACTURER</th>
@@ -117,7 +117,7 @@
                   <div id="new-request-row" class="neo-input-row">
                     <input hidden name="id" value="" class="editRequestId">
                     <div class="input-cell cell-name">
-                      <span class="label-text">N</span>
+                      <span class="label-text">№</span>
                       <input disabled required type="text" name="code" placeholder="N" class="table-input">
                   </div>
                     <div class="input-cell cell-name">

@@ -32,7 +32,7 @@
           <table>
               <thead>
                   <tr>
-                      <th>N</th>
+                      <th>№</th>
                       <th>NAME </th>
                       <th>MODEL</th>
                       <th>MANUFACTURER</th>

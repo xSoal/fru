@@ -44,7 +44,7 @@
             <table class="equipment__searchTable">
               <thead>
                   <tr>
-                      <th class="company__searchTableCode">N</th>
+                      <th class="company__searchTableCode">№</th>
                       <th>NAME </th>
                       <th>MODEL</th>
                       <th>MANUFACTURER</th>
