@@ -282,7 +282,14 @@ header {
   color: #ffffff;
 }
 
+body table.custom-table-requests td,
+body table.custom-table-requests td {
+  text-align: center;
+}
 
+body table.custom-table-requests td:first-child {
+  min-width: 100px;
+}
 
 .user_chat_links {
   text-decoration: none;
