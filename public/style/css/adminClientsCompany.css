@@ -193,8 +193,8 @@ body {
 	font-family: var(--font-heading);
 	font-size: 18px;
 	font-weight: 500;
-	margin-bottom: 20px;
-	padding-bottom: 5px;
+	margin-bottom: 0;
+	padding-bottom: 25px;
 	border-bottom: 1px dashed var(--border-color);
 }
 
@@ -865,6 +865,7 @@ table td {
 
 .equipmentCont {
 	display: flex;
+	margin-top: 25px;
 }
 
 .equipmentFilter {
