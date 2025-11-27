@@ -9,7 +9,15 @@
     <div class="mainInfo">
       <div class="mainInfo__left">
         <div class="mainInfo__leftFullRow">
-          <a class="mainInfo__el" style="background-image: url('/images/main_page_info/equipment.jpg')">
+          <a 
+            @if( auth()->user() && auth()->user()->role == 1 )
+              href="/companyAdmin/equipment"
+            @elseif( auth()->user() && auth()->user()->role == 0)
+              href="/clientAdmin"
+            @else
+              href="{{ route('login') }}"
+            @endif
+            class="mainInfo__el" style="background-image: url('/images/main_page_info/equipment.jpg')">
             <div class="mainInfo__elText">
               <h3 class="h3 mainInfo__leftFullRowHeader">Обладнання</h3>
               <p>Перелік техніки і обладнання іноземного виробництва, якого потребують українські підприємства</p>
@@ -17,12 +25,20 @@
           </a>
         </div>
         <div class="mainInfo__leftDoubleRow">
-          <a href="#" class="mainInfo__el" style="background-image: url('/images/main_page_info/service-discussion.jpg')">
+          <a 
+            @if( auth()->user() && auth()->user()->role == 1 )
+              href="/companyAdmin"
+            @elseif( auth()->user() && auth()->user()->role == 0)
+              href="/clientAdmin"
+            @else
+              href="{{ route('login') }}"
+            @endif
+            class="mainInfo__el" style="background-image: url('/images/main_page_info/service-discussion.jpg')">
             <div class="mainInfo__elText">
               <h3 class="h3">Сервісне обслуговування</h3>
             </div>
           </a>
-          <a href="#" class="mainInfo__el" style="background-image: url('/images/main_page_info/more-information.jpg')">
+          <a href="{{ route('main_page.reference') }}" class="mainInfo__el" style="background-image: url('/images/main_page_info/more-information.jpg')">
             <div class="mainInfo__elText">
               <h3 class="h3">Довідкова інформація</h3>
             </div>
@@ -47,6 +63,58 @@
 
   </div>
 </div>
+
+<section class="ramstein">
+  <div class="ramstein__container">
+
+      
+
+      <div class="ramstein__right">
+        <a target="_blank" href="https://helpdesk.fru.ua/promyslovyy-ramshtain">
+          <img src="/images/metal-gears.jpg" alt="">
+        </a>
+      </div>
+
+      <div class="ramstein__left">
+          <h2 class="ramstein__title">Промисловий<br>Рамштайн</h2>
+
+          <p class="ramstein__desc">
+              Ідея – об’єднати іноземних партнерів у коаліцію, яка за прикладом Ukraine
+              Defense Contact Group (Ramstein) допомагатиме Україні долати наслідки
+              російської агресії на виробничому фронті.
+          </p>
+
+          <p class="ramstein__desc">
+              Мета – отримання постраждалими підприємствами України критично необхідного
+              для їхньої виробничої діяльності обладнання на вигідних умовах – з дисконтом
+              або у вигляді матеріально-технічної допомоги, з частковою або повною
+              компенсацією коштами донорських організацій, урядових програм та інших джерел.
+          </p>
+
+          <div class="ramstein__cards">
+              <div class="ramstein-card">
+                  <img src="/images/info_favicon.svg" class="ramstein-card__logo" alt="">
+                  <div class="ramstein-card__text">
+                      <h4>ФРУ</h4>
+                      <span>Федерація роботодавців України</span>
+                  </div>
+                  <a href="https://fru.ua/ua/" target="_blank" class="ramstein-card__link">Перейти →</a>
+              </div>
+
+              <div class="ramstein-card">
+                  <img src="/images/info_favicon.svg" class="ramstein-card__logo" alt="">
+                  <div class="ramstein-card__text">
+                      <h4>Help Desk</h4>
+                      <span>Сервіси для бізнесу</span>
+                  </div>
+                  <a href="https://helpdesk.fru.ua/"  target="_blank" class="ramstein-card__link">Перейти →</a>
+              </div>
+          </div>
+      </div>
+
+  </div>
+</section>
+
 
 <section>
   <div class="mainSecondBlock">
@@ -89,62 +157,10 @@
   </div>
 </section>
 
-
-
-
-<section class="ramstein">
-  <div class="ramstein__container">
-
-      <div class="ramstein__left">
-          <h2 class="ramstein__title">Промисловий<br>Рамштайн</h2>
-
-          <p class="ramstein__desc">
-              Ідея – об’єднати іноземних партнерів у коаліцію, яка за прикладом Ukraine
-              Defense Contact Group (Ramstein) допомагатиме Україні долати наслідки
-              російської агресії на виробничому фронті.
-          </p>
-
-          <p class="ramstein__desc">
-              Мета – отримання постраждалими підприємствами України критично необхідного
-              для їхньої виробничої діяльності обладнання на вигідних умовах – з дисконтом
-              або у вигляді матеріально-технічної допомоги, з частковою або повною
-              компенсацією коштами донорських організацій, урядових програм та інших джерел.
-          </p>
-
-          <div class="ramstein__cards">
-              <div class="ramstein-card">
-                  <img src="/images/info_favicon.svg" class="ramstein-card__logo" alt="">
-                  <div class="ramstein-card__text">
-                      <h4>ФРУ</h4>
-                      <span>Федерація роботодавців України</span>
-                  </div>
-                  <a href="https://fru.ua/ua/" target="_blank" class="ramstein-card__link">Перейти →</a>
-              </div>
-
-              <div class="ramstein-card">
-                  <img src="/images/info_favicon.svg" class="ramstein-card__logo" alt="">
-                  <div class="ramstein-card__text">
-                      <h4>Help Desk</h4>
-                      <span>Сервіси для бізнесу</span>
-                  </div>
-                  <a href="https://helpdesk.fru.ua/"  target="_blank" class="ramstein-card__link">Перейти →</a>
-              </div>
-          </div>
-      </div>
-
-      <div class="ramstein__right">
-        <a target="_blank" href="https://helpdesk.fru.ua/promyslovyy-ramshtain">
-          <img src="/images/metal-gears.jpg" alt="">
-        </a>
-      </div>
-
-  </div>
-</section>
-
 <section class="container" style="text-align: center;">
   <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSDt6a6e96HmBbq7uuAvNwI6nto2Lw5udGsM0FtUgODY5kBVlDJHgpJGofWH6qDrQ/pubembed?start=false&loop=false&delayms=3000" frameborder="0"
    width="100%"
-   style="max-width: 960px; margin: 25px auto 75px;"
+   style="max-width: 960px; margin: 100px auto 100px;"
    height="576"
    allowfullscreen="true"
    mozallowfullscreen="true"

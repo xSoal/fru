@@ -8,7 +8,15 @@ $(document).ready(function () {
   burgerMenu();
   showHidePassword();
   scrollTopButton();
-  passwordShowToggle();
+
+  if($('#togglePassword').length !=0 ){
+    passwordShowToggle();
+  }
+
+  $('.exitBtn').click(function(){
+    $(this).closest('.headerSubmenu').find('form').submit();
+  })
+
 });
 
 

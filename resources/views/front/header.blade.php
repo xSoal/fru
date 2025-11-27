@@ -123,10 +123,23 @@
 						}
 					}
 				?>
-				<a class="loginHref" href="{{ $login_url }}" >
-					<img src="/images/icons/user.svg">
-					{{-- <span class="far fa-user me-1"></span> --}}
-				</a>
+				@if( auth()->user() )
+					<ul class="headerMenuLinks loginHref">
+						<li class="headerSubmenuCont">
+							<img src="/images/icons/userAuth.svg">
+							<div class="headerSubmenu">
+								<a href="{{ $login_url }}" target="_blank">Кабінет</a>
+								<a href="#" class="exitBtn">Вийти</a>
+								<form action="{{ route('logout') }}" method="POST">@csrf</form>
+							</div>
+
+						</li>
+					</ul>
+				@else
+					<a class="loginHref" href="{{ $login_url }}" >
+						<img src="/images/icons/user.svg">
+					</a>
+				@endif
 			</div>
 		</div>
 	</div>

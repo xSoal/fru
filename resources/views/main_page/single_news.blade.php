@@ -35,17 +35,33 @@
   <div class="content">
     <div class="singeNewsCont">
       <div class="singleNewsAside">
-        <a href="#" class="mainInfo__el" style="background-image: url('/images/main_page_info/equipment.jpg')">
-          <div class="mainInfo__elText">
+        <a 
+            @if( auth()->user() && auth()->user()->role == 1 )
+              href="/companyAdmin/equipment"
+            @elseif( auth()->user() && auth()->user()->role == 0)
+              href="/clientAdmin"
+            @else
+              href="{{ route('login') }}"
+            @endif
+          class="mainInfo__el" style="background-image: url('/images/main_page_info/equipment.jpg')">
+            <div class="mainInfo__elText">
             <h3 class="h3">Обладнання</h3>
           </div>
         </a>
-        <a href="#" class="mainInfo__el" style="background-image: url('/images/main_page_info/more-information.jpg')">
+        <a 
+            @if( auth()->user() && auth()->user()->role == 1 )
+              href="/companyAdmin"
+            @elseif( auth()->user() && auth()->user()->role == 0)
+              href="/clientAdmin"
+            @else
+              href="{{ route('login') }}"
+            @endif
+          class="mainInfo__el" style="background-image: url('/images/main_page_info/more-information.jpg')">
           <div class="mainInfo__elText">
             <h3 class="h3">Сервісне обслуговування</h3>
           </div>
         </a>
-        <a href="#" class="mainInfo__el" style="background-image: url('/images/main_page_info/more-information.jpg')">
+        <a href="{{ route('main_page.reference') }}" class="mainInfo__el" style="background-image: url('/images/main_page_info/more-information.jpg')">
           <div class="mainInfo__elText">
             <h3 class="h3">Довідкова інформація</h3>
           </div>

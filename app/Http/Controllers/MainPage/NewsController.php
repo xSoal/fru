@@ -14,7 +14,7 @@ class NewsController extends Controller
     public function single(Request $request, $slug){
         $type = $this->getNewsType($request->path());
         if(($type === 'rules' || $type === 'support') && !Auth::user()){
-            abort('404');
+            return redirect()->route('login');
         }
         $today = Carbon::today();
         $newsItem = News::whereDate('public_date', '<=', $today)->where('type', $type)->where('active', 1)->where('slug', '=', $slug)->firstOrFail();
@@ -26,7 +26,7 @@ class NewsController extends Controller
     public function allNews(Request $request){
         $type = $this->getNewsType($request->path());
         if(($type === 'rules' || $type === 'support') && !Auth::user()){
-            abort('404');
+            return redirect()->route('login');
         }
         $today = Carbon::today();
         $news = News::whereDate('public_date', '<=', $today)->where('type', $type)->where('active', 1)->orderBy('public_date', 'desc')->paginate(9);
@@ -42,7 +42,7 @@ class NewsController extends Controller
 
     public function reference(){
         if(!Auth::user()){
-            abort('404');
+            return redirect()->route('login');
         }
         $today = Carbon::today();
         $news = News::whereDate('public_date', '<=', $today)
