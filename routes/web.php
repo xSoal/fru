@@ -139,6 +139,11 @@ Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function() {
         Route::post('/', ['uses' => '\App\Http\Controllers\Admin\ClientsController@post', 'as' => 'admin.postClient']);
     });
 
+    Route::group(['prefix' => 'equipment_request'], function () {
+        Route::get('/', ['uses' => '\App\Http\Controllers\Admin\EquipmentRequestController@index', 'as' => 'admin.equipment_request']);
+        Route::get('/search', ['uses' => '\App\Http\Controllers\Admin\EquipmentRequestController@search', 'as' => 'admin.equipment_request_search']);
+    });
+
 });
 
 

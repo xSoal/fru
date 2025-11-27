@@ -32,6 +32,7 @@ class CompanyAdminController extends Controller
             'clients' => $clients
         ];
 
+
         return 	view('company_admin.index', $data);
     }
 
@@ -61,7 +62,10 @@ class CompanyAdminController extends Controller
             });
         }
 
-        $equipmentsRequests = EquipmentRequest::where('user_id', $id)->latest()->get();
+        $equipmentsRequests = EquipmentRequest::where('user_id', $id)
+            ->where('active', 1)
+            ->latest()
+            ->get();
 
         $data = [
             'company' => $company, 
@@ -131,6 +135,7 @@ class CompanyAdminController extends Controller
             $searchPattern = '%' . $search . '%';
             $resultSearch = EquipmentRequest::where('country', 'LIKE', $searchPattern)
                 ->with('user')
+                ->where('active', 1)
                 ->paginate($perPage)
                 ->appends(['search' => $search]);
         }
@@ -147,9 +152,12 @@ class CompanyAdminController extends Controller
 
     public function equipment(){
         $user = Auth::user();
-        $e = EquipmentRequest::with('user')->paginate(25);
+        $e = EquipmentRequest::with('user')
+            ->where('active', 1)
+            ->paginate(25);
         
         $countriesWithCount = EquipmentRequest::select('country', DB::raw('COUNT(*) as count'))
+            ->where('active', 1)    
             ->groupBy('country')
             ->orderBy('country', 'asc') 
             ->get();
@@ -171,10 +179,12 @@ class CompanyAdminController extends Controller
         $allowedCountries = explode('|', $filterStr);
 
         $e = EquipmentRequest::whereIn('country', $allowedCountries)
+            ->where('active', 1)
             ->with('user')
             ->paginate(25);
 
         $countriesWithCount = EquipmentRequest::select('country', DB::raw('COUNT(*) as count'))
+            ->where('active', 1)
             ->groupBy('country')
             ->orderBy('country', 'asc') 
             ->get();

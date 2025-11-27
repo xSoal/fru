@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\EquipmentRequest;
 use App\Models\News;
 use App\Models\Post;
 use App\Models\ProjectKPPItems;
@@ -27,6 +28,7 @@ class APIController extends Controller
             case 'user' : $tmp = User::where('id',$input['id'])->first(); break;
             case 'post' : $tmp = Post::where('id',$input['id'])->first(); break;
             case 'news' : $tmp = News::where('id',$input['id'])->first(); break;
+            case 'equipment_request' : $tmp = EquipmentRequest::where('id',$input['id'])->first(); break;
         }
 
         $tmp->active = (int)$input['active'];

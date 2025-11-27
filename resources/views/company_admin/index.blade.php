@@ -9,7 +9,6 @@
     <div class="buttonBackCont">
         <a href="/">< to site</a>
     </div>
-
     <section class="search-section">
         <div class="neo-input-group">
             <label for="search-input" class="search-label">
