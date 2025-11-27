@@ -35,7 +35,7 @@
           @foreach ($clients as $client)
             <div class="list-item">
               <a class="company" href="/companyAdmin/clients/{{ $client->id }}">
-                <div class="company__name">Company {{ $client->name }} </div>
+                <div class="company__name">{{ $client->name }} </div>
                 <div class="company__logo">
                   <img src="{{ $client->photo }}">
                 </div>

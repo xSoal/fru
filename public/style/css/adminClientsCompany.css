@@ -1,22 +1,20 @@
-/* ÐŸÐµÑ€ÐµÐ¼ÐµÐ½Ð½Ñ‹Ðµ Ð´Ð»Ñ Neo-Minimalist Grid */
+/* Переменные для Neo-Minimalist Grid */
 :root {
 	--bg-main: #fcfcfc;
-	--text-main: #072446; /* Ð¢ÐµÐ¼Ð½Ð¾-ÑÐ¸Ð½Ð¸Ð¹/Ð¿Ð¾Ñ‡Ñ‚Ð¸ Ñ‡ÐµÑ€Ð½Ñ‹Ð¹ */
-	--accent-primary: #157c57; /* Ð‘Ð¸Ñ€ÑŽÐ·Ð¾Ð²Ñ‹Ð¹ */
-	--accent-secondary: #157c57; /* ÐžÑ€Ð°Ð½Ð¶ÐµÐ²Ñ‹Ð¹ */
-	--border-color: #ecf0f1; /* Ð¡Ð²ÐµÑ‚Ð»Ð¾-ÑÐµÑ€Ñ‹Ð¹ */
+	--text-main: #072446; /* Тёмно-синий/почти чёрный */
+	--accent-primary: #157c57; /* Бирюзовый */
+	--accent-secondary: #157c57; /* Оранжевый */
+	--border-color: #ecf0f1; /* Светло-серый */
 	--font-heading: 'Open Sans', sans-serif;
 	--font-body: 'Open Sans', sans-serif;
 }
 
-/* Ð‘Ð°Ð·Ð¾Ð²Ñ‹Ðµ ÑÑ‚Ð¸Ð»Ð¸ */
+/* Базовые стили */
 body {
 	font-family: var(--font-body);
 	margin: 0;
 	padding: 0;
-	background-color: var(
-		--border-color
-	); /* Ð¡Ð²ÐµÑ‚Ð»Ñ‹Ð¹ Ñ„Ð¾Ð½ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ñ‹ */
+	background-color: var(--border-color); /* Светлый фон страницы */
 	color: var(--text-main);
 	line-height: 1.6;
 }
@@ -31,11 +29,11 @@ body {
 	background-color: var(--bg-main);
 }
 
-/* Ð¡Ñ‚Ð¸Ð»Ð¸ ÐºÐ°Ñ€Ñ‚Ð¾Ñ‡ÐµÐº Ð¸ Ñ‚ÐµÐ½ÐµÐ¹ (Ð¼Ð¸Ð½Ð¸Ð¼Ð°Ð»Ð¸ÑÑ‚Ð¸Ñ‡Ð½Ñ‹Ðµ) */
+/* Стили карточек и теней (минималистичные) */
 .neo-card {
 	border: 1px solid var(--border-color);
 	border-radius: 8px;
-	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Ð›ÐµÐ³ÐºÐ°Ñ, Ñ€Ð°Ð·Ð¼Ñ‹Ñ‚Ð°Ñ Ñ‚ÐµÐ½ÑŒ */
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Лёгкая, размытая тень */
 }
 .neo-card-flat {
 	border: 2px solid var(--accent-primary);
@@ -43,7 +41,7 @@ body {
 	border-radius: 4px;
 }
 
-/* ÐÐºÑ†ÐµÐ½Ñ‚Ñ‹ */
+/* Акценты */
 .neo-bg-accent {
 	/* background-color: var(--accent-primary); */
 	color: var(--accent-primary);
@@ -68,11 +66,11 @@ body {
 	font-size: 10px;
 }
 
-/* 1. Ð’ÐµÑ€Ñ…Ð½ÑÑ ÑÑ‚Ñ€Ð¾ÐºÐ° */
+/* 1. Верхняя строка */
 .header {
 	display: flex;
 	justify-content: center;
-	align-items: flex-start; /* Ð’ÐµÑ€Ñ…Ð½ÐµÐµ Ð²Ñ‹Ñ€Ð°Ð²Ð½Ð¸Ð²Ð°Ð½Ð¸Ðµ */
+	align-items: flex-start; /* Верхнее выравнивание */
 	margin-bottom: 35px;
 	padding-bottom: 20px;
 	border-bottom: 1px solid var(--border-color);
@@ -82,10 +80,10 @@ body {
 }
 .page-title {
 	font-family: var(--font-heading);
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: 600;
 	margin: 0;
-	border-left: 5px solid var(--accent-primary); /* Ð’ÐµÑ€Ñ‚Ð¸ÐºÐ°Ð»ÑŒÐ½Ñ‹Ð¹ Ð°ÐºÑ†ÐµÐ½Ñ‚ */
+	border-left: 5px solid var(--accent-primary); /* Вертикальный акцент */
 	padding-left: 15px;
 	transform: translateX(-20px);
 }
@@ -108,9 +106,7 @@ body {
 	color: white;
 }
 .icon-indicator {
-	background-color: var(
-		--accent-secondary
-	); /* ÐžÑ€Ð°Ð½Ð¶ÐµÐ²Ñ‹Ð¹ Ð¸Ð½Ð´Ð¸ÐºÐ°Ñ‚Ð¾Ñ€ */
+	background-color: var(--accent-secondary); /* Оранжевый индикатор */
 	color: white;
 	padding: 2px 7px;
 	border-radius: 50%;
@@ -118,7 +114,7 @@ body {
 	font-size: 11px;
 }
 
-/* 2. Ð¡ÐµÐºÑ†Ð¸Ñ Ð›Ð¾Ð³Ð¾ Ð¸ Ð˜Ð¼Ñ Ð¿Ð°Ñ€Ñ‚Ð½ÐµÑ€Ð° */
+/* 2. Секция Лого и Имя партнёра */
 .partner-info {
 	display: flex;
 	align-items: center;
@@ -139,10 +135,10 @@ body {
 	font-size: 22px;
 	font-weight: 600;
 	padding-bottom: 5px;
-	border-bottom: 3px solid var(--accent-secondary); /* ÐžÑ€Ð°Ð½Ð¶ÐµÐ²Ð¾Ðµ Ð¿Ð¾Ð´Ñ‡ÐµÑ€ÐºÐ¸Ð²Ð°Ð½Ð¸Ðµ */
+	border-bottom: 3px solid var(--accent-secondary); /* Оранжевое подчёркивание */
 }
 
-/* 3. ÐŸÐ¾Ð¸ÑÐº */
+/* 3. Поиск */
 .search-section {
 	margin-bottom: 40px;
 	display: none;
@@ -185,7 +181,7 @@ body {
 	font-weight: 400;
 }
 
-/* 4. Ð£ÐºÑ€Ð°Ð¸Ð½ÑÐºÐ¸Ðµ ÐºÐ¾Ð¼Ð¿Ð°Ð½Ð¸Ð¸ */
+/* 4. Украинские компании */
 .companies-section {
 	margin: 100px 0 35px 0;
 }
@@ -201,11 +197,11 @@ body {
 
 .companies-list {
 	display: flex;
-	gap: 8%; /* ÐŸÑ€Ð¾Ñ†ÐµÐ½Ñ‚Ð½Ð¾Ðµ Ñ€Ð°ÑÑÑ‚Ð¾ÑÐ½Ð¸Ðµ Ð´Ð»Ñ Ð°Ð´Ð°Ð¿Ñ‚Ð¸Ð²Ð½Ð¾ÑÑ‚Ð¸ */
+	flex-wrap: wrap;
 }
 
 .column {
-	flex: 1; /* ÐžÐ±Ðµ ÐºÐ¾Ð»Ð¾Ð½ÐºÐ¸ Ð·Ð°Ð½Ð¸Ð¼Ð°ÑŽÑ‚ Ñ€Ð°Ð²Ð½Ð¾Ðµ Ð¿Ñ€Ð¾ÑÑ‚Ñ€Ð°Ð½ÑÑ‚Ð²Ð¾ */
+	flex: 1; /* Обе колонки занимают равное пространство */
 }
 
 .list-item {
@@ -215,7 +211,7 @@ body {
 	padding: 8px 0;
 	cursor: pointer;
 	transition: color 0.2s, background-color 0.2s;
-	/* Ð˜Ð¼Ð¸Ñ‚Ð°Ñ†Ð¸Ñ Ð»Ð¸Ð½Ð¸Ð¸ Ð¸Ð·Ð½Ð°Ñ‡Ð°Ð»ÑŒÐ½Ð¾Ð³Ð¾ Ð¼Ð°ÐºÐµÑ‚Ð° */
+	/* Имитация линии изначального макета */
 	border-bottom: 1px solid var(--border-color);
 }
 .list-item:hover {
@@ -224,7 +220,7 @@ body {
 	transition: color 0.2s, background-color 0.2s;
 }
 
-/* 5. Ð¤Ð¸Ð½Ð°Ð½ÑÐ¾Ð²Ñ‹Ðµ Ð¸Ð½ÑÑ‚Ñ€ÑƒÐ¼ÐµÐ½Ñ‚Ñ‹, Ð”Ð¸Ð»ÐµÑ€Ñ‹ Ð¸ Ð¡ÐµÑ€Ð²Ð¸Ñ */
+/* 5. Финансовые инструменты, Дилеры и Сервис */
 .support-section {
 	display: flex;
 	gap: 40px;
@@ -236,7 +232,7 @@ body {
 	font-size: 16px;
 	font-weight: 600;
 	margin: 0 0 15px 0;
-	color: var(--accent-secondary); /* ÐžÑ€Ð°Ð½Ð¶ÐµÐ²Ñ‹Ð¹ Ð·Ð°Ð³Ð¾Ð»Ð¾Ð²Ð¾Ðº */
+	color: var(--accent-secondary); /* Оранжевый заголовок */
 	padding-bottom: 3px;
 	border-bottom: 2px solid var(--accent-secondary);
 }
@@ -248,7 +244,7 @@ body {
 	text-align: center;
 	color: var(--text-main);
 	flex-shrink: 0;
-	/* ÐÑÐ¸Ð¼Ð¼ÐµÑ‚Ñ€Ð¸Ñ: Ñ‚ÐµÐ½ÑŒ ÑÐ¼ÐµÑ‰ÐµÐ½Ð° */
+	/* Асимметрия: тень смещена */
 	box-shadow: 15px 15px 0 -5px var(--accent-primary);
 	border-radius: 4px;
 	display: flex;
@@ -302,13 +298,13 @@ a {
 .reference__Title:hover {
 	color: #157c57;
 }
-/* --- Ð¡Ñ‚Ð¸Ð»Ð¸ Ð´Ð»Ñ Ð¡Ñ‚Ñ€Ð°Ð½Ð¸Ñ†Ñ‹ Ð”ÐµÑ‚Ð°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ð¸ (ÐÐ¾Ð²Ñ‹Ðµ ÑÐµÐºÑ†Ð¸Ð¸) --- */
+/* --- Стили для Страницы Детализации (Новые секции) --- */
 
 .details-title {
-	font-size: 18px; /* Ð§ÑƒÑ‚ÑŒ Ð¼ÐµÐ½ÑŒÑˆÐµ Ð·Ð°Ð³Ð¾Ð»Ð¾Ð²Ð¾Ðº Ð½Ð° Ð´ÐµÑ‚Ð°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ð¸ */
+	font-size: 18px; /* Чуть меньше заголовок на детализации */
 }
 
-/* 2. Ð¡ÐµÐºÑ†Ð¸Ñ Ð›Ð¾Ð³Ð¾ Ð¸ Ð˜Ð¼Ñ ÐºÐ¾Ð¼Ð¿Ð°Ð½Ð¸Ð¸ */
+/* 2. Секция Лого и Имя компании */
 .partner-details-info {
 	display: flex;
 	justify-content: center;
@@ -317,18 +313,19 @@ a {
 	gap: 40px;
 }
 .partner-details-info .logo-placeholder {
-	/* Ð§Ñ‚Ð¾Ð±Ñ‹ Ð»Ð¾Ð³Ð¾Ñ‚Ð¸Ð¿ Ð±Ñ‹Ð» Ñ‡ÐµÑ‚Ñ‡Ðµ */
+	/* Чтобы логотип был чётче */
 	flex-shrink: 0;
 }
 .partner-details-info .partner-name-placeholder {
-	/* ÐŸÐµÑ€ÐµÐ¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ðµ ÑÑ‚Ð¸Ð»ÐµÐ¹ Ñ Ð¿ÐµÑ€Ð²Ð¾Ð¹ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ñ‹ */
+	/* Переиспользование стилей с первой страницы */
 }
 
-/* 3. ÐžÐ¿Ð¸ÑÐ°Ð½Ð¸Ðµ ÐºÐ¾Ð¼Ð¿Ð°Ð½Ð¸Ð¸ */
+/* 3. Описание компании */
 .company-description {
 	margin-bottom: 50px;
 	padding-left: 20px;
-	border-left: 3px solid var(--accent-secondary); /* ÐžÑ€Ð°Ð½Ð¶ÐµÐ²Ñ‹Ð¹ Ð°ÐºÑ†ÐµÐ½Ñ‚ */
+	border-left: 3px solid var(--accent-secondary); /* Оранжевый акцент */
+	max-width: 900px;
 }
 .section-subtitle {
 	font-family: var(--font-heading);
@@ -355,7 +352,7 @@ h2.section-subtitle {
 	color: var(--accent-secondary);
 }
 
-/* 4. Ð¢Ð°Ð±Ð»Ð¸Ñ†Ð° "Equipment Request" */
+/* 4. Таблица "Equipment Request" */
 .equipment__searchTable tbody tr td,
 .request-table-section table tbody tr td {
 	transition: background-color 0.2s ease;
@@ -368,7 +365,7 @@ h2.section-subtitle {
 
 .request-table-section {
 	margin-bottom: 100px;
-	overflow-x: auto; /* Ð”Ð»Ñ Ð°Ð´Ð°Ð¿Ñ‚Ð¸Ð²Ð½Ð¾ÑÑ‚Ð¸ Ð½Ð° Ð¼Ð¾Ð±Ð¸Ð»ÑŒÐ½Ñ‹Ñ… */
+	overflow-x: auto; /* Для адаптивности на мобильных */
 }
 
 table {
@@ -376,7 +373,7 @@ table {
 	border-collapse: collapse;
 	font-family: var(--font-body);
 	font-size: 14px;
-	min-width: 600px; /* Ð§Ñ‚Ð¾Ð±Ñ‹ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ð° Ð½Ðµ ÑÐ¶Ð¸Ð¼Ð°Ð»Ð°ÑÑŒ ÑÐ»Ð¸ÑˆÐºÐ¾Ð¼ ÑÐ¸Ð»ÑŒÐ½Ð¾ */
+	min-width: 600px; /* Чтобы таблица не сжималась слишком сильно */
 }
 .page-container.neo-card.details-page
 	> section
@@ -401,7 +398,7 @@ thead th {
 
 tbody td {
 	border: 1px solid var(--border-color);
-	padding: 0; /* Ð£Ð±Ð¸Ñ€Ð°ÐµÐ¼ Ð¿Ð°Ð´Ð´Ð¸Ð½Ð³ Ñƒ ÑÑ‡ÐµÐµÐº, Ñ‚Ð°Ðº ÐºÐ°Ðº Ð¾Ð½ Ð²Ð½ÑƒÑ‚Ñ€Ð¸ Ð¸Ð½Ð¿ÑƒÑ‚Ð¾Ð² */
+	padding: 0; /* Убираем паддинг у ячеек, так как он внутри инпутов */
 	height: 40px;
 }
 tbody tr td.code {
@@ -427,10 +424,10 @@ tbody td:first-child {
 	transition: background-color 0.2s;
 }
 .table-input:focus {
-	background-color: #ffeccf; /* Ð¡Ð²ÐµÑ‚Ð»Ð¾-Ð¾Ñ€Ð°Ð½Ð¶ÐµÐ²Ñ‹Ð¹ Ð¿Ñ€Ð¸ Ñ„Ð¾ÐºÑƒÑÐµ */
+	background-color: #ffeccf; /* Светло-оранжевый при фокусе */
 }
 
-/* 5. Ð¡ÐµÐºÑ†Ð¸Ñ "Message" */
+/* 5. Секция "Message" */
 .message-section {
 	margin: 50px auto 0 auto;
 	max-width: 700px;
@@ -484,12 +481,10 @@ tbody td:first-child {
 	border-radius: 4px;
 	cursor: pointer;
 	transition: background-color 0.2s, box-shadow 0.2s;
-	background-color: var(
-		--accent-secondary
-	); /* ÐžÑ€Ð°Ð½Ð¶ÐµÐ²Ð°Ñ ÐºÐ½Ð¾Ð¿ÐºÐ° */
+	background-color: var(--accent-secondary); /* Оранжевая кнопка */
 }
 .submit-button:hover {
-	background-color: #d66a1a; /* Ð¢ÐµÐ¼Ð½ÐµÐµ Ð¾Ñ€Ð°Ð½Ð¶ÐµÐ²Ñ‹Ð¹ */
+	background-color: #d66a1a; /* Темнее оранжевый */
 	box-shadow: 0 4px 10px rgba(230, 126, 34, 0.4);
 }
 
@@ -509,8 +504,7 @@ tbody td:first-child {
 
 .message-sender {
 	text-align: right;
-	background-color: #fff;
-	border: 1px solid var(--border-color);
+	background-color: #e1fae53d;
 }
 .message__header {
 	display: none;
@@ -564,13 +558,17 @@ tbody td:first-child {
 	border-radius: 50px;
 	cursor: pointer;
 }
-
+.body-innerwrapper{
+	padding-top: 100px;
+	position: relative;
+}
 .headerTop {
 	display: flex;
 	justify-content: space-between;
 	padding: 15px 40px;
 	left: 90%;
-	position: relative;
+	top: 10px;
+	position: fixed;
 }
 
 .headerTop a {
@@ -578,7 +576,7 @@ tbody td:first-child {
 }
 
 .companies-list .list-item {
-	width: calc(20% - 20px);
+	width: calc(100% / 4 - 20px);
 	margin: 10px;
 	font-weight: 600;
 }
@@ -589,6 +587,13 @@ tbody td:first-child {
 	justify-content: center;
 }
 
+.company > div{
+	width: 100%;
+}
+.company__name{
+	display: flex;
+	justify-content: center;
+}
 .company__logo {
 	justify-content: center;
 	margin: 15px auto;
@@ -629,13 +634,15 @@ tbody td:first-child {
 	margin: 25px;
 }
 
-.partner__name {height: 65px;}
+.partner__name {
+	height: 65px;
+}
 
 .partners__el img {
 	max-width: 200px;
 }
 
-/* --- Ð¡Ñ‚Ð¸Ð»Ð¸ Ð´Ð»Ñ ÑÐµÐºÑ†Ð¸Ð¸ Ð²Ð²Ð¾Ð´Ð° Ð·Ð°Ð¿Ñ€Ð¾ÑÐ° --- */
+/* --- Стили для секции ввода запроса --- */
 
 .request-form-controls {
 	padding: 20px;
@@ -663,7 +670,7 @@ tbody td:first-child {
 	font-family: var(--font-heading);
 	font-size: 10px;
 	font-weight: 600;
-	color: var(--accent-secondary); /* ÐžÑ€Ð°Ð½Ð¶ÐµÐ²Ñ‹Ð¹ Ð°ÐºÑ†ÐµÐ½Ñ‚ */
+	color: var(--accent-secondary); /* Оранжевый акцент */
 	margin-bottom: 3px;
 	text-transform: uppercase;
 	opacity: 0.8;
@@ -688,18 +695,18 @@ tbody td:first-child {
 	background-color: #ffffff;
 }
 
-/* Ð¡Ð¿ÐµÑ†Ð¸Ð°Ð»ÑŒÐ½Ñ‹Ðµ ÑÑ‚Ð¸Ð»Ð¸ Ð´Ð»Ñ N Ð¸ Quantity */
+/* Специальные стили для N и Quantity */
 .cell-n .table-input {
 	font-weight: 600;
 	text-align: center;
-	background-color: #f7f9fb; /* Ð›ÐµÐ³ÐºÐ¸Ð¹ Ñ„Ð¾Ð½ Ð´Ð»Ñ Ð½ÐµÐ°ÐºÑ‚Ð¸Ð²Ð½Ñ‹Ñ… Ð¿Ð¾Ð»ÐµÐ¹ */
+	background-color: #f7f9fb; /* Лёгкий фон для неактивных полей */
 }
 
 .input-number {
 	/* text-align: center; */
 }
 
-/* Ð¡Ñ‚Ð¸Ð»Ð¸ Ð´Ð»Ñ ÐºÐ½Ð¾Ð¿ÐºÐ¸ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ñ */
+/* Стили для кнопки добавления */
 .neo-add-btn {
 	width: 100%;
 	padding: 12px 20px;
@@ -712,7 +719,7 @@ tbody td:first-child {
 	cursor: pointer;
 	background-color: var(
 		--accent-secondary
-	); /* Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ ÐžÑ€Ð°Ð½Ð¶ÐµÐ²Ñ‹Ð¹ Ð´Ð»Ñ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ */
+	); /* Использовать Оранжевый для действия */
 	transition: background-color 0.2s, transform 0.1s;
 }
 
@@ -766,7 +773,7 @@ nav[aria-label='Pagination Navigation'] span span span {
 }
 
 nav[aria-label='Pagination Navigation'] span[aria-current='page'] span {
-	color: #1b7f61; /* Ð·ÐµÐ»Ñ‘Ð½Ñ‹Ð¹ Ñ†Ð²ÐµÑ‚ Ð°ÐºÑ‚Ð¸Ð²Ð½Ð¾Ð³Ð¾ Ð½Ð¾Ð¼ÐµÑ€Ð° */
+	color: #1b7f61; /* зелёный цвет активного номера */
 	font-weight: 600;
 }
 
@@ -901,14 +908,14 @@ table td {
 .equipment__coutryight {
 	font-size: 13px;
 }
-/* ÐžÐ±Ñ‰Ð¸Ðµ ÑÑ‚Ð¸Ð»Ð¸ Ð´Ð»Ñ ÐºÐ¾Ð½Ñ‚ÐµÐ¹Ð½ÐµÑ€Ð° Ð¼ÐµÐ½ÑŽ */
+/* Общие стили для контейнера меню */
 .header-menu-bar {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 100px;
-	border-bottom: 1px solid #ddd; /* Ð Ð°Ð·Ð´ÐµÐ»Ð¸Ñ‚ÐµÐ»ÑŒ */
+	border-bottom: 1px solid #ddd; /* Разделитель */
 }
 
 .header__left {
@@ -925,46 +932,46 @@ table td {
 	max-width: 100px;
 }
 
-/* Ð¡Ñ‚Ð¸Ð»Ð¸ Ð´Ð»Ñ ÑÐ¿Ð¸ÑÐºÐ° */
+/* Стили для списка */
 .navigation-menu ul {
-	list-style: none; /* Ð£Ð±Ð¸Ñ€Ð°ÐµÐ¼ Ð¼Ð°Ñ€ÐºÐµÑ€Ñ‹ ÑÐ¿Ð¸ÑÐºÐ° */
+	list-style: none; /* Убираем маркеры списка */
 	padding: 0;
 	margin: 0;
-	display: flex; /* Ð Ð°Ð·Ð¼ÐµÑ‰Ð°ÐµÐ¼ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ñ‹ Ð³Ð¾Ñ€Ð¸Ð·Ð¾Ð½Ñ‚Ð°Ð»ÑŒÐ½Ð¾ */
-	gap: 25px; /* Ð Ð°ÑÑÑ‚Ð¾ÑÐ½Ð¸Ðµ Ð¼ÐµÐ¶Ð´Ñƒ Ð¿ÑƒÐ½ÐºÑ‚Ð°Ð¼Ð¸ */
+	display: flex; /* Размещаем элементы горизонтально */
+	gap: 25px; /* Расстояние между пунктами */
 }
 
-/* Ð¡Ñ‚Ð¸Ð»Ð¸ Ð´Ð»Ñ Ð¾Ñ‚Ð´ÐµÐ»ÑŒÐ½Ñ‹Ñ… Ð¿ÑƒÐ½ÐºÑ‚Ð¾Ð² */
+/* Стили для отдельных пунктов */
 .navigation-menu li {
 	padding: 10px 0;
 }
 
-/* Ð¡Ñ‚Ð¸Ð»Ð¸ Ð´Ð»Ñ ÑÑÑ‹Ð»Ð¾Ðº */
+/* Стили для ссылок */
 .navigation-menu a {
 	text-decoration: none;
-	color: #555; /* Ð¦Ð²ÐµÑ‚ Ð½ÐµÐ°ÐºÑ‚Ð¸Ð²Ð½Ð¾Ð¹ ÑÑÑ‹Ð»ÐºÐ¸ */
+	color: #555; /* Цвет неактивной ссылки */
 	font-weight: 600;
 	transition: color 0.2s, border-bottom 0.2s;
-	padding-bottom: 8px; /* ÐžÑ‚ÑÑ‚ÑƒÐ¿ Ð´Ð»Ñ Ð½Ð¸Ð¶Ð½ÐµÐ¹ Ð³Ñ€Ð°Ð½Ð¸Ñ†Ñ‹ */
+	padding-bottom: 8px; /* Отступ для нижней границы */
 	font-size: 14px;
 }
 
-/* Ð¡Ñ‚Ð¸Ð»Ð¸ Ð´Ð»Ñ Ð°ÐºÑ‚Ð¸Ð²Ð½Ð¾Ð³Ð¾ Ð¿ÑƒÐ½ÐºÑ‚Ð° */
+/* Стили для активного пункта */
 .navigation-menu li.active a {
-	color: #157c57; /* ÐŸÑ€Ð¸Ð¼ÐµÑ€ ÑÐ¸Ð½ÐµÐ³Ð¾ Ñ†Ð²ÐµÑ‚Ð° Ð´Ð»Ñ Ð°ÐºÑ‚Ð¸Ð²Ð½Ð¾Ð³Ð¾ Ð¿ÑƒÐ½ÐºÑ‚Ð° */
-	border-bottom: 3px solid #157c57; /* ÐŸÐ¾Ð´Ñ‡ÐµÑ€ÐºÐ¸Ð²Ð°Ð½Ð¸Ðµ Ð´Ð»Ñ Ð°ÐºÑ‚Ð¸Ð²Ð½Ð¾Ð³Ð¾ Ð¿ÑƒÐ½ÐºÑ‚Ð° */
+	color: #157c57; /* Пример синего цвета для активного пункта */
+	border-bottom: 3px solid #157c57; /* Подчёркивание для активного пункта */
 	font-weight: 600;
 }
 
-/* Ð­Ñ„Ñ„ÐµÐºÑ‚ Ð¿Ñ€Ð¸ Ð½Ð°Ð²ÐµÐ´ÐµÐ½Ð¸Ð¸ */
+/* Эффект при наведении */
 .navigation-menu a:hover {
 	color: var(--accent-primary);
 }
 
-/* --- ÐÐ”ÐÐŸÐ¢Ð˜Ð’ÐÐžÐ¡Ð¢Ð¬ Ð´Ð»Ñ Ñ„Ð¾Ñ€Ð¼Ñ‹ Ð²Ð²Ð¾Ð´Ð° (ÐœÐ¾Ð±Ð¸Ð»ÑŒÐ½Ð°Ñ Ð²ÐµÑ€ÑÐ¸Ñ) --- */
+/* --- АДАПТИВНОСТЬ для формы ввода (Мобильная версия) --- */
 @media (max-width: 768px) {
 	.neo-input-row {
-		/* ÐÐ° Ð¼Ð¾Ð±Ð¸Ð»ÑŒÐ½Ñ‹Ñ… ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð°Ñ… Ð´ÐµÐ»Ð°ÐµÐ¼ Ð²ÐµÑ€Ñ‚Ð¸ÐºÐ°Ð»ÑŒÐ½ÑƒÑŽ ÐºÐ¾Ð¼Ð¿Ð¾Ð½Ð¾Ð²ÐºÑƒ */
+		/* На мобильных устройствах делаем вертикальную компоновку */
 		display: flex;
 		flex-direction: column;
 		gap: 15px;
@@ -975,18 +982,18 @@ table td {
 		width: 100%;
 	}
 
-	/* Ð¡ÐºÑ€Ñ‹Ð²Ð°ÐµÐ¼ Ð¿Ð¾Ð´Ð¿Ð¸ÑÐ¸ Ð´Ð»Ñ Ð¿Ð¾Ð»ÐµÐ¹, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð½Ðµ Ð´ÑƒÐ±Ð»Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ placeholder Ð½Ð° Ð¼Ð¾Ð±Ð¸Ð»ÑŒÐ½Ñ‹Ñ… */
+	/* Скрываем подписи для полей, чтобы не дублировать placeholder на мобильных */
 	.label-text {
 		display: none;
 	}
 
-	/* Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÐµÐ¼ Ð¿Ð°Ð´Ð´Ð¸Ð½Ð³, Ñ‡Ñ‚Ð¾Ð±Ñ‹ placeholder Ð±Ñ‹Ð»Ð¾ Ð²Ð¸Ð´Ð½Ð¾ */
+	/* Восстанавливаем паддинг, чтобы placeholder было видно */
 	.input-cell input.table-input {
 		padding: 10px;
 	}
 }
 
-/* --- ÐÐ”ÐÐŸÐ¢Ð˜Ð’ÐÐžÐ¡Ð¢Ð¬ (ÐœÐ¾Ð±Ð¸Ð»ÑŒÐ½Ð°Ñ Ð²ÐµÑ€ÑÐ¸Ñ) --- */
+/* --- АДАПТИВНОСТЬ (Мобильная версия) --- */
 @media (max-width: 768px) {
 	.details-title {
 		font-size: 16px;
@@ -1001,13 +1008,13 @@ table td {
 	.partner-details-info .logo-placeholder {
 		width: 100%;
 		text-align: center;
-		/* Ð£Ð±Ð¸Ñ€Ð°ÐµÐ¼ ÑÐºÐ¾ÑˆÐµÐ½Ð½Ñ‹Ð¹ ÑƒÐ³Ð¾Ð» Ð½Ð° Ð¼Ð¾Ð±Ð¸Ð»ÑŒÐ½Ñ‹Ñ… */
+		/* Убираем скошенный угол на мобильных */
 		clip-path: none;
 	}
 
-	/* Ð¢Ð°Ð±Ð»Ð¸Ñ†Ð° Ð¾ÑÑ‚Ð°ÐµÑ‚ÑÑ Ð¿Ñ€Ð¾ÐºÑ€ÑƒÑ‡Ð¸Ð²Ð°ÐµÐ¼Ð¾Ð¹ */
+	/* Таблица остаётся прокручиваемой */
 	.responsive-table {
-		margin: 0 -15px; /* Ð¡Ð´Ð²Ð¸Ð³Ð°ÐµÐ¼ Ð²Ð»ÐµÐ²Ð¾/Ð²Ð¿Ñ€Ð°Ð²Ð¾ Ð´Ð»Ñ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ñ Ð²ÑÐµÐ³Ð¾ ÑÐºÑ€Ð°Ð½Ð° */
+		margin: 0 -15px; /* Сдвигаем влево/вправо для использования всего экрана */
 		padding: 0 15px;
 	}
 	table {
@@ -1023,13 +1030,13 @@ table td {
 	width: 100%;
 }
 
-/* --- ÐÐ”ÐÐŸÐ¢Ð˜Ð’ÐÐžÐ¡Ð¢Ð¬ (ÐœÐžÐ‘Ð˜Ð›Ð¬ÐÐÐ¯ Ð’Ð•Ð Ð¡Ð˜Ð¯) --- */
+/* --- АДАПТИВНОСТЬ (МОБИЛЬНАЯ ВЕРСИЯ) --- */
 @media (max-width: 768px) {
 	.page-container {
 		padding: 15px;
 	}
 
-	/* Ð¡Ð´Ð²Ð¸Ð³ Ð·Ð°Ð³Ð¾Ð»Ð¾Ð²ÐºÐ° Ð¸ ÐºÐ½Ð¾Ð¿ÐºÐ¸ Ð½Ð° Ð¼Ð¾Ð±Ð¸Ð»ÑŒÐ½Ñ‹Ñ… */
+	/* Сдвиг заголовка и кнопки на мобильных */
 	.header {
 		flex-direction: column;
 		align-items: flex-start;
@@ -1066,7 +1073,7 @@ table td {
 	.large-box-placeholder {
 		width: 100%;
 		min-height: 150px;
-		/* Ð£Ð±Ð¸Ñ€Ð°ÐµÐ¼ Ð°ÑÐ¸Ð¼Ð¼ÐµÑ‚Ñ€Ð¸Ñ‡Ð½ÑƒÑŽ Ñ‚ÐµÐ½ÑŒ Ð½Ð° Ð¼Ð¾Ð±Ð¸Ð»ÑŒÐ½Ñ‹Ñ… Ð´Ð»Ñ Ñ‡Ð¸ÑÑ‚Ð¾Ñ‚Ñ‹ */
+		/* Убираем асимметричную тень на мобильных для чистоты */
 		box-shadow: none;
 	}
 }
