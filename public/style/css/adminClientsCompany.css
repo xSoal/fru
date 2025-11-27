@@ -30,6 +30,9 @@ body {
 }
 
 /* Стили карточек и теней (минималистичные) */
+.session_stat {
+	display: none;
+}
 .neo-card {
 	border: 1px solid var(--border-color);
 	border-radius: 8px;
@@ -560,7 +563,7 @@ tbody td:first-child {
 	cursor: pointer;
 }
 .body-innerwrapper {
-	padding-top: 40px;
+	padding-top: 20px;
 	position: relative;
 }
 .headerTop {
@@ -574,10 +577,9 @@ tbody td:first-child {
 .buttonExit {
 	float: right;
 }
-.headerTop .headerLogo{
-
+.headerTop .headerLogo {
 }
-.headerTop .headerLogo img{
+.headerTop .headerLogo img {
 	width: 100%;
 	height: 60px;
 }
@@ -646,6 +648,10 @@ tbody td:first-child {
 
 .partner__name {
 	height: 65px;
+}
+
+.partner__name h3 {
+	line-height: 24px;
 }
 
 .partners__el img {

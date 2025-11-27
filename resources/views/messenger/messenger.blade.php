@@ -29,10 +29,10 @@
                           <tr>
                             <td>{{ $e[$messageFromUserRole]->name }}</td>
                             <td>
-                                {{ $e->messages[0]->content }}
-                                {{ (int)$e->messages[0]->is_read === 0 
-                                    && (int)$e->messages[0]->sender_id !== Auth::user()->id 
-                                    ? '(new)' : '' }}
+                                @if( isset($e->messages[0]->content) )
+                                    {{ $e->messages[0]->content }}
+                                    {{ (int)$e->messages[0]->is_read === 0  && (int)$e->messages[0]->sender_id !== Auth::user()->id ? '(new)' : '' }}
+                                @endif
                             </td>
                             <td class="messenger__openChatTd">
                                 <a href="{{ route('messenger.single', [
