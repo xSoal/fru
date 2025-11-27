@@ -208,11 +208,11 @@ body {
 	font-family: var(--font-body);
 	font-size: 15px;
 	color: var(--text-main);
-	padding: 8px 0;
+	padding: 30px 0;
 	cursor: pointer;
 	transition: color 0.2s, background-color 0.2s;
 	/* Имитация линии изначального макета */
-	border-bottom: 1px solid var(--border-color);
+	border-bottom: 1px dashed var(--border-color);
 	height: 125px;
 }
 .list-item:hover {
@@ -559,17 +559,27 @@ tbody td:first-child {
 	border-radius: 50px;
 	cursor: pointer;
 }
-.body-innerwrapper{
-	padding-top: 100px;
+.body-innerwrapper {
+	padding-top: 40px;
 	position: relative;
 }
 .headerTop {
+	padding: 0 40px;
+	max-width: 1400px;
+	margin: 0 auto 20px;
 	display: flex;
 	justify-content: space-between;
-	padding: 15px 40px;
-	left: 90%;
-	top: 10px;
-	position: fixed;
+	align-items: center;
+}
+.buttonExit {
+	float: right;
+}
+.headerTop .headerLogo{
+
+}
+.headerTop .headerLogo img{
+	width: 100%;
+	height: 60px;
 }
 
 .headerTop a {
@@ -578,7 +588,6 @@ tbody td:first-child {
 
 .companies-list .list-item {
 	width: calc(100% / 4 - 20px);
-	margin: 10px;
 	font-weight: 600;
 }
 
@@ -588,10 +597,10 @@ tbody td:first-child {
 	justify-content: center;
 }
 
-.company > div{
+.company > div {
 	width: 100%;
 }
-.company__name{
+.company__name {
 	display: flex;
 	justify-content: center;
 }

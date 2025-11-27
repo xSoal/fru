@@ -55,6 +55,11 @@
     <div class="body-wrapper">
         <div class="body-innerwrapper">
             <div class="headerTop">
+                <div class="headerLogo">
+                    <a href="/">
+                        <img src="/images/logo.svg" alt="Logo">
+                    </a>
+                </div>
                 <div class="buttonExit">
                     <form action="{{ route('logout') }}" method="POST" style="display: inline;">
                         @csrf
