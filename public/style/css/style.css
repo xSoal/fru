@@ -231,15 +231,24 @@ li {
 	font-size: 18px;
 }
 
-.headerMenuLinks.loginHref{
+.headerMenuLinks.loginHref {
 	font-size: 14px;
-	margin-left:0;
+	margin-left: 0;
 	padding: 0;
+	
+}
+.headerMenuLinks.loginHref .headerSubmenu{
+	right: 0;
+	left: unset;
 }
 
-.headerMenuLinks.loginHref a{
-	min-width: none;
-} 
+.headerMenuLinks.loginHref a {
+}
+
+.headerMenu a:hover,
+.headerMenuLinks.loginHref a:hover {
+	color: #157c57;
+}
 
 .loginHref img {
 	max-width: 100%;
@@ -263,7 +272,6 @@ li {
 	width: max-content;
 	display: none;
 	position: absolute;
-
 	left: 0;
 	opacity: 0.8;
 	padding: 25px 35px;
@@ -272,8 +280,8 @@ li {
 }
 
 .headerSubmenuCont:hover .headerSubmenu {
-	/* padding-top: 50px; */
 	display: block;
+	padding: 15px 20px;
 }
 
 .headerSubmenu a {
