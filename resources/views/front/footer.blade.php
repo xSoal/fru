@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="copyright">
-                    <div>© {{ date('Y') }} Промисловий Рамштайн.</div>
+                    <div>© {{ date('Y') }} Промисловий Рамштайн. Всі права захищені</div>
                     <div>Сайт створено <a href="http://dobreff.com/">Dobreff Studio</a></div>
                 </div>
             </div>
