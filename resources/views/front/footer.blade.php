@@ -45,8 +45,7 @@
                     </div>
                 </div>
                 <div class="copyright">
-                    <div>Загальні положення і умови та Політика коденфіцфності </div>
-                    <div>@ {{ date('Y') }} Промисловий рамштайн. Сайт створено Dobreff Studio</div>
+                    <div>@ {{ date('Y') }} Промисловий рамштайн. Сайт створено <a href="http://dobreff.com/">Dobreff Studio</a></div>
                 </div>
             </div>
         </div>
