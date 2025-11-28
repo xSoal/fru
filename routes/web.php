@@ -144,6 +144,12 @@ Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function() {
         Route::get('/search', ['uses' => '\App\Http\Controllers\Admin\EquipmentRequestController@search', 'as' => 'admin.equipment_request_search']);
     });
 
+    Route::group(['prefix' => 'settings'], function () {
+        Route::get('/', ['uses' => '\App\Http\Controllers\Admin\SettingsController@index', 'as' => 'admin.settings']);
+        Route::post('/updateEmail', ['uses' => '\App\Http\Controllers\Admin\SettingsController@updateEmail', 'as' => 'admin.settings_updateEmail']);
+    
+    });
+
 });
 
 
@@ -198,7 +204,9 @@ Route::group(['prefix' => 'support'], function() {
 });
 
 Route::get('/search', ['uses' => '\App\Http\Controllers\MainPage\SearchController@index', 'as' => 'main_page.search']);
+
 Route::get('/contacts', ['uses' => '\App\Http\Controllers\MainPage\ContactsController@index', 'as' => 'main_page.contacts']);
+Route::post('/contactsSubmit', ['uses' => '\App\Http\Controllers\MainPage\ContactsController@submit', 'as' => 'main_page.contacts_submit']);
 
 
 Route::get('/', ['uses' => '\App\Http\Controllers\MainPage\MainPageController@index', 'as' => 'main_page']);

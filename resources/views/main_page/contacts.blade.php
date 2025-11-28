@@ -22,6 +22,7 @@
         <div class="container-inner">
             <div class="">
                 <section class="contact-section">
+
                     <div class="contact-container">
                 
                         <!-- Левая колонка -->
@@ -48,21 +49,25 @@
                 
                         <!-- Правая колонка -->
                         <div class="contact-right">
+                            @if(isset($message))
+                            <h1>{{ $message }}</h1>
+                            @endif
                             <h2 class="contact-title">Якщо є питання</h2>
                             <p class="contact-subtitle">
                                 Ми виступаємо експертами у питаннях, пов'язаних з бізнес-кліматом, 
                                 а також щодо специфічних індустріальних напрямків.
                             </p>
                 
-                            <form class="contact-form">
-                                <input type="text" placeholder="Ваше ім'я">
+                            <form class="contact-form" method="post" action="{{ route('main_page.contacts_submit') }}">
+                                @csrf
+                                <input name="name" type="text" placeholder="Ваше ім'я">
                 
                                 <div class="form-row">
-                                    <input type="email" placeholder="E-mail">
-                                    <input type="text" placeholder="Мобільний">
+                                    <input name="email" type="email" placeholder="E-mail">
+                                    <input name="phone" type="text" placeholder="Мобільний">
                                 </div>
                 
-                                <textarea placeholder="Повідомлення"></textarea>
+                                <textarea name="message" placeholder="Повідомлення"></textarea>
                 
                                 <button type="submit" class="contact-btn">Відправити</button>
                             </form>
