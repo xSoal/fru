@@ -57,6 +57,12 @@
         
 
     </div>
+    <div class="admin_menu_section user_icon">
+        <div class="admin_menu_title">
+            <a href="{{ route('admin.equipment_request') }}" class="menu_title_item menu_single">Equipment requests</a>
+        </div>
+    </div>
+    
 
     <div class="admin_menu_section">
         <div class="admin_menu_title">

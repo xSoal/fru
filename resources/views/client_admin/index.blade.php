@@ -24,6 +24,7 @@
                       <th>MANUFACTURER</th>
                       <th>COUNTRY</th>
                       <th>QUANTITY</th>
+                      <th>STATUS</th>
                       <th></th>
                   </tr>
               </thead>
@@ -36,6 +37,7 @@
                       <td class="manufacturer">{{ $e->manufacturer }}</td>
                       <td class="country">{{ $e->country }}</td>
                       <td class="quantity">{{ $e->quantity }}</td>
+                      <td class="status">{{ $e->active ? 'aprroved' : 'waiting'  }}</td>
                       <td>
                         <span class="editButton neo-bg-accent" data-id="{{ $e->id }}">edit</span>
                       </td>

@@ -18,6 +18,7 @@ class EquipmentRequest extends Model
         'manufacturer',
         'country',
         'quantity',
+        'active'
     ];
 
     public function user(): BelongsTo {

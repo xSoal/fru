@@ -1318,6 +1318,18 @@ blockquote {
 	text-align: left;
 }
 
+
+.copyright{
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 30px;
+    font-size: 0.8rem;
+    border-top: 1px solid #dddddd;
+    padding-top: 10px;
+
+}
 @media (max-width: 1400px) {
 	.mainInfo__el {
 		background-size: 120%;
