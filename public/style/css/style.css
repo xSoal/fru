@@ -58,6 +58,11 @@ font-family: 'Open Sans', sans-serif;
 margin: 0px;
 color: #072446;
 }
+
+.main_page * {
+	box-sizing: border-box;
+}
+
 img {
 max-width: 100%;
 height: auto;
