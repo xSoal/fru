@@ -17,6 +17,25 @@ $(document).ready(function () {
     $(this).closest('.headerSubmenu').find('form').submit();
   })
 
+
+  const menuToggle = document.querySelector('.navToggleBtn');
+    const mainNav = document.getElementById('mobileNavOverlay');
+    const body = document.body;
+
+    if (menuToggle && mainNav) {
+        menuToggle.addEventListener('click', () => {
+            // 1. Переключаем кастомный класс 'headerMoblie' для открытия/закрытия
+            mainNav.classList.toggle('headerMoblie');
+            
+            // 2. Управление атрибутом ARIA
+            const isExpanded = mainNav.classList.contains('headerMoblie');
+            menuToggle.setAttribute('aria-expanded', isExpanded);
+            
+            // 3. Блокировка скролла фона
+            body.classList.toggle('bodyNoScroll');
+        });
+    }
+
 });
 
 
