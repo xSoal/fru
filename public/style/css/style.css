@@ -163,6 +163,7 @@ display: none;
 color: #fff;
 background: #000;
 }
+
 .header {
 position: fixed;
 top: 0px;
@@ -180,8 +181,8 @@ justify-content: space-between;
 align-items: center;
 }
 .headerLogo {
-max-width: 180px;
-max-height: 100px;
+	max-width: 180px;
+	max-height: 100px;
 }
 .headerLogo img {
 max-width: 100%;
@@ -209,6 +210,7 @@ margin: 0 25px;
 margin-left: 25px;
 font-size: 18px;
 }
+
 .headerMenuLinks.loginHref {
 font-size: 14px;
 margin-left: 0;
@@ -1174,6 +1176,191 @@ display: none;
 .ramstein__left {
 max-width: 100%;
 }
+<<<<<<< HEAD
+}
+
+
+/* мобильное меню */
+
+/* --- Общие стили и Десктоп (База) --- */
+.mobHeader {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.mobHeader__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.siteLogo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    z-index: 100;
+}
+.loginLinkBtn {
+    padding: 10px 15px;
+    background-color: #007bff; 
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+/* Скрываем гамбургер на десктопе */
+.navToggleBtn {
+    display: none; 
+}
+
+/* Десктопное меню */
+.mobileNavOverlay {
+    display: flex; 
+    align-items: center;
+    position: static; /* На десктопе не оверлей */
+    width: auto;
+    height: auto;
+    background: none;
+    padding: 0;
+}
+.menuList {
+    display: flex; /* Горизонтальный список */
+    list-style: none;
+    padding: 0;
+    margin: 0 20px 0 0;
+    gap: 15px;
+}
+.listItem a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px;
+}
+
+.mobHeader  {
+	background: #e9edf3;
+	display: none;
+	position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    padding: 5px 0;
+    background: #e9edf3;
+    z-index: 5;
+    height: 100px;
+}
+
+.mobHeader * {
+	list-style: none;
+}
+
+.mobHeader .headerSubmenu a {
+	display: block;
+}
+
+.mobHeader a {
+	color: #072446;
+
+}
+
+.mobHeader .headerMenuLinks a {
+	color: white;
+}
+
+/* ------------------------------------------- */
+/* --- Мобильные стили (Активация при < 800px) --- */
+/* ------------------------------------------- */
+@media (max-width: 799px) { 
+
+	.mobHeader {
+		display: block;
+	}
+
+	.header {
+		display: none;
+	}
+    
+    .navToggleBtn {
+        /* Показываем кнопку-гамбургер */
+        display: flex; 
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 100;
+    }
+    .navToggleBtn .btnLine {
+        width: 100%;
+        height: 3px;
+        background-color: #333;
+    }
+
+    .mobileNavOverlay {
+        /* Изначально скрыто */
+        display: none; 
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.98); 
+        z-index: 90;
+        padding-top: 100px; 
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    /* !!! Кастомный класс для открытого меню !!! */
+    .mobileNavOverlay.headerMoblie { 
+        display: flex; 
+    }
+
+    .menuList {
+        /* Вертикальный список */
+        flex-direction: column;
+        text-align: center;
+        margin: 0;
+        padding-bottom: 30px; 
+        border-bottom: 1px solid #eee;
+    }
+    .listItem {
+        margin: 15px 0;
+    }
+    .listItem a {
+        font-size: 1.4em;
+    }
+    
+    .loginContainer {
+        margin-top: 30px;
+    }
+}
+
+/* Класс для блокировки скролла на <body> */
+.bodyNoScroll {
+    overflow: hidden; 
+}
+
+/* мобильное меню */
+
+
+@media (max-width: 900px) {
+.singleNewsAside--authNews,
+.singleNewsAside {
+display: none;
+}
+.auth_newsCont .sibgleNewsContent {
+width: 100%;
+padding-left: 0px;
+}
+.sibgleNewsContent {
+=======
 }
 @media (max-width: 900px) {
 .singleNewsAside--authNews,
@@ -1232,10 +1419,61 @@ font-size: 28px;
 font-size: 22px;
 }
 .contact-btn {
+>>>>>>> 925b60bf5ffb1edf31afafe739464bcd56c0c390
 width: 100%;
 }
 }
 @media (max-width: 991px) {
+<<<<<<< HEAD
+.mainInfo {
+display: block;
+}
+.mainInfo__left {
+width: 100%;
+}
+.mainInfo__leftDoubleRow {
+display: block;
+}
+.mainInfo__el,
+.mainInfo__leftDoubleRow .mainInfo__el,
+.mainInfo__right {
+width: 100%;
+margin-top: 35px;
+}
+.mainNews .news {
+width: calc(50% - 30px);
+}
+.ramstein__cards {
+display: block;
+}
+.ramstein-card {
+max-width: 100%;
+width: auto;
+margin-top: 25px;
+}
+.mainInfo__left {
+margin-right: 0px;
+}
+}
+@media (max-width: 600px) {
+.mainNews .news {
+width: calc(100% - 30px);
+}
+}
+@media (max-width: 480px) {
+.contact-title {
+font-size: 28px;
+}
+.contact-block h3 {
+font-size: 22px;
+}
+.contact-btn {
+width: 100%;
+}
+}
+@media (max-width: 991px) {
+=======
+>>>>>>> 925b60bf5ffb1edf31afafe739464bcd56c0c390
 .container-inner {
 max-width: 720px;
 }
