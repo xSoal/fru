@@ -139,7 +139,7 @@ class CompanyAdminController extends Controller
                 ->paginate($perPage)
                 ->appends(['search' => $search]);
         }
-        // dd($resultSearch);
+
         $data = [
             'search' => $search,
             'resultSearch' => $resultSearch,
