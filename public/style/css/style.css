@@ -1176,8 +1176,6 @@ display: none;
 .ramstein__left {
 max-width: 100%;
 }
-<<<<<<< HEAD
-}
 
 
 /* мобильное меню */
@@ -1360,7 +1358,6 @@ width: 100%;
 padding-left: 0px;
 }
 .sibgleNewsContent {
-=======
 }
 @media (max-width: 900px) {
 .singleNewsAside--authNews,
@@ -1419,12 +1416,9 @@ font-size: 28px;
 font-size: 22px;
 }
 .contact-btn {
->>>>>>> 925b60bf5ffb1edf31afafe739464bcd56c0c390
 width: 100%;
 }
-}
 @media (max-width: 991px) {
-<<<<<<< HEAD
 .mainInfo {
 display: block;
 }
@@ -1496,5 +1490,4 @@ font-size: 30px;
 @media (max-width: 767.98px) {
 .mainImageNews .h1 {
 font-size: 24px;
-}
 }
