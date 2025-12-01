@@ -150,6 +150,11 @@ Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function() {
     
     });
 
+    Route::group(['prefix' => 'logs'], function () {
+        Route::get('/', ['uses' => '\App\Http\Controllers\Admin\LogsController@index', 'as' => 'admin.logs']);
+        Route::get('/search', ['uses' => '\App\Http\Controllers\Admin\LogsController@search', 'as' => 'admin.logsSearch']);
+    });
+
 });
 
 

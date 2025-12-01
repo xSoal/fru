@@ -11,6 +11,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 
 class ClientAdminController extends Controller
@@ -37,8 +38,49 @@ class ClientAdminController extends Controller
         $equipmentRequest->code = 1000 + +(Auth::id()) . '-' . $count + 1;
 
         if( $equipmentRequest->save() ){
+            // $setting = DB::table('settings')
+            //     ->where('type', 'email')
+            //     ->first();
+
+            // $emailAdmin = $setting->value;
+
+            // $userName = Auth::user()->name;
+            // $code = $equipmentRequest->code;
+            // $name = $equipmentRequest->name;
+            // $model = $equipmentRequest->model;
+            // $manufacturer = $equipmentRequest->manufacturer;
+            // $country = $equipmentRequest->country;
+            // $quantity = $equipmentRequest->quantity;
+            // $created_at = $equipmentRequest->created_at;
+
+            // $html = "
+            //     <p>Користувач <h6>$userName</h6></p>
+            //     <p>Додав запит на обладнання:</p>
+            //     <p>Code : $code</p>
+            //     <p>Назва : $name</p>
+            //     <p>Модель : $model</p>
+            //     <p>Виробник : $manufacturer</p>
+            //     <p>Країна : $country</p>
+            //     <p>Кількість : $quantity</p>
+            //     <p>Створено : $created_at</p>
+            // ";
+
+
+            // if ($emailAdmin) {
+            //     $test = Mail::send([], [], function ($message) use ($emailAdmin, $html) {
+            //         $message->to($emailAdmin)
+            //                 ->subject("Нове повідомлення з форми зворотнього зв'язку")
+            //                 ->html($html);
+            //     });
+
+            // }
+
+
             return redirect()->route('admin.clientAdmin')->with('status','Request was added');
         }
+
+
+
         
     }
 
