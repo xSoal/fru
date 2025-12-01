@@ -62,6 +62,12 @@
             <a href="{{ route('admin.equipment_request') }}" class="menu_title_item menu_single">Equipment requests</a>
         </div>
     </div>
+
+    <div class="admin_menu_section user_icon">
+        <div class="admin_menu_title">
+            <a href="{{ route('admin.logs') }}" class="menu_title_item menu_single">Логіювання</a>
+        </div>
+    </div>
     
 
     <div class="admin_menu_section">

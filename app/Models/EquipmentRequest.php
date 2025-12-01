@@ -74,7 +74,6 @@ class EquipmentRequest extends Model
         
         // 2. Генерація тіла листа
         $html = self::generateEmailBody($equipmentRequest, $action, $userName);
-        dd($html);
         
         // 3. Відправка листа
         Mail::send([], [], function ($message) use ($emailAdmin, $html, $subject) {
@@ -83,6 +82,11 @@ class EquipmentRequest extends Model
                     ->subject($subject)
                     ->html($html); 
         });
+
+        Log::create([
+            'type' => 'request',
+            'value' => $html
+        ]);
 
     }
 
@@ -145,7 +149,7 @@ class EquipmentRequest extends Model
                     " . ($action === 'created' ? 'Новий Запит' : 'Запит Змінено') . "
                 </h3>
                 <p>Користувач: <b>{$userName}</b></p>
-                <p>ID Заявки: <b>{$equipmentRequest->id}</b></p>
+                <p>Код Заявки: <b>{$equipmentRequest->code}</b></p>
                 <hr>
                 
                 " . ($action === 'created' ? '<h4>Деталі заявки:</h4>' : '<h4>Змінені поля:</h4>') . "
