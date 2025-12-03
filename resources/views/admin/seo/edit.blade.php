@@ -62,7 +62,7 @@
                             </div>
                             <div class="fb_input">
                                 <div class="fb_input_inside">
-                                    <input type="text" name="meta_keywords" value="{{ $seo->meta_keywords ?? '' }}" required>
+                                    <input type="text" name="meta_keywords" value="{{ $seo->meta_keywords ?? '' }}">
                                 </div>
                             </div>
                         </div>
