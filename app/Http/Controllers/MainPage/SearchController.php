@@ -13,12 +13,19 @@ use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class SearchController extends Controller
 {
     public function index(Request $request){
         $search = trim($request->input('search'));
         $perPage = 9;
+
+        $titles = DB::table('settings')
+            ->where('type', 'titles')
+            ->first()->value;
+        $title = json_decode($titles)->search;
+        
 
 
         if(!$search){
@@ -50,13 +57,12 @@ class SearchController extends Controller
             $resultSearch = $query->orderBy('public_date', 'desc')
                 ->paginate($perPage)
                 ->appends(['search' => $search]);
-                
 
         }
 
 
         $data = [
-            'title' => 'Пошук',
+            'title' => $title,
             'search' => $search,
             'resultSearch' => $resultSearch
         ];

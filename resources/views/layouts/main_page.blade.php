@@ -28,8 +28,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('/style/css/style.css') }}">
-    
-    <title>{{ $meta_title  ?? ''}}</title>
+    @if( isset($LoginTitle) )
+    <title>{{ $LoginTitle  ?? ''}}</title>
+    @else
+    <title>{{ $title  ?? ''}}</title>
+    @endif
 
     <meta name="robots" content="index, follow" />
     <meta name="title" content="{{ $seo->meta_title ?? '' }}" />

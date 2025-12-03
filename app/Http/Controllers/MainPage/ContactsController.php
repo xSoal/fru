@@ -22,9 +22,14 @@ class ContactsController extends Controller
 
         $seo = json_decode($setting->value);
         
+        $titles = DB::table('settings')
+            ->where('type', 'titles')
+            ->first()->value;
+        $title = json_decode($titles)->contacts;
         
         $data = [
-            'seo' => $seo
+            'seo' => $seo,
+            'title' => $title
         ];
 
 
@@ -62,7 +67,12 @@ class ContactsController extends Controller
 
         }
 
-        $data = ['message' => 'Повідомлення відправлене'];
+        $titles = DB::table('settings')
+            ->where('type', 'titles')
+            ->first()->value;
+        $title = json_decode($titles)->contacts;
+
+        $data = ['message' => 'Повідомлення відправлене', 'title' => $title];
 
         return view('main_page.contacts', $data);
 

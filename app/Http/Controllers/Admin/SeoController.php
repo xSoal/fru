@@ -15,9 +15,15 @@ class SeoController extends Controller
 
         $seo = json_decode($setting->value);
 
+        $titles = DB::table('settings')
+            ->where('type', 'titles')
+            ->first();
+        $titles = json_decode($titles->value);    
+
         $data = [
             'title' => 'Seo',
-            'seo' => $seo
+            'seo' => $seo,
+            'titles' => $titles
         ];
 
         return view('admin.seo.edit', $data);
@@ -37,24 +43,37 @@ class SeoController extends Controller
 
 
         $updated = DB::table('settings')
-                     ->where('type', 'seo')
-                     ->update([
-                         'value' => $newSeo,
-                         'updated_at' => now() 
-                     ]);
-        
-        
-        $setting = DB::table('settings')
-                     ->where('type', 'seo')
-                     ->first();
-        $seo = json_decode($setting->value);
-        
-        $data = [
-            'title' => 'Seo',
-            'seo' => $seo
+            ->where('type', 'seo')
+            ->update([
+                'value' => $newSeo,
+                'updated_at' => now() 
+            ]);
+
+
+        $newTitles = [
+            'main' => $request['main'],
+            'news' => $request['news'],
+            'contacts' => $request['contacts'],
+            'login' => $request['login'],
+            'search' => $request['search'],
+            'reference' => $request['reference'],
+            'support' => $request['support'],
+            'rules' => $request['rules'],
         ];
 
-        return view('admin.seo.edit', $data);
+        $newTitles = json_encode($newTitles);
+
+        
+        
+        $updated = DB::table('settings')
+            ->where('type', 'titles')
+            ->update([
+                'value' => $newTitles,
+                'updated_at' => now() 
+            ]);
+        
+
+        return redirect()->route('admin.seo');
     }
 
 
