@@ -16,7 +16,17 @@ use Illuminate\Support\Facades\Mail;
 class ContactsController extends Controller
 {
     public function index(Request $request){
-        $data = [];
+        $setting = DB::table('settings')
+                ->where('type', 'seo')
+                ->first();
+
+        $seo = json_decode($setting->value);
+        
+        
+        $data = [
+            'seo' => $seo
+        ];
+
 
         return view('main_page.contacts', $data);
 

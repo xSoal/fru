@@ -30,6 +30,16 @@
     <link rel="stylesheet" href="{{ asset('/style/css/style.css') }}">
     
     <title>{{ $meta_title  ?? ''}}</title>
+
+    <meta name="robots" content="index, follow" />
+    <meta name="title" content="{{ $seo->meta_title ?? '' }}" />
+    <meta name="description" content="{{ $seo->meta_description ?? '' }}" />
+    <meta name="keywords" content="{{ $seo->meta_keywords ?? '' }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ $seo->og_title ?? '' }}" />
+    <meta property="og:description" content="{{ $seo->og_description ?? '' }}" />
+    <meta property="og:image" content="{{ isset($seo) && $seo->og_img !='' ? asset($seo->og_img) : '' }}" />
+
 </head>
 <body class="site helix-ultimate hu com_sppagebuilder com-sppagebuilder view-page layout-default task-none itemid-101 uk-ua ltr sticky-header layout-fluid offcanvas-init offcanvs-position-right">
     

@@ -155,6 +155,11 @@ Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function() {
         Route::get('/search', ['uses' => '\App\Http\Controllers\Admin\LogsController@search', 'as' => 'admin.logsSearch']);
     });
 
+    Route::group(['prefix' => 'seo'], function () {
+        Route::get('/', ['uses' => '\App\Http\Controllers\Admin\SeoController@index', 'as' => 'admin.seo']);
+        Route::post('/edit', ['uses' => '\App\Http\Controllers\Admin\SeoController@edit', 'as' => 'admin.seoEdit']);
+    });
+
 });
 
 
