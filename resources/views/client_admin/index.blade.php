@@ -37,7 +37,22 @@
                       <td class="manufacturer">{{ $e->manufacturer }}</td>
                       <td class="country">{{ $e->country }}</td>
                       <td class="quantity">{{ $e->quantity }}</td>
-                      <td class="status">{{ $e->active ? 'active' : 'disabled'  }}</td>
+                      <td class="status">
+                        {{-- {{ $e->active ? 'active' : 'disabled'  }} --}}
+                        @csrf
+                        <label class="switch">
+                          <input type="checkbox" 
+                                  class="status-toggle" 
+                                  data-id="{{ $e->id }}"
+                                  {{ (int)$e->active === 1 ? 'checked' : '' }}>
+                            
+                            <span class="slider round"></span>
+                        </label>
+                        <span style="display: none"  class="status-label" id="status-label-{{ $e->id }}">
+                            {{ $e->active === 'active' ? 'Активний' : 'Неактивний' }}
+                        </span>
+                      
+                      </td>
                       <td>
                         <span class="editButton neo-bg-accent" data-id="{{ $e->id }}">edit</span>
                       </td>

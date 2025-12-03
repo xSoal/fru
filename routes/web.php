@@ -192,6 +192,9 @@ Route::group(['prefix' => 'clientAdmin', 'middleware' => 'roleClient.auth'], fun
     Route::post('/addEquipmentRequest', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@addRequestEquipment', 'as' => 'admin.clientAdminAddRequest']);
     Route::post('/editEquipmentRequest', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@editRequestEquipment', 'as' => 'admin.clientAdminEditRequest']);
     Route::post('/addMessage', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@addMessage', 'as' => 'admin.clientAddMessage']);
+
+    Route::post('/updateRequestStatus/{id}', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@updateRequestStatus', 'as' => 'admin.clientUpdateRequestStatus']);
+
 });
 
 
