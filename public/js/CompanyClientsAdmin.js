@@ -36,8 +36,61 @@ $(document).ready(function () {
     $('.addRequestForm').removeClass('visible');
   });
 
+
+
+
+
+  changeRequestEquipmentStatus();
+
   companyFilterSearch();
 });
+
+
+function changeRequestEquipmentStatus(){
+
+  var updateStatusUrl = '/clientAdmin/updateRequestStatus'; 
+
+  $('.status-toggle').on('change', function() {
+      var $toggleElement = $(this);
+      var itemId = $toggleElement.data('id');
+      var isChecked = $toggleElement.is(':checked');
+      var newStatus = isChecked ? 'active' : 'disabled';
+      
+      var $slider = $toggleElement.next('.slider');
+      var oldStatusWasChecked = !isChecked;
+      
+
+      var token = $('input[name="_token"]').val()
+
+      $slider.addClass('disabled-temp');
+      
+      $.ajax({
+          url: updateStatusUrl + '/' + itemId,
+          type: 'POST',
+          data: {
+              _token: token,
+              status: newStatus
+          },
+          success: function(response) {
+              $('#status-label-' + itemId).text(
+                  newStatus === 'active' ? 'Активний' : 'Неактивний'
+              ).css('color', newStatus === 'active' ? '#1e90ff' : '#ff6347');
+              
+              console.log('Статус оновлено:', response.message);
+          },
+          error: function(xhr, status, error) {
+              console.error('Помилка оновлення статусу:', error);
+              
+              $toggleElement.prop('checked', oldStatusWasChecked);
+              
+              alert('Failed to update status. Try refreshing the page and trying again.');
+          },
+          complete: function() {
+              $slider.removeClass('disabled-temp');
+          }
+      });
+  });
+}
 
 
 function companyFilterSearch(){

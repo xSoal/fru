@@ -120,6 +120,121 @@
                         </div>
                     </div>
 
+                                        <h1>Titles:</h1>
+                    
+                    <div class="form_block">
+                        <div class="fb_inside">
+                            <div class="fb_label">
+                                <div class="fb_label_inside">
+                                    <label for="main">Головна</label>
+                                </div>
+                            </div>
+                            <div class="fb_input">
+                                <div class="fb_input_inside">
+                                    <input type="text" name="main" value="{{ $titles->main ?? '' }}" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form_block">
+                        <div class="fb_inside">
+                            <div class="fb_label">
+                                <div class="fb_label_inside">
+                                    <label for="news">Новини</label>
+                                </div>
+                            </div>
+                            <div class="fb_input">
+                                <div class="fb_input_inside">
+                                    <input type="text" name="news" value="{{ $titles->news ?? '' }}" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form_block">
+                        <div class="fb_inside">
+                            <div class="fb_label">
+                                <div class="fb_label_inside">
+                                    <label for="contacts">Контакты</label>
+                                </div>
+                            </div>
+                            <div class="fb_input">
+                                <div class="fb_input_inside">
+                                    <input type="text" name="contacts" value="{{ $titles->contacts ?? '' }}" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form_block">
+                        <div class="fb_inside">
+                            <div class="fb_label">
+                                <div class="fb_label_inside">
+                                    <label for="login">Login</label>
+                                </div>
+                            </div>
+                            <div class="fb_input">
+                                <div class="fb_input_inside">
+                                    <input type="text" name="login" value="{{ $titles->login ?? '' }}" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form_block">
+                        <div class="fb_inside">
+                            <div class="fb_label">
+                                <div class="fb_label_inside">
+                                    <label for="search">Пошук</label>
+                                </div>
+                            </div>
+                            <div class="fb_input">
+                                <div class="fb_input_inside">
+                                    <input type="text" name="search" value="{{ $titles->search ?? '' }}" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form_block">
+                        <div class="fb_inside">
+                            <div class="fb_label">
+                                <div class="fb_label_inside">
+                                    <label for="reference">Довідкова інформація</label>
+                                </div>
+                            </div>
+                            <div class="fb_input">
+                                <div class="fb_input_inside">
+                                    <input type="text" name="reference" value="{{ $titles->reference ?? '' }}" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form_block">
+                        <div class="fb_inside">
+                            <div class="fb_label">
+                                <div class="fb_label_inside">
+                                    <label for="support">Програма підтримки</label>
+                                </div>
+                            </div>
+                            <div class="fb_input">
+                                <div class="fb_input_inside">
+                                    <input type="text" name="support" value="{{ $titles->support ?? '' }}" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form_block">
+                        <div class="fb_inside">
+                            <div class="fb_label">
+                                <div class="fb_label_inside">
+                                    <label for="rules">Правила регулювання</label>
+                                </div>
+                            </div>
+                            <div class="fb_input">
+                                <div class="fb_input_inside">
+                                    <input type="text" name="rules" value="{{ $titles->rules ?? '' }}" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
 
             </div>
 
@@ -137,5 +252,6 @@
            
         </form>
     </div>
+
 </section>
 @endsection

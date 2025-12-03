@@ -219,5 +219,25 @@ class ClientAdminController extends Controller
     }
 
 
+    public function updateRequestStatus(Request $request, $id){
+        $equipment = EquipmentRequest::find($id);
+
+        if (!$equipment) {
+            return response()->json(['message' => 'Запис не знайдено'], 404);
+        }
+
+        $newStatus = $request->input('status');
+
+        if (!in_array($newStatus, ['active', 'disabled'])) {
+            return response()->json(['message' => 'Недійсне значення статусу'], 400);
+        }
+
+
+        $equipment->active = $newStatus === 'active' ? 1 : 0;
+        $equipment->save();
+
+        return response()->json(['message' => 'Статус успішно оновлено.'], 200);
+    }
+
 
 }

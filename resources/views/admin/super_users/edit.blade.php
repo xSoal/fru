@@ -6,13 +6,13 @@
 <section class="add_user edit_user main_section ">
     <div class="title_h1">
         <div class="top_block">
-            <a href="{{ route('admin.users') }}" class="back_to">Назад</a>
+            <a href="{{ route('admin.super_users') }}" class="back_to">Назад</a>
         </div>
         <h1>Редактирование</h1> 
     </div>
     
     <div class="form_block_items form_add form_edit">
-        <form action="{{ route('admin.postUsers') }}" method="POST">
+        <form action="{{ route('admin.postSuperUsers') }}" method="POST">
             {{ csrf_field() }}
             <div class="select_bg"></div>
 

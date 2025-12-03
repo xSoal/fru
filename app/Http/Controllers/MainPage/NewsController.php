@@ -24,10 +24,14 @@ class NewsController extends Controller
 
         $seo = json_decode($newsItem->seo);
 
+        $title = $newsItem->title;
+
+
 
         $data = [
             'newsItem' => $newsItem,
-            'seo' => $seo
+            'seo' => $seo,
+            'title' => $title
         ];
             
 
@@ -47,10 +51,29 @@ class NewsController extends Controller
 
         $seo = json_decode($setting->value);
 
+        $titles = DB::table('settings')
+            ->where('type', 'titles')
+            ->first()->value;
+        switch ($type) {
+            case 'news':
+                $title = json_decode($titles)->news;
+                break;
+            case 'rules':
+                $title = json_decode($titles)->rules;
+                break;
+            case 'support':
+                $title = json_decode($titles)->support;
+                break;
+            default:
+                # code...
+                break;
+        }    
+
 
         $data = [
             'news' => $news,
-            'seo' => $seo
+            'seo' => $seo,
+            'title' => $title
         ];
             
         
@@ -83,10 +106,15 @@ class NewsController extends Controller
 
         $seo = json_decode($setting->value);
 
+        $titles = DB::table('settings')
+            ->where('type', 'titles')
+            ->first()->value;
+        $title = json_decode($titles)->reference;
 
         $data = [
             'news' => $news,
-            'seo' => $seo
+            'seo' => $seo,
+            'title' => $title
         ];
         
         return view('main_page.reference_information', $data);

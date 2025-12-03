@@ -20,10 +20,15 @@ class MainPageController extends Controller
                 ->first();
 
         $seo = json_decode($setting->value);
+
+        $titles = DB::table('settings')
+            ->where('type', 'titles')
+            ->first()->value;
+        $title = json_decode($titles)->main;
         
         
         $data = [
-            'title' => 'Головна',
+            'title' => $title,
             'news' => $news,
             'seo' => $seo
         ];

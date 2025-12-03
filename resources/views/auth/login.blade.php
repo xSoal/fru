@@ -19,7 +19,6 @@
 </div>
 
 <div class=" loginCont">
-
     <div class="login-page-container">
         <form action="{{ route('login') }}" class="login-form" method="post">
             @csrf
