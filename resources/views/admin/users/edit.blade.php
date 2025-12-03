@@ -38,60 +38,6 @@
                 </div>
             </div>
 
-            <div class="form_block">
-                <div class="fb_inside">
-                    <div class="fb_label">
-                        <div class="fb_label_inside">
-                            <label for="parent_category">Посада</label>
-                        </div>
-                    </div>
-                    <div class="fb_input input_select">
-                        @if( isset($postList[0]->id) )
-                            @foreach($postList as $c)
-                                <div class="fb_input_inside postList">
-                                    <input type="hidden" name="post_id" value="{{ $c->id }}">
-                                    <div class="select">
-                                        <div class="current_select">
-                                            <span>
-                                                {{ $c->name }}
-                                            </span>
-                                        </div>
-                                        <div class="options">
-                                            <div>
-                                                @if( $postP )
-                                                    @foreach($postP as $cat)
-                                                        <div class="option" data-id="{{ $cat->id }}">{{ $cat->name }}</div>
-                                                    @endforeach
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        @else
-                        <div class="fb_input_inside postList">
-                            <input type="hidden" name="post_id" value="0">
-                            <div class="select">
-                                <div class="current_select">
-                                    <span>
-                                        Оберіть дані
-                                    </span>
-                                </div>
-                                <div class="options ">
-                                    <div>
-                                       @if( $postP )
-                                            @foreach($postP as $cat)
-                                                <div class="option" data-id="{{ $cat->id }}">{{ $cat->name }}</div>
-                                            @endforeach
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @endif
-                    </div>
-                </div>
-            </div>
 
             <div class="form_block active">
                 <div class="fb_inside">
@@ -167,55 +113,7 @@
                 </div>
             </div>
 
-            <div class="form_block">
-                <div class="fb_inside">
-                    <div class="fb_label">
-                        <div class="fb_label_inside">
-                            <label for="parent_category">Форма зайнятості</label>
-                        </div>
-                    </div>
-                    <div class="fb_input input_select">
-                        <div class="fb_input_inside">
-                            <input type="hidden" name="employment" value="{{ $item->employment ?? 0 }}">
-                            <div class="select">
-                                <div class="current_select">
-                                    <span>
-                                        @if( isset($item) )
-                                            @switch( $item->employment )
-                                                @case (0) Штат @break
-                                                @case (1) ЦПХ @break
-                                                @case (2) ФОП @break
-                                            @endswitch
-                                        @endif
-                                    </span>
-                                </div>
-                                <div class="options">
-                                    <div>
-                                        <div class="option" data-id="0">Штат</div>
-                                        <div class="option" data-id="1">ЦПХ</div>
-                                        <div class="option" data-id="2">ФОП</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="form_block">
-                <div class="fb_inside">
-                    <div class="fb_label">
-                        <div class="fb_label_inside">
-                            <label for="percent">ПДВ %</label>
-                        </div>
-                    </div>
-                    <div class="fb_input">
-                        <div class="fb_input_inside">
-                            <input type="number" min="0" step="0.01" name="percent" value="{{ $item->percent ?? 0 }}" required>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div class="form_block">
                 <div class="fb_inside">
