@@ -682,6 +682,10 @@ tbody td:first-child {
 	position: relative;
 }
 
+.cell-active input {
+	width: 15px !important;
+}
+
 .label-text {
 	font-family: var(--font-heading);
 	font-size: 10px;

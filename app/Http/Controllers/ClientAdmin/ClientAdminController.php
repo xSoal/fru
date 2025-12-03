@@ -36,6 +36,7 @@ class ClientAdminController extends Controller
         $equipmentRequest->user_id = Auth::id();
         $count = EquipmentRequest::where('user_id', Auth::id())->count();
         $equipmentRequest->code = 1000 + +(Auth::id()) . '-' . $count + 1;
+        $equipmentRequest->active = isset($input["active"]) && $input['active'] === 'on';
 
         if( $equipmentRequest->save() ){
             // $setting = DB::table('settings')
@@ -92,6 +93,9 @@ class ClientAdminController extends Controller
         $equipmentRequest->manufacturer = $input["manufacturer"];
         $equipmentRequest->country = $input["country"];
         $equipmentRequest->quantity = $input["quantity"];
+
+        $equipmentRequest->active = isset($input["active"]) && $input['active'] === 'on';
+
 
         if( $equipmentRequest->update() ){
             return redirect()->route('admin.clientAdmin')->with('status','Request was edited');

@@ -37,7 +37,7 @@
                       <td class="manufacturer">{{ $e->manufacturer }}</td>
                       <td class="country">{{ $e->country }}</td>
                       <td class="quantity">{{ $e->quantity }}</td>
-                      <td class="status">{{ $e->active ? 'aprroved' : 'waiting'  }}</td>
+                      <td class="status">{{ $e->active ? 'active' : 'disabled'  }}</td>
                       <td>
                         <span class="editButton neo-bg-accent" data-id="{{ $e->id }}">edit</span>
                       </td>
@@ -70,6 +70,11 @@
                     <div class="input-cell cell-manufacturer">
                         <span class="label-text">MANUFACTURER</span>
                         <input type="text" name="manufacturer" required placeholder="Input manufacturer" class="table-input">
+                    </div>
+
+                    <div class="input-cell cell-active">
+                        <span class="label-text">IS ACTIVE</span>
+                        <input type="checkbox" name="active" placeholder="" style="width: auto;">
                     </div>
             
                     <div class="input-cell cell-country">
@@ -135,6 +140,11 @@
                     <div class="input-cell cell-manufacturer">
                         <span class="label-text">MANUFACTURER</span>
                         <input type="text" name="manufacturer" required placeholder="" class="table-input">
+                    </div>
+
+                    <div class="input-cell cell-active">
+                        <span class="label-text">IS ACTIVE</span>
+                        <input type="checkbox" name="active" placeholder="" style="width: auto;">
                     </div>
             
                     <div class="input-cell cell-country">
