@@ -41,7 +41,10 @@ class SeoController extends Controller
 
         $newSeo = json_encode($e);
 
-
+        $setting = DB::table('settings')
+                ->where('type', 'seo')
+                ->first();
+        
         $updated = DB::table('settings')
             ->where('type', 'seo')
             ->update([
