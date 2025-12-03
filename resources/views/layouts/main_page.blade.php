@@ -13,6 +13,7 @@
 
     <link rel="icon" type="image/png"  href='/images/favicon.svg'>
     
+    
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"> --}}
     
     {{-- <script src="https://kit.fontawesome.com/5370645651.js" crossorigin="anonymous"></script> --}}
@@ -42,6 +43,8 @@
     <meta property="og:title" content="{{ $seo->og_title ?? '' }}" />
     <meta property="og:description" content="{{ $seo->og_description ?? '' }}" />
     <meta property="og:image" content="{{ isset($seo) && $seo->og_img !='' ? asset($seo->og_img) : '' }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
 
 </head>
 <body class="site helix-ultimate hu com_sppagebuilder com-sppagebuilder view-page layout-default task-none itemid-101 uk-ua ltr sticky-header layout-fluid offcanvas-init offcanvs-position-right">

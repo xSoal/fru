@@ -1111,7 +1111,7 @@ html {
     }
     blockquote {
     border-radius: 4px;
-    padding: 25px 20% 25px 50px;
+    padding: 25px 50px 25px 50px;
     background-color: #f1f1f1;
     font-weight: 500;
     font-size: 24px;
