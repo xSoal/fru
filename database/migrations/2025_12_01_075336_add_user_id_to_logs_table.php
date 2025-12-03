@@ -26,7 +26,14 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('logs', function (Blueprint $table) {
-            //
+            // 1. Видаляємо зовнішній ключ (constraint)
+            $table->dropForeign(['user_id']); 
+            
+            // АБО краще (якщо використовували constrained()):
+            // $table->dropConstrainedForeignId('user_id');
+            
+            // 2. Видаляємо сам стовпець
+            $table->dropColumn('user_id'); 
         });
     }
 };

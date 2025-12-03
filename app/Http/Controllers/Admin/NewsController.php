@@ -56,11 +56,24 @@ class NewsController extends Controller
         $type = str_replace('admin/', '', $type);
 
         $input = $request->except('_token');
+        
+        $e = [
+            'meta_title' => $request['meta_title'],
+            'meta_description' => $request['meta_description'],
+            'meta_keywords' => $request['meta_keywords'],
+            'og_title' => $request['og_title'],
+            'og_description' => $request['og_description'],
+            'og_img' => $request['og_img'],
+        ];
+
+        $newSeo = json_encode($e);
+
 
         //-----------------------------------------------------------------
         if( isset($input['save']) || isset($input['save_and_exit']) ){
             $news->fill($input);
             $news->slug = Str::slug($input['title']);
+            $news->seo = $newSeo;
 
             $type = $this->getNewsType($request->path());
             if($type === 'rules' || $type === 'support'){
@@ -85,6 +98,7 @@ class NewsController extends Controller
 
             $project = News::find($input['id']); 
             $project->fill($input);
+            $project->seo = $newSeo;
 
             if( $project->update() ){
                 if( isset($input['update_and_exit']) ){
@@ -118,6 +132,7 @@ class NewsController extends Controller
         $data = [
             'title' => 'Новини',
             'search' => '',
+            'seo' => ''
         ];
         $view_name = 'admin.'.$this->getNewsType($request->path()).'.edit'; 
         return 	view($view_name,$data);
@@ -127,11 +142,15 @@ class NewsController extends Controller
 
         $item = News::where('id', '=', $id)->first();
 
+
+        $seo = json_decode($item->seo);
+
         
         $data = [
                 'title' => 'Редагувати',
                 'item' => $item,
-            ];
+                'seo' => $seo
+        ];
 
         $view_name = 'admin.'.$this->getNewsType($request->path()).'.edit'; 
         return 	view($view_name, $data);
