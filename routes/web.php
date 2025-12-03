@@ -64,6 +64,13 @@ Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function() {
         Route::post('/', ['uses' => '\App\Http\Controllers\Admin\UsersController@post', 'as' => 'admin.postUsers']);
     });
 
+    Route::group(['prefix' => 'super_users'], function () {
+        Route::get('/', ['uses' => '\App\Http\Controllers\Admin\SuperUsersController@list', 'as' => 'admin.super_users']);
+        Route::get('/add', ['uses' => '\App\Http\Controllers\Admin\SuperUsersController@add', 'as' => 'admin.addSuperUser']);
+        Route::get('/{id}', ['uses' => '\App\Http\Controllers\Admin\SuperUsersController@view', 'as' => 'admin.viewSuperUser']);
+        Route::post('/', ['uses' => '\App\Http\Controllers\Admin\SuperUsersController@post', 'as' => 'admin.postSuperUsers']);
+    });
+
 
     Route::group(['prefix' => 'post'], function () {
         Route::get('/', ['uses' => '\App\Http\Controllers\Admin\PostController@list', 'as' => 'admin.post']);

@@ -81,6 +81,10 @@
             </div>
 
             <div class="admin_menu_link">
+                <a href="{{ route('admin.users') }}" class="menu_link_item users_list">Супер Користувачі</a>
+            </div>
+
+            <div class="admin_menu_link">
                 <a href="{{ route('admin.settings') }}" class="menu_link_item users_list">Налаштування</a>
             </div>
 
