@@ -14,7 +14,7 @@ class SeoController extends Controller
                 ->first();
 
         $seo = json_decode($setting->value);
-
+        
         $data = [
             'title' => 'Seo',
             'seo' => $seo
@@ -35,7 +35,10 @@ class SeoController extends Controller
 
         $newSeo = json_encode($e);
 
-
+        $setting = DB::table('settings')
+                ->where('type', 'seo')
+                ->first();
+        
         $updated = DB::table('settings')
                      ->where('type', 'seo')
                      ->update([
