@@ -14,14 +14,15 @@ $(document).ready(function () {
     var manufacturer = $(this).closest('tr').find('.manufacturer').html().trim();
     var country = $(this).closest('tr').find('.country').html().trim();
     var quantity = $(this).closest('tr').find('.quantity').html().trim();
-    var active =  $(this).closest('tr').find('.status').html().trim();
+    var activeInput =  $(this).closest('tr').find('.status input[type="checkbox"]')[0]
     
     $('.editRequestForm').find('input[name="code"]').val(code)
     $('.editRequestForm').find('input[name="name"]').val(name)
     $('.editRequestForm').find('input[name="model"]').val(model)
     $('.editRequestForm').find('input[name="manufacturer"]').val(manufacturer)
     $('.editRequestForm').find('input[name="quantity"]').val(quantity)
-    active === 'active' ? 
+
+    activeInput.checked ? 
       $('.editRequestForm').find('input[name="active"]')[0].checked = true : 
       $('.editRequestForm').find('input[name="active"]')[0].checked = false;
       
