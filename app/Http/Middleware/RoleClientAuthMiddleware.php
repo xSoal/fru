@@ -30,7 +30,7 @@ class RoleClientAuthMiddleware
         // $role передается из роута (см. ниже).
         $role = (int)$user->role;
       
-        if (!in_array($role, [0,2])) {
+        if (!in_array($role, [0,3])) {
             // Если роль не совпадает, можно вернуть 403 (Forbidden)
             abort(403);
         }

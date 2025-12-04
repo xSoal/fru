@@ -29,7 +29,7 @@ class RoleCompanyAuthMiddleware
         // Проверяем, существует ли у пользователя поле 'role' и совпадает ли оно с требуемой ролью.
         // $role передается из роута (см. ниже).
         $role = $user->role;
-        if (!$role || !in_array($role, ['1','2'])) {
+        if (!$role || !in_array($role, ['1','3'])) {
             // Если роль не совпадает, можно вернуть 403 (Forbidden)
             abort(403);
         }

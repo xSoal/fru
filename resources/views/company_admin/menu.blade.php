@@ -3,13 +3,13 @@
         <nav class="navigation-menu">
             <ul>
                 <li class="{{ Request::routeIs('admin.companyEquipment') || Request::routeIs('admin.companyEquipmentSearch') ? 'active' : '' }}">
-                    <a href="{{ route('admin.companyEquipment') }}">Equipment Request</a>
+                    <a href="{{ route('admin.companyEquipment', $companyId) }}">Equipment Request</a>
                 </li>
                 <li class="{{ Request::routeIs('admin.companyAdmin') || Request::routeIs('admin.companyAdminClient') ? 'active' : '' }}">
-                    <a href="{{ route('admin.companyAdmin') }}">Participant</a>
+                    <a href="{{ route('admin.companyAdmin', $companyId) }}">Participant</a>
                 </li>
                 <li class="{{  Request::routeIs('admin.companyAdminReference') ? 'active' : '' }}">
-                    <a href="{{ route('admin.companyAdminReference') }}" >Financial Support Tools</a>
+                    <a href="{{ route('admin.companyAdminReference', $companyId) }}" >Financial Support Tools</a>
                 </li>
                 <li class="">
                     <a href="#"> Dealers and Service</a>
@@ -18,11 +18,11 @@
         </nav>
         <header class="">
             <?php 
-                $newMessages = Auth::user()->newMessagesCount();
+                $newMessages = \App\Models\User::where('id', $companyId)->first()->newMessagesCount();
             ?>
           @if($newMessages !== false)
           <div class="messageCont">
-            <a href="{{ route('messenger', [ 'id' => Auth::user()->id ]) }}">
+            <a href="{{ route('messenger', [ 'id' => $companyId ]) }}">
               <button class="messages-button neo-accent-btn">
                   <span class="icon-indicator">{{ $newMessages }}</span>
                   MESSAGES 

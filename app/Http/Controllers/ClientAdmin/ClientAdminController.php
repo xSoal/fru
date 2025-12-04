@@ -16,13 +16,13 @@ use Illuminate\Support\Facades\DB;
 
 class ClientAdminController extends Controller
 {
-    public function index(){
-        $equipmentRequests = EquipmentRequest::where('user_id', Auth::id())->get();
+    public function index($clientId){
+        $equipmentRequests = EquipmentRequest::where('user_id', $clientId)->get();
 
         $data = [
-            'client' => Auth::user(),
+            'clientId' => $clientId,
+            'client' => User::where('id', $clientId)->first(),
             'equipmentRequests' => $equipmentRequests,
-            'user' => Auth::user()
         ];
 
         return view('client_admin.index', $data);
@@ -31,6 +31,7 @@ class ClientAdminController extends Controller
 
     public function addRequestEquipment(Request $request){
         $input = $request->except('_token');
+        
         $equipmentRequest = new EquipmentRequest();
         $equipmentRequest->fill($input);
         $equipmentRequest->user_id = Auth::id();
@@ -77,7 +78,10 @@ class ClientAdminController extends Controller
             // }
 
 
-            return redirect()->route('admin.clientAdmin')->with('status','Request was added');
+            return redirect()->route('admin.clientAdmin', ['clientId' => Auth::id()])
+                ->with(
+                    ['status' => 'Request was added']
+                );
         }
 
 
@@ -98,7 +102,7 @@ class ClientAdminController extends Controller
 
 
         if( $equipmentRequest->update() ){
-            return redirect()->route('admin.clientAdmin')->with('status','Request was edited');
+            return redirect()->route('admin.clientAdmin', Auth::id())->with('status','Request was edited');
         }
     }
 
@@ -114,18 +118,19 @@ class ClientAdminController extends Controller
     }
 
 
-    public function partnersList(){
+    public function partnersList($clientId){
         $partners = User::where('role', 1)->where('active', 1)->get();
         $data = [
             'partners' => $partners,
-            'user' => Auth::user()
+            'client' => User::where('id', $clientId)->first(),
+            'clientId' => $clientId
         ];
 
         return view('client_admin.partners', $data);
     }
 
 
-    public function partnerSingle($id){
+    public function partnerSingle($id, $clientId){
         $partner = User::where('id', $id)->where('active', 1)->firstOrFail(); 
 
         // СТРОГИЙ ПОРЯДОК ID
@@ -152,12 +157,15 @@ class ClientAdminController extends Controller
 
         $equipmentsRequests = EquipmentRequest::where('user_id', $id)->latest()->get();
 
+        
+
         $data = [
             'partner' => $partner, 
             'chat' => $chat,     // текущий
             'messages' => $messages, // Коллекция сообщений только из ПЕРВОГО чата
             'equipmentsRequests' => $equipmentsRequests,
-            'user' => Auth::user()
+            'client' => User::where('id', $clientId)->first(),
+            'clientId' => $clientId
         ];
 
         // В шаблоне 'company_admin.company' теперь доступна переменная $messages
@@ -198,10 +206,10 @@ class ClientAdminController extends Controller
             'company' => $company
         ];
 
-        return redirect()->route('admin.clientAdminPartnerSingle', ['id' => $receiverId]);
+        return redirect()->route('admin.clientAdminPartnerSingle', ['id' => $receiverId, 'clientId' => Auth::id()]);
     }
 
-    public function reference(){
+    public function reference($clientId){
         $today = Carbon::today();
         $news = News::whereDate('public_date', '<=', $today)
             ->where('type', 'support')
@@ -212,7 +220,8 @@ class ClientAdminController extends Controller
 
         $data =  [
             'news' => $news,
-            'user' => Auth::user()
+            'client' => User::where('id', $clientId)->first(),
+            'clientId' => $clientId
         ];
 
         return view('client_admin.reference', $data);

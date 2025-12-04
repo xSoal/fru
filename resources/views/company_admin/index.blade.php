@@ -14,7 +14,7 @@
             <label for="search-input" class="search-label">
                 <span class="label-text">SEARCH:</span>
             </label>
-            <form action="{{ route('admin.companySearch') }}" method="get">
+            <form action="{{ route('admin.companySearch', ['companyId' => $companyId]) }}" method="get">
               @csrf
               <input
                 type="text"
@@ -33,7 +33,7 @@
         <div class="companies-list">
           @foreach ($clients as $client)
             <div class="list-item">
-              <a class="company" href="/companyAdmin/clients/{{ $client->id }}">
+              <a class="company" href="/companyAdmin/clients/{{ $client->id }}/{{ $user->id }}">
                 <div class="company__name">{{ $client->name }} </div>
                 <div class="company__logo">
                   <img src="{{ $client->photo }}">

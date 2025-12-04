@@ -23,13 +23,14 @@ use Validator;
 class CompanyAdminController extends Controller
 {
     
-    public function index(User $user, Request $request){
-        $user = User::where('id', '=', Auth::id())->firstOrFail();
+    public function index(User $user, Request $request, $companyId){
+        $user = User::where('id', '=', $companyId)->firstOrFail();
         $clients = User::where('role', '=', '0')->where('active',1)->get();
 
         $data = [
             'user' => $user,
-            'clients' => $clients
+            'clients' => $clients,
+            'companyId' => $companyId
         ];
 
 
@@ -37,11 +38,11 @@ class CompanyAdminController extends Controller
     }
 
 
-    public function client($id) {
-        $company = User::where('id', $id)->where('active', 1)->firstOrFail(); 
+    public function client($id, $companyId) {
+        $client = User::where('id', $id)->where('active', 1)->firstOrFail(); 
 
         // СТРОГИЙ ПОРЯДОК ID
-        $chat = Conversation::where('user_one_id', Auth::id()) // Убедитесь, что это всегда user_one_id
+        $chat = Conversation::where('user_one_id', $companyId) // Убедитесь, что это всегда user_one_id
             ->where('user_two_id', $id) // Убедитесь, что это всегда user_two_id
             // ЖАДНО загружаем сообщения, отсортированные по убыванию (новые сверху)
             ->with(['messages' => function ($query) {
@@ -51,13 +52,12 @@ class CompanyAdminController extends Controller
 
         $messages = collect(); 
         $activeConversation = null;
-        $currentUserId = Auth::id();
 
         if ($chat) {
             $activeConversation = $chat;
             
-            $messages = $activeConversation->messages->values()->map(function ($message) use ($currentUserId) {
-                $message->is_sender = $message->sender_id === $currentUserId;
+            $messages = $activeConversation->messages->values()->map(function ($message) use ($companyId) {
+                $message->is_sender = $message->sender_id === Auth::id();
                 return $message;
             });
         }
@@ -68,11 +68,12 @@ class CompanyAdminController extends Controller
             ->get();
 
         $data = [
-            'company' => $company, 
+            'client' => $client, 
             'chat' => $chat,     // текущий
             'messages' => $messages, // Коллекция сообщений только из ПЕРВОГО чата
             'equipmentsRequests' => $equipmentsRequests, 
-            'user' => Auth::user()
+            'user' => User::where('id', $companyId)->firstOrFail(),
+            'companyId' => $companyId
         ];
 
         // В шаблоне 'company_admin.company' теперь доступна переменная $messages
@@ -80,6 +81,7 @@ class CompanyAdminController extends Controller
     }
 
     public function addMessage(Request $request){
+
         $request->validate([
             'receiver_id' => 'required|exists:users,id|not_in:' . Auth::id(),
             'content' => 'required|string|max:2000',
@@ -89,12 +91,12 @@ class CompanyAdminController extends Controller
 
         $senderId = Auth::id();
         $receiverId = (int) $request->receiver_id;
+        // $companyId = $request->company_id;
         $content = $request->input('content');
 
         // // 2. Нормализация ID для поиска (самый маленький ID идет первым)
         // $userOneId = min($senderId, $receiverId);
         // $userTwoId = max($senderId, $receiverId);
-        
          // СТРОГИЙ ПОРЯДОК ID
         $conversation = Conversation::firstOrCreate([
             'user_one_id' => $senderId,
@@ -107,19 +109,16 @@ class CompanyAdminController extends Controller
             'content' => $content,
         ]);
 
-        $company = User::where('id', '=', $receiverId)->firstOrFail();
-        $data = [
-            'company' => $company
-        ];
+        // $client = User::where('id', '=', $receiverId)->firstOrFail();
 
-        return redirect()->route('admin.companyAdminClient', ['id' => $receiverId]);
+        return redirect()->route('admin.companyAdminClient', ['id' => $receiverId, 'companyId' =>  Auth::id()]);
     }
 
 
-    public function search(Request $request){
+    public function search(Request $request, $companyId){
         $search = trim($request->input('search'));
         $perPage = 25;
-        $user = Auth::user();
+        $user = User::where('id', $companyId)->first();
 
         if(!$search){
             // Создание пустого пагинатора, без запроса к БД
@@ -143,15 +142,17 @@ class CompanyAdminController extends Controller
         $data = [
             'search' => $search,
             'resultSearch' => $resultSearch,
-            'user' => $user
+            'user' => $user,
+            'companyId' => $companyId
         ];
 
         return view('company_admin.search', $data);
     }
 
 
-    public function equipment(){
-        $user = Auth::user();
+    public function equipment($companyId){
+        $user = User::where('id', $companyId)->first();
+
         $e = EquipmentRequest::with('user')
             ->where('active', 1)
             ->paginate(25);
@@ -166,7 +167,8 @@ class CompanyAdminController extends Controller
         $data = [
             'resultSearch' => $e,
             'countries' => $countriesWithCount,
-            'user' => $user
+            'user' => $user,
+            'companyId' => $companyId
         ];
 
 
@@ -174,7 +176,7 @@ class CompanyAdminController extends Controller
     }
 
 
-    public function equipmentSearch(Request $request, $filterStr){
+    public function equipmentSearch(Request $request, $filterStr, $companyId){
   
         $allowedCountries = explode('|', $filterStr);
 
@@ -194,14 +196,15 @@ class CompanyAdminController extends Controller
             'resultSearch' => $e,
             'countries' => $countriesWithCount,
             'allowedCountries' => $allowedCountries,
-            'user' => Auth::user()
+            'user' => User::where('id', $companyId)->first(),
+            'companyId' => $companyId
         ];
 
 
         return view('company_admin.equipment', $data);
     }
 
-    public function reference(){
+    public function reference($companyId){
         $today = Carbon::today();
         $news = News::whereDate('public_date', '<=', $today)
             ->where('type', 'support')
@@ -212,7 +215,8 @@ class CompanyAdminController extends Controller
 
         $data =  [
             'news' => $news,
-            'user' => Auth::user()
+            'user' => User::where('id', $companyId)->first(),
+            'companyId' => $companyId
         ];
 
         return view('company_admin.reference', $data);

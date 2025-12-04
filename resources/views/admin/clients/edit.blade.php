@@ -38,7 +38,7 @@
                 </div>
             </div>
 
-            @if( isset($item) )
+            @if( isset($item) && Auth::user()->role === 3 )
             <div class="form_block active">
                 <div class="fb_inside">
                     <div class="fb_label">
@@ -49,6 +49,22 @@
                     <div class="fb_input">
                         <div class="fb_inside">
                             <a class="user_chat_links" href="/messenger/{{ $item->id }}" target="_blank">chats</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
+            @if( isset($item) && Auth::user()->role === 3 )
+            <div class="form_block active">
+                <div class="fb_inside">
+                    <div class="fb_label">
+                        <div class="fb_label_inside">
+                            <label for="fio">Сторінка користувача</label>
+                        </div>
+                    </div>
+                    <div class="fb_input">
+                        <div class="fb_inside">
+                            <a class="user_chat_links" href="{{ route('admin.clientAdmin', $item->id) }}" target="_blank">Page</a>
                         </div>
                     </div>
                 </div>

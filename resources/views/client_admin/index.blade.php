@@ -25,7 +25,9 @@
                       <th>COUNTRY</th>
                       <th>QUANTITY</th>
                       <th>STATUS</th>
+                      @if( (int)Auth::user()->role === 0 )
                       <th></th>
+                      @endif
                   </tr>
               </thead>
               <tbody>
@@ -37,6 +39,7 @@
                       <td class="manufacturer">{{ $e->manufacturer }}</td>
                       <td class="country">{{ $e->country }}</td>
                       <td class="quantity">{{ $e->quantity }}</td>
+                      @if( (int)Auth::user()->role === 0 )
                       <td class="status">
                         {{-- {{ $e->active ? 'active' : 'disabled'  }} --}}
                         @csrf
@@ -56,13 +59,20 @@
                       <td>
                         <span class="editButton neo-bg-accent" data-id="{{ $e->id }}">edit</span>
                       </td>
+                      @else
+                      <td class="status">
+                        {{ (int)$e->active === 1 ? 'active' : 'disabled' }}
+                      </td>
+                      @endif
                     </tr>  
                   @endforeach
+                  @if( (int)Auth::user()->role === 0 )
                   <tr>
                     <td colspan="6">
                       <button class="submit-button neo-bg-accent addRequest">ADD EQUIPMENT REQUEST</button>
                     </td>          
                   </tr>
+                  @endif
               </tbody>
           </table>
           <div class="addRequestForm">
@@ -157,10 +167,10 @@
                         <input type="text" name="manufacturer" required placeholder="" class="table-input">
                     </div>
 
-                    <div class="input-cell cell-active">
+                    {{-- <div class="input-cell cell-active">
                         <span class="label-text">IS ACTIVE</span>
                         <input type="checkbox" name="active" placeholder="" style="width: auto;">
-                    </div>
+                    </div> --}}
             
                     <div class="input-cell cell-country">
                         <span class="label-text">COUNTRY</span>

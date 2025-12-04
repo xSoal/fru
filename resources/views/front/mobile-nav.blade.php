@@ -30,14 +30,17 @@
 
 					if($user){
 						switch ($user->role) {
+							case '3':
+								$login_url = '/admin';
+								break;
 							case '2':
 								$login_url = '/admin';
 								break;
 							case '1':
-								$login_url = '/companyAdmin';
+								$login_url = '/companyAdmin/' . $user->id;
 								break;
 							case '0':
-								$login_url = '/clientAdmin';
+								$login_url = '/clientAdmin/' . $user->id;
 								break;
 							default:
 								# code...
