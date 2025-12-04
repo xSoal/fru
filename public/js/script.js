@@ -34,7 +34,7 @@ $(document).ready(function () {
     }
 
 
-    // popup conntact
+    // popup contact
     var box = document.getElementById('slideInBox');
 
     function hideBox() {

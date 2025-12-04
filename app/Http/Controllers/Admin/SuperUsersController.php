@@ -16,7 +16,8 @@ class SuperUsersController extends Controller
 {
     
     public function post(User $user, Request $request){
-       
+
+
         $input = $request->except('_token');
 
         $input['photo'] = isset($input['photo']) ? $input['photo'] : '';
