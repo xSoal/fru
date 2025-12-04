@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-
-
-use Illuminate\Support\Facades\Hash;
-use App\Models\User;
 use App\Models\Post;
 
+
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Support\Facades\Hash;
 use Validator;
 
 class SuperUsersController extends Controller
@@ -167,6 +168,8 @@ class SuperUsersController extends Controller
 
 
     public function view($id){
+        if(Auth::user()->role !== 3) abort(403);
+
 		if(view()->exists('admin.super_users.edit')){
             
             $post = array();
@@ -230,6 +233,9 @@ class SuperUsersController extends Controller
 	}
 
     public function list(Request $request){
+
+        if(Auth::user()->role !== 3) abort(403);
+
 		if(view()->exists('admin.super_users.list')){
 
 			$paginate = 25;
