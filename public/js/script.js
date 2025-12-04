@@ -24,17 +24,33 @@ $(document).ready(function () {
 
     if (menuToggle && mainNav) {
         menuToggle.addEventListener('click', () => {
-            // 1. Переключаем кастомный класс 'headerMoblie' для открытия/закрытия
             mainNav.classList.toggle('headerMoblie');
             
-            // 2. Управление атрибутом ARIA
             const isExpanded = mainNav.classList.contains('headerMoblie');
             menuToggle.setAttribute('aria-expanded', isExpanded);
             
-            // 3. Блокировка скролла фона
             body.classList.toggle('bodyNoScroll');
         });
     }
+
+
+    // popup conntact
+    var box = document.getElementById('slideInBox');
+
+    function hideBox() {
+        box.classList.add('hidden');
+    }
+    window.hideBox = hideBox;
+
+    if(box){
+      box.classList.add('visible');
+    }
+
+    /// popup contact
+
+
+
+
 
 });
 

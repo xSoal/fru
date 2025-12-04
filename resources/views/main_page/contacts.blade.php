@@ -49,8 +49,12 @@
                 
                         <!-- Правая колонка -->
                         <div class="contact-right">
+
                             @if(isset($message))
-                            <h1>{{ $message }}</h1>
+                            <div id="slideInBox" class="">
+                                <h2>{{ $message }}</h2>
+                                <button class="buttonGreenArrow" onclick="hideBox()">Сховати</button>
+                            </div>
                             @endif
                             <h2 class="contact-title">Якщо є питання</h2>
                             <p class="contact-subtitle">
