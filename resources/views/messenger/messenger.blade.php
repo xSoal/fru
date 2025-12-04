@@ -21,7 +21,7 @@
                     <tbody>
                         <?php
                             $messageFromUserRole = 'userOne';
-                            if((int)$user_for_chat_view->role === 1){
+                            if((int)$user_owner_chats->role === 1){
                                 $messageFromUserRole = 'userTwo';
                             }
                         ?>
@@ -31,12 +31,12 @@
                             <td>
                                 @if( isset($e->messages[0]->content) )
                                     {{ $e->messages[0]->content }}
-                                    {{ (int)$e->messages[0]->is_read === 0  && (int)$e->messages[0]->sender_id !== Auth::user()->id ? '(new)' : '' }}
+                                    {{ (int)$e->messages[0]->is_read === 0  && (int)$e->messages[0]->sender_id !== $user_owner_chats->id ? '(new)' : '' }}
                                 @endif
                             </td>
                             <td class="messenger__openChatTd">
                                 <a href="{{ route('messenger.single', [
-                                    'id' => $user_for_chat_view->id,
+                                    'id' => $user_owner_chats->id,
                                     'chatId' => $e->id
                                 ]) }}">
                                     <p class=" "><i class="fa-solid fa-comment"></i></p>

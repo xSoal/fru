@@ -7,7 +7,7 @@
 
         <header class="header">
             <h1 class="page-title details-title">
-              <p class="neo-highlight">{{ $user_for_chat_view->name }}</p> 
+              <p class="neo-highlight">{{ $user_owner_chats->name }}</p> 
               <p>with</p>
               <p class="neo-highlight">{{ $dialog_with_user->name }}</p>
             </h1>
@@ -15,7 +15,7 @@
       
         <hr class="separator"/>
 
-        @if((int)$current_user->role !== 2)
+        @if((int)$current_user->role !== 3)
             <section class="message-section">
                 <div class="message-form-group">
                   <form action="{{ route('messenger.add_message') }}" method="post">
@@ -39,8 +39,7 @@
  
             @foreach ($chat->messages as $item)
                 <?php
-                    $message_sender = $user_for_chat_view->id === $item->sender_id;
-
+                    $message_sender = $user_owner_chats->id === $item->sender_id;
                 ?>
                 <div class="message {{ $message_sender ? 'message-sender' : '' }}">
                   @if($message_sender)
@@ -52,7 +51,7 @@
                   <div class="message__isRead">{{ $item->is_read ? 'read' : 'unread' }}</div>
                 </div>
                 <?php
-                    if(!$message_sender && (int)Auth::user()->role !== 2){
+                    if(!$message_sender && (int)Auth::user()->role !== 3){
                         $item->setMessageReadStatus();
                     }
                 ?>

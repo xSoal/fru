@@ -3,13 +3,13 @@
         <nav class="navigation-menu">
             <ul>
                 <li class="{{ Request::routeIs('admin.clientAdmin') ? 'active' : '' }}">
-                    <a href="{{ route('admin.clientAdmin') }}">Partipiant</a>
+                    <a href="{{ route('admin.clientAdmin', $clientId) }}">Partipiant</a>
                 </li>
                 <li class="{{ Request::routeIs('admin.clientAdminPartners') || Request::routeIs('admin.clientAdminPartnerSingle') ? 'active' : '' }}">
-                    <a href="{{ route('admin.clientAdminPartners') }}">Partners</a>
+                    <a href="{{ route('admin.clientAdminPartners', $clientId) }}">Partners</a>
                 </li>
                 <li class="{{  Request::routeIs('admin.clientAdminReference') ? 'active' : '' }}">
-                    <a href="{{ route('admin.clientAdminReference') }}" >Financial Support Tools</a>
+                    <a href="{{ route('admin.clientAdminReference', $clientId) }}" >Financial Support Tools</a>
                 </li>
                 <li class="">
                     <a href="#"> Dealers and Service</a>
@@ -18,28 +18,26 @@
         </nav>
         <header class="">
             <?php 
-                $newMessages = Auth::user()->newMessagesCount();
+                $newMessages = $client->newMessagesCount();
             ?>
-          @if($newMessages !== false)
           <div class="messageCont">
-            <a href="{{ route('messenger', [ 'id' => Auth::user()->id ]) }}">
+            <a href="{{ route('messenger', [ 'id' => $clientId ]) }}">
               <button class="messages-button neo-accent-btn">
                   <span class="icon-indicator">{{ $newMessages }}</span>
                   MESSAGES 
               </button>
             </a>  
           </div>
-          @endif
-          </header>
+        </header>
     </div>
 
     <div class="header__right">
         <div class="partner-info">
             <div class="logo-placeholder">
-               <img src="{{ $user->photo }}">
+               <img src="{{ $client->photo }}">
             </div>
             <div class="partner-name-placeholder">
-              <h1 class="page-title">{{ $user->name }}</h1>
+              <h1 class="page-title">{{ $client->name }}</h1>
               
             </div>
         </div>

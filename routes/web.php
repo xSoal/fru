@@ -179,21 +179,24 @@ Route::group(['prefix' => '/messenger', 'middleware' => 'auth'], function() {
 
 
 Route::group(['prefix' => 'companyAdmin', 'middleware' => 'roleCompany.auth'], function () {
-    Route::get('/', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@index', 'as' => 'admin.companyAdmin']);
-    Route::get('/clients/{id}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@client', 'as' => 'admin.companyAdminClient']);
-    Route::get('/search', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@search', 'as' => 'admin.companySearch']);
-    Route::get('/equipment', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@equipment', 'as' => 'admin.companyEquipment']);
-    Route::get('/equipment/{filterStr}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@equipmentSearch', 'as' => 'admin.companyEquipmentSearch']);
-    Route::get('/reference', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@reference', 'as' => 'admin.companyAdminReference']);
+    Route::get('/{companyId}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@index', 'as' => 'admin.companyAdmin']);
+    Route::get('/clients/{id}/{companyId}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@client', 'as' => 'admin.companyAdminClient']);
+    Route::get('/search/{companyId}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@search', 'as' => 'admin.companySearch']);
+    Route::get('/equipment/{companyId}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@equipment', 'as' => 'admin.companyEquipment']);
+    Route::get('/equipment/{filterStr}/{companyId}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@equipmentSearch', 'as' => 'admin.companyEquipmentSearch']);
+    Route::get('/reference/{companyId}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@reference', 'as' => 'admin.companyAdminReference']);
     
     Route::post('/addMessage', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@addMessage', 'as' => 'admin.companyAddMessage']);
 });
 
+
+
+
 Route::group(['prefix' => 'clientAdmin', 'middleware' => 'roleClient.auth'], function () {
-    Route::get('/', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@index', 'as' => 'admin.clientAdmin']);
-    Route::get('/partners', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@partnersList', 'as' => 'admin.clientAdminPartners']);
-    Route::get('/partners/{id}', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@partnerSingle', 'as' => 'admin.clientAdminPartnerSingle']);
-    Route::get('/reference', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@reference', 'as' => 'admin.clientAdminReference']);
+    Route::get('/{clientId}', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@index', 'as' => 'admin.clientAdmin']);
+    Route::get('/partners/{clientId}', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@partnersList', 'as' => 'admin.clientAdminPartners']);
+    Route::get('/partners/{id}/{clientId}', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@partnerSingle', 'as' => 'admin.clientAdminPartnerSingle']);
+    Route::get('/reference/{clientId}', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@reference', 'as' => 'admin.clientAdminReference']);
 
 
     Route::post('/addEquipmentRequest', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@addRequestEquipment', 'as' => 'admin.clientAdminAddRequest']);

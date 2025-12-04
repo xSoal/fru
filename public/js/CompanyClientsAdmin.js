@@ -2,6 +2,10 @@ $(document).ready(function () {
   $('.addRequest').click(function(){
     $('.addRequestForm').addClass('visible');
     $('.editRequestForm').removeClass('visible');
+
+    $([document.documentElement, document.body]).animate({
+      scrollTop: $(".addRequestForm").offset().top
+  }, 400);
   })
 
   $('.editButton').click(function(){
@@ -22,9 +26,9 @@ $(document).ready(function () {
     $('.editRequestForm').find('input[name="manufacturer"]').val(manufacturer)
     $('.editRequestForm').find('input[name="quantity"]').val(quantity)
 
-    activeInput.checked ? 
-      $('.editRequestForm').find('input[name="active"]')[0].checked = true : 
-      $('.editRequestForm').find('input[name="active"]')[0].checked = false;
+    // activeInput.checked ? 
+    //   $('.editRequestForm').find('input[name="active"]')[0].checked = true : 
+    //   $('.editRequestForm').find('input[name="active"]')[0].checked = false;
       
     $('.editRequestForm').find('.country option').toArray().forEach(o => {
       if(o.value === country){
@@ -35,6 +39,10 @@ $(document).ready(function () {
 
     $('.editRequestForm').addClass('visible');
     $('.addRequestForm').removeClass('visible');
+
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $(".editRequestForm").offset().top
+    }, 400);
   });
 
 
@@ -96,7 +104,8 @@ function changeRequestEquipmentStatus(){
 
 function companyFilterSearch(){
   var inputs = $('.equipmentFilter__contryList input[type="checkbox"]').toArray()
-  
+  var companyId = $('#companyId').val();
+
   inputs.forEach(e => {
     e.oninput = () => {
       var inputs = $('.equipmentFilter__contryList input[type="checkbox"]').toArray()
@@ -108,13 +117,15 @@ function companyFilterSearch(){
         }
       })
 
-      window.location.href = `/companyAdmin/equipment/${filter}`
+      window.location.href = filter ? 
+        `/companyAdmin/equipment/${filter}/${companyId}`
+        : `/companyAdmin/equipment/${companyId}`
       
     }
   })
 
   $('.equipmentFilter__reset button')[0].onclick = () => {
-    window.location.href = `/companyAdmin/equipment`
+    window.location.href = `/companyAdmin/equipment/${companyId}`
   }
 }
 

@@ -21,7 +21,7 @@
   <section class="partnersList__cont">
     @foreach ( $partners as $partner )
       <div class="partners__el">
-        <a href="{{ route('admin.clientAdminPartnerSingle', ['id' => $partner->id]) }}">
+        <a href="{{ route('admin.clientAdminPartnerSingle', ['id' => $partner->id, 'clientId' => $clientId]) }}">
           <div class="partner__name">
             <h3>{{ $partner->name }}</h3>
           </div>

@@ -79,7 +79,7 @@ class User extends Authenticatable //implements MustVerifyEmail
     
     public function newMessagesCount()
     {
-        if((int)$this->role === 2){
+        if((int)$this->role === 3){
             return false;
         }
 

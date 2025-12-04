@@ -39,7 +39,7 @@
   @endif
 
 
-  @if( (int)$partner->dialog_enable_status === 1 )
+  @if( (int)$partner->dialog_enable_status === 1 || $chat )
   <section class="message-section">
       <h2 class="section-subtitle">New message:</h2>
       <div class="message-form-group">

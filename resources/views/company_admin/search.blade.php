@@ -14,8 +14,7 @@
             <label for="search-input" class="search-label">
                 <span class="label-text">SEARCH:</span>
             </label>
-            <form action="{{ route('admin.companySearch') }}" method="get">
-              @csrf
+            <form action="{{ route('admin.companySearch', $companyId) }}" method="get">
               <input
                 type="text"
                 id="search-input"
@@ -54,7 +53,7 @@
                   <td class="country">{{ $e->country }}</td>
                   <td class="quantity">{{ $e->quantity }}</td>
                   <td class="company__searchTableLink">
-                    <a class="section-subtitle" href="{{ route('admin.companyAdminClient', $e->user->id) }}">
+                    <a class="section-subtitle" href="{{ route('admin.companyAdminClient', ['id' => $e->user->id, 'companyId' => $companyId]) }}">
                       {{ $e->user->name }}
                     </a>
                   </td>
@@ -73,16 +72,6 @@
 
     <hr class="separator"/>
 
-    <section class="support-section">
-        <div class="text-area">
-            <h3 class="subsection-title">
-              <a href="#">Financial Support Tools</a>
-            </h3>
-            <h3 class="subsection-title">
-              <a href="#">Dealers and Service</a>
-            </h3>
-        </div>
-    </section>
 
 
 </div>

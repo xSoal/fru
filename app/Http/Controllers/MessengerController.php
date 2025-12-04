@@ -10,43 +10,46 @@ use Illuminate\Support\Facades\Auth;
 class MessengerController extends Controller
 {
     public function index(Request $request, $user_for_chat_view_id){
-        $user_for_chat_view = User::where('id', $user_for_chat_view_id)->first();
+
+        // у обычных админов доступа нет
+        if( (int)Auth::user()->role === 2 ){
+            abort(403);
+        }
+
+        $user_owner_chats = User::where('id', $user_for_chat_view_id)->first();
         
         // проверка, что если роль не не админ, переписки смотреть можно только свои
         if(in_array((int)Auth::user()->id, [0, 1])){
-            $current_user_id = Auth::id();
-            if($current_user_id !== (int)$user_for_chat_view_id){
+            if( Auth::id() !== (int)$user_for_chat_view_id ){
                 abort(403);
             }
         }
 
         $chats = [];
 
-        if((int)$user_for_chat_view->role === 1){
+        if((int)$user_owner_chats->role === 1){
             $chats = Conversation::where('user_one_id', $user_for_chat_view_id) 
                 ->with(['messages', 'userOne', 'userTwo'])
                 ->get();
         }
 
-        if((int)$user_for_chat_view->role === 0){
+        if((int)$user_owner_chats->role === 0){
             $chats = Conversation::where('user_two_id', $user_for_chat_view_id) 
                 ->with(['messages', 'userOne', 'userTwo'])
                 ->get();
         }
 
 
-
         $data = [
             'chats' => $chats,
-            'user_for_chat_view' => $user_for_chat_view,
-            'user' => $user_for_chat_view
+            'user_owner_chats' => $user_owner_chats,
         ];
 
         return view('messenger.messenger', $data);
     }
 
     public function single(Request $request, $user_for_chat_view_id, $chatId){
-        $user_for_chat_view = User::where('id', $user_for_chat_view_id)->first();
+        $user_owner_chats = User::where('id', $user_for_chat_view_id)->first();
         $current_user = Auth::user();
 
 
@@ -64,15 +67,14 @@ class MessengerController extends Controller
             ->firstOrFail();
 
         $dialog_with_user = $chat->userOne;
-        if((int)$user_for_chat_view->role === 1){
+        if((int)$user_owner_chats->role === 1){
             $dialog_with_user = $chat->userTwo;
         }
             
         $data = [
             'chat' => $chat,
-            'user_for_chat_view' => $user_for_chat_view,
+            'user_owner_chats' => $user_owner_chats,
             'current_user' => $current_user,
-            'user' => $user_for_chat_view,
             'dialog_with_user' => $dialog_with_user
         ];
 
