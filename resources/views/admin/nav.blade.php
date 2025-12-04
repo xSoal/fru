@@ -57,18 +57,18 @@
         
 
     </div>
-    <div class="admin_menu_section user_icon">
-        <div class="admin_menu_title">
-            <a href="{{ route('admin.equipment_request') }}" class="menu_title_item menu_single">Equipment requests</a>
-        </div>
-    </div>
 
+
+
+
+
+    @if( Auth::user()->role === 3 )
     <div class="admin_menu_section user_icon">
         <div class="admin_menu_title">
             <a href="{{ route('admin.logs') }}" class="menu_title_item menu_single">Логіювання</a>
         </div>
     </div>
-    
+    @endif
 
     <div class="admin_menu_section">
         <div class="admin_menu_title">
@@ -80,12 +80,14 @@
                 <a href="{{ route('admin.users') }}" class="menu_link_item users_list">Користувачі</a>
             </div>
 
+            @if( Auth::user()->role === 3 )
             <div class="admin_menu_link">
                 <a href="{{ route('admin.super_users') }}" class="menu_link_item users_list">Супер Користувачі</a>
             </div>
+            @endif
 
             <div class="admin_menu_link">
-                <a href="{{ route('admin.settings') }}" class="menu_link_item users_list">Налаштування</a>
+                <a href="{{ route('admin.settings') }}" class="menu_link_item menu_title_item settings_menu_item">Налаштування</a>
             </div>
 
             <div class="admin_menu_link">
