@@ -2,7 +2,7 @@
 
 @section('content')
 
-  <input hidden id="companyId" value="{{ $companyId }}"
+  <input hidden id="companyId" value="{{ $companyId }}">
   <div class="page-container neo-card">
     @include('company_admin.menu')
     <div class="buttonBackCont">
