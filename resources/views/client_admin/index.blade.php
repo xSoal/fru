@@ -99,7 +99,7 @@
 
                     <div class="input-cell cell-active">
                         <span class="label-text">IS ACTIVE</span>
-                        <input type="checkbox" name="active" placeholder="" style="width: auto;">
+                        <input type="checkbox" name="active" checked placeholder="" style="width: auto;">
                     </div>
             
                     <div class="input-cell cell-country">
