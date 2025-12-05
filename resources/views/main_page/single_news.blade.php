@@ -58,12 +58,12 @@
             @endif
           class="mainInfo__el" style="background-image: url('/images/main_page_info/more-information.jpg')">
           <div class="mainInfo__elText">
-            <h3 class="h3">Сервісне обслуговування</h3>
+            <h3 class="h3">Дилери та сервіс</h3>
           </div>
         </a>
         <a href="{{ route('main_page.reference') }}" class="mainInfo__el" style="background-image: url('/images/main_page_info/more-information.jpg')">
           <div class="mainInfo__elText">
-            <h3 class="h3">Довідкова інформація</h3>
+            <h3 class="h3">Фінансові інструменти підтримки</h3>
           </div>
         </a>
       </div>

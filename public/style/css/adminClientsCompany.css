@@ -1052,6 +1052,15 @@ input:checked + .slider:before {
 }
 
 
+a.back_to_admin {
+	position: absolute;
+	top: 40px;
+	right: 125px;
+	color: #444;
+	font-size: 10px;
+    font-weight: bold;
+}
+
 /* --- АДАПТИВНОСТЬ для формы ввода (Мобильная версия) --- */
 @media (max-width: 768px) {
 	.neo-input-row {

@@ -3,7 +3,7 @@
 
 @section('content')
 
-<section class="add_category edit_category main_section">
+<section class="add_category edit_category main_section active">
     <div class="title_h1">
         <div class="top_block">
             <a href="{{ route('admin.post') }}" class="back_to">Назад</a>

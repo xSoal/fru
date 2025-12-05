@@ -8,7 +8,7 @@
     <a href="{{ route('admin.superAdminParticipant') }}" class="superUser__href">Кабінет супер користувача </a>
 @endif
 
-<nav class="admin_menu ">
+<nav class="admin_menu active">
     <div class="in_admin_menu">
 
         {{-- <div class="admin_menu_section">

@@ -12,6 +12,11 @@ $(document).ready(function () {
   recountLimit();
   recountLimitTotal();
 
+  
+  $('.log__header').click(function() {
+    $(this).closest('td').find('.log__body').toggleClass('show')
+  });
+
   var datepickersNodes = $('.datepicker_node');
   if(!datepickersNodes.val()){
     datepickersNodes.val(getCurrentDateFormatted())
@@ -47,6 +52,7 @@ $('.menu_parent').each(function(){
     if ($('.admin_menu_links').hasClass('active')) {
       $('.admin_menu_links').removeClass('active')
     }
+    $('.main_section').toggleClass('withOpenMenu')
   });
 
 

@@ -3,7 +3,7 @@
 
 @section('content')
 
-<section class="product_type main_section">
+<section class="product_type main_section active">
     <div class="title_h1">
         <h1>Програма підтримки</h1>
     </div>

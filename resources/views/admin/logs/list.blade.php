@@ -3,7 +3,7 @@
 
 @section('content')
 
-<section class="product_type main_section">
+<section class="product_type main_section active">
     <div class="title_h1">
         <h1>Логіювання</h1>
     </div>
@@ -102,7 +102,14 @@
                     <tr class="tr_block" data-id="{{ $item->id }}">
                         <div class="">
                             <td class="date">{{ $item->type === 'request' ? 'Запит на обладнання' : 'Повідомлення' }}</td>
-                            <td class="name">{!! $item->value !!}</td>
+                            <td class="name log__cont">
+                                <div class="log__header">
+                                    <b>{{ $item->type === 'request' ? 'Новий Запит' : 'Нове Повідомлення в Чаті' }}</b>  <div>{{ $item->created_at }}</div>
+                                </div>
+                                <div class="log__body">
+                                    {!! $item->value !!}
+                                </div>
+                            </td>
                         </div>
                     </tr>
                 @endforeach

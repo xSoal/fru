@@ -2,7 +2,7 @@
 
 
 @section('content')
-<section class="users_list main_section ">
+<section class="users_list main_section active">
     <div class="title_h1">
         <h1>Список Institutional Partner</h1>
     </div>

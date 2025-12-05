@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Conversation;
+use App\Models\Log;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -65,10 +68,6 @@ class Message extends Model
         $setting = DB::table('settings')->where('type', 'email')->first();
         $emailAdmin = $setting->value ?? null;
         
-        // Пропускаємо відправку, якщо email не знайдено
-        if (!$emailAdmin) {
-            return;
-        }
 
         // 2. Визначення відправника
         $sender = $message->sender;
@@ -78,10 +77,25 @@ class Message extends Model
         
         // 3. Генерація тіла листа
         $html = self::generateEmailBody($message, $senderName);
+
+        $conversation = $message->conversation;
+        $senderId = $message->sender_id;
+        $receiverId = ($conversation->user_one_id === $senderId) 
+            ? $conversation->user_two_id 
+            : $conversation->user_one_id;
+        $email_to = User::where('id', $receiverId)->first()->email;
+
+        $html_to_reciever = self::generateEmailBodyReciever($message, $senderName);
         
         // 4. Відправка листа
         Mail::send([], [], function ($msg) use ($emailAdmin, $html, $subject) {
             $msg->to($emailAdmin)
+                ->subject($subject)
+                ->html($html); 
+        });
+
+        Mail::send([], [], function ($msg) use ($emailAdmin, $html, $subject, $email_to) {
+            $msg->to($email_to)
                 ->subject($subject)
                 ->html($html); 
         });
@@ -118,6 +132,31 @@ class Message extends Model
                 </div>
                 
                 <!-- <p>Статус: " . ($isRead === 'Так' ? 'Прочитано' : '<b>Не прочитано</b>') . "</p> -->
+                <p style='margin-top: 20px;'>Час відправки: {$created_at}</p>
+            </div>
+        ";
+        
+        return $html;
+    }
+
+    private static function generateEmailBodyReciever(Message $message, string $senderName): string
+    {
+        $created_at = $message->created_at ? $message->created_at->format('Y-m-d H:i') : 'N/A';
+        $isRead = $message->is_read ? 'Так' : 'Ні';
+        
+        $html = "
+            <div style='font-family: sans-serif; padding: 15px; border: 1px solid #ddd; background-color: #f4f7fb;'>
+                <h3 style='color: green;'>
+                    Нове Повідомлення в Чаті
+                </h3>
+                <p>Відправник: <b>{$senderName}</b></p>
+                <hr style='border: 0; border-top: 1px solid #ccc;'>
+                
+                <h4>Текст повідомлення:</h4>
+                <div style='padding: 15px; border-left: 3px solid #157c57; background-color: white; margin: 15px 0;'>
+                    {$message->content}
+                </div>
+                
                 <p style='margin-top: 20px;'>Час відправки: {$created_at}</p>
             </div>
         ";
