@@ -11,7 +11,7 @@
   <div class="mainImage__content">
     <div class="container">
       <div class="container-inner">
-        <h2 class="h2">Довідкова інформація</h2>
+        <h2 class="h2">Фінансові інструменти підтримки</h2>
       </div>
     </div>
   </div>
