@@ -11,9 +11,11 @@
         <div class="mainInfo__leftFullRow">
           <a 
             @if( auth()->user() && auth()->user()->role == 1 )
-              href="/companyAdmin/equipment"
+              href="/companyAdmin/equipment/{{ auth()->user()->id }}"
             @elseif( auth()->user() && auth()->user()->role == 0)
-              href="/clientAdmin"
+              href="/clientAdmin/{{ auth()->user()->id }}"
+            @elseif( auth()->user() && auth()->user()->role == 3)
+              href="#"
             @else
               href="{{ route('login') }}"
             @endif
@@ -27,9 +29,11 @@
         <div class="mainInfo__leftDoubleRow">
           <a 
             @if( auth()->user() && auth()->user()->role == 1 )
-              href="/companyAdmin"
+              href="/companyAdmin/{{ auth()->user()->id }}"
             @elseif( auth()->user() && auth()->user()->role == 0)
-              href="/clientAdmin"
+              href="/clientAdmin/{{ auth()->user()->id }}"
+            @elseif( auth()->user() && auth()->user()->role == 3)
+              href="#"
             @else
               href="{{ route('login') }}"
             @endif
