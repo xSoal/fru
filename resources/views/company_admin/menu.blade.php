@@ -8,11 +8,16 @@
                 <li class="{{ Request::routeIs('admin.companyAdmin') || Request::routeIs('admin.companyAdminClient') ? 'active' : '' }}">
                     <a href="{{ route('admin.companyAdmin', $companyId) }}">Participant</a>
                 </li>
+                @if( Auth::user()->role === 3 )
+                <li class="{{  Request::routeIs('admin.companyAdminPartners') ? 'active' : '' }}">
+                    <a href="{{ route('admin.companyAdminPartners', $companyId) }}" >Partners</a>
+                </li>
+                @endif
                 <li class="{{  Request::routeIs('admin.companyAdminReference') ? 'active' : '' }}">
                     <a href="{{ route('admin.companyAdminReference', $companyId) }}" >Financial Support Tools</a>
                 </li>
                 <li class="">
-                    <a href="#"> Dealers and Service</a>
+                    <a href="#">Dealers and Service</a>
                 </li>
             </ul>
         </nav>

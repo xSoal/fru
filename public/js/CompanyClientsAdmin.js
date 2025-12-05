@@ -117,15 +117,26 @@ function companyFilterSearch(){
         }
       })
 
-      window.location.href = filter ? 
-        `/companyAdmin/equipment/${filter}/${companyId}`
-        : `/companyAdmin/equipment/${companyId}`
+      if(window.location.href.indexOf('superAdmin') === -1){
+        window.location.href = filter ? 
+          `/companyAdmin/equipment/${filter}/${companyId}`
+          : `/companyAdmin/equipment/${companyId}`
+      } else {
+        window.location.href = filter ? 
+          `/superAdmin/equipment/${filter}`
+          : `/superAdmin/equipment`
+      }
+
       
     }
   })
 
   $('.equipmentFilter__reset button')[0].onclick = () => {
-    window.location.href = `/companyAdmin/equipment/${companyId}`
+    if(window.location.href.indexOf('superAdmin') === -1){
+      window.location.href = `/companyAdmin/equipment/${companyId}`
+    } else {
+      window.location.href = `/superAdmin/equipment/`
+    }
   }
 }
 
