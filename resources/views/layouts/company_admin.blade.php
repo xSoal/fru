@@ -62,17 +62,19 @@
                 </div>
                 <div class="buttonExit">
                     <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                        @if(Auth::user()->role === 3)
+                            <a href="/admin" class="back_to_admin logout-link">
+                                to admin
+                            </a>
+                        @endif
                         @csrf
                         <button type="submit" class="logout-link neo-accent-btn  ">
                             exit
                         </button>
+
                     </form>
                 </div>
-                @if(Auth::user()->role === 3)
-                    <a href="/admin" class="back_to_admin logout-link">
-                        to admin
-                    </a>
-                @endif
+ 
             </div>
 
             @yield('content')

@@ -1167,7 +1167,7 @@ html {
     font-size: 34px;
     }
     .ramstein__right {
-    display: none;
+    /* display: none; */
     }
     .ramstein__left {
     max-width: 100%;
