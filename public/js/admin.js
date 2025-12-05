@@ -12,6 +12,11 @@ $(document).ready(function () {
   recountLimit();
   recountLimitTotal();
 
+  
+  $('.log__header').click(function() {
+    $(this).closest('td').find('.log__body').toggleClass('show')
+  });
+
   var datepickersNodes = $('.datepicker_node');
   if(!datepickersNodes.val()){
     datepickersNodes.val(getCurrentDateFormatted())

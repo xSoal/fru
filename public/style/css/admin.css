@@ -5072,6 +5072,23 @@ ul#tabs-nav li.active {
   text-decoration: none;
 }
 
+.log__body {
+  display: none;
+}
+
+.log__header {
+  cursor: pointer;
+}
+
+.log__body.show {
+  display: block;
+}
+
+.log__header {
+  display: flex;
+  justify-content: space-between;
+}
+
 @keyframes preloader {
   50% {
     transform: rotate(720deg);
