@@ -386,7 +386,7 @@ table {
 	> thead
 	> tr
 	> th:nth-child(1) {
-	width: 200px;
+	width: 110px;
 }
 thead th {
 	background-color: var(--accent-primary);
