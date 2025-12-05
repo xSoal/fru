@@ -36,18 +36,18 @@
           @endif
           </header>
     </div>
-
-    @if( isset($user_target) )
+    <?php
+        $sp_user = Auth::user();
+    ?>
     <div class="header__right">
         <div class="partner-info">
             <div class="logo-placeholder">
-               <img src="{{ $user_target->photo }}">
+               <img src="{{ $sp_user->photo }}">
             </div>
             <div class="partner-name-placeholder">
-              <h1 class="page-title">{{ $user_target->name }}</h1>
+              <h1 class="page-title">{{ $sp_user->name }}</h1>
               
             </div>
         </div>
     </div>
-    @endif
 </div>
