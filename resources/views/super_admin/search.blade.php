@@ -2,44 +2,34 @@
 
 @section('content')
 
-  <input hidden id="companyId" value="{{ $companyId }}"
+
   <div class="page-container neo-card">
     @include('company_admin.menu')
     <div class="buttonBackCont">
         <a href="/companyAdmin">< back</a>
     </div>
-    
+
+    <section class="search-section">
+        <div class="neo-input-group">
+            <label for="search-input" class="search-label">
+                <span class="label-text">SEARCH:</span>
+            </label>
+            <form action="{{ route('admin.companySearch', $companyId) }}" method="get">
+              <input
+                type="text"
+                id="search-input"
+                name="search"
+                class="search-input-field"
+                placeholder=""
+                value="{{ $search ?? '' }}"
+              >
+            </form>
+        </div>
+    </section>
+
     <section class="companies-section">
         <h2 class="section-title">Search results by country</h2>
-        <div class="equipmentCont">
-          <div class="equipmentFilter">
-            <div class="equipmentFilterHeaderCont">
-              <span>Country</span>
-              <div class="equipmentFilter__reset">
-                <button>reset</button>
-              </div>
-            </div>
-            <div class="equipmentFilter__contryList">
-              <?php
-                $i = 1;
-                
-              ?>
-              @foreach($countries as $item)
-              <div class="equipment__country">
-                <div class="equipment__countryLeft">
-                  <input type="checkbox" id="{{ ++$i }}" value="{{ $item->country }}" {{ isset($allowedCountries) && in_array($item->country, $allowedCountries) ? 'checked' : '' }}>
-                  <label for="{{ $i }}">
-                    <div class="equipment__coutryName">{{ $item->country }}</div>
-                  </label>
-                </div>
-                <div class="equipment__coutryight">
-                  {{ $item->count }}
-                </div>
-              </div>
-              @endforeach
-
-            </div>
-          </div>
+        <div class="">
           @if( count($resultSearch) )
             <table class="equipment__searchTable">
               <thead>
@@ -50,7 +40,7 @@
                       <th>MANUFACTURER</th>
                       <th>COUNTRY</th>
                       <th>QUANTITY</th>
-                      <th>Participant</th>
+                      <th>>Participant</th>
                   </tr>
               </thead>
               <tbody>
@@ -81,6 +71,7 @@
     </section>
 
     <hr class="separator"/>
+
 
 
 </div>

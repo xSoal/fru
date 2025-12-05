@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\CompanyAdmin;
+namespace App\Http\Controllers\SuperAdminCabinet;
 
 use App\Http\Controllers\Controller;
 use App\Models\Conversation;
@@ -20,47 +20,23 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Validator;
 
-class CompanyAdminController extends Controller
+class SuperAdminCabinetController extends Controller
 {
     
-    public function index(User $user, Request $request, $companyId){
-        $user = User::where('id', '=', $companyId)->firstOrFail();
+    public function index(User $user, Request $request){
         $clients = User::where('role', '=', '0')->where('active',1)->get();
 
         $data = [
-            'user' => $user,
             'clients' => $clients,
-            'companyId' => $companyId
         ];
 
-
-        return 	view('company_admin.index', $data);
+        return 	view('super_admin.index', $data);
     }
 
 
-    public function client($id, $companyId) {
+    public function client($id) {
         $client = User::where('id', $id)->where('active', 1)->firstOrFail(); 
 
-        // СТРОГИЙ ПОРЯДОК ID
-        $chat = Conversation::where('user_one_id', $companyId) // Убедитесь, что это всегда user_one_id
-            ->where('user_two_id', $id) // Убедитесь, что это всегда user_two_id
-            // ЖАДНО загружаем сообщения, отсортированные по убыванию (новые сверху)
-            ->with(['messages' => function ($query) {
-                $query->latest(); 
-            }, 'userOne', 'userTwo']) 
-            ->first();
-
-        $messages = collect(); 
-        $activeConversation = null;
-
-        if ($chat) {
-            $activeConversation = $chat;
-            
-            $messages = $activeConversation->messages->values()->map(function ($message) use ($companyId) {
-                $message->is_sender = $message->sender_id === Auth::id();
-                return $message;
-            });
-        }
 
         $equipmentsRequests = EquipmentRequest::where('user_id', $id)
             ->where('active', 1)
@@ -69,15 +45,12 @@ class CompanyAdminController extends Controller
 
         $data = [
             'client' => $client, 
-            'chat' => $chat,     // текущий
-            'messages' => $messages, // Коллекция сообщений только из ПЕРВОГО чата
             'equipmentsRequests' => $equipmentsRequests, 
-            'user' => User::where('id', $companyId)->firstOrFail(),
-            'companyId' => $companyId
+            'user_target' => $client
         ];
 
         // В шаблоне 'company_admin.company' теперь доступна переменная $messages
-        return view('company_admin.client', $data);
+        return view('super_admin.client', $data);
     }
 
     public function addMessage(Request $request){
@@ -150,8 +123,7 @@ class CompanyAdminController extends Controller
     }
 
 
-    public function equipment($companyId){
-        $user = User::where('id', $companyId)->first();
+    public function equipment(){
 
         $e = EquipmentRequest::with('user')
             ->where('active', 1)
@@ -167,16 +139,14 @@ class CompanyAdminController extends Controller
         $data = [
             'resultSearch' => $e,
             'countries' => $countriesWithCount,
-            'user' => $user,
-            'companyId' => $companyId
         ];
 
 
-        return view('company_admin.equipment', $data);
+        return view('super_admin.equipment', $data);
     }
 
 
-    public function equipmentSearch(Request $request, $filterStr, $companyId){
+    public function equipmentSearch(Request $request, $filterStr){
   
         $allowedCountries = explode('|', $filterStr);
 
@@ -196,15 +166,13 @@ class CompanyAdminController extends Controller
             'resultSearch' => $e,
             'countries' => $countriesWithCount,
             'allowedCountries' => $allowedCountries,
-            'user' => User::where('id', $companyId)->first(),
-            'companyId' => $companyId
         ];
 
 
-        return view('company_admin.equipment', $data);
+        return view('super_admin.equipment', $data);
     }
 
-    public function reference($companyId){
+    public function reference(){
         $today = Carbon::today();
         $news = News::whereDate('public_date', '<=', $today)
             ->where('type', 'support')
@@ -215,68 +183,33 @@ class CompanyAdminController extends Controller
 
         $data =  [
             'news' => $news,
-            'user' => User::where('id', $companyId)->first(),
-            'companyId' => $companyId
         ];
 
-        return view('company_admin.reference', $data);
+        return view('super_admin.reference', $data);
     }
 
 
 
-    public function partnersList($companyId){
+    public function partnersList(){
         $partners = User::where('role', 1)->where('active', 1)->get();
         $data = [
             'partners' => $partners,
-            'user' => User::where('id', $companyId)->first(),
-            'companyId' => $companyId
         ];
 
-
-        return view('company_admin.partners', $data);
+        return view('super_admin.partners', $data);
     }
 
 
-    public function partnerSingle($id, $clientId){
+    public function partnerSingle($id){
         $partner = User::where('id', $id)->where('active', 1)->firstOrFail(); 
 
-        // СТРОГИЙ ПОРЯДОК ID
-        $chat = Conversation::where('user_one_id', $id) // Убедитесь, что это всегда user_one_id
-            ->where('user_two_id', Auth::id()) // Убедитесь, что это всегда user_two_id
-            // ЖАДНО загружаем сообщения, отсортированные по убыванию (новые сверху)
-            ->with(['messages' => function ($query) {
-                $query->latest(); 
-            }, 'userOne', 'userTwo']) 
-            ->first();
-
-        $messages = collect(); 
-        $activeConversation = null;
-        $currentUserId = Auth::id();
-
-        if ($chat) {
-            $activeConversation = $chat;
-            
-            $messages = $activeConversation->messages->values()->map(function ($message) use ($currentUserId) {
-                $message->is_sender = $message->sender_id === $currentUserId;
-                return $message;
-            });
-        }
-
-        $equipmentsRequests = EquipmentRequest::where('user_id', $id)->latest()->get();
-
-        
 
         $data = [
-            'partner' => $partner, 
-            'chat' => $chat,     // текущий
-            'messages' => $messages, // Коллекция сообщений только из ПЕРВОГО чата
-            'equipmentsRequests' => $equipmentsRequests,
-            'client' => User::where('id', $clientId)->first(),
-            'clientId' => $clientId
+            'partner' => $partner,
+            'user_target' => $partner
         ];
 
-        // В шаблоне 'company_admin.company' теперь доступна переменная $messages
-        return view('client_admin.partnerSingle', $data);
+        return view('super_admin.partnerSingle', $data);
     }
 
 

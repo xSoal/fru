@@ -5062,6 +5062,16 @@ ul#tabs-nav li.active {
   height: 78px;
 }
 
+.superUser__href {
+  position: absolute;
+  top: 10px;
+  right: 125px;
+  color: white;
+  cursor: pointer;
+  z-index: 15;
+  text-decoration: none;
+}
+
 @keyframes preloader {
   50% {
     transform: rotate(720deg);

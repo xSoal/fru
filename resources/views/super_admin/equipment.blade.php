@@ -2,9 +2,8 @@
 
 @section('content')
 
-  <input hidden id="companyId" value="{{ $companyId }}"
   <div class="page-container neo-card">
-    @include('company_admin.menu')
+    @include('super_admin.menu')
     <div class="buttonBackCont">
         <a href="/companyAdmin">< back</a>
     </div>
@@ -63,7 +62,7 @@
                   <td class="country">{{ $e->country }}</td>
                   <td class="quantity">{{ $e->quantity }}</td>
                   <td class="company__searchTableLink">
-                    <a class="section-subtitle" href="{{ route('admin.companyAdminClient', ['id' => $e->user->id, 'companyId' => $companyId]) }}">
+                    <a class="section-subtitle" href="{{ route('admin.superAdminClient', ['id' => $e->user->id]) }}">
                       {{ $e->user->name }}
                     </a>
                   </td>

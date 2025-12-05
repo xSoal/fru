@@ -5,7 +5,7 @@
                 <?php
                     $user_role = (int) Auth::user()->role;
                 ?>
-                @if( $user_owner_chats->role === 1 )
+                @if( Auth::user()->role === 1 )
                 <li class="{{ Request::routeIs('admin.companyEquipment') || Request::routeIs('admin.companyEquipmentSearch') ? 'active' : '' }}">
                     <a href="{{ route('admin.companyEquipment', $user_owner_chats->id) }}">Equipment Request</a>
                 </li>
@@ -19,7 +19,7 @@
                     <a href="#"> Dealers and Service</a>
                 </li>
                 @endif
-                @if( $user_owner_chats->role === 0 )
+                @if( Auth::user()->role === 0 )
                 <li class="{{ Request::routeIs('admin.clientAdmin') ? 'active' : '' }}">
                     <a href="{{ route('admin.clientAdmin', $user_owner_chats->id) }}">Partipiant</a>
                 </li>
@@ -31,6 +31,23 @@
                 </li>
                 <li class="">
                     <a href="#"> Dealers and Service</a>
+                </li>
+                @endif
+                @if( Auth::user()->role === 3 )
+                <li class="{{ Request::routeIs('admin.superEquipment') || Request::routeIs('admin.superEquipmentSearch') ? 'active' : '' }}">
+                    <a href="{{ route('admin.superEquipment') }}">Equipment Request</a>
+                </li>
+                <li class="{{ Request::routeIs('admin.superAdminParticipant') || Request::routeIs('admin.superAdminClient') ? 'active' : '' }}">
+                    <a href="{{ route('admin.superAdminParticipant') }}">Participant</a>
+                </li>
+                <li class="{{  Request::routeIs('admin.superAdminPartners') ? 'active' : '' }}">
+                    <a href="{{ route('admin.superAdminPartners') }}" >Partners</a>
+                </li>
+                <li class="{{  Request::routeIs('admin.superAdminReference') ? 'active' : '' }}">
+                    <a href="{{ route('admin.superAdminReference') }}" >Financial Support Tools</a>
+                </li>
+                <li class="">
+                    <a href="#">Dealers and Service</a>
                 </li>
                 @endif
 

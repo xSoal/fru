@@ -186,6 +186,12 @@ Route::group(['prefix' => 'companyAdmin', 'middleware' => 'roleCompany.auth'], f
     Route::get('/equipment/{filterStr}/{companyId}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@equipmentSearch', 'as' => 'admin.companyEquipmentSearch']);
     Route::get('/reference/{companyId}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@reference', 'as' => 'admin.companyAdminReference']);
     
+
+    // for SU
+    Route::get('/partners/{companyId}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@partnersList', 'as' => 'admin.companyAdminPartners']);
+    Route::get('/partners/{id}/{companyId}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@partnerSingle', 'as' => 'admin.companyAdminPartnerSingle']);
+    // for SU
+
     Route::post('/addMessage', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@addMessage', 'as' => 'admin.companyAddMessage']);
 });
 
@@ -204,6 +210,26 @@ Route::group(['prefix' => 'clientAdmin', 'middleware' => 'roleClient.auth'], fun
     Route::post('/addMessage', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@addMessage', 'as' => 'admin.clientAddMessage']);
 
     Route::post('/updateRequestStatus/{id}', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@updateRequestStatus', 'as' => 'admin.clientUpdateRequestStatus']);
+
+});
+
+
+Route::group(['prefix' => 'superAdmin', 'middleware' => 'auth'], function () {
+    Route::get('/companies', ['uses' => '\App\Http\Controllers\SuperAdminCabinet\SuperAdminCabinetController@index', 'as' => 'admin.superAdminPartners']);
+    Route::get('/search', ['uses' => '\App\Http\Controllers\SuperAdminCabinet\SuperAdminCabinetController@search', 'as' => 'admin.superSearch']);
+    Route::get('/equipment', ['uses' => '\App\Http\Controllers\SuperAdminCabinet\SuperAdminCabinetController@equipment', 'as' => 'admin.superEquipment']);
+    Route::get('/equipment/{filterStr}', ['uses' => '\App\Http\Controllers\SuperAdminCabinet\SuperAdminCabinetController@equipmentSearch', 'as' => 'admin.superEquipmentSearch']);
+    Route::get('/reference', ['uses' => '\App\Http\Controllers\SuperAdminCabinet\SuperAdminCabinetController@reference', 'as' => 'admin.superAdminReference']);
+    
+    Route::get('/', ['uses' => '\App\Http\Controllers\SuperAdminCabinet\SuperAdminCabinetController@index', 'as' => 'admin.superAdminParticipant']);
+    Route::get('/clients/{id}/', ['uses' => '\App\Http\Controllers\SuperAdminCabinet\SuperAdminCabinetController@client', 'as' => 'admin.superAdminClient']);
+    
+    Route::get('/partners/', ['uses' => '\App\Http\Controllers\SuperAdminCabinet\SuperAdminCabinetController@partnersList', 'as' => 'admin.superAdminPartners']);
+    Route::get('/partners/{id}', ['uses' => '\App\Http\Controllers\SuperAdminCabinet\SuperAdminCabinetController@partnerSingle', 'as' => 'admin.superAdminPartnerSingle']);
+    Route::get('/reference/', ['uses' => '\App\Http\Controllers\SuperAdminCabinet\SuperAdminCabinetController@reference', 'as' => 'admin.superAdminReference']);
+
+
+
 
 });
 

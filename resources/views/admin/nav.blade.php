@@ -4,6 +4,9 @@
         <i class="fa-solid fa-right-from-bracket"></i> Вихід
     </a>
 </form>
+@if ( Auth::user()->role === 3 )
+    <a href="{{ route('admin.superAdminParticipant') }}" class="superUser__href">Кабінет супер користувача </a>
+@endif
 
 <nav class="admin_menu ">
     <div class="in_admin_menu">
