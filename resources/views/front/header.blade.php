@@ -57,11 +57,11 @@
 					}
 				?>
 				@if( auth()->user() )
-					<a class="loginHref" href="{{ $login_url }}" target="_blank">
+					{{-- <a class="loginHref" href="{{ $login_url }}" target="_blank">
 						<img src="/images/icons/userAuth.svg">
-					</a>
+					</a> --}}
 
-					{{-- <ul class="headerMenuLinks loginHref">
+					<ul class="headerMenuLinks loginHref">
 						<li class="headerSubmenuCont">
 							<img src="/images/icons/userAuth.svg">
 							<div class="headerSubmenu">
@@ -71,7 +71,7 @@
 							</div>
 
 						</li>
-					</ul> --}}
+					</ul>
 				@else
 					<a class="loginHref" href="{{ $login_url }}" >
 						<img src="/images/icons/user.svg">
