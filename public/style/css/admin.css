@@ -613,6 +613,14 @@ body table.custom-table-requests td:first-child {
   padding: 0px 40px 40px 340px;
 }
 
+.main_page_admin {
+  padding: 0px;
+}
+
+.main_page_admin.active {
+  padding: 0px 0px 40px 300px;
+}
+
 .title_h1 {
   width: 100%;
   margin: 0 0 20px 10px;

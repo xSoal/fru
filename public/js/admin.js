@@ -52,6 +52,7 @@ $('.menu_parent').each(function(){
     if ($('.admin_menu_links').hasClass('active')) {
       $('.admin_menu_links').removeClass('active')
     }
+    $('.main_section').toggleClass('withOpenMenu')
   });
 
 

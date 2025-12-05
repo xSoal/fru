@@ -3,7 +3,7 @@
 
 @section('content')
 
-<section class="add_user edit_user main_section ">
+<section class="add_user edit_user main_section active">
     <div class="title_h1">
         <div class="top_block">
             <a href="{{ route('admin.companies') }}" class="back_to">Назад</a>
