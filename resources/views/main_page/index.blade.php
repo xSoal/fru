@@ -33,7 +33,7 @@
             @elseif( auth()->user() && auth()->user()->role == 0)
               href="/clientAdmin/{{ auth()->user()->id }}"
             @elseif( auth()->user() && auth()->user()->role == 3)
-              href="#"
+              href="/superAdmin/service"
             @else
               href="{{ route('login') }}"
             @endif
