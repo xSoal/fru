@@ -36,26 +36,30 @@
     <div class="singeNewsCont">
       <div class="singleNewsAside">
         <a 
-            @if( auth()->user() && auth()->user()->role == 1 )
-              href="/companyAdmin/equipment"
-            @elseif( auth()->user() && auth()->user()->role == 0)
-              href="/clientAdmin"
-            @else
-              href="{{ route('login') }}"
-            @endif
+          @if( auth()->user() && auth()->user()->role == 1 )
+            href="/companyAdmin/equipment/{{ auth()->user()->id }}"
+          @elseif( auth()->user() && auth()->user()->role == 0)
+            href="/clientAdmin/{{ auth()->user()->id }}"
+          @elseif( auth()->user() && auth()->user()->role == 3)
+            href="/superAdmin/equipment"
+          @else
+            href="{{ route('login') }}"
+          @endif
           class="mainInfo__el" style="background-image: url('/images/main_page_info/equipment.jpg')">
             <div class="mainInfo__elText">
             <h3 class="h3">Обладнання</h3>
           </div>
         </a>
         <a 
-            @if( auth()->user() && auth()->user()->role == 1 )
-              href="/companyAdmin"
-            @elseif( auth()->user() && auth()->user()->role == 0)
-              href="/clientAdmin"
-            @else
-              href="{{ route('login') }}"
-            @endif
+          @if( auth()->user() && auth()->user()->role == 1 )
+            href="/companyAdmin/{{ auth()->user()->id }}"
+          @elseif( auth()->user() && auth()->user()->role == 0)
+            href="/clientAdmin/{{ auth()->user()->id }}"
+          @elseif( auth()->user() && auth()->user()->role == 3)
+            href="/superAdmin/service"
+          @else
+            href="{{ route('login') }}"
+          @endif
           class="mainInfo__el" style="background-image: url('/images/main_page_info/more-information.jpg')">
           <div class="mainInfo__elText">
             <h3 class="h3">Дилери та сервіс</h3>

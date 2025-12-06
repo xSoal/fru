@@ -220,7 +220,9 @@ Route::group(['prefix' => 'superAdmin', 'middleware' => 'auth'], function () {
     Route::get('/equipment', ['uses' => '\App\Http\Controllers\SuperAdminCabinet\SuperAdminCabinetController@equipment', 'as' => 'admin.superEquipment']);
     Route::get('/equipment/{filterStr}', ['uses' => '\App\Http\Controllers\SuperAdminCabinet\SuperAdminCabinetController@equipmentSearch', 'as' => 'admin.superEquipmentSearch']);
     Route::get('/reference', ['uses' => '\App\Http\Controllers\SuperAdminCabinet\SuperAdminCabinetController@reference', 'as' => 'admin.superAdminReference']);
+    Route::get('/service', ['uses' => '\App\Http\Controllers\SuperAdminCabinet\SuperAdminCabinetController@service', 'as' => 'admin.superAdminService']);
     
+
     Route::get('/', ['uses' => '\App\Http\Controllers\SuperAdminCabinet\SuperAdminCabinetController@index', 'as' => 'admin.superAdminParticipant']);
     Route::get('/clients/{id}/', ['uses' => '\App\Http\Controllers\SuperAdminCabinet\SuperAdminCabinetController@client', 'as' => 'admin.superAdminClient']);
     
