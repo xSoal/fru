@@ -188,6 +188,14 @@ class SuperAdminCabinetController extends Controller
         return view('super_admin.reference', $data);
     }
 
+    public function service(){
+
+        $data =  [
+        ];
+
+        return view('super_admin.service', $data);
+    }
+
 
 
     public function partnersList(){
