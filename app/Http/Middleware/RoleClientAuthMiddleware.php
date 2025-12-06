@@ -34,8 +34,16 @@ class RoleClientAuthMiddleware
             // Если роль не совпадает, можно вернуть 403 (Forbidden)
             abort(403);
         }
+        
+        $parts = explode('/', $request->fullUrl());
+        $client_id = array_pop($parts);
+        $client_id = explode('?', $client_id);
+        $client_id = $client_id[0];
 
-        // Если все проверки пройдены, разрешаем продолжение запроса
+        if(Auth::user()->id !== (int)$client_id){
+            abort(404);
+        }
+
         return $next($request);
     }
 }
