@@ -15,7 +15,7 @@
             @elseif( auth()->user() && auth()->user()->role == 0)
               href="/clientAdmin/{{ auth()->user()->id }}"
             @elseif( auth()->user() && auth()->user()->role == 3)
-              href="#"
+              href="/superAdmin/equipment"
             @else
               href="{{ route('login') }}"
             @endif
@@ -42,17 +42,7 @@
               <h3 class="h3">Дилери та сервіс</h3>
             </div>
           </a>
-          <a
-          @if( auth()->user() && auth()->user()->role == 1 )
-            href="/companyAdmin/{{ auth()->user()->id }}"
-          @elseif( auth()->user() && auth()->user()->role == 0)
-            href="/clientAdmin/{{ auth()->user()->id }}"
-          @elseif( auth()->user() && auth()->user()->role == 3)
-            href="#"
-          @else
-            href="{{ route('login') }}"
-          @endif
-          class="mainInfo__el" style="background-image: url('/images/main_page_info/more-information.jpg')">
+          <a href="/reference-information" class="mainInfo__el" style="background-image: url('/images/main_page_info/more-information.jpg')">
             <div class="mainInfo__elText">
               <h3 class="h3">Фінансові інструменти підтримки</h3>
             </div>
