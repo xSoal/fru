@@ -13,6 +13,7 @@
 
   <hr class="separator"/>
   <h1>Service</h1>
+  <div>Will be soon</div>
   {{-- @foreach ($news as $item)
       <div class="reference__Cont">
         <h3 class="reference__Title">
