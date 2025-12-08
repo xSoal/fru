@@ -51,10 +51,10 @@ class ContactsController extends Controller
         $emailAdmin = $setting->value;
 
         $html = "
-            <p>Им'я $name</p>
-            <p>Телефон $phone</p>
-            <p>Пошта $email</p>
-            <p>Текст повідомлення $message</p>
+            <p><b>Им'я:</b> $name</p>
+            <p><b>Телефон:</b> $phone</p>
+            <p><b>Пошта:</b> $email</p>
+            <p><b>Текст повідомлення:</b> $message</p>
         ";
 
 
