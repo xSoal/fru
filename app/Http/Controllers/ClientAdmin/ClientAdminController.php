@@ -248,5 +248,15 @@ class ClientAdminController extends Controller
         return response()->json(['message' => 'Статус успішно оновлено.'], 200);
     }
 
+    public function service(Request $request, $clientId){
+
+        $data =  [
+            'client' =>  User::where('id', $clientId)->first(),
+            'clientId' => $clientId
+        ];
+
+        return view('client_admin.service', $data);
+    }
+
 
 }
