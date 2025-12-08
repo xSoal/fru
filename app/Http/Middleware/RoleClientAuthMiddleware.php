@@ -41,7 +41,7 @@ class RoleClientAuthMiddleware
         $client_id = $client_id[0];
 
         if(Auth::user()->id !== (int)$client_id){
-            abort(404);
+            abort(403);
         }
 
         return $next($request);
