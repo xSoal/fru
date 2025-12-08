@@ -280,5 +280,15 @@ class CompanyAdminController extends Controller
     }
 
 
+    public function service(Request $request, $companyId){
+        $data =  [
+            'user' => User::where('id', $companyId)->first(),
+            'companyId' => $companyId
+        ];
+
+        return view('company_admin.service', $data);
+    }
+
+
 
 }

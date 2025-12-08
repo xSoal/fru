@@ -29,9 +29,9 @@
         <div class="mainInfo__leftDoubleRow">
           <a 
             @if( auth()->user() && auth()->user()->role == 1 )
-              href="/companyAdmin/{{ auth()->user()->id }}"
+              href="/companyAdmin/service/{{ auth()->user()->id }}"
             @elseif( auth()->user() && auth()->user()->role == 0)
-              href="/clientAdmin/{{ auth()->user()->id }}"
+              href="/clientAdmin/service/{{ auth()->user()->id }}"
             @elseif( auth()->user() && auth()->user()->role == 3)
               href="/superAdmin/service"
             @else
