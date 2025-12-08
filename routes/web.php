@@ -216,7 +216,7 @@ Route::group(['prefix' => 'clientAdmin', 'middleware' => 'roleClient.auth'], fun
 });
 
 
-Route::group(['prefix' => 'superAdmin', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'superAdmin', 'middleware' => 'roleSA.auth'], function () {
     Route::get('/companies', ['uses' => '\App\Http\Controllers\SuperAdminCabinet\SuperAdminCabinetController@index', 'as' => 'admin.superAdminPartners']);
     Route::get('/search', ['uses' => '\App\Http\Controllers\SuperAdminCabinet\SuperAdminCabinetController@search', 'as' => 'admin.superSearch']);
     Route::get('/equipment', ['uses' => '\App\Http\Controllers\SuperAdminCabinet\SuperAdminCabinetController@equipment', 'as' => 'admin.superEquipment']);
