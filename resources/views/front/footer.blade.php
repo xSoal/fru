@@ -21,11 +21,11 @@
                         <h6 class="footerTittle">Платформа</h6>
                         <div class="footerBody">
                             <div class="footerLinks">
-                                <a href="" class="footerLink">Перелік техніки</a>
+                                <a href="" class="footerLink">Обладнання</a>
                                 <a href="" class="footerLink">Сервісне обслуговування</a>
-                                <a href="" class="footerLink">Довідкова інформація</a>
-                                <a href="" class="footerLink">Новини</a>
-                                <a href="" class="footerLink">Контакти</a>
+                                <a href="reference-information" class="footerLink">Довідкова інформація</a>
+                                <a href="news" class="footerLink">Новини</a>
+                                <a href="contacts" class="footerLink">Контакти</a>
                             </div>
                         </div>
                     </div>
