@@ -12,7 +12,7 @@
     </div>
     
     <div class="form_block_items form_add form_edit">
-        <form action="{{ route('admin.postUsers') }}" method="POST">
+        <form action="{{ route('admin.postUsers') }}" method="POST"  autocomplete="off">
             {{ csrf_field() }}
             <div class="select_bg"></div>
 
@@ -82,7 +82,7 @@
                     </div>
                     <div class="fb_input">
                         <div class="fb_input_inside">
-                            <input type="text" name="email" value="{{ $item->email ?? '' }}" id="email" required>
+                            <input type="text" name="email" value="{{ $item->email ?? '' }}" id="email" required autocomplete="qwe">
                         </div>
                     </div>
                 </div>
