@@ -13,6 +13,8 @@
     
     <div class="form_block_items form_add form_edit">
         <form action="{{ route('admin.postCompany') }}" method="POST">
+            <input type="text" autocomplete="username" name="fake_username" style="display:none;">
+            <input type="password" autocomplete="new-password" name="fake_pass" style="display:none;">
             {{ csrf_field() }}
             <div class="select_bg"></div>
 
