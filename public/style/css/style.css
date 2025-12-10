@@ -1384,8 +1384,7 @@ html {
     }
     }
     .auth_newsCont .sibgleNewsContent {
-    width: 100%;
-    padding-left: 0px;
+    width: 75%;
     }
     @media (max-width: 900px) {
         .singleNewsAside--authNews,
