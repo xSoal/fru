@@ -12,7 +12,7 @@
     <div class="mainImage__content">
       <div class="container">
         <div class="container-inner">
-          <h2 class="h2">Авторизація</h2>
+          <h2 class="h2">Authorization</h2>
         </div>
       </div>
     </div>
@@ -23,13 +23,13 @@
         <form action="{{ route('login') }}" class="login-form" method="post">
             @csrf
             <div class="form-group">
-                <label for="loginField">Логін *</label>
-                <p class="">Будь ласка, заповніть поле</p>
-                {{-- <p class="validation-error">Будь ласка, заповніть поле</p> --}}
+                <label for="loginField">Login *</label>
+                <p class="">Please fill in this field</p>
+                {{-- <p class="validation-error">Please fill in this field</p> --}}
                 {{-- <input type="text" id="loginField" class="form-control error-input" required> --}}
                 @error('email')
                     <p class="validation-error" role="alert">
-                        <strong>Не вірно введені дані</strong>
+                        <strong>Incorrectly entered data</strong>
                     </p>
                 @enderror
                 
@@ -37,10 +37,10 @@
             </div>
     
             <div class="form-group">
-                <label for="passwordInput">Пароль *</label>
+                <label for="passwordInput">Password *</label>
                 @error('password')
                     <span class="ivalidation-error" role="alert">
-                        <strong>Не вірно введені дані</strong>
+                        <strong>Incorrectly entered data</strong>
                     </span>
                 @enderror
                 <div class="password-container">
@@ -67,10 +67,10 @@
     
             <div class="form-group checkbox-group">
                 <input type="checkbox" id="rememberMe">
-                <label for="rememberMe">Запам'ятати мене</label>
+                <label for="rememberMe">Remember me</label>
             </div>
     
-            <button type="submit" class="btn btn-primary btn-submit">Увійти</button>
+            <button type="submit" class="btn btn-primary btn-submit">Sign in</button>
         </form>
     </div>
     

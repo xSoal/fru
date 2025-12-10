@@ -22,10 +22,10 @@
         </h3>
         <div>
           @if( $item->type === 'support' )
-            Програма підтримки
+            Financial Support Tools
           @endif
           @if( $item->type === 'rules' )
-            Правила регулювання
+            Legislation
           @endif
         </div>
       </div>
