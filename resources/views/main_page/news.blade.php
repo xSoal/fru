@@ -11,7 +11,7 @@
   <div class="mainImage__content">
     <div class="container">
       <div class="container-inner">
-        <h2 class="h2">Новини</h2>
+        <h2 class="h2">News</h2>
       </div>
     </div>
   </div>
@@ -40,7 +40,7 @@
           </div>
           <div class="newsTextBlock">
             <div class="newsHrefDate">
-              <a href="/news" class="newsHref">Новини</a>
+              <a href="/news" class="newsHref">News</a>
               <span class="newsDate">{{ $item->public_date_format }}</span>
             </div>
             <div class="newsTitle">

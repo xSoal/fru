@@ -15,12 +15,12 @@
         <nav class="mobileNavOverlay" id="mobileNavOverlay">
             <ul class="menuList">
                 @if(auth()->user())
-                <li><a href="{{ route('main_page.support') }}">Програма підтримки</a></li>
-                <li><a href="{{ route('main_page.rules') }}">Правила регулювання</a></li>
+                <li><a href="{{ route('main_page.support') }}">Financial Support Tools</a></li>
+                <li><a href="{{ route('main_page.rules') }}">Legislation</a></li>
 
                 @endif
-                <li><a href="/news">Новини</a></li>
-                <li><a href="/contacts">Контакти</a></li>
+                <li><a href="/news">News</a></li>
+                <li><a href="/contacts">Contacts</a></li>
             </ul>
 
             <div class="">
@@ -53,8 +53,8 @@
 						<li class="headerSubmenuCont">
 							<img src="/images/icons/userAuth.svg">
 							<div class="headerSubmenu">
-								<a href="{{ $login_url }}" target="_blank">Кабінет</a>
-								<a href="#" class="exitBtn">Вийти</a>
+								<a href="{{ $login_url }}" target="_blank">Members area</a>
+								<a href="#" class="exitBtn">Log out</a>
 								<form action="{{ route('logout') }}" method="POST">@csrf</form>
 							</div>
 

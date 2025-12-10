@@ -4,10 +4,10 @@
 <div class="container search">
     <div class="container-inner">
         <div class="row">
-            <p class="searchQueries">Пошукові запити</p>
+            <p class="searchQueries">Search queries</p>
             @include('main_page.components.search')
             @if(!count($resultSearch))
-                <h1>Результати відсутні</h1>
+                <h1>No results</h1>
             @endif
             <div class="search-results">
                 <ul id="search-result-list" class="search-results list-striped js-highlight com-finder__results-list">

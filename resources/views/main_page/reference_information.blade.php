@@ -11,7 +11,7 @@
   <div class="mainImage__content">
     <div class="container">
       <div class="container-inner">
-        <h2 class="h2">Фінансові інструменти підтримки</h2>
+        <h2 class="h2">Policy</h2>
       </div>
     </div>
   </div>
@@ -47,10 +47,10 @@
           <div class="newsTextBlock">
             <div class="newsHrefDate">
               <?php
-                $href_text = 'Правила регулювання';
+                $href_text = 'Legislation';
                 $route = 'main_page.rules';
                 if($item->type === 'support'){
-                  $href_text = 'Довідкова інформація';
+                  $href_text = 'Financial Support Tools';
                   $route = 'main_page.support';
                 }
               ?>

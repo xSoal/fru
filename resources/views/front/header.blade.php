@@ -13,23 +13,23 @@
 						@if(auth()->user())
 						<li class="headerSubmenuCont">
 							<a href="{{ route('main_page.reference') }}">
-								Довідкова інформація 
+								Policy
 								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 								</svg>
 								<div class="headerSubmenu">
 									<a href="{{ route('main_page.support') }}">
-										Програма підтримки
+										Financial Support Tools
 									</a>
 									<a href="{{ route('main_page.rules') }}">
-										Правила регулювання
+										Legislation
 									</a>
 								</div>
 							</a>
 						</li>
 						@endif
-						<li><a href="/news">Новини</a></li>
-						<li><a href="/contacts">Контакти</a></li>
+						<li><a href="/news">News</a></li>
+						<li><a href="/contacts">Contacts</a></li>
 					</ul>
 				</nav>
 				<?php
@@ -65,8 +65,8 @@
 						<li class="headerSubmenuCont">
 							<img src="/images/icons/userAuth.svg">
 							<div class="headerSubmenu">
-								<a href="{{ $login_url }}" target="_blank">Кабінет</a>
-								<a href="#" class="exitBtn">Вийти</a>
+								<a href="{{ $login_url }}" target="_blank">Members area</a>
+								<a href="#" class="exitBtn">Log out</a>
 								<form action="{{ route('logout') }}" method="POST">@csrf</form>
 							</div>
 

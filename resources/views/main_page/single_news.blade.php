@@ -16,7 +16,7 @@
         <h1 class="h1">{{ str($newsItem->title) }}</h1>
         <div class="manImageText">
           <span class="mainImage__link" title="Категорія: Новини">
-            <a href="/news">Новини</a>
+            <a href="/news">News</a>
           </span>
           <span class="mainImage__date" title="{{ $newsItem->public_date_format }}">
             <time datetime="{{ $newsItem->public_date }}" itemprop="datePublished"> {{ $newsItem->public_date_format }} </time>
@@ -47,7 +47,7 @@
           @endif
           class="mainInfo__el" style="background-image: url('/images/main_page_info/equipment.jpg')">
             <div class="mainInfo__elText">
-            <h3 class="h3">Обладнання</h3>
+            <h3 class="h3">Equipment</h3>
           </div>
         </a>
         <a 
@@ -62,12 +62,12 @@
           @endif
           class="mainInfo__el" style="background-image: url('/images/main_page_info/more-information.jpg')">
           <div class="mainInfo__elText">
-            <h3 class="h3">Дилери та сервіс</h3>
+            <h3 class="h3">Dealers and Service</h3>
           </div>
         </a>
         <a href="{{ route('main_page.reference') }}" class="mainInfo__el" style="background-image: url('/images/main_page_info/more-information.jpg')">
           <div class="mainInfo__elText">
-            <h3 class="h3">Фінансові інструменти підтримки</h3>
+            <h3 class="h3">Financial Support Tools</h3>
           </div>
         </a>
       </div>

@@ -11,5 +11,5 @@
     </form> --}}
 
     <form class="searchForm" action="/search">
-        <input type="text" name="search" placeholder="Пошук" value="{{ isset($search) ? $search : '' }}">
+        <input type="text" name="search" placeholder="Search" value="{{ isset($search) ? $search : '' }}">
     </form>

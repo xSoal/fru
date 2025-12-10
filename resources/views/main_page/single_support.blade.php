@@ -15,8 +15,8 @@
       <div class="container-inner">
         <h1 class="h1">{{ str($newsItem->title) }}</h1>
         <div class="manImageText">
-          <span class="mainImage__link" title="Категорія: Новини">
-            <a href="{{ route('main_page.support') }}">Програма підтримки</a>
+          <span class="mainImage__link" title="News">
+            <a href="{{ route('main_page.support') }}">Financial Support Tools</a>
           </span>
         </div>
       </div>
@@ -32,10 +32,10 @@
   <div class="content auth_newsCont">
     <div class="singeNewsCont">
       <div class="singleNewsAside singleNewsAside--authNews">
-        <h3 class="h3">Довідкова інформація</h3>
+        <h3 class="h3">Policy</h3>
         <a class="authNewsAsideEl" href="{{ route('main_page.support') }}">
           <div class="authNewsAsideEl__text">
-            Програма підтримки                    
+            Financial Support Tools                    
           </div>
           <div class="authNewsAsideEl__imgCont">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,7 +48,7 @@
         </a>
         <a class="authNewsAsideEl" href="{{ route('main_page.rules') }}">
           <div class="authNewsAsideEl__text">
-            Правила регулювання                  
+            Legislation                  
           </div>
           <div class="authNewsAsideEl__imgCont">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

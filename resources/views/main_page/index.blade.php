@@ -21,8 +21,8 @@
             @endif
             class="mainInfo__el" style="background-image: url('/images/main_page_info/equipment.jpg')">
             <div class="mainInfo__elText">
-              <h3 class="h3 mainInfo__leftFullRowHeader">Обладнання</h3>
-              <p>Перелік техніки і обладнання іноземного виробництва, якого потребують українські підприємства</p>
+              <h3 class="h3 mainInfo__leftFullRowHeader">Equipment</h3>
+              <p>Lists of equipment requested by Ukrainian companies</p>
             </div>
           </a>
         </div>
@@ -39,12 +39,12 @@
             @endif
             class="mainInfo__el" style="background-image: url('/images/main_page_info/service-discussion.jpg')">
             <div class="mainInfo__elText">
-              <h3 class="h3">Дилери та сервіс</h3>
+              <h3 class="h3">Dealers and Service</h3>
             </div>
           </a>
           <a href="/reference-information" class="mainInfo__el" style="background-image: url('/images/main_page_info/more-information.jpg')">
             <div class="mainInfo__elText">
-              <h3 class="h3">Фінансові інструменти підтримки</h3>
+              <h3 class="h3">Financial Support Tools</h3>
             </div>
           </a>
         </div>
@@ -55,11 +55,11 @@
             <source src="/images/main_page_info/clip-01.mp4" type="video/mp4">
           </video>
           <div class="mainInfo__elText">
-            <h3 class="h3">Роль ФРУ</h3>
+            <h3 class="h3">FEU Role</h3>
             <div class="mainInfo__elRightText">
-              Допомога в отриманні підприємствами втраченого обладнання на вигідних умовах
+              Assisting war affected companies in obtaining equipment 
             </div>
-            <a class="mainInfo__button" target="_blank" href="https://helpdesk.fru.ua/promyslovyy-ramshtain" >Детальніше</a>
+            <a class="mainInfo__button" target="_blank" href="https://helpdesk.fru.ua/promyslovyy-ramshtain" >Details</a>
           </div>
         </div>
       </div>
@@ -80,38 +80,33 @@
       </div>
 
       <div class="ramstein__left">
-          <h2 class="ramstein__title">Промисловий<br>Рамштайн</h2>
+          <h2 class="ramstein__title">Industrial <br>Ramstein</h2>
 
           <p class="ramstein__desc">
-              Ідея – об’єднати іноземних партнерів у коаліцію, яка за прикладом Ukraine
-              Defense Contact Group (Ramstein) допомагатиме Україні долати наслідки
-              російської агресії на виробничому фронті.
+              Industrial Ramstein is a joint initiative of the Federation of Employers of Ukraine and the Ministry of Economy, Environment and Agriculture of Ukraine.  
           </p>
 
           <p class="ramstein__desc">
-              Мета – отримання постраждалими підприємствами України критично необхідного
-              для їхньої виробничої діяльності обладнання на вигідних умовах – з дисконтом
-              або у вигляді матеріально-технічної допомоги, з частковою або повною
-              компенсацією коштами донорських організацій, урядових програм та інших джерел.
+              The goal of the initiative is to ensure large-scale modernization of Ukrainian industry and production assets through facilitating deliveries of foreign and Ukrainian-made industrial equipment that is critically needed for production activities.
           </p>
 
           <div class="ramstein__cards">
               <div class="ramstein-card">
                   <img src="/images/info_favicon.svg" class="ramstein-card__logo" alt="">
                   <div class="ramstein-card__text">
-                      <h4>ФРУ</h4>
-                      <span>Федерація роботодавців України</span>
+                      <h4>FEU</h4>
+                      <span>Federation of Employers of Ukraine</span>
                   </div>
-                  <a href="https://fru.ua/ua/" target="_blank" class="ramstein-card__link">Перейти →</a>
+                  <a href="https://fru.ua/en/" target="_blank" class="ramstein-card__link">Go →</a>
               </div>
 
               <div class="ramstein-card">
                   <img src="/images/info_favicon.svg" class="ramstein-card__logo" alt="">
                   <div class="ramstein-card__text">
                       <h4>Help Desk</h4>
-                      <span>Сервіси для бізнесу</span>
+                      <span>Services for Business</span>
                   </div>
-                  <a href="https://helpdesk.fru.ua/"  target="_blank" class="ramstein-card__link">Перейти →</a>
+                  <a href="https://helpdesk.fru.ua/"  target="_blank" class="ramstein-card__link">Go →</a>
               </div>
           </div>
       </div>
@@ -125,9 +120,9 @@
     <div class="container">
       <div class="container-inner">
         <div class="maindSecondBlockHeader">
-          <h2 class="h2">Новини</h2>
+          <h2 class="h2">News</h2>
           <a class="buttonGreenArrow" href="/news" >
-            Всі новини 
+            All news 
             <i class="fas fa-arrow-right" aria-hidden="true"></i>
           </a>
         </div>
@@ -141,7 +136,7 @@
             </div>
             <div class="newsTextBlock">
               <div class="newsHrefDate">
-                <a href="/news" class="newsHref">Новини</a>
+                <a href="/news" class="newsHref">News</a>
                 <span class="newsDate">{{ $item->public_date_format }}</span>
               </div>
               <div class="newsTitle">
@@ -162,13 +157,14 @@
 </section>
 
 <section class="container" style="text-align: center;">
-  <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSDt6a6e96HmBbq7uuAvNwI6nto2Lw5udGsM0FtUgODY5kBVlDJHgpJGofWH6qDrQ/pubembed?start=false&loop=false&delayms=3000" frameborder="0"
+   <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQ8Lo-iIXNXvZhP23qhVPNWVJNPelRmHH5onm6iIBk8TtZ5Ex2h9RBQKoJ3lPubqPyZL3O4KJ9HBaXD/pubembed?start=false&loop=false&delayms=3000" frameborder="0" 
    width="100%"
    style="max-width: 960px; margin: 100px auto 100px;"
    height="576"
-   allowfullscreen="true"
-   mozallowfullscreen="true"
-   webkitallowfullscreen="true"></iframe>
+   allowfullscreen="true" 
+   mozallowfullscreen="true" 
+   webkitallowfullscreen="true">
+   </iframe>
 </section>
 
 {{-- <section id="section-id-hXbc2ksHo84OfFaa4ZDox" class="sppb-section">
@@ -180,7 +176,7 @@
               <div id="sppb-addon-wrapper-bjyp9KlxNsWXF4nutJqMA" class="sppb-addon-wrapper  addon-root-heading">
                 <div id="sppb-addon-bjyp9KlxNsWXF4nutJqMA" class="clearfix  ">
                   <div class="sppb-addon sppb-addon-header">
-                    <h2 class="sppb-addon-title">Новини</h2>
+                    <h2 class="sppb-addon-title">News</h2>
                   </div>
                 </div>
               </div>
@@ -193,7 +189,7 @@
               <div id="sppb-addon-wrapper-5mTWtBDyXme6aIsqOi-Yl" class="sppb-addon-wrapper  addon-root-button">
                 <div id="sppb-addon-5mTWtBDyXme6aIsqOi-Yl" class="clearfix  ">
                   <div class="sppb-button-wrapper">
-                    <a href="/news" id="btn-5mTWtBDyXme6aIsqOi-Yl" class="sppb-btn  sppb-btn-primary sppb-btn-rounded">Всі новини <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    <a href="/news" id="btn-5mTWtBDyXme6aIsqOi-Yl" class="sppb-btn  sppb-btn-primary sppb-btn-rounded">All news <i class="fas fa-arrow-right" aria-hidden="true"></i>
                     </a>
                   </div>
                 </div>

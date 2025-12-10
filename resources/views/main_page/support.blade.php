@@ -11,7 +11,7 @@
   <div class="mainImage__content">
     <div class="container">
       <div class="container-inner">
-        <h2 class="h2">Програма підтримки</h2>
+        <h2 class="h2">Financial Support Tools</h2>
       </div>
     </div>
   </div>
@@ -40,7 +40,7 @@
           </div>
           <div class="newsTextBlock">
             <div class="newsHrefDate">
-              <a href="{{ route('main_page.support') }}" class="newsHref">Довідкова інформація</a>
+              <a href="{{ route('main_page.support') }}" class="newsHref">Financial Support Tools</a>
             </div>
             <div class="newsTitle">
               <h5 class="h5">

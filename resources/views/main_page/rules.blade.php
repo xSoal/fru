@@ -11,7 +11,7 @@
   <div class="mainImage__content">
     <div class="container">
       <div class="container-inner">
-        <h2 class="h2">Правила регулювання</h2>
+        <h2 class="h2">Legislation</h2>
       </div>
     </div>
   </div>
@@ -40,7 +40,7 @@
           </div>
           <div class="newsTextBlock">
             <div class="newsHrefDate">
-              <a href="{{ route('main_page.rules') }}" class="newsHref">Правила регулювання</a>
+              <a href="{{ route('main_page.rules') }}" class="newsHref">Legislation</a>
             </div>
             <div class="newsTitle">
               <h5 class="h5">
