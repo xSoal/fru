@@ -51,7 +51,7 @@
               </h5>
             </div>
             <div class="newsContent">
-              {{ Str::words(strip_tags($item->content), 30, '...') }}
+              {{ Str::words(strip_tags(html_entity_decode($item->content)), 30, '...') }}
             </div>
           </div>
           
