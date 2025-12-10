@@ -97,7 +97,7 @@ class NewsController extends Controller
         if( isset($input['update']) || isset($input['update_and_exit']) ){
 
             $project = News::find($input['id']); 
-            $project->slug = $input['slug'] = '' ? Str::slug($input['title']) : $project->slug;
+            $input['slug'] = trim($input['slug']) == '' ? Str::slug($input['title']) : $project->slug;
             $project->fill($input);
             $project->seo = $newSeo;
 
