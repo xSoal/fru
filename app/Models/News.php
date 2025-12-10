@@ -49,7 +49,7 @@ class News extends Model
             $date = Carbon::parse($dateString);
 
             // 3. Установка локали
-            $date->setLocale('uk');
+            $date->setLocale('en');
 
             // 4. Форматирование даты в "21 листопада 2025"
             return $date->isoFormat('D MMMM YYYY');
