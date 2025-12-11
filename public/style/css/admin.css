@@ -299,6 +299,8 @@ body table.custom-table-requests td:first-child {
   background-color: #1996e6;
   color: white;
   border-radius: 5px;
+  width: 100px;
+  text-align: center;
 }
 
 
@@ -1150,6 +1152,7 @@ body table.custom-table-requests td:first-child {
 }
 .form_block_items .form_block.fb_submit {
   border-bottom: 0px solid rgba(214, 214, 214, 0.4);
+  padding-top: 30px;
 }
 .form_block_items .form_block.phone .fb_input_inside, .form_block_items .form_block.schedule .fb_input_inside, .form_block_items .form_block.office .fb_input_inside {
   margin: 0 0 15px;
@@ -1441,6 +1444,7 @@ body table.custom-table-requests td:first-child {
 .form_block_items .fb_input_inside {
   width: 100%;
 }
+
 .form_block_items .addPhotoBtn {
   width: 25px;
   height: 25px;

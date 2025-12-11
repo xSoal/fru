@@ -5,7 +5,7 @@
 
 <section class="product_type main_section active">
     <div class="title_h1">
-        <h1>Програма підтримки</h1>
+        <h1>Фінансові інструменти підтримки</h1>
     </div>
     <div class="search_block">
         <div class="search_form">
@@ -15,7 +15,7 @@
                     <div class="fb_inside">
                         <div class="fb_label">
                             <div class="fb_label_inside label_search">
-                                <label for="search_blog_category">Пошук</label>
+                                <label for="search_blog_category">Назва</label>
                             </div>
                         </div>
                         <div class="fb_input">

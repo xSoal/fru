@@ -25,7 +25,7 @@
 
         <div class="admin_menu_section">
             <div class="admin_menu_title">
-                <a href="{{ route('admin.support') }}" class="menu_title_item menu_single">Програма підтримки</a>
+                <a href="{{ route('admin.support') }}" class="menu_title_item menu_single">Фінансові інструменти підтримки</a>
             </div>
         </div>
 

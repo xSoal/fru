@@ -10,7 +10,7 @@
             <a href="{{ route('admin.support') }}" class="back_to">Назад</a>
         </div>
         
-        <h1>Редагувати qwe</h1>
+        <h1>Редагувати</h1>
 
     </div>
     <div class="form_block_items form_add form_edit">

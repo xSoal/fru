@@ -17,7 +17,7 @@
         <div class="section-title">Основні розділи</div>
         <div class="grid">
             <a class="card-link" href="{{ route('admin.news') }}"><div class="card"><div class="icon"><i class='fa-solid fa-newspaper'></i></div>Новини</div></a>
-            <a class="card-link" href="{{ route('admin.support') }}"><div class="card"><div class="icon"><i class='fa-solid fa-hand-holding-heart'></i></div>Програма підтримки</div></a>
+            <a class="card-link" href="{{ route('admin.support') }}"><div class="card"><div class="icon"><i class='fa-solid fa-hand-holding-heart'></i></div>Фінансові інструменти підтримки</div></a>
             <a class="card-link" href="{{ route('admin.rules') }}"><div class="card"><div class="icon"><i class='fa-solid fa-scale-balanced'></i></div>Правила регулювання</div></a>
         </div>
         

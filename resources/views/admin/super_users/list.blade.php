@@ -4,7 +4,7 @@
 @section('content')
 <section class="users_list main_section active">
     <div class="title_h1">
-        <h1>Список пользователей</h1>
+        <h1>Список Супер користувачів</h1>
     </div>
     <div class="search_block">
         <div class="search_form">
@@ -14,7 +14,7 @@
                     <div class="fb_inside">
                         <div class="fb_label">
                             <div class="fb_label_inside label_search">
-                                <label for="search_users">ФІО</label>
+                                <label for="search_users">ПІБ</label>
                             </div>
                         </div>
                         <div class="fb_input">
@@ -28,7 +28,7 @@
                     <div class="fb_inside">
                         <div class="fb_input">
                             <div class="fb_input_inside">
-                                <button class="btn-search" name="" value="true" type="submit">Поиск</button>
+                                <button class="btn-search" name="" value="true" type="submit">Пошук</button>
                             </div>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
         </div>
         
         <div class="add_new_item">
-            <a href="{{ route('admin.addSuperUser') }}" class="add_item">Добавить</a>
+            <a href="{{ route('admin.addSuperUser') }}" class="add_item">Додати</a>
         </div>
 
     </div>
@@ -45,7 +45,7 @@
         <div class="thead">
             <div class="tr tr_heading">
                 <div class="th number">№</div>
-                <div class="th fio">ФІО</div>
+                <div class="th fio">ПІБ</div>
                 <div class="th status">Статус</div>
                 <div class="th date_in">Дата додавання</div>
                 <div class="th edit">Ред.</div>

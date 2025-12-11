@@ -15,7 +15,7 @@
                     <div class="fb_inside">
                         <div class="fb_label">
                             <div class="fb_label_inside label_search">
-                                <label for="search_blog_category">Пошук</label>
+                                <label for="search_blog_category">Назва</label>
                             </div>
                         </div>
                         <div class="fb_input">
