@@ -18,6 +18,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 use Validator;
 
 class CompanyAdminController extends Controller
@@ -287,6 +288,71 @@ class CompanyAdminController extends Controller
         ];
 
         return view('company_admin.service', $data);
+    }
+
+    public function updateUserData(Request $request, $userId){
+        if((int)$userId !== Auth::user()->id){
+            abort(403);
+        }
+
+        $user = User::findOrFail($userId);
+
+        // $request->validate([
+        //     'name' => 'required',
+        // ], [
+        //     'name' => 'Вы не можете отправить сообщение самому себе.'
+        // ]);
+
+        $validator = Validator::make($request->all(), [
+            'name'  => 'required|max:255',
+            'email' => [
+                'required', 
+                'email', 
+                Rule::unique('users')->ignore($user->id)
+            ],
+            'description' => 'required|string',
+            'phone' => 'required|max:255',
+            'web_page' => 'required|max:255',
+            'contact_person' => 'required|max:255',
+            'password' => 'required_with:new_password',
+            'new_password' => 'nullable|min:8|same:new_password_confirm',
+        ]);
+
+        $validator->after(function ($validator) use ($request, $user) {
+            if ($request->filled('new_password')) {
+                if (!Hash::check($request->password, $user->password)) {
+                    $validator->errors()->add('password', 'Incorrect old password');
+                }
+            }
+        });
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'errors' => $validator->errors() 
+            ], 422);
+        }
+
+        $updateData = [];
+
+        $updateData['name'] = $request->name;
+        $updateData['email'] = $request->email;
+        $updateData['description'] = $request->description;
+        $updateData['phone'] = $request->phone;
+        $updateData['web_page'] = $request->web_page;
+        $updateData['contact_person'] = $request->contact_person;
+
+        if($request->has('password') && $request->has('new_password')){
+            $updateData['password'] = Hash::make($request->new_password);
+        }
+
+
+        $user->update($updateData);
+
+
+        return response()->json([
+            'message' => 'ok',
+        ], 201);
     }
 
 

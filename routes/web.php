@@ -194,6 +194,8 @@ Route::group(['prefix' => 'companyAdmin', 'middleware' => 'roleCompany.auth'], f
     // for SU
 
     Route::post('/addMessage', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@addMessage', 'as' => 'admin.companyAddMessage']);
+    Route::post('/updateUserData/{userId}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@updateUserData', 'as' => 'admin.companyUpdateUserData']);
+
 });
 
 
@@ -213,7 +215,10 @@ Route::group(['prefix' => 'clientAdmin', 'middleware' => 'roleClient.auth'], fun
 
     Route::post('/updateRequestStatus/{id}', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@updateRequestStatus', 'as' => 'admin.clientUpdateRequestStatus']);
 
+    Route::post('/updateUserData/{userId}', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@updateUserData', 'as' => 'admin.clientUpdateUserData']);
+
 });
+
 
 
 Route::group(['prefix' => 'superAdmin', 'middleware' => 'roleSA.auth'], function () {
