@@ -101,6 +101,19 @@
                             <input type="text" readonly value="{{ Auth::user()->name ?? '' }}">
                         </p>
                     </div>
+                    <div class="form_field photo"> <p>Company Photo / Logo</p>
+                        <div class="errors"></div>
+                        
+                        <div class="current_logo_wrapper" style="margin-bottom: 10px;">
+                            <img id="current_photo_preview" 
+                                 src="{{ Auth::user()->photo ?? '/images/default-logo.png' }}" 
+                                 style="max-width: 100px; border-radius: 4px; border: 1px solid #ddd;">
+                        </div>
+                    
+                        <p>
+                            <input type="file" name="photo" id="photo_input" accept="image/*">
+                        </p>
+                    </div>
                     <div class="form_field description">
                         <p>
                             Company description
