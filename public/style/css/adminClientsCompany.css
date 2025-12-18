@@ -567,9 +567,9 @@ tbody td:first-child {
 	position: relative;
 }
 .headerTop {
-	padding: 0 40px;
+	padding: 20px 40px 0;
 	max-width: 1320px;
-	margin: 20px auto 20px;
+	margin: 0 auto 20px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
