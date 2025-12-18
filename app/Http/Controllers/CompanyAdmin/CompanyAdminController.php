@@ -313,7 +313,7 @@ class CompanyAdminController extends Controller
             ],
             'description' => 'required|string|max:255',
             'phone' => 'required|max:255',
-            'web_page' => 'required|max:255',
+            'web_page' => 'nullable|string|max:255',
             'contact_person' => 'required|max:255',
             'password' => 'required_with:new_password',
             'new_password' => 'nullable|min:8|same:new_password_confirm',
