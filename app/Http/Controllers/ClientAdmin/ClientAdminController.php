@@ -276,7 +276,7 @@ class ClientAdminController extends Controller
         // ]);
 
         $validator = Validator::make($request->all(), [
-            'name'  => 'required|max:255',
+            // 'name'  => 'required|max:255',
             'email' => [
                 'required', 
                 'email', 
@@ -307,7 +307,7 @@ class ClientAdminController extends Controller
 
         $updateData = [];
 
-        $updateData['name'] = $request->name;
+        // $updateData['name'] = $request->name;
         $updateData['email'] = $request->email;
         $updateData['description'] = $request->description;
         $updateData['phone'] = $request->phone;

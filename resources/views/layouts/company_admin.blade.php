@@ -92,7 +92,7 @@
             
                     @csrf
                     <div class="header header_modal_message">Data successfully updated</div>
-                    <div class="form_field name">
+                    {{-- <div class="form_field name">
                         <div class="errors"></div>
                         <p>
                             Company name
@@ -100,7 +100,7 @@
                         <p>
                             <input type="text" name="name" value="{{ Auth::user()->name ?? '' }}">
                         </p>
-                    </div>
+                    </div> --}}
                     <div class="form_field description">
                         <p>
                             Company description
