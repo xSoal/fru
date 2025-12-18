@@ -65,6 +65,10 @@ $(document).ready(function () {
     dialog_settings.dialog('open')
   })
 
+  if(is_need_to_modal_settings_open){
+    dialog_settings.dialog('open');
+  }
+
   
 
 
@@ -79,14 +83,13 @@ $(document).ready(function () {
     var $scrollContainer = $form.closest('div[style*="overflow-y: scroll"], .modal-body, .modal-content').first();
     $form.find('.errors').html('').hide();
     $form.find('input').removeClass('is-invalid'); 
-
     $.ajax({
         url: url,
         type: 'POST',
         data: formData,
         dataType: 'json',
-        processData: false, // ВАЖНО для файлов
-        contentType: false, // ВАЖНО для файлов
+        processData: false, 
+        contentType: false, 
         success: function(response) {
           $(".header_modal_message").addClass('show')
           if ($scrollContainer.length) {

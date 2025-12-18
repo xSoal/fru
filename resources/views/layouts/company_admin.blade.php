@@ -82,6 +82,7 @@
                 </div>
             </div>
             @if(!Auth::user()->role !== 3)
+
             <div id="my-modal" title="Accounts user data">
                 <form action="{{ Auth::user()->role === 1 ? 
                     route('admin.companyUpdateUserData', ['userId' => Auth::user()->id])
@@ -187,6 +188,22 @@
                     </div>
                 </form>
             </div>
+            <?php
+                $is_need_to_modal_settings_open = false;
+                $user = Auth::user();
+                if(!$user->photo) $is_need_to_modal_settings_open = true;
+                if(!$user->phone) $is_need_to_modal_settings_open = true;
+                if(!$user->description) $is_need_to_modal_settings_open = true;
+                if(!$user->contact_person) $is_need_to_modal_settings_open = true;
+            ?>
+            <script>
+                var is_need_to_modal_settings_open = false;
+            </script>
+            @if($is_need_to_modal_settings_open)
+                <script>
+                    var is_need_to_modal_settings_open = true;
+                </script>
+            @endif
             @endif
             @yield('content')
 
