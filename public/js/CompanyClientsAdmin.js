@@ -53,12 +53,20 @@ $(document).ready(function () {
       // "Ок": function() {
       //   $( this ).dialog( "close" );
       // }
+    },
+    open: function() {
+      $('.ui-widget-overlay').bind('click', function() {
+        $( "#my-modal" ).dialog('close');
+      });
     }
   });
 
   $('.settings-button').click(function(){
     dialog_settings.dialog('open')
   })
+
+  
+
 
 
   // form save user settings
