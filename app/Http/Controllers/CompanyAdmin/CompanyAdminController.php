@@ -361,7 +361,7 @@ class CompanyAdminController extends Controller
         $updateData['web_page'] = $request->web_page;
         $updateData['contact_person'] = $request->contact_person;
 
-        if($request->has('password') && $request->has('new_password')){
+        if($request->password && $request->new_password === $request->new_password_confirm){
             $updateData['password'] = Hash::make($request->new_password);
         }
 
