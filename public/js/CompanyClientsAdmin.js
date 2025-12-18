@@ -92,8 +92,11 @@ $(document).ready(function () {
 
                 $.each(errors, function(key, messages) {
                     var $input = $form.find('input[name="' + key + '"]');
-                    $input.addClass('is-invalid');
+                    var $textarea = $form.find('textarea[name="' + key + '"]');
 
+                    $input.addClass('is-invalid');
+                    $textarea.addClass('is-invalid');
+                    
                     var errorBlock = $form.find('.form_field.' + key + ' .errors');
                     
                     if (errorBlock.length) {

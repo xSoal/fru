@@ -92,22 +92,23 @@
             
                     @csrf
                     <div class="header header_modal_message">Data successfully updated</div>
-                    {{-- <div class="form_field name">
+                    <div class="form_field name">
                         <div class="errors"></div>
                         <p>
                             Company name
                         </p>
                         <p>
-                            <input type="text" name="name" value="{{ Auth::user()->name ?? '' }}">
+                            <input type="text" readonly value="{{ Auth::user()->name ?? '' }}">
                         </p>
-                    </div> --}}
+                    </div>
                     <div class="form_field description">
                         <p>
                             Company description
                         </p>
                         <div class="errors"></div>
                         <p>
-                            <input type="text" name="description" value="{{ Auth::user()->description ?? '' }}">
+                            <textarea class="form__textarea" name="description" id="" cols="30" rows="10">{{ Auth::user()->description ?? '' }}</textarea>
+                            {{-- <input type="text" name="description" value="{{ Auth::user()->description ?? '' }}"> --}}
                         </p>
                     </div>
                     <div class="form_field phone">
