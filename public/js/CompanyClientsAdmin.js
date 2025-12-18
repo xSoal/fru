@@ -46,7 +46,74 @@ $(document).ready(function () {
   });
 
 
+  var dialog_settings = $( "#my-modal" ).dialog({
+    modal: true,         // Делает окно модальным
+    autoOpen: false,      // Открывать сразу при загрузке
+    buttons: {
+      // "Ок": function() {
+      //   $( this ).dialog( "close" );
+      // }
+    }
+  });
 
+  $('.settings-button').click(function(){
+    dialog_settings.dialog('open')
+  })
+
+
+  // form save user settings
+  $('.save_form_settings').on('click', function(e) {
+    e.preventDefault();
+
+    var $form = $(this).closest('form');
+    var url = $form.attr('action');
+    var formData = $form.serialize();
+
+    $form.find('.errors').html('').hide();
+    $form.find('input').removeClass('is-invalid'); 
+
+    $.ajax({
+        url: url,
+        type: 'POST',
+        data: formData,
+        dataType: 'json',
+        success: function(response) {
+          $(".header_modal_message").addClass('show')
+          // $('html, body').animate({
+          //     scrollTop: $(".header_modal_message").offset().top - 55
+          // }, 450);
+          $(`div[role="dialog"]`).scrollTop(0);
+          $form.find('input[name*="password"]').val('');
+        },
+        error: function(xhr) {
+          $(".header_modal_message").removeClass('show')
+            if (xhr.status === 422) {
+                var errors = xhr.responseJSON.errors;
+
+                $.each(errors, function(key, messages) {
+                    var $input = $form.find('input[name="' + key + '"]');
+                    $input.addClass('is-invalid');
+
+                    var errorBlock = $form.find('.form_field.' + key + ' .errors');
+                    
+                    if (errorBlock.length) {
+                        var errorHtml = '<ul style="list-style: none; padding: 0; margin: 5px 0;">';
+                        $.each(messages, function(index, message) {
+                            errorHtml += '<li style="color: #e3342f; font-size: 13px; font-weight: bold;">' + message + '</li>';
+                        });
+                        errorHtml += '</ul>';
+                        
+                        errorBlock.html(errorHtml).show();
+                    }
+                });
+
+            } else {
+                alert('Error: ' + xhr.status);
+            }
+        }
+    });
+});
+  // form save user settings
 
 
   changeRequestEquipmentStatus();
