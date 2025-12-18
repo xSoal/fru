@@ -1072,6 +1072,19 @@ input:checked + .slider:before {
 	box-sizing: border-box;
 }
 
+.ui-dialog .errors li {
+	display: flex;
+	align-items: center;
+}
+
+.ui-dialog .errors .fa-circle-exclamation {
+	width: 25px;
+    height: 25px;
+	margin-right: 10px;
+}
+
+
+
 
 input.is-invalid,
 textarea.is-invalid {

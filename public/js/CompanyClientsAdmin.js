@@ -89,7 +89,7 @@ $(document).ready(function () {
           if(response.photo_url) {
             $('#current_photo_preview').attr('src', response.photo_url);
           }
-          
+
           $('#logo_input').val('')
         },
         error: function(xhr) {
@@ -109,7 +109,7 @@ $(document).ready(function () {
                     if (errorBlock.length) {
                         var errorHtml = '<ul style="list-style: none; padding: 0; margin: 5px 0;">';
                         $.each(messages, function(index, message) {
-                            errorHtml += '<li style="color: #e3342f; font-size: 13px; font-weight: bold;">' + message + '</li>';
+                            errorHtml += '<li style="color: #e3342f; font-size: 13px; font-weight: bold;"><i class="fa-solid fa-circle-exclamation"></i>' + message + '</li>';
                         });
                         errorHtml += '</ul>';
                         
