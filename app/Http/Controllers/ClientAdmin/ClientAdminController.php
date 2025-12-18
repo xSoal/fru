@@ -13,6 +13,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Validator;
 
@@ -288,6 +289,7 @@ class ClientAdminController extends Controller
             'contact_person' => 'required|max:255',
             'password' => 'required_with:new_password',
             'new_password' => 'nullable|min:8|same:new_password_confirm',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $validator->after(function ($validator) use ($request, $user) {
@@ -307,6 +309,23 @@ class ClientAdminController extends Controller
 
         $updateData = [];
 
+
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            
+            if ($user->photo && file_exists(public_path($user->photo))) {
+                unlink(public_path($user->photo));
+            }
+
+            $folder = '/upload/' . date('Y-m');
+            $filename = Str::random(15) . '.' . $file->getClientOriginalExtension();
+            $fullRelativePath = $folder . '/' . $filename;
+
+            $file->move(public_path($folder), $filename);
+
+            $updateData['photo'] = $fullRelativePath;
+        }
+
         // $updateData['name'] = $request->name;
         $updateData['email'] = $request->email;
         $updateData['description'] = $request->description;
@@ -324,6 +343,7 @@ class ClientAdminController extends Controller
 
         return response()->json([
             'message' => 'ok',
+            'photo_url' => $user->photo
         ], 201);
     }
 

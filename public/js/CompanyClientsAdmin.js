@@ -67,8 +67,8 @@ $(document).ready(function () {
 
     var $form = $(this).closest('form');
     var url = $form.attr('action');
-    var formData = $form.serialize();
-
+    var formData = new FormData($form[0]);
+    var $scrollContainer = $form.closest('div[style*="overflow-y: scroll"], .modal-body, .modal-content').first();
     $form.find('.errors').html('').hide();
     $form.find('input').removeClass('is-invalid'); 
 
@@ -77,13 +77,20 @@ $(document).ready(function () {
         type: 'POST',
         data: formData,
         dataType: 'json',
+        processData: false, // ВАЖНО для файлов
+        contentType: false, // ВАЖНО для файлов
         success: function(response) {
           $(".header_modal_message").addClass('show')
-          // $('html, body').animate({
-          //     scrollTop: $(".header_modal_message").offset().top - 55
-          // }, 450);
+          if ($scrollContainer.length) {
+            $scrollContainer.animate({ scrollTop: 0 }, 450);
+          }
           $(`div[role="dialog"]`).scrollTop(0);
           $form.find('input[name*="password"]').val('');
+          if(response.photo_url) {
+            $('#current_photo_preview').attr('src', response.photo_url);
+          }
+          
+          $('#logo_input').val('')
         },
         error: function(xhr) {
           $(".header_modal_message").removeClass('show')
