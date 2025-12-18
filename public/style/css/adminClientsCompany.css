@@ -1073,7 +1073,8 @@ input:checked + .slider:before {
 }
 
 
-input.is-invalid {
+input.is-invalid,
+textarea.is-invalid {
     border: 1px solid #e3342f !important;
     background-color: #fff5f5;
 }
@@ -1157,6 +1158,28 @@ input.is-invalid {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.form_field.name input:focus {
+	border: 1px solid #d1d5db;
+	box-shadow: none;
+}
+
+.form_field.name input {
+	cursor: inherit;
+}
+
+.form__textarea {
+	width: 100%;
+	padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+}
+
+.form__textarea:focus {
+	outline: none;
+    border-color: #1b744f;
+    box-shadow: 0 0 0 3px rgba(27, 116, 79, 0.1);
 }
 
 .save_form_settings:hover {
