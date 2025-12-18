@@ -53,12 +53,24 @@ $(document).ready(function () {
       // "Ок": function() {
       //   $( this ).dialog( "close" );
       // }
+    },
+    open: function() {
+      $('.ui-widget-overlay').bind('click', function() {
+        $( "#my-modal" ).dialog('close');
+      });
     }
   });
 
   $('.settings-button').click(function(){
     dialog_settings.dialog('open')
   })
+
+  if(is_need_to_modal_settings_open){
+    dialog_settings.dialog('open');
+  }
+
+  
+
 
 
   // form save user settings
@@ -71,14 +83,13 @@ $(document).ready(function () {
     var $scrollContainer = $form.closest('div[style*="overflow-y: scroll"], .modal-body, .modal-content').first();
     $form.find('.errors').html('').hide();
     $form.find('input').removeClass('is-invalid'); 
-
     $.ajax({
         url: url,
         type: 'POST',
         data: formData,
         dataType: 'json',
-        processData: false, // ВАЖНО для файлов
-        contentType: false, // ВАЖНО для файлов
+        processData: false, 
+        contentType: false, 
         success: function(response) {
           $(".header_modal_message").addClass('show')
           if ($scrollContainer.length) {
@@ -89,7 +100,7 @@ $(document).ready(function () {
           if(response.photo_url) {
             $('#current_photo_preview').attr('src', response.photo_url);
           }
-          
+
           $('#logo_input').val('')
         },
         error: function(xhr) {
@@ -109,7 +120,7 @@ $(document).ready(function () {
                     if (errorBlock.length) {
                         var errorHtml = '<ul style="list-style: none; padding: 0; margin: 5px 0;">';
                         $.each(messages, function(index, message) {
-                            errorHtml += '<li style="color: #e3342f; font-size: 13px; font-weight: bold;">' + message + '</li>';
+                            errorHtml += '<li style="color: #e3342f; font-size: 13px; font-weight: bold;"><i class="fa-solid fa-circle-exclamation"></i>' + message + '</li>';
                         });
                         errorHtml += '</ul>';
                         
