@@ -227,7 +227,7 @@ class CompanyAdminController extends Controller
 
 
     public function partnersList($companyId){
-        $partners = User::where('role', 1)->where('active', 1)->get();
+        $partners = User::where('role', 1)->where('active', 1)->whereNot('id', $companyId)->get();
         $data = [
             'partners' => $partners,
             'user' => User::where('id', $companyId)->first(),
@@ -239,7 +239,7 @@ class CompanyAdminController extends Controller
     }
 
 
-    public function partnerSingle($id, $clientId){
+    public function partnerSingle($id, $companyId){
         $partner = User::where('id', $id)->where('active', 1)->firstOrFail(); 
 
         // СТРОГИЙ ПОРЯДОК ID
@@ -266,19 +266,14 @@ class CompanyAdminController extends Controller
 
         $equipmentsRequests = EquipmentRequest::where('user_id', $id)->latest()->get();
 
-        
 
         $data = [
             'partner' => $partner, 
-            'chat' => $chat,     // текущий
-            'messages' => $messages, // Коллекция сообщений только из ПЕРВОГО чата
-            'equipmentsRequests' => $equipmentsRequests,
-            'client' => User::where('id', $clientId)->first(),
-            'clientId' => $clientId
+            'user' => User::where('id', $companyId)->first(),
+            'companyId' => $companyId
         ];
-
         // В шаблоне 'company_admin.company' теперь доступна переменная $messages
-        return view('client_admin.partnerSingle', $data);
+        return view('company_admin.partnerSingle', $data);
     }
 
 

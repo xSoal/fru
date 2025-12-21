@@ -186,12 +186,13 @@ Route::group(['prefix' => 'companyAdmin', 'middleware' => 'roleCompany.auth'], f
     Route::get('/equipment/{filterStr}/{companyId}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@equipmentSearch', 'as' => 'admin.companyEquipmentSearch']);
     Route::get('/reference/{companyId}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@reference', 'as' => 'admin.companyAdminReference']);
     Route::get('/service/{companyId}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@service', 'as' => 'admin.companyAdminService']);
-    
-
-    // for SU
     Route::get('/partners/{companyId}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@partnersList', 'as' => 'admin.companyAdminPartners']);
     Route::get('/partners/{id}/{companyId}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@partnerSingle', 'as' => 'admin.companyAdminPartnerSingle']);
-    // for SU
+
+    // // for SU
+    // Route::get('/partners/{companyId}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@partnersList', 'as' => 'admin.companyAdminPartners']);
+    // Route::get('/partners/{id}/{companyId}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@partnerSingle', 'as' => 'admin.companyAdminPartnerSingle']);
+    // // for SU
 
     Route::post('/addMessage', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@addMessage', 'as' => 'admin.companyAddMessage']);
     Route::post('/updateUserData/{userId}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@updateUserData', 'as' => 'admin.companyUpdateUserData']);
