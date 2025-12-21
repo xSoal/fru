@@ -199,7 +199,7 @@
             <script>
                 var is_need_to_modal_settings_open = false;
             </script>
-            @if($is_need_to_modal_settings_open)
+            @if($is_need_to_modal_settings_open && (int)Auth::user()->role !== 3 )
                 <script>
                     var is_need_to_modal_settings_open = true;
                 </script>
