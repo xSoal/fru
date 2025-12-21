@@ -12,6 +12,7 @@ use App\Models\Message;
 use App\Models\News;
 
 
+use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -278,12 +279,26 @@ class CompanyAdminController extends Controller
 
 
     public function service(Request $request, $companyId){
+        $services = Service::get();
+
         $data =  [
+            'user' => User::where('id', $companyId)->first(),
+            'companyId' => $companyId,
+            'services' => $services
+        ];
+
+        return view('company_admin.service', $data);
+    }
+
+    public function serviceSingle(Request $request, $id, $companyId){
+        $service = Service::where('id', $id)->firstOrFail();
+        $data = [
+            'service' => $service, 
             'user' => User::where('id', $companyId)->first(),
             'companyId' => $companyId
         ];
 
-        return view('company_admin.service', $data);
+        return view('company_admin.serviceSingle', $data);
     }
 
     public function updateUserData(Request $request, $userId){

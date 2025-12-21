@@ -14,7 +14,7 @@
                 <li class="{{  Request::routeIs('admin.superAdminReference') ? 'active' : '' }}">
                     <a href="{{ route('admin.superAdminReference') }}" >Financial Support Tools</a>
                 </li>
-                <li class="{{  Request::routeIs('admin.superAdminService') ? 'active' : '' }}">
+                <li class="{{  Request::routeIs('admin.superAdminService') || Request::routeIs('admin.superAdminServiceSingle')  ? 'active' : ''  }}">
                     <a href="{{ route('admin.superAdminService') }}" >Dealers and Service</a>
                 </li>
             </ul>

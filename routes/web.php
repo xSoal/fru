@@ -64,6 +64,14 @@ Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function() {
         Route::post('/', ['uses' => '\App\Http\Controllers\Admin\UsersController@post', 'as' => 'admin.postUsers']);
     });
 
+    Route::group(['prefix' => 'service'], function () {
+        Route::get('/', ['uses' => '\App\Http\Controllers\Admin\ServicesController@list', 'as' => 'admin.services']);
+        Route::get('/add', ['uses' => '\App\Http\Controllers\Admin\ServicesController@add', 'as' => 'admin.addService']);
+        Route::get('/{id}', ['uses' => '\App\Http\Controllers\Admin\ServicesController@view', 'as' => 'admin.viewService']);
+        Route::post('/', ['uses' => '\App\Http\Controllers\Admin\ServicesController@post', 'as' => 'admin.postService']);
+    });
+
+
     Route::group(['prefix' => 'super_users'], function () {
         Route::get('/', ['uses' => '\App\Http\Controllers\Admin\SuperUsersController@list', 'as' => 'admin.super_users']);
         Route::get('/add', ['uses' => '\App\Http\Controllers\Admin\SuperUsersController@add', 'as' => 'admin.addSuperUser']);
@@ -186,6 +194,8 @@ Route::group(['prefix' => 'companyAdmin', 'middleware' => 'roleCompany.auth'], f
     Route::get('/equipment/{filterStr}/{companyId}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@equipmentSearch', 'as' => 'admin.companyEquipmentSearch']);
     Route::get('/reference/{companyId}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@reference', 'as' => 'admin.companyAdminReference']);
     Route::get('/service/{companyId}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@service', 'as' => 'admin.companyAdminService']);
+    Route::get('/service/{id}/{companyId}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@serviceSingle', 'as' => 'admin.companyAdminServiceSingle']);
+    
     Route::get('/partners/{companyId}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@partnersList', 'as' => 'admin.companyAdminPartners']);
     Route::get('/partners/{id}/{companyId}', ['uses' => '\App\Http\Controllers\CompanyAdmin\CompanyAdminController@partnerSingle', 'as' => 'admin.companyAdminPartnerSingle']);
 
@@ -208,6 +218,7 @@ Route::group(['prefix' => 'clientAdmin', 'middleware' => 'roleClient.auth'], fun
     Route::get('/partners/{id}/{clientId}', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@partnerSingle', 'as' => 'admin.clientAdminPartnerSingle']);
     Route::get('/reference/{clientId}', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@reference', 'as' => 'admin.clientAdminReference']);
     Route::get('/service/{clientId}', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@service', 'as' => 'admin.clientAdminService']);
+    Route::get('/service/{id}/{clientId}', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@serviceSingle', 'as' => 'admin.clientAdminServiceSingle']);
     
 
     Route::post('/addEquipmentRequest', ['uses' => '\App\Http\Controllers\ClientAdmin\ClientAdminController@addRequestEquipment', 'as' => 'admin.clientAdminAddRequest']);
@@ -229,6 +240,7 @@ Route::group(['prefix' => 'superAdmin', 'middleware' => 'roleSA.auth'], function
     Route::get('/equipment/{filterStr}', ['uses' => '\App\Http\Controllers\SuperAdminCabinet\SuperAdminCabinetController@equipmentSearch', 'as' => 'admin.superEquipmentSearch']);
     Route::get('/reference', ['uses' => '\App\Http\Controllers\SuperAdminCabinet\SuperAdminCabinetController@reference', 'as' => 'admin.superAdminReference']);
     Route::get('/service', ['uses' => '\App\Http\Controllers\SuperAdminCabinet\SuperAdminCabinetController@service', 'as' => 'admin.superAdminService']);
+    Route::get('/service/{id}', ['uses' => '\App\Http\Controllers\SuperAdminCabinet\SuperAdminCabinetController@serviceSingle', 'as' => 'admin.superAdminServiceSingle']);
     
 
     Route::get('/', ['uses' => '\App\Http\Controllers\SuperAdminCabinet\SuperAdminCabinetController@index', 'as' => 'admin.superAdminParticipant']);

@@ -10,29 +10,22 @@
   @include('company_admin.menu')
 
 
+  <h2 class="section-title">Services</h2>
+  <div class="companies-list">
+    @foreach ( $services as $service )
+      <div class="list-item">
+        <a class="company" href="{{ route('admin.companyAdminServiceSingle', ['id' => $service->id, 'companyId' => $companyId]) }}">
+          <div class="company__name">
+            {{ $service->name }}
+          </div>
+          <div class="company__logo">
+            <img src="{{ $service->photo }}" alt="">
+          </div>
+        </a>
 
-  <hr class="separator"/>
-  <h1>Service</h1>
-  <div>Will be soon</div>
-  {{-- @foreach ($news as $item)
-      <div class="reference__Cont">
-        <h3 class="reference__Title">
-          <a href="/{{ $item->type }}/{{ $item->slug }}" target="_blank">
-            {{ $item->title }}
-          </a>
-        </h3>
-        <div>
-          @if( $item->type === 'support' )
-            Програма підтримки
-          @endif
-          @if( $item->type === 'rules' )
-            Правила регулювання
-          @endif
-        </div>
       </div>
-  @endforeach --}}
-
-  <hr class="separator"/>
+    @endforeach
+  </div>
 
 </div>
 

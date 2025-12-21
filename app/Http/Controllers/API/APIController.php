@@ -7,6 +7,7 @@ use App\Models\EquipmentRequest;
 use App\Models\News;
 use App\Models\Post;
 use App\Models\ProjectKPPItems;
+use App\Models\Service;
 use App\Models\Telegram;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -28,6 +29,7 @@ class APIController extends Controller
             case 'user' : $tmp = User::where('id',$input['id'])->first(); break;
             case 'post' : $tmp = Post::where('id',$input['id'])->first(); break;
             case 'news' : $tmp = News::where('id',$input['id'])->first(); break;
+            case 'service' : $tmp = Service::where('id',$input['id'])->first(); break;
             case 'equipment_request' : $tmp = EquipmentRequest::where('id',$input['id'])->first(); break;
         }
 

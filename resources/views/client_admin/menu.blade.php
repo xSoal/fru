@@ -11,7 +11,7 @@
                 <li class="{{  Request::routeIs('admin.clientAdminReference') ? 'active' : '' }}">
                     <a href="{{ route('admin.clientAdminReference', $clientId) }}" >Financial Support Tools</a>
                 </li>
-                <li class="{{  Request::routeIs('admin.clientAdminService') ? 'active' : '' }}">
+                <li class="{{  Request::routeIs('admin.clientAdminService') || Request::routeIs('admin.clientAdminServiceSingle') ? 'active' : '' }}">
                     <a href="{{ route('admin.clientAdminService', $clientId) }}" >Dealers and Service</a>
                 </li>
             </ul>

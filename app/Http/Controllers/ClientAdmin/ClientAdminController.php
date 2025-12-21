@@ -7,6 +7,7 @@ use App\Models\Conversation;
 
 use App\Models\EquipmentRequest;
 use App\Models\News;
+use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -254,12 +255,26 @@ class ClientAdminController extends Controller
 
     public function service(Request $request, $clientId){
 
+        $services = Service::get();
+
         $data =  [
             'client' =>  User::where('id', $clientId)->first(),
-            'clientId' => $clientId
+            'clientId' => $clientId,
+            'services' => $services
         ];
 
         return view('client_admin.service', $data);
+    }
+
+    public function serviceSingle(Request $request, $id, $clientId){
+        $service = Service::where('id', $id)->firstOrFail();
+        $data = [
+            'service' => $service, 
+            'client' => User::where('id', $clientId)->first(),
+            'clientId' => $clientId
+        ];
+
+        return view('client_admin.serviceSingle', $data);
     }
 
 
