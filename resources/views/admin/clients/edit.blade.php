@@ -124,7 +124,7 @@
                     </div>
                     <div class="fb_input">
                         <div class="fb_input_inside">
-                            <input type="text" name="phone" value="{{ $item->phone ?? '' }}" id="phone" required>
+                            <input type="text" name="phone" value="{{ $item->phone ?? '' }}" id="phone">
                         </div>
                     </div>
                 </div>
@@ -154,7 +154,7 @@
                     </div>
                     <div class="fb_input">
                         <div class="fb_input_inside">
-                            <input type="text" name="contact_person" value="{{ $item->contact_person ?? '' }}" id="contact_person" required>
+                            <input type="text" name="contact_person" value="{{ $item->contact_person ?? '' }}" id="contact_person">
                         </div>
                     </div>
                 </div>
