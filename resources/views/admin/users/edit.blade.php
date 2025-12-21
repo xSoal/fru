@@ -8,7 +8,7 @@
         <div class="top_block">
             <a href="{{ route('admin.users') }}" class="back_to">Назад</a>
         </div>
-        <h1>Редактирование</h1> 
+        <h1>Редагування</h1> 
     </div>
     
     <div class="form_block_items form_add form_edit">

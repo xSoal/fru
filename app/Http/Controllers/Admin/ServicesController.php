@@ -56,9 +56,9 @@ class ServicesController extends Controller
 
             if( $user->save() ){
                 if( isset($input['save_and_exit']) ){
-				    return redirect()->route('admin.services')->with('status','Пользователь добавлен');
+				    return redirect()->route('admin.services')->with('status','Користувач доданий');
                 }else{
-                    return redirect()->route('admin.addService')->with('status','Пользователь добавлен');
+                    return redirect()->route('admin.addService')->with('status','Користувач доданий');
                 }
 			}
 			

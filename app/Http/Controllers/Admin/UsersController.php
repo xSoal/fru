@@ -61,9 +61,9 @@ class UsersController extends Controller
 
             if( $user->save() ){
                 if( isset($input['save_and_exit']) ){
-				    return redirect()->route('admin.users')->with('status','Пользователь добавлен');
+				    return redirect()->route('admin.users')->with('status','Користувач доданий');
                 }else{
-                    return redirect()->route('admin.addUser')->with('status','Пользователь добавлен');
+                    return redirect()->route('admin.addUser')->with('status','Користувач доданий');
                 }
 			}
 			

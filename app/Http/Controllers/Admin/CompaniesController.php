@@ -67,9 +67,9 @@ class CompaniesController extends Controller
             
             if( $user->save() ){
                 if( isset($input['save_and_exit']) ){
-				    return redirect()->route('admin.companies')->with('status','Пользователь добавлен');
+				    return redirect()->route('admin.companies')->with('status','Користувач доданий');
                 } else{
-                    return redirect()->route('admin.addCompany')->with('status','Пользователь добавлен');
+                    return redirect()->route('admin.addCompany')->with('status','Користувач доданий');
                 }
 			}
 			

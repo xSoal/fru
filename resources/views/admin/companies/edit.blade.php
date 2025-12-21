@@ -8,7 +8,7 @@
         <div class="top_block">
             <a href="{{ route('admin.companies') }}" class="back_to">Назад</a>
         </div>
-        <h1>Редактирование {{ $item->name ?? '' }}</h1> 
+        <h1>Редагування {{ $item->name ?? '' }}</h1> 
     </div>
     
     <div class="form_block_items form_add form_edit">
