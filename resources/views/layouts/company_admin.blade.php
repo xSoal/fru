@@ -83,7 +83,7 @@
             </div>
             @if(!Auth::user()->role !== 3)
 
-            <div id="my-modal" title="Accounts user data">
+            <div id="my-modal" title="Accounts user data" style="display: none;">
                 <form action="{{ Auth::user()->role === 1 ? 
                     route('admin.companyUpdateUserData', ['userId' => Auth::user()->id])
                     : route('admin.clientUpdateUserData', ['userId' => Auth::user()->id]) }}"
@@ -199,7 +199,7 @@
             <script>
                 var is_need_to_modal_settings_open = false;
             </script>
-            @if($is_need_to_modal_settings_open)
+            @if($is_need_to_modal_settings_open && (int)Auth::user()->role !== 3 )
                 <script>
                     var is_need_to_modal_settings_open = true;
                 </script>

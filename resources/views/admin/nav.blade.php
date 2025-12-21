@@ -37,6 +37,12 @@
 
         <div class="admin_menu_section user_icon">
             <div class="admin_menu_title">
+                <a href="{{ route('admin.services') }}" class="menu_title_item menu_single">Services</a>
+            </div>
+        </div>
+
+        <div class="admin_menu_section user_icon">
+            <div class="admin_menu_title">
                 <a href="{{ route('admin.companies') }}" class="menu_title_item menu_single">Institutional Partners</a>
             </div>
         </div>

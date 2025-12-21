@@ -62,9 +62,9 @@ class ClientsController extends Controller
             
             if( $user->save() ){
                 if( isset($input['save_and_exit']) ){
-				    return redirect()->route('admin.clients')->with('status','Пользователь добавлен');
+				    return redirect()->route('admin.clients')->with('status','Користувач доданий');
                 } else{
-                    return redirect()->route('admin.addClient')->with('status','Пользователь добавлен');
+                    return redirect()->route('admin.addClient')->with('status','Користувач доданий');
                 }
 			}
 			

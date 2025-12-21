@@ -12,6 +12,7 @@ use App\Models\Message;
 use App\Models\News;
 
 
+use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -189,12 +190,25 @@ class SuperAdminCabinetController extends Controller
     }
 
     public function service(){
+        $services = Service::get();
 
         $data =  [
+            'services' => $services
         ];
 
         return view('super_admin.service', $data);
     }
+
+    
+    public function serviceSingle(Request $request, $serviceId){
+        $service = Service::where('id', $serviceId)->firstOrFail();
+        $data =  [
+            'service' => $service
+        ];
+
+        return view('super_admin.serviceSingle', $data);
+    }
+
 
 
 

@@ -3,18 +3,18 @@
 @section('content')
  <div class="page-container neo-card details-page">
   <div class="buttonBackCont">
-      <a href="/clientAdmin/partners">< back</a>
+      <a href="/clientAdmin/services">< back</a>
   </div>
   @include('company_admin.menu')
   <header class="header">
       <h1 class="page-title details-title">
-        <span class="neo-highlight">Name</span> {{ $partner->name }}
+        <span class="neo-highlight">Name</span> {{ $service->name }}
       </h1>
   </header>
 
   <section class="partner-details-info">
       <div class="logo-placeholder logoClientSingle__cont">
-        <img src="{{ $partner->photo }}">
+        <img src="{{ $service->photo }}">
       </div>
       <div class="partner-name-placeholder">
           
@@ -24,19 +24,21 @@
   <section class="company-description">
       <h2 class="section-subtitle">Description</h2>
       <div class="description-text">
-        {{ $partner->description }}
+        {{ $service->description }}
       </div>
   </section>
 
   <hr class="separator"/>
-  @if( $partner->companies )
+  {{-- @if( $service->companies )
   <div class="">
       <h2 class="">Partner member companies</h2>
       <div class="partnersCompanies">
-        {!! $partner->companies !!}
+        {!! $service->companies !!}
       </div>
   </div>
-  @endif
+  @endif --}}
+
+
 
 </section> 
 

@@ -25,6 +25,15 @@
   </section>
 
   <hr class="separator"/>
+  @if( $client->companies )
+  <div class="">
+      <h2 class="">Participat member companies</h2>
+      <div class="partnersCompanies">
+        {!! $client->companies !!}
+      </div>
+  </div>
+  <br>
+  @endif
 
   <section class="request-table-section">
       <h2 class="section-subtitle">EQUIPMENT REQUEST</h2>

@@ -12,6 +12,7 @@ use App\Models\Message;
 use App\Models\News;
 
 
+use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -227,7 +228,7 @@ class CompanyAdminController extends Controller
 
 
     public function partnersList($companyId){
-        $partners = User::where('role', 1)->where('active', 1)->get();
+        $partners = User::where('role', 1)->where('active', 1)->whereNot('id', $companyId)->get();
         $data = [
             'partners' => $partners,
             'user' => User::where('id', $companyId)->first(),
@@ -239,7 +240,7 @@ class CompanyAdminController extends Controller
     }
 
 
-    public function partnerSingle($id, $clientId){
+    public function partnerSingle($id, $companyId){
         $partner = User::where('id', $id)->where('active', 1)->firstOrFail(); 
 
         // СТРОГИЙ ПОРЯДОК ID
@@ -266,29 +267,38 @@ class CompanyAdminController extends Controller
 
         $equipmentsRequests = EquipmentRequest::where('user_id', $id)->latest()->get();
 
-        
 
         $data = [
             'partner' => $partner, 
-            'chat' => $chat,     // текущий
-            'messages' => $messages, // Коллекция сообщений только из ПЕРВОГО чата
-            'equipmentsRequests' => $equipmentsRequests,
-            'client' => User::where('id', $clientId)->first(),
-            'clientId' => $clientId
+            'user' => User::where('id', $companyId)->first(),
+            'companyId' => $companyId
         ];
-
         // В шаблоне 'company_admin.company' теперь доступна переменная $messages
-        return view('client_admin.partnerSingle', $data);
+        return view('company_admin.partnerSingle', $data);
     }
 
 
     public function service(Request $request, $companyId){
+        $services = Service::get();
+
         $data =  [
+            'user' => User::where('id', $companyId)->first(),
+            'companyId' => $companyId,
+            'services' => $services
+        ];
+
+        return view('company_admin.service', $data);
+    }
+
+    public function serviceSingle(Request $request, $id, $companyId){
+        $service = Service::where('id', $id)->firstOrFail();
+        $data = [
+            'service' => $service, 
             'user' => User::where('id', $companyId)->first(),
             'companyId' => $companyId
         ];
 
-        return view('company_admin.service', $data);
+        return view('company_admin.serviceSingle', $data);
     }
 
     public function updateUserData(Request $request, $userId){

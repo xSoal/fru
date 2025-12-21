@@ -7,15 +7,15 @@ use Illuminate\Http\Request;
 
 
 use Illuminate\Support\Facades\Hash;
-use App\Models\User;
+use App\Models\Service;
 use App\Models\Post;
 
 use Validator;
 
-class UsersController extends Controller
+class ServicesController extends Controller
 {
-    
-    public function post(User $user, Request $request){
+       
+    public function post(Service $user, Request $request){
        
         $input = $request->except('_token');
 
@@ -41,29 +41,24 @@ class UsersController extends Controller
 			$messages = [
 				'required' => 'Поле required: обязательно к заполению',
 				'email.unique' => 'Поле E-MAIL должно быть уникальным',
-				'min' => 'Пароль должен иметь не меньше 8 символов'
 			];
 			
 			$validator = Validator::make($input, [
 					'name' => 'required|string',
-					'email' => 'required|unique:users',
-					'password' => 'required|min:8|confirmed'
+					'email' => 'required|unique:services',
 				],$messages);
             
 			if ($validator->fails()) {
-				return redirect()->route('admin.addUser')->withErrors($validator)->withInput();
+				return redirect()->route('admin.addService')->withErrors($validator)->withInput();
 			}
-
-			$input['password'] = Hash::make($input['password']);
-            $user->role = 2;
 
             $user->fill($input);
 
             if( $user->save() ){
                 if( isset($input['save_and_exit']) ){
-				    return redirect()->route('admin.users')->with('status','Користувач доданий');
+				    return redirect()->route('admin.services')->with('status','Користувач доданий');
                 }else{
-                    return redirect()->route('admin.addUser')->with('status','Користувач доданий');
+                    return redirect()->route('admin.addService')->with('status','Користувач доданий');
                 }
 			}
 			
@@ -78,42 +73,26 @@ class UsersController extends Controller
             $messages = [
 				'required' => 'Поле required: обязательно к заполению',
 				'email.unique' => 'Поле E-MAIL должно быть уникальным',
-				'min' => 'Пароль должен иметь не меньше 8 символов',
-                'confirmed' => 'Пароли не совпадают'
 			];
 
-            if( isset($input['password']) ){
+			$validator = Validator::make($input, [
+                'name' => 'required|string',
+                'email' => 'required|unique:services,email,'.$input['id'],
+            ],$messages);
 
-                $validator = Validator::make($input, [
-					'name' => 'required|string',
-					'email' => 'required|unique:users,email,'.$input['id'],
-					'password' => 'required|min:8|confirmed'
-				],$messages);
-
-                $input['password'] = Hash::make($input['password']);
-
-            }else{
-                unset($input['password']);
-                unset($input['password_confirmation']);
-                $validator = Validator::make($input, [
-					'name' => 'required|string',
-					'email' => 'required|unique:users,email,'.$input['id']
-				],$messages);
-            }
 
             if ($validator->fails()) {
-				return redirect()->route('admin.viewUser', ['id' => $input['id'] ] )->withErrors($validator)->withInput();
+				return redirect()->route('admin.viewService', ['id' => $input['id'] ] )->withErrors($validator)->withInput();
 			}
 
-            $user = User::find($input['id']);
-            
+            $user = Service::find($input['id']);
+
             $user->fill($input);
-			
 			if( $user->update() ){
                 if( isset($input['update_and_exit']) ){
-				    return redirect()->route('admin.users')->with('status','Пользователь обновлен');
+				    return redirect()->route('admin.services')->with('status','Пользователь обновлен');
                 }else{
-                    return redirect()->route('admin.viewUser',['id' => $input['id'] ])->with('status','Пользователь обновлен');
+                    return redirect()->route('admin.viewService',['id' => $input['id'] ])->with('status','Пользователь обновлен');
                 }
 			}
         }
@@ -123,21 +102,21 @@ class UsersController extends Controller
 
         //-----------------------------------------------------------------
         if( isset($input['dell']) ){
-            $tmp = User::where('id',$input['id'])->first();
+            $tmp = Service::where('id',$input['id'])->first();
             $tmp->delete();
-            return redirect()->route('admin.users')->with('status','Пользователь удалён');
+            return redirect()->route('admin.services')->with('status','Пользователь удалён');
         }
         //-----------------------------------------------------------------
 
 
         //-----------------------------------------------------------------
         if( isset($input['search']) && $input['search']!=null ){
-            if(view()->exists('admin.users.list')){
+            if(view()->exists('admin.services.list')){
 				$search = $input['search'];
 				$paginate = 25;
 				
 
-                $items = User::where(function($query) use ($search) {
+                $items = Service::where(function($query) use ($search) {
                                         $query->orWhere('name', 'LIKE', '%'.$search.'%')
                                             ->orWhere('email', 'LIKE', '%'.$search.'%');
                                         })
@@ -155,18 +134,18 @@ class UsersController extends Controller
                         'search' => $search,
 						'page' => $page
                     ];
-				return 	view('admin.users.list',$data);
+				return 	view('admin.services.list',$data);
 			}
 			abort(404);
         }
         //-----------------------------------------------------------------
         
-        return redirect()->route('admin.users');
+        return redirect()->route('admin.services');
     }
 
 
     public function view($id){
-		if(view()->exists('admin.users.edit')){
+		if(view()->exists('admin.services.edit')){
             
             $post = array();
             $postP = array();
@@ -179,7 +158,7 @@ class UsersController extends Controller
             }
 
 
-            $item = User::where('id', '=', $id)->first();
+            $item = Service::where('id', '=', $id)->first();
 
             $postList = array();
             if($item->post_id !=0){
@@ -198,13 +177,13 @@ class UsersController extends Controller
                     'postP' => $postP,
                     'postList' => $postList
 				];
-			return 	view('admin.users.edit',$data);
+			return 	view('admin.services.edit',$data);
 		}
         abort(404);
     }
 
     public function add(){
-		if(view()->exists('admin.users.edit') ){
+		if(view()->exists('admin.services.edit') ){
 
             $postList = array();
             $post = array();
@@ -223,17 +202,17 @@ class UsersController extends Controller
                 'postP' => $postP,
                 'postList' => $postList
                 ];
-			return 	view('admin.users.edit',$data);
+			return 	view('admin.services.edit',$data);
 		}
 		abort(404);
 	}
 
     public function list(Request $request){
-		if(view()->exists('admin.users.list')){
+		if(view()->exists('admin.services.list')){
 
 			$paginate = 25;
 
-            $items = User::where('role', '2')->paginate($paginate);
+            $items = Service::paginate($paginate);
             
 			if( $request['page']==null ){
 				$request['page'] = 1;
@@ -246,10 +225,9 @@ class UsersController extends Controller
 					'search' => '',
 					'page' => $page
 				];
-			return 	view('admin.users.list',$data);
+			return 	view('admin.services.list',$data);
 		}
 		abort(404);
 	}
-
 
 }

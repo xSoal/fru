@@ -8,7 +8,7 @@
         <div class="top_block">
             <a href="{{ route('admin.clients') }}" class="back_to">Назад</a>
         </div>
-        <h1>Редактирование</h1> 
+        <h1>Редагування</h1> 
     </div>
     
     <div class="form_block_items form_add form_edit">
@@ -124,7 +124,7 @@
                     </div>
                     <div class="fb_input">
                         <div class="fb_input_inside">
-                            <input type="text" name="phone" value="{{ $item->phone ?? '' }}" id="phone" required>
+                            <input type="text" name="phone" value="{{ $item->phone ?? '' }}" id="phone">
                         </div>
                     </div>
                 </div>
@@ -154,12 +154,27 @@
                     </div>
                     <div class="fb_input">
                         <div class="fb_input_inside">
-                            <input type="text" name="contact_person" value="{{ $item->contact_person ?? '' }}" id="contact_person" required>
+                            <input type="text" name="contact_person" value="{{ $item->contact_person ?? '' }}" id="contact_person">
                         </div>
                     </div>
                 </div>
             </div>
 
+            <div class="form_block" >
+                <div class="fb_inside">
+                    <div class="fb_label">
+                        <div class="fb_label_inside">
+                            <label for="description">Companies section</label>
+                        </div>
+                    </div>
+                    <div class="fb_input textarea">
+                        <div class="fb_input_inside">
+                            <textarea class="textarea_item" name="companies" id="companies" cols="30"
+                                rows="10">{{ $item->companies ?? '' }}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="form_block">
                 <div class="fb_inside">

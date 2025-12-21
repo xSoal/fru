@@ -6,16 +6,15 @@
 <section class="add_user edit_user main_section active">
     <div class="title_h1">
         <div class="top_block">
-            <a href="{{ route('admin.users') }}" class="back_to">Назад</a>
+            <a href="{{ route('admin.services') }}" class="back_to">Назад</a>
         </div>
-        <h1>Редагування</h1> 
+        <h1>Редагування {{ $item->name ?? '' }}</h1> 
     </div>
     
     <div class="form_block_items form_add form_edit">
-        <form action="{{ route('admin.postUsers') }}" method="POST"  autocomplete="off">
+        <form action="{{ route('admin.postService') }}" method="POST">
             <input type="text" autocomplete="username" name="fake_username" style="display:none;">
             <input type="password" autocomplete="new-password" name="fake_pass" style="display:none;">
-            
             {{ csrf_field() }}
             <div class="select_bg"></div>
 
@@ -25,12 +24,14 @@
                 <!-- button -->
             </div>
 
+
+
             <input type="hidden" name="id" value="{{$item->id ?? 0}}">
             <div class="form_block active">
                 <div class="fb_inside">
                     <div class="fb_label">
                         <div class="fb_label_inside">
-                            <label for="fio">ПІБ</label>
+                            <label for="fio">Назва компанії</label>
                         </div>
                     </div>
                     <div class="fb_input">
@@ -41,61 +42,11 @@
                 </div>
             </div>
 
-
-            <div class="form_block active">
-                <div class="fb_inside">
-                    <div class="fb_label">
-                        <div class="fb_label_inside">
-                            <label for="fio">Телефон</label>
-                        </div>
-                    </div>
-                    <div class="fb_input">
-                        <div class="fb_input_inside">
-                            <input type="text" name="phone" value="{{ $item->phone ?? '' }}" id="phone" required>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            
-            <div class="form_block active">
-                <div class="fb_inside">
-                    <div class="fb_label">
-                        <div class="fb_label_inside">
-                            <label for="product">Активний</label>
-                        </div>
-                    </div>
-                    <div class="fb_input input_toggle">
-                        <div class="fb_input_inside">
-                            <input type="hidden" name="active" id="active" value="{{ $item->active ?? 0 }}">
-                            <div class="toggle {{ isset($item) && $item->active == 1 ? 'active' : '' }}">
-                                <span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
             <div class="form_block">
                 <div class="fb_inside">
                     <div class="fb_label">
                         <div class="fb_label_inside">
-                            <label for="email">Email</label>
-                        </div>
-                    </div>
-                    <div class="fb_input">
-                        <div class="fb_input_inside">
-                            <input type="text" name="email" value="{{ $item->email ?? '' }}" id="email" required autocomplete="nope">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form_block">
-                <div class="fb_inside">
-                    <div class="fb_label">
-                        <div class="fb_label_inside">
-                            <label for="image">Фото</label>
+                            <label for="image">Лого компанії</label>
                         </div>
                     </div>
                     <div class="fb_input">
@@ -116,32 +67,95 @@
                 </div>
             </div>
 
-
-
-            <div class="form_block">
+            <div class="form_block active">
                 <div class="fb_inside">
                     <div class="fb_label">
-                        <div class="fb_label_inside">
-                            <label for="password">Пароль</label>
+                        <div class="fb_label_inside"> 
+                            <label for="fio">Короткий опис</label>
                         </div>
                     </div>
                     <div class="fb_input">
-                        <div class="fb_input_inside">
-                            <input type="password" name="password" value="" id="password" autocomplete="off">
+                        <div class="fb_input_inside" style="height: 150px;">
+                            <textarea name="description">{{ $item->description ?? '' }}</textarea>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="form_block">
+
+
+            <div class="form_block active">
                 <div class="fb_inside">
                     <div class="fb_label">
                         <div class="fb_label_inside">
-                            <label for="repeat-pass">Повторіть пароль</label>
+                            <label for="fio">Телефон</label>
                         </div>
                     </div>
                     <div class="fb_input">
                         <div class="fb_input_inside">
-                            <input type="password" name="password_confirmation" value="" id="repeat-pass" autocomplete="off">
+                            <input type="text" name="phone" value="{{ $item->phone ?? '' }}" id="phone" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="form_block">
+                <div class="fb_inside">
+                    <div class="fb_label">
+                        <div class="fb_label_inside">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                    <div class="fb_input">
+                        <div class="fb_input_inside">
+                            <input type="text" name="email" value="{{ $item->email ?? '' }}" id="email" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form_block">
+                <div class="fb_inside">
+                    <div class="fb_label">
+                        <div class="fb_label_inside">
+                            <label for="web_site">Web page</label>
+                        </div>
+                    </div>
+                    <div class="fb_input">
+                        <div class="fb_input_inside">
+                            <input type="text" name="web_page" value="{{ $item->web_page ?? '' }}" id="web_page">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form_block">
+                <div class="fb_inside">
+                    <div class="fb_label">
+                        <div class="fb_label_inside">
+                            <label for="web_site">Contact Person</label>
+                        </div>
+                    </div>
+                    <div class="fb_input">
+                        <div class="fb_input_inside">
+                            <input type="text" name="contact_person" value="{{ $item->contact_person ?? '' }}" id="contact_person" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form_block active">
+                <div class="fb_inside">
+                    <div class="fb_label">
+                        <div class="fb_label_inside">
+                            <label for="product">Активний</label>
+                        </div>
+                    </div>
+                    <div class="fb_input input_toggle">
+                        <div class="fb_input_inside">
+                            <input type="hidden" name="active" id="active" value="{{ $item->active ?? 0 }}">
+                            <div class="toggle {{ isset($item) && $item->active == 1 ? 'active' : '' }}">
+                                <span></span>
+                            </div>
                         </div>
                     </div>
                 </div>

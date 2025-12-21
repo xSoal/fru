@@ -26,9 +26,9 @@ class PostController extends Controller
             
             if( $post->save() ){
                 if( isset($input['save_and_exit']) ){
-                    return redirect()->route('admin.post')->with('status','Добавлен');
+                    return redirect()->route('admin.post')->with('status','Доданий');
                 }else{
-                    return redirect()->route('admin.addPost',['pid' => $pid ] )->with('status','Добавлен');
+                    return redirect()->route('admin.addPost',['pid' => $pid ] )->with('status','Доданий');
                 }
             }
         }

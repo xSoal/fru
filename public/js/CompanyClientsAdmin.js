@@ -102,6 +102,11 @@ $(document).ready(function () {
           }
 
           $('#logo_input').val('')
+          var $input = $form.find('input');
+          var $textarea = $form.find('textarea');
+
+          $input.removeClass('is-invalid');
+          $textarea.removeClass('is-invalid');
         },
         error: function(xhr) {
           $(".header_modal_message").removeClass('show')
