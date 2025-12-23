@@ -82,38 +82,6 @@
                 </div>
             </div>
 
-            @if( isset($item) && Auth::user()->role === 3 )
-            <div class="form_block active">
-                <div class="fb_inside">
-                    <div class="fb_label">
-                        <div class="fb_label_inside">
-                            <label for="fio">Чати корустувача</label>
-                        </div>
-                    </div>
-                    <div class="fb_input">
-                        <div class="fb_inside">
-                            <a class="user_chat_links" href="/messenger/{{ $item->id }}" target="_blank">chats</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endif
-            @if( isset($item) && Auth::user()->role === 3 )
-            <div class="form_block active">
-                <div class="fb_inside">
-                    <div class="fb_label">
-                        <div class="fb_label_inside">
-                            <label for="fio">Сторінка користувача</label>
-                        </div>
-                    </div>
-                    <div class="fb_input">
-                        <div class="fb_inside">
-                            <a class="user_chat_links" href="{{ route('admin.companyAdmin', $item->id) }}" target="_blank">Page</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endif
 
             <div class="form_block active">
                 <div class="fb_inside">
@@ -124,7 +92,7 @@
                     </div>
                     <div class="fb_input">
                         <div class="fb_input_inside">
-                            <input type="text" name="phone" value="{{ $item->phone ?? '' }}" id="phone">
+                            <input type="text" name="phone" value="{{ $item->phone ?? '' }}" id="phone" required>
                         </div>
                     </div>
                 </div>
@@ -169,68 +137,7 @@
                     </div>
                     <div class="fb_input">
                         <div class="fb_input_inside">
-                            <input type="text" name="contact_person" value="{{ $item->contact_person ?? '' }}" id="contact_person">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form_block" >
-                <div class="fb_inside">
-                    <div class="fb_label">
-                        <div class="fb_label_inside">
-                            <label for="description">Companies section</label>
-                        </div>
-                    </div>
-                    <div class="fb_input textarea">
-                        <div class="fb_input_inside">
-                            <textarea class="textarea_item" name="companies" id="companies" cols="30"
-                                rows="10">{{ $item->companies ?? '' }}</textarea>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="form_block">
-                <div class="fb_inside">
-                    <div class="fb_label">
-                        <div class="fb_label_inside">
-                            <label for="web_site">Чи доступний чат з компанією</label>
-                        </div>
-                    </div>
-                    <div class="fb_input">
-                        <div class="fb_input_inside">
-                            <input type="checkbox" name="dialog_enable_status" {{ isset($item) && $item->dialog_enable_status ? 'checked' : '' }}>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form_block">
-                <div class="fb_inside">
-                    <div class="fb_label">
-                        <div class="fb_label_inside">
-                            <label for="password">Пароль</label>
-                        </div>
-                    </div>
-                    <div class="fb_input">
-                        <div class="fb_input_inside">
-                            <input type="password" name="password" value="" id="password" autocomplete="off">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form_block">
-                <div class="fb_inside">
-                    <div class="fb_label">
-                        <div class="fb_label_inside">
-                            <label for="repeat-pass">Повторіть пароль</label>
-                        </div>
-                    </div>
-                    <div class="fb_input">
-                        <div class="fb_input_inside">
-                            <input type="password" name="password_confirmation" value="" id="repeat-pass" autocomplete="off">
+                            <input type="text" name="contact_person" value="{{ $item->contact_person ?? '' }}" id="contact_person" required>
                         </div>
                     </div>
                 </div>

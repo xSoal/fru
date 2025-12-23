@@ -255,7 +255,7 @@ class ClientAdminController extends Controller
 
     public function service(Request $request, $clientId){
 
-        $services = Service::get();
+        $services = User::where('is_service', 1)->get();
 
         $data =  [
             'client' =>  User::where('id', $clientId)->first(),
@@ -267,7 +267,7 @@ class ClientAdminController extends Controller
     }
 
     public function serviceSingle(Request $request, $id, $clientId){
-        $service = Service::where('id', $id)->firstOrFail();
+        $service = User::where('id', $id)->firstOrFail();
         $data = [
             'service' => $service, 
             'client' => User::where('id', $clientId)->first(),

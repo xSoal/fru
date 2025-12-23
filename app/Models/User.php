@@ -34,7 +34,8 @@ class User extends Authenticatable //implements MustVerifyEmail
         'web_page',
         'contact_person',
         'dialog_enable_status',
-        'companies'
+        'companies',
+        'is_service'
     ];
 
     /**
