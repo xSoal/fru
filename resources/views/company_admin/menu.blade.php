@@ -6,7 +6,7 @@
                     <a href="{{ route('admin.companyEquipment', $companyId) }}">Equipment Request</a>
                 </li>
                 <li class="{{ Request::routeIs('admin.companyAdmin') || Request::routeIs('admin.companyAdminClient') ? 'active' : '' }}">
-                    <a href="{{ route('admin.companyAdmin', $companyId) }}">Participant</a>
+                    <a href="{{ route('admin.companyAdmin', $companyId) }}">Participants</a>
                 </li>
                 <li class="{{  Request::routeIs('admin.companyAdminPartners') ? 'active' : '' }}">
                     <a href="{{ route('admin.companyAdminPartners', $companyId) }}" >Partners</a>

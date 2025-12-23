@@ -10,7 +10,7 @@
                     <a href="{{ route('admin.companyEquipment', $user_owner_chats->id) }}">Equipment Request</a>
                 </li>
                 <li class="{{ Request::routeIs('admin.companyAdmin') ? 'active' : '' }}">
-                    <a href="{{ route('admin.companyAdmin', $user_owner_chats->id) }}">Participant</a>
+                    <a href="{{ route('admin.companyAdmin', $user_owner_chats->id) }}">Participants</a>
                 </li>
                 <li class="{{  Request::routeIs('admin.clientAdminReference') ? 'active' : '' }}">
                     <a href="{{ route('admin.companyAdminReference', $user_owner_chats->id) }}" >Financial Support Tools</a>
@@ -21,7 +21,7 @@
                 @endif
                 @if( Auth::user()->role === 0 )
                 <li class="{{ Request::routeIs('admin.clientAdmin') ? 'active' : '' }}">
-                    <a href="{{ route('admin.clientAdmin', $user_owner_chats->id) }}">Partipiant</a>
+                    <a href="{{ route('admin.clientAdmin', $user_owner_chats->id) }}">Partipiants</a>
                 </li>
                 <li class="{{ Request::routeIs('admin.clientAdminPartners') || Request::routeIs('admin.clientAdminPartnerSingle') ? 'active' : '' }}">
                     <a href="{{ route('admin.clientAdminPartners', $user_owner_chats->id) }}">Partners</a>
@@ -38,7 +38,7 @@
                     <a href="{{ route('admin.superEquipment') }}">Equipment Request</a>
                 </li>
                 <li class="{{ Request::routeIs('admin.superAdminParticipant') || Request::routeIs('admin.superAdminClient') ? 'active' : '' }}">
-                    <a href="{{ route('admin.superAdminParticipant') }}">Participant</a>
+                    <a href="{{ route('admin.superAdminParticipant') }}">Participants</a>
                 </li>
                 <li class="{{  Request::routeIs('admin.superAdminPartners') ? 'active' : '' }}">
                     <a href="{{ route('admin.superAdminPartners') }}" >Partners</a>
