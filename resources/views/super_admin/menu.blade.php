@@ -6,7 +6,7 @@
                     <a href="{{ route('admin.superEquipment') }}">Equipment Request</a>
                 </li>
                 <li class="{{ Request::routeIs('admin.superAdminParticipant') || Request::routeIs('admin.superAdminClient') ? 'active' : '' }}">
-                    <a href="{{ route('admin.superAdminParticipant') }}">Participant</a>
+                    <a href="{{ route('admin.superAdminParticipant') }}">Participants</a>
                 </li>
                 <li class="{{  Request::routeIs('admin.superAdminPartners') || Request::routeIs('admin.superAdminPartnerSingle') ? 'active' : '' }}">
                     <a href="{{ route('admin.superAdminPartners') }}" >Partners</a>
