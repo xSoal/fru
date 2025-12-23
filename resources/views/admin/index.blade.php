@@ -27,6 +27,7 @@
         <div class="grid">
             <a class="card-link" href="{{ route('admin.companies') }}"><div class="card"><div class="icon"><i class='fa-solid fa-building-columns'></i></div>Institutional Partners</div></a>
             <a class="card-link" href="{{ route('admin.clients') }}"><div class="card"><div class="icon"><i class='fa-solid fa-user-group'></i></div>Participants</div></a>
+            <a class="card-link" href="{{ route('admin.service') }}"><div class="card"><div class="icon"><i class='fa-solid fa-building-columns'></i></div>Dealers and Service</div></a>
         </div>
         
         

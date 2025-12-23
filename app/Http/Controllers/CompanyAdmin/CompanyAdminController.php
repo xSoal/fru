@@ -228,7 +228,7 @@ class CompanyAdminController extends Controller
 
 
     public function partnersList($companyId){
-        $partners = User::where('role', 1)->where('active', 1)->whereNot('id', $companyId)->get();
+        $partners = User::where('role', 1)->where('active', 1)->where('is_service', 0)->whereNot('id', $companyId)->get();
         $data = [
             'partners' => $partners,
             'user' => User::where('id', $companyId)->first(),

@@ -33,7 +33,16 @@
   <div class="">
       <h2 class="">Partner member companies</h2>
       <div class="partnersCompanies">
-        {!! $partner->companies !!}
+        @php
+            $companies = preg_split('/\r\n|\r|\n/', $partner->companies);
+        @endphp
+        @foreach($companies as $company)
+          @if(trim($company))
+            <div class="company-item">
+                {{ $company }}
+            </div>
+          @endif
+        @endforeach
       </div>
   </div>
   @endif
