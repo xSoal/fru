@@ -639,6 +639,7 @@ tbody td:first-child {
 .partnersList__cont {
 	display: flex;
 	flex-wrap: wrap;
+	
 }
 
 .partners__el {

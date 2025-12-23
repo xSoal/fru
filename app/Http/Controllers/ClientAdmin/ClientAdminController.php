@@ -124,7 +124,7 @@ class ClientAdminController extends Controller
 
 
     public function partnersList($clientId){
-        $partners = User::where('role', 1)->where('active', 1)->get();
+        $partners = User::where('role', 1)->where('active', 1)->where('is_service', 0)->get();
         $data = [
             'partners' => $partners,
             'client' => User::where('id', $clientId)->first(),
