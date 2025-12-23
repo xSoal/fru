@@ -54,21 +54,22 @@
               </thead>
               <tbody>
                 @foreach ($resultSearch as $e)
-                <tr>
-                  <td class="code company__searchTableCode">{{ $e->code }}</td>
-                  <td class="name">{{ $e->name }}</td>
-                  <td class="model">{{ $e->model }}</td>
-                  <td class="manufacturer">{{ $e->manufacturer }}</td>
-                  <td class="country">{{ $e->country }}</td>
-                  <td class="quantity">{{ $e->quantity }}</td>
-                  <td class="company__searchTableLink">
-                    <a class="section-subtitle" href="{{ route('admin.superAdminClient', ['id' => $e->user->id]) }}">
-                      {{ $e->user->name }}
-                    </a>
-                  </td>
-                </tr>  
+                  @if($e->user)
+                    <tr>
+                      <td class="code company__searchTableCode">{{ $e->code }}</td>
+                      <td class="name">{{ $e->name }}</td>
+                      <td class="model">{{ $e->model }}</td>
+                      <td class="manufacturer">{{ $e->manufacturer }}</td>
+                      <td class="country">{{ $e->country }}</td>
+                      <td class="quantity">{{ $e->quantity }}</td>
+                      <td class="company__searchTableLink">
+                        <a class="section-subtitle" href="{{ route('admin.superAdminClient', ['id' => $e->user->id]) }}">
+                          {{ $e->user->name }}
+                        </a>
+                      </td>
+                    </tr>
+                  @endif  
                 @endforeach
-                
               </tbody>
           </table>
           @endif
