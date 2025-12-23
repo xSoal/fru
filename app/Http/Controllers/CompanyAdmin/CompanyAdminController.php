@@ -279,7 +279,7 @@ class CompanyAdminController extends Controller
 
 
     public function service(Request $request, $companyId){
-        $services = Service::get();
+        $services = User::where('is_service', 1)->get();
 
         $data =  [
             'user' => User::where('id', $companyId)->first(),
@@ -291,7 +291,7 @@ class CompanyAdminController extends Controller
     }
 
     public function serviceSingle(Request $request, $id, $companyId){
-        $service = Service::where('id', $id)->firstOrFail();
+        $service = User::where('id', $id)->firstOrFail();
         $data = [
             'service' => $service, 
             'user' => User::where('id', $companyId)->first(),

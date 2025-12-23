@@ -190,7 +190,7 @@ class SuperAdminCabinetController extends Controller
     }
 
     public function service(){
-        $services = Service::get();
+        $services = User::where('is_service', '=', 1)->get();
 
         $data =  [
             'services' => $services
@@ -201,7 +201,7 @@ class SuperAdminCabinetController extends Controller
 
     
     public function serviceSingle(Request $request, $serviceId){
-        $service = Service::where('id', $serviceId)->firstOrFail();
+        $service = User::where('id', $serviceId)->firstOrFail();
         $data =  [
             'service' => $service
         ];

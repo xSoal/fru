@@ -7,16 +7,16 @@ use Illuminate\Http\Request;
 
 
 use Illuminate\Support\Facades\Hash;
-use App\Models\User;
+use App\Models\Service;
 use App\Models\Post;
 
 use Validator;
 
 class ServicesController extends Controller
 {
-    
-    public function post(User $user, Request $request){
-        
+       
+    public function post(Service $user, Request $request){
+       
         $input = $request->except('_token');
 
         $input['photo'] = isset($input['photo']) ? $input['photo'] : '';
@@ -41,34 +41,23 @@ class ServicesController extends Controller
 			$messages = [
 				'required' => 'Поле required: обязательно к заполению',
 				'email.unique' => 'Поле E-MAIL должно быть уникальным',
-				'min' => 'Пароль должен иметь не меньше 8 символов'
 			];
 			
 			$validator = Validator::make($input, [
 					'name' => 'required|string',
-					'email' => 'required|unique:users',
-					'password' => 'required|min:8|confirmed'
+					'email' => 'required|unique:services',
 				],$messages);
             
 			if ($validator->fails()) {
 				return redirect()->route('admin.addService')->withErrors($validator)->withInput();
 			}
 
-			$input['password'] = Hash::make($input['password']);
-
-            
             $user->fill($input);
-            $user->role = 1;
-            $user->is_service = 1;
 
-            if(!isset($input['dialog_enable_status']) || $input['dialog_enable_status'] !== 'on') {
-                $user->dialog_enable_status = 0;
-            }
-            
             if( $user->save() ){
                 if( isset($input['save_and_exit']) ){
 				    return redirect()->route('admin.services')->with('status','Користувач доданий');
-                } else{
+                }else{
                     return redirect()->route('admin.addService')->with('status','Користувач доданий');
                 }
 			}
@@ -84,46 +73,22 @@ class ServicesController extends Controller
             $messages = [
 				'required' => 'Поле required: обязательно к заполению',
 				'email.unique' => 'Поле E-MAIL должно быть уникальным',
-				'min' => 'Пароль должен иметь не меньше 8 символов',
-                'confirmed' => 'Пароли не совпадают'
 			];
 
-            if( isset($input['password']) ){
+			$validator = Validator::make($input, [
+                'name' => 'required|string',
+                'email' => 'required|unique:services,email,'.$input['id'],
+            ],$messages);
 
-                $validator = Validator::make($input, [
-					'name' => 'required|string',
-					'email' => 'required|unique:users,email,'.$input['id'],
-					'password' => 'required|min:8|confirmed'
-				],$messages);
-
-                $input['password'] = Hash::make($input['password']);
-
-            }else{
-                unset($input['password']);
-                unset($input['password_confirmation']);
-                $validator = Validator::make($input, [
-					'name' => 'required|string',
-					'email' => 'required|unique:users,email,'.$input['id']
-				],$messages);
-            }
 
             if ($validator->fails()) {
 				return redirect()->route('admin.viewService', ['id' => $input['id'] ] )->withErrors($validator)->withInput();
 			}
 
-            $user = User::find($input['id']);
-            
+            $user = Service::find($input['id']);
+
             $user->fill($input);
-
-            if(!isset($input['dialog_enable_status']) || $input['dialog_enable_status'] !== 'on') {
-                $user->dialog_enable_status = 0;
-            } else {
-                $user->dialog_enable_status = 1;
-            }
-
-
-
-            if( $user->update() ){
+			if( $user->update() ){
                 if( isset($input['update_and_exit']) ){
 				    return redirect()->route('admin.services')->with('status','Пользователь обновлен');
                 }else{
@@ -137,7 +102,7 @@ class ServicesController extends Controller
 
         //-----------------------------------------------------------------
         if( isset($input['dell']) ){
-            $tmp = User::where('id',$input['id'])->first();
+            $tmp = Service::where('id',$input['id'])->first();
             $tmp->delete();
             return redirect()->route('admin.services')->with('status','Пользователь удалён');
         }
@@ -151,7 +116,7 @@ class ServicesController extends Controller
 				$paginate = 25;
 				
 
-                $items = User::where(function($query) use ($search) {
+                $items = Service::where(function($query) use ($search) {
                                         $query->orWhere('name', 'LIKE', '%'.$search.'%')
                                             ->orWhere('email', 'LIKE', '%'.$search.'%');
                                         })
@@ -193,7 +158,7 @@ class ServicesController extends Controller
             }
 
 
-            $item = User::where('id', '=', $id)->first();
+            $item = Service::where('id', '=', $id)->first();
 
             $postList = array();
             if($item->post_id !=0){
@@ -247,7 +212,7 @@ class ServicesController extends Controller
 
 			$paginate = 25;
 
-            $items = User::where('role', '=', '1')->where('is_service', '=', '1')->paginate($paginate);
+            $items = Service::paginate($paginate);
             
 			if( $request['page']==null ){
 				$request['page'] = 1;
@@ -264,6 +229,5 @@ class ServicesController extends Controller
 		}
 		abort(404);
 	}
-
 
 }

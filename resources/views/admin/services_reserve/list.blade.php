@@ -4,7 +4,7 @@
 @section('content')
 <section class="users_list main_section active">
     <div class="title_h1">
-        <h1>Список Services</h1>
+        <h1>Список сервісів</h1>
     </div>
     <div class="search_block">
         <div class="search_form">
@@ -14,7 +14,7 @@
                     <div class="fb_inside">
                         <div class="fb_label">
                             <div class="fb_label_inside label_search">
-                                <label for="search_users">Назва компанії</label>
+                                <label for="search_users">Назва</label>
                             </div>
                         </div>
                         <div class="fb_input">
@@ -45,7 +45,7 @@
         <div class="thead">
             <div class="tr tr_heading">
                 <div class="th number">№</div>
-                <div class="th fio">Назва компанії</div>
+                <div class="th fio">Назва</div>
                 <div class="th status">Статус</div>
                 <div class="th date_in">Дата додавання</div>
                 <div class="th edit">Ред.</div>
@@ -54,7 +54,7 @@
         <div class="tbody">
             @if( $items )
 			    @foreach($items as  $k => $item)
-                    <div class="tr_block" data-id="{{ $item->id }}" data-type="user">
+                    <div class="tr_block" data-id="{{ $item->id }}" data-type="service">
                         <div class="tr tr_values">
                             <div class="td number">{{ $page + $k + 1 }}</div>
                             <div class="td fio">{{ $item->name }}</div>
