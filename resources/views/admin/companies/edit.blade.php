@@ -184,7 +184,9 @@
                     </div>
                     <div class="fb_input textarea">
                         <div class="fb_input_inside">
-                            <textarea class="textarea_item" name="companies" id="companies" cols="30"
+                            <textarea 
+                            {{-- class="textarea_item"  --}}
+                            name="companies" id="companies" cols="30"
                                 rows="10">{{ $item->companies ?? '' }}</textarea>
                         </div>
                     </div>

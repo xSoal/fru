@@ -638,12 +638,13 @@ tbody td:first-child {
 
 .partnersList__cont {
 	display: flex;
-	/* flex-wrap: wrap; */
+	flex-wrap: wrap;
 }
 
 .partners__el {
 	width: calc(50% - 50px);
 	margin: 25px;
+	text-align: center;
 }
 
 .partner__name {
@@ -1223,6 +1224,17 @@ a.back_to_admin {
 	font-size: 10px;
     font-weight: bold;
 	margin-right: 15px;
+}
+
+
+.partnersCompanies {
+	display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.partnersCompanies > div {
+    flex: 0 0 calc(33.333% - 10px); 
 }
 
 /* --- АДАПТИВНОСТЬ для формы ввода (Мобильная версия) --- */
