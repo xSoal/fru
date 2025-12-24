@@ -158,10 +158,16 @@ class CompanyAdminController extends Controller
 
         $e = EquipmentRequest::with('user')
             ->where('active', 1)
+            ->whereHas('user', function ($query) {
+                $query->where('active', 1);
+            })
             ->paginate(25);
         
         $countriesWithCount = EquipmentRequest::select('country', DB::raw('COUNT(*) as count'))
-            ->where('active', 1)    
+            ->where('active', 1)
+            ->whereHas('user', function ($query) {
+                $query->where('active', 1);
+            })
             ->groupBy('country')
             ->orderBy('country', 'asc') 
             ->get();
@@ -185,11 +191,17 @@ class CompanyAdminController extends Controller
 
         $e = EquipmentRequest::whereIn('country', $allowedCountries)
             ->where('active', 1)
+            ->whereHas('user', function ($query) {
+                $query->where('active', 1);
+            })
             ->with('user')
             ->paginate(25);
 
         $countriesWithCount = EquipmentRequest::select('country', DB::raw('COUNT(*) as count'))
             ->where('active', 1)
+            ->whereHas('user', function ($query) {
+                $query->where('active', 1);
+            })
             ->groupBy('country')
             ->orderBy('country', 'asc') 
             ->get();
