@@ -33,7 +33,7 @@ class RoleClientAuthMiddleware
             // Если роль не совпадает, можно вернуть 403 (Forbidden)
             abort(403);
         }
-        
+
         if ($request->isMethod('get')) {
             $parts = explode('/', $request->fullUrl());
             $client_id = array_pop($parts);
