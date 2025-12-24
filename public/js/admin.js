@@ -28,7 +28,7 @@ $(document).ready(function () {
 
   $('form').on('keyup keypress', function(e) {
     var keyCode = e.keyCode || e.which;
-    if (keyCode === 13) { 
+    if (keyCode === 13 && !$(e.target).is('textarea')) { 
       e.preventDefault();
       return false;
     }
