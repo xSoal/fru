@@ -175,7 +175,7 @@
                 </div>
             </div>
 
-            <div class="form_block" >
+            {{-- <div class="form_block" >
                 <div class="fb_inside">
                     <div class="fb_label">
                         <div class="fb_label_inside">
@@ -184,12 +184,12 @@
                     </div>
                     <div class="fb_input textarea">
                         <div class="fb_input_inside">
-                            <textarea class="textarea_item" name="companies" id="companies" cols="30"
+                            <textarea name="companies" id="companies" cols="30"
                                 rows="10">{{ $item->companies ?? '' }}</textarea>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
 
             <div class="form_block">
