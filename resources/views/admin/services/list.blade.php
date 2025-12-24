@@ -4,7 +4,7 @@
 @section('content')
 <section class="users_list main_section active">
     <div class="title_h1">
-        <h1>Список Services</h1>
+        <h1>Список Dealers and Service</h1>
     </div>
     <div class="search_block">
         <div class="search_form">
