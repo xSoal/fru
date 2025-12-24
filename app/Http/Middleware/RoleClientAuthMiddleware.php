@@ -29,23 +29,24 @@ class RoleClientAuthMiddleware
         // Проверяем, существует ли у пользователя поле 'role' и совпадает ли оно с требуемой ролью.
         // $role передается из роута (см. ниже).
         $role = (int)$user->role;
-      
         if (!in_array($role, [0,3])) {
             // Если роль не совпадает, можно вернуть 403 (Forbidden)
             abort(403);
         }
         
-        $parts = explode('/', $request->fullUrl());
-        $client_id = array_pop($parts);
-        $client_id = explode('?', $client_id);
-        $client_id = $client_id[0];
+        if ($request->isMethod('get')) {
+            $parts = explode('/', $request->fullUrl());
+            $client_id = array_pop($parts);
+            $client_id = explode('?', $client_id);
+            $client_id = $client_id[0];
 
-        if(Auth::user()->role === 3){
-            return $next($request);
-        }
+            if(Auth::user()->role === 3){
+                return $next($request);
+            }
 
-        if(Auth::user()->id !== (int)$client_id){
-            abort(403);
+            if(Auth::user()->id !== (int)$client_id){
+                abort(403);
+            }
         }
 
         return $next($request);

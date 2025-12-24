@@ -79,6 +79,7 @@
             <div class="request-form-controls">
               <h2 class="section-subtitle">ADD REQUEST</h2>
               <form action="{{ route('admin.clientAdminAddRequest') }}" method="post">
+                {{-- <form action="/clientAdmin/addEquipmentRequest/{{ Auth::user()->id }}" method="post">     --}}
                   @csrf
                   <div id="new-request-row" class="neo-input-row">
             
