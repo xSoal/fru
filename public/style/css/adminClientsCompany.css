@@ -216,7 +216,7 @@ body {
 	transition: color 0.2s, background-color 0.2s;
 	/* Имитация линии изначального макета */
 	border-bottom: 1px dashed var(--border-color);
-	height: 125px;
+	/* height: 125px; */
 }
 .list-item:hover {
 	/* color: var(--accent-primary); */
