@@ -29,7 +29,7 @@
     {{-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"> --}}
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ asset('/style/css/adminClientsCompany.css') }}">
+    <link rel="stylesheet" href="{{ asset('/style/css/adminClientsCompany.css') }}?<?php echo time();?>">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $meta_title  ?? ''}}</title>
 </head>
