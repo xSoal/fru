@@ -589,14 +589,17 @@ tbody td:first-child {
 }
 
 .companies-list .list-item {
-	width: calc(100% / 4 - 20px);
+	width: calc(100% / 4 );
 	font-weight: 600;
+	display: flex;
 }
 
 .company {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	width: 100%;
+    flex-direction: column;
 }
 
 .company > div {
@@ -610,10 +613,13 @@ tbody td:first-child {
 	justify-content: center;
 	margin: 15px auto;
 	display: flex;
+	align-items: center;
+	flex-grow: 1;
 }
 
 .company__logo img {
 	max-width: 120px;
+	height: auto;
 }
 
 .logout-link {
