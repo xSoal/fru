@@ -247,7 +247,7 @@ class CompaniesController extends Controller
 
 			$paginate = 25;
 
-            $items = User::where('role', '=', '1')->paginate($paginate);
+            $items = User::where('role', '=', '1')->where('is_service', 0)->paginate($paginate);
             
 			if( $request['page']==null ){
 				$request['page'] = 1;
