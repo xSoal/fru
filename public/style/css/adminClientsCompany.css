@@ -643,9 +643,10 @@ tbody td:first-child {
 }
 
 .partners__el {
-	width: calc(50% - 50px);
+	/* width: calc(50% - 50px);*/
 	margin: 25px;
 	text-align: center;
+	width: calc(100% / 4 - 20px);
 }
 
 .partner__name {
@@ -952,7 +953,7 @@ table td {
 }
 
 .header__right img {
-	max-width: 100px;
+	max-width: 75px;
 }
 
 /* Стили для списка */
