@@ -63,19 +63,19 @@
                 <div class="buttonExit">
                     @if(Auth::user()->role !== 3)
                     <button class="logout-link neo-accent-btn settings-button">
-                        settings
+                        Profile <i class="fa-solid fa-user"></i>
                     </button>
                     @endif
                     <form action="{{ route('logout') }}" method="POST" style="display: inline;">
                         @if(Auth::user()->role === 3)
                             <a href="/admin" class="back_to_admin logout-link">
-                                to admin
+                                To admin
                             </a>
                         @endif
                         @csrf
 
                         <button type="submit" class="logout-link neo-accent-btn  ">
-                            exit
+                            Exit <i class="fa-solid fa-right-from-bracket"></i>
                         </button>
 
                     </form>

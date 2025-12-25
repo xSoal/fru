@@ -18,14 +18,14 @@
   
 
   <hr class="separator"/>
-  <section class="partnersList__cont">
+  <section class="companies-list">
     @foreach ( $partners as $partner )
-      <div class="partners__el">
+      <div class="list-item">
         <a href="{{ route('admin.companyAdminPartnerSingle', ['id' => $partner->id, 'companyId' => $companyId]) }}">
-          <div class="partner__name">
-            <h3>{{ $partner->name }}</h3>
+          <div class="company__name">
+            {{ $partner->name }}
           </div>
-          <div class="partner__logo">
+          <div class="company__logo">
             <img src="{{ $partner->photo }}" alt="">
           </div>
         </a>
