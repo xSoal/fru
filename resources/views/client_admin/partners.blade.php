@@ -29,10 +29,8 @@
             <img src="{{ $partner->photo }}" alt="">
           </div>
         </a>
-
       </div>
     @endforeach
-
   </section>
 
   <hr class="separator"/>
