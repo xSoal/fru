@@ -333,7 +333,7 @@ class CompanyAdminController extends Controller
                 'email', 
                 Rule::unique('users')->ignore($user->id)
             ],
-            'description' => 'required|string|max:255',
+            // 'description' => 'required|string|max:255',
             'phone' => 'required|max:255',
             'web_page' => 'nullable|string|max:255',
             'contact_person' => 'required|max:255',
