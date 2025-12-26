@@ -1091,8 +1091,8 @@ input:checked + .slider:before {
 	color: #ffffff; 
 }
 .my-modal .ui-dialog-titlebar{
-	background: #1b7f61; 
-	color: #000; 
+	background: var(--accent-primary); 
+	color: #ffffff; 
 }
 
 .ui-dialog * {
@@ -1111,7 +1111,7 @@ input:checked + .slider:before {
 }
 
 .ui-draggable .ui-dialog-titlebar {
-     background: #e11717; 
+     background: var(--accent-primary); 
      color: #ffffff; 
 }
 

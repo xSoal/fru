@@ -85,15 +85,12 @@
                 <?php
                     $is_need_to_modal_settings_open = false;
                     $user = Auth::user();
-                    if(!$user->photo) $is_need_to_modal_settings_open = true;
-                    if(!$user->phone) $is_need_to_modal_settings_open = true;
-                    if(!$user->description) $is_need_to_modal_settings_open = true;
-                    if(!$user->contact_person) $is_need_to_modal_settings_open = true;
+                    if( $user->photo == '' || $user->phone == '' || $user->description == '' || $user->contact_person == ''){ $is_need_to_modal_settings_open = true; }
                 ?>
                 <script>
                     var is_need_to_modal_settings_open = false;
                 </script>
-                <div id="my-modal" @if($is_need_to_modal_settings_open) class="open" @endif title="Accounts user data" style="display: none;">
+                <div id="my-modal" @if($is_need_to_modal_settings_open == true) class="open" @endif title="Accounts user data" style="display: none;">
                     <form action="{{ Auth::user()->role === 1 ? 
                         route('admin.companyUpdateUserData', ['userId' => Auth::user()->id])
                         : route('admin.clientUpdateUserData', ['userId' => Auth::user()->id]) }}"
