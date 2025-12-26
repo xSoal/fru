@@ -82,129 +82,127 @@
                 </div>
             </div>
             @if(!Auth::user()->role !== 3)
-
-            <div id="my-modal" title="Accounts user data" style="display: none;">
-                <form action="{{ Auth::user()->role === 1 ? 
-                    route('admin.companyUpdateUserData', ['userId' => Auth::user()->id])
-                    : route('admin.clientUpdateUserData', ['userId' => Auth::user()->id]) }}"
-                    method="POST" style="display: inline;" 
-                >
-                    <input type="password" autocomplete="new-password" name="fake_pass" style="display:none;">
-            
-                    @csrf
-                    <div class="header header_modal_message">Data successfully updated</div>
-                    <div class="form_field name">
-                        <div class="errors"></div>
-                        <p>
-                            Company name
-                        </p>
-                        <p>
-                            <input type="text" readonly value="{{ Auth::user()->name ?? '' }}">
-                        </p>
-                    </div>
-                    <div class="form_field photo"> <p>Company Photo / Logo</p>
-                        <div class="errors"></div>
-                        
-                        <div class="current_logo_wrapper" style="margin-bottom: 10px;">
-                            <img id="current_photo_preview" 
-                                 src="{{ Auth::user()->photo ?? '/images/default-logo.png' }}" 
-                                 style="max-width: 100px; border-radius: 4px; border: 1px solid #ddd;">
-                        </div>
-                    
-                        <p>
-                            <input type="file" name="photo" id="photo_input" accept="image/*">
-                        </p>
-                    </div>
-                    <div class="form_field description">
-                        <p>
-                            Company description
-                        </p>
-                        <div class="errors"></div>
-                        <p>
-                            <textarea class="form__textarea" name="description" id="" cols="30" rows="10">{{ Auth::user()->description ?? '' }}</textarea>
-                            {{-- <input type="text" name="description" value="{{ Auth::user()->description ?? '' }}"> --}}
-                        </p>
-                    </div>
-                    <div class="form_field phone">
-                        <p>
-                            Phone
-                        </p>
-                        <div class="errors"></div>
-                        <p>
-                            <input type="text" name="phone" value="{{ Auth::user()->phone ?? '' }}">
-                        </p>
-                    </div>
-                    <div class="form_field email">
-                        <p>
-                            Email
-                        </p>
-                        <div class="errors"></div>
-                        <p>
-                            <input type="email" name="email" value="{{ Auth::user()->email ?? '' }}">
-                        </p>
-                    </div>
-                    <div class="form_field web_page">
-                        <p>
-                            Web page url
-                        </p>
-                        <div class="errors"></div>
-                        <p>
-                            <input type="text" name="web_page" value="{{ Auth::user()->web_page ?? '' }}">
-                        </p>
-                    </div>
-                    <div class="form_field contact_person">
-                        <p>
-                            Contact person
-                        </p>
-                        <div class="errors"></div>
-                        <p>
-                            <input type="text" name="contact_person" value="{{ Auth::user()->contact_person ?? '' }}">
-                        </p>
-                    </div>
-                    <div class="form_field password new_password new_password_confirm">
-                        <p>Password change</p>
-                        <div class="errors"></div>
-                        <p>
-                            Old password:
-                        </p>
-                        <p>
-                            <input type="password" name="password">
-                        </p>
-                        <p>
-                            New password:
-                        </p>
-                        <p>
-                            <input type="password" name="new_password">
-                        </p>
-                        <p>
-                            New password confirm:
-                        </p>
-                        <p>
-                            <input type="password" name="new_password_confirm">
-                        </p>
-                    </div>
-                    <div>
-                        <button class="save_form_settings" type="submit">Save</button>
-                    </div>
-                </form>
-            </div>
-            <?php
-                $is_need_to_modal_settings_open = false;
-                $user = Auth::user();
-                if(!$user->photo) $is_need_to_modal_settings_open = true;
-                if(!$user->phone) $is_need_to_modal_settings_open = true;
-                if(!$user->description) $is_need_to_modal_settings_open = true;
-                if(!$user->contact_person) $is_need_to_modal_settings_open = true;
-            ?>
-            <script>
-                var is_need_to_modal_settings_open = false;
-            </script>
-            @if($is_need_to_modal_settings_open && (int)Auth::user()->role !== 3 )
+                <?php
+                    $is_need_to_modal_settings_open = false;
+                    $user = Auth::user();
+                    if(!$user->photo) $is_need_to_modal_settings_open = true;
+                    if(!$user->phone) $is_need_to_modal_settings_open = true;
+                    if(!$user->description) $is_need_to_modal_settings_open = true;
+                    if(!$user->contact_person) $is_need_to_modal_settings_open = true;
+                ?>
                 <script>
-                    var is_need_to_modal_settings_open = true;
-                    document.querySelector('#my-modal').classList.add('isNeedPostProfile')
+                    var is_need_to_modal_settings_open = false;
                 </script>
-            @endif
+                <div id="my-modal" @if($is_need_to_modal_settings_open) class="open" @endif title="Accounts user data" style="display: none;">
+                    <form action="{{ Auth::user()->role === 1 ? 
+                        route('admin.companyUpdateUserData', ['userId' => Auth::user()->id])
+                        : route('admin.clientUpdateUserData', ['userId' => Auth::user()->id]) }}"
+                        method="POST" style="display: inline;" 
+                    >
+                        <input type="password" autocomplete="new-password" name="fake_pass" style="display:none;">
+                
+                        @csrf
+                        <div class="header header_modal_message">Data successfully updated</div>
+                        <div class="form_field name">
+                            <div class="errors"></div>
+                            <p>
+                                Company name
+                            </p>
+                            <p>
+                                <input type="text" readonly value="{{ Auth::user()->name ?? '' }}">
+                            </p>
+                        </div>
+                        <div class="form_field photo"> <p>Company Photo / Logo</p>
+                            <div class="errors"></div>
+                            
+                            <div class="current_logo_wrapper" style="margin-bottom: 10px;">
+                                <img id="current_photo_preview" 
+                                    src="{{ Auth::user()->photo ?? '/images/default-logo.png' }}" 
+                                    style="max-width: 100px; border-radius: 4px; border: 1px solid #ddd;">
+                            </div>
+                        
+                            <p>
+                                <input type="file" name="photo" id="photo_input" accept="image/*">
+                            </p>
+                        </div>
+                        <div class="form_field description">
+                            <p>
+                                Company description
+                            </p>
+                            <div class="errors"></div>
+                            <p>
+                                <textarea class="form__textarea" name="description" id="" cols="30" rows="10">{{ Auth::user()->description ?? '' }}</textarea>
+                                {{-- <input type="text" name="description" value="{{ Auth::user()->description ?? '' }}"> --}}
+                            </p>
+                        </div>
+                        <div class="form_field phone">
+                            <p>
+                                Phone
+                            </p>
+                            <div class="errors"></div>
+                            <p>
+                                <input type="text" name="phone" value="{{ Auth::user()->phone ?? '' }}">
+                            </p>
+                        </div>
+                        <div class="form_field email">
+                            <p>
+                                Email
+                            </p>
+                            <div class="errors"></div>
+                            <p>
+                                <input type="email" name="email" value="{{ Auth::user()->email ?? '' }}">
+                            </p>
+                        </div>
+                        <div class="form_field web_page">
+                            <p>
+                                Web page url
+                            </p>
+                            <div class="errors"></div>
+                            <p>
+                                <input type="text" name="web_page" value="{{ Auth::user()->web_page ?? '' }}">
+                            </p>
+                        </div>
+                        <div class="form_field contact_person">
+                            <p>
+                                Contact person
+                            </p>
+                            <div class="errors"></div>
+                            <p>
+                                <input type="text" name="contact_person" value="{{ Auth::user()->contact_person ?? '' }}">
+                            </p>
+                        </div>
+                        <div class="form_field password new_password new_password_confirm">
+                            <p>Password change</p>
+                            <div class="errors"></div>
+                            <p>
+                                Old password:
+                            </p>
+                            <p>
+                                <input type="password" name="password">
+                            </p>
+                            <p>
+                                New password:
+                            </p>
+                            <p>
+                                <input type="password" name="new_password">
+                            </p>
+                            <p>
+                                New password confirm:
+                            </p>
+                            <p>
+                                <input type="password" name="new_password_confirm">
+                            </p>
+                        </div>
+                        <div>
+                            <button class="save_form_settings" type="submit">Save</button>
+                        </div>
+                    </form>
+                </div>
+                @if($is_need_to_modal_settings_open && (int)Auth::user()->role !== 3 )
+                    <script>
+                        var is_need_to_modal_settings_open = true;
+                    </script>
+                @endif
             @endif
             @yield('content')
 

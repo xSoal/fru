@@ -1086,6 +1086,15 @@ input:checked + .slider:before {
 	padding: 25px; 
 }
 
+.my-modal.open .ui-dialog-titlebar{
+	background: #e11717; 
+	color: #ffffff; 
+}
+.my-modal .ui-dialog-titlebar{
+	background: #1b7f61; 
+	color: #000; 
+}
+
 .ui-dialog * {
 	box-sizing: border-box;
 }

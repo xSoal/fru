@@ -45,10 +45,13 @@ $(document).ready(function () {
     }, 400);
   });
 
-
+  var dialogClass = $('#my-modal').hasClass('open');
   var dialog_settings = $( "#my-modal" ).dialog({
     modal: true,         // Делает окно модальным
     autoOpen: false,      // Открывать сразу при загрузке
+    classes: {
+      "ui-dialog": dialogClass == true ? "my-modal open" : "my-modal"
+    },
     buttons: {
       // "Ок": function() {
       //   $( this ).dialog( "close" );
