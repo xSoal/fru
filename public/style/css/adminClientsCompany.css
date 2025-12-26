@@ -218,6 +218,15 @@ body {
 	border-bottom: 1px dashed var(--border-color);
 	/* height: 125px; */
 }
+
+.list-item a {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+}
+
 .list-item:hover {
 	/* color: var(--accent-primary); */
 	background-color: #f5f5f5ba;
@@ -1092,7 +1101,10 @@ input:checked + .slider:before {
 	margin-right: 10px;
 }
 
-
+.ui-draggable .ui-dialog-titlebar {
+     background: #e11717; 
+     color: #ffffff; 
+}
 
 
 input.is-invalid,
