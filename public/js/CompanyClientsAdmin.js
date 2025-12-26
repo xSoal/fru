@@ -107,6 +107,7 @@ $(document).ready(function () {
 
           $input.removeClass('is-invalid');
           $textarea.removeClass('is-invalid');
+          $('#my-modal').removeClass('isNeedPostProfile')
         },
         error: function(xhr) {
           $(".header_modal_message").removeClass('show')
