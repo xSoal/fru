@@ -255,7 +255,7 @@ class ClientAdminController extends Controller
 
     public function service(Request $request, $clientId){
 
-        $services = User::where('is_service', 1)->get();
+        $services = User::where('is_service', 1)->where('active',1)->get();
 
         $data =  [
             'client' =>  User::where('id', $clientId)->first(),

@@ -291,7 +291,7 @@ class CompanyAdminController extends Controller
 
 
     public function service(Request $request, $companyId){
-        $services = User::where('is_service', 1)->get();
+        $services = User::where('is_service', 1)->where('active',1)->get();
 
         $data =  [
             'user' => User::where('id', $companyId)->first(),

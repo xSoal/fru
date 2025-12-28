@@ -202,7 +202,7 @@ class SuperAdminCabinetController extends Controller
     }
 
     public function service(){
-        $services = User::where('is_service', '=', 1)->get();
+        $services = User::where('is_service', '=', 1)->where('active',1)->get();
 
         $data =  [
             'services' => $services
