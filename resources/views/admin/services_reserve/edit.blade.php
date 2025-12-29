@@ -75,7 +75,7 @@
                         </div>
                     </div>
                     <div class="fb_input">
-                        <div class="fb_input_inside" style="height: 150px;">
+                        <div class="fb_input_inside">
                             <textarea name="description">{{ $item->description ?? '' }}</textarea>
                         </div>
                     </div>

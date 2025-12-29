@@ -24,7 +24,7 @@
   <section class="company-description">
       <h2 class="section-subtitle">Description</h2>
       <div class="description-text">
-        {{ $service->description }}
+        {!! nl2br(e($service->description)) !!}
       </div>
   </section>
 

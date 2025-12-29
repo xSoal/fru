@@ -1508,6 +1508,9 @@ body table.custom-table-requests td:first-child {
   min-height: 30px;
   font-size: 16px;
 }
+.form_block_items textarea{
+  min-height: 200px;;
+}
 .form_block_items input[type=checkbox],
 .form_block_items textarea[type=checkbox],
 .form_block_items .current_select[type=checkbox] {
